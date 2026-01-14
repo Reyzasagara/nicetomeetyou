@@ -268,6 +268,7 @@ section {
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: var(--shadow-lg);
+  margin: 0 auto;
 }
 
 .hero-profile-card .hero-image {
@@ -388,6 +389,36 @@ section {
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Hero Info Grid Styles */
+.hero-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.info-label {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.info-value {
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.info-available {
+  color: var(--primary-color);
 }
 
 .cursor {
@@ -1577,10 +1608,15 @@ section {
     position: static;
     transform: none;
     margin-left: auto;
+    order: 2;
   }
 
   .language-toggle:hover {
     transform: scale(1.1);
+  }
+
+  .hamburger {
+    order: 3;
   }
 
   .hero-section {
@@ -1638,6 +1674,10 @@ section {
   .hero-buttons {
     flex-direction: column;
     align-items: center;
+  }
+
+  .hero-info-grid {
+    grid-template-columns: 1fr;
   }
 
   .about-stats {

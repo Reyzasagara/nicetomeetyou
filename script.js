@@ -123,11 +123,12 @@ function extractColorsFromImage() {
         }
       }
 
-      // Look for vibrant colors (good saturation, medium-high lightness)
-      if (!accentColor && s > 0.35 && l > 0.25 && l < 0.75) {
-        // Boost the color for better visibility
-        const boosted = boostSaturation(r, g, b, 1.3);
-        accentColor = `rgb(${boosted.r}, ${boosted.g}, ${boosted.b})`;
+      // Look for vibrant colors with better brightness (avoid dark colors)
+      if (!accentColor && s > 0.35 && l > 0.35 && l < 0.85) {
+        // Boost the color for better visibility and brightness
+        const boosted = boostSaturation(r, g, b, 1.4);
+        const brightened = boostBrightness(boosted.r, boosted.g, boosted.b, 1.2);
+        accentColor = `rgb(${brightened.r}, ${brightened.g}, ${brightened.b})`;
       }
 
       // Find a different color for secondary
@@ -146,11 +147,15 @@ function extractColorsFromImage() {
       if (accentColor && secondaryColor) break;
     }
 
-    // Fallback: use most prominent color with boost
+    // Fallback: use most prominent color with strong boost and brightness increase
     if (!accentColor) {
       const [r, g, b] = sortedColors[0].color.split(",").map(Number);
       const boosted = boostSaturation(r, g, b, 1.8);
-      accentColor = `rgb(${boosted.r}, ${boosted.g}, ${boosted.b})`;
+      // Make it brighter by scaling up RGB values
+      const brightR = Math.min(255, Math.round(boosted.r * 1.3));
+      const brightG = Math.min(255, Math.round(boosted.g * 1.3));
+      const brightB = Math.min(255, Math.round(boosted.b * 1.3));
+      accentColor = `rgb(${brightR}, ${brightG}, ${brightB})`;
     }
 
     if (!secondaryColor) {
@@ -248,6 +253,20 @@ function boostSaturation(r, g, b, factor) {
     r: Math.round(r2 * 255),
     g: Math.round(g2 * 255),
     b: Math.round(b2 * 255),
+  };
+}
+
+// Helper function to boost color brightness
+function boostBrightness(r, g, b, factor = 1.2) {
+  // Increase brightness while maintaining color ratio
+  r = Math.min(255, r * factor);
+  g = Math.min(255, g * factor);
+  b = Math.min(255, b * factor);
+
+  return {
+    r: Math.round(r),
+    g: Math.round(g),
+    b: Math.round(b),
   };
 }
 
@@ -559,6 +578,18 @@ hamburger.addEventListener("click", function () {
   hamburger.classList.toggle("active");
   navMenu.classList.toggle("active");
 });
+
+// Language toggle also closes mobile menu
+const languageToggle = document.getElementById("languageToggle");
+if (languageToggle) {
+  languageToggle.addEventListener("click", function () {
+    // Close mobile menu if open
+    if (navMenu.classList.contains("active")) {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
+    }
+  });
+}
 
 // Close mobile menu when clicking nav links
 navLinks.forEach((link) => {

@@ -1,591 +1,974 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reyza Agung Gunawan - Mechatronics Engineer | Data & Digitalization Specialist</title>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Reyza Agung Gunawan - Mechatronics Engineer | Data & Digitalization
+      Specialist | Marketing Analytics
+    </title>
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <!-- Fixed Navigation Header -->
     <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#home" class="nav-logo">R.A.G.</a>
-            <ul class="nav-menu" id="navMenu">
-                <li class="nav-item"><a href="#home" class="nav-link" data-title="Home"><i class="fas fa-home"></i></a></li>
-                <li class="nav-item"><a href="#about" class="nav-link" data-title="About"><i class="fas fa-user"></i></a></li>
-                <li class="nav-item"><a href="#skills" class="nav-link" data-title="Skills"><i class="fas fa-cog"></i></a></li>
-                <li class="nav-item"><a href="#portfolio" class="nav-link" data-title="Portfolio"><i class="fas fa-briefcase"></i></a></li>
-                <li class="nav-item"><a href="#testimonials" class="nav-link" data-title="Testimonials"><i class="fas fa-comments"></i></a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link" data-title="Contact"><i class="fas fa-envelope"></i></a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+      <div class="nav-container">
+        <a href="#home" class="nav-logo">R.A.G.</a>
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item">
+            <a href="#home" class="nav-link" data-title="Home"
+              ><i class="fas fa-home"></i
+            ></a>
+          </li>
+          <li class="nav-item">
+            <a href="#about" class="nav-link" data-title="About"
+              ><i class="fas fa-user"></i
+            ></a>
+          </li>
+          <li class="nav-item">
+            <a href="#skills" class="nav-link" data-title="Skills"
+              ><i class="fas fa-cog"></i
+            ></a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link" data-title="Contact"
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </li>
+        </ul>
+        <button
+          class="language-toggle"
+          id="languageToggle"
+          title="Switch Language"
+        >
+          <span class="lang-text">ID</span>
+        </button>
+        <div class="hamburger" id="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
         </div>
+      </div>
     </nav>
 
     <!-- Hero Section - Full Screen with Parallax -->
     <section id="home" class="hero-section">
-        <div class="hero-profile-card" data-aos="fade-right" data-aos-duration="1000">
-            <div class="hero-image">
-                <img src="images/Profile.jpg" alt="Reyza Agung Gunawan" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop'">
-            </div>
-            <h2>Reyza Agung Gunawan</h2>
-            <p class="hero-role">Mechatronics Engineer</p>
-            
-            <div class="hero-social">
-                <a href="https://instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://twitter.com/yourusername" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
-            
-            <div class="hero-actions">
-                <a href="resume.pdf" class="btn btn-primary ripple" download>
-                    <i class="fas fa-download"></i> Download CV
-                </a>
-                <a href="#contact" class="btn btn-secondary ripple">
-                    <i class="fas fa-envelope"></i> Contact Me
-                </a>
-            </div>
+      <div
+        class="hero-profile-card"
+        data-aos="fade-right"
+        data-aos-duration="1000"
+      >
+        <div class="hero-image">
+          <img
+            src="images/profile1.jpg"
+            alt="Reyza Agung Gunawan"
+            onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop'"
+          />
         </div>
-        
-        <div class="hero-content" data-aos="fade-left" data-aos-duration="1000">
-            <h1 class="hero-greeting">About Me</h1>
-            
-            <div class="hero-info-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 40px;">
-                <div>
-                    <span class="about-label">Age:</span>
-                    <span style="color: var(--text-dark); margin-left: 10px; font-weight: 600;">24</span>
-                </div>
-                <div>
-                    <span class="about-label">Residence:</span>
-                    <span style="color: var(--text-dark); margin-left: 10px; font-weight: 600;">Indonesia</span>
-                </div>
-                <div>
-                    <span class="about-label">Freelance:</span>
-                    <span style="color: var(--primary-color); margin-left: 10px; font-weight: 600;">Available</span>
-                </div>
-                <div>
-                    <span class="about-label">Address:</span>
-                    <span style="color: var(--text-dark); margin-left: 10px; font-weight: 600;">Indonesia</span>
-                </div>
-            </div>
-            
-            <h3 style="color: var(--text-dark); font-size: 1.3rem; margin-bottom: 20px;">
-                Mechatronics Engineer | Data & Digitalization Specialist | Marketing Analytics Enthusiast
-            </h3>
-            
-            <p class="hero-description" style="color: var(--text-light); line-height: 1.8; margin-bottom: 20px;">
-                I bridge engineering execution, data-driven insight, and digital systems to help organizations 
-                improve operational efficiency, visibility, and market performance.
-            </p>
-            
-            <p class="hero-description" style="color: var(--text-light); line-height: 1.8;">
-                With professional experience spanning manufacturing operations, prototyping, and cross-functional 
-                digitalization initiatives, I view problems from both technical and business perspectives. I develop 
-                web-based solutions using Laravel and analyze market trends through SEO and marketing analytics.
-            </p>
+        <h2>Reyza Agung Gunawan</h2>
+        <p class="hero-role">Mechatronics Engineer</p>
+
+        <div class="hero-social">
+          <a href="https://www.instagram.com/kautsar_sagara/" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/reyzaag/" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/Reyzasagara" target="_blank">
+            ><i class="fab fa-github"></i
+          ></a>
         </div>
+
+        <div class="hero-actions">
+          <a href="resume.pdf" class="btn btn-primary ripple" download>
+            <i class="fas fa-download"></i> Download CV
+          </a>
+          <a href="#contact" class="btn btn-secondary ripple">
+            <i class="fas fa-envelope"></i> Contact Me
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-content" data-aos="fade-left" data-aos-duration="1000">
+        <h1 class="hero-greeting" data-translate="niceToMeet">
+          Senang Bertemu Anda
+        </h1>
+
+        <div
+          class="hero-info-grid"
+          style="
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+          "
+        >
+          <div>
+            <span class="about-label" data-translate="age">Usia:</span>
+            <span
+              style="
+                color: var(--text-dark);
+                margin-left: 10px;
+                font-weight: 600;
+              "
+              >25</span
+            >
+          </div>
+          <div>
+            <span class="about-label" data-translate="residence"
+              >Tempat Tinggal:</span
+            >
+            <span
+              style="
+                color: var(--text-dark);
+                margin-left: 10px;
+                font-weight: 600;
+              "
+              >Indonesia</span
+            >
+          </div>
+          <div>
+            <span class="about-label" data-translate="freelance"
+              >Freelance:</span
+            >
+            <span
+              style="
+                color: var(--primary-color);
+                margin-left: 10px;
+                font-weight: 600;
+              "
+              data-translate="available"
+              >Tersedia</span
+            >
+          </div>
+          <div>
+            <span class="about-label" data-translate="address">Alamat:</span>
+            <span
+              style="
+                color: var(--text-dark);
+                margin-left: 10px;
+                font-weight: 600;
+              "
+              >Cikarang, Bekasi</span
+            >
+          </div>
+        </div>
+
+        <h3
+          style="
+            color: var(--text-dark);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+          "
+          data-translate="heroTitle"
+        >
+          Mechatronics Engineer | Data & Digitalization Specialist | Marketing
+        </h3>
+
+        <p
+          class="hero-description"
+          style="
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 20px;
+          "
+          data-translate="heroDesc1"
+        >
+          Saya menghubungkan engineering execution, data-driven insight, dan
+          digital systems untuk membantu organisasi meningkatkan efisiensi
+          operasional, visibilitas, dan performa pasar.
+        </p>
+
+        <p
+          class="hero-description"
+          style="color: var(--text-light); line-height: 1.8"
+          data-translate="heroDesc2"
+        >
+          Dengan pengalaman di manufacturing operations, prototyping, dan
+          cross-functional digitalization, saya terbiasa melihat masalah dari
+          dua sisi: technical reality dan business impact. Saya mengembangkan
+          web-based solutions menggunakan Laravel dan menganalisis market trends
+          melalui SEO dan marketing analytics.
+        </p>
+      </div>
     </section>
 
     <!-- About Section - Two Column Layout -->
     <section id="about" class="about-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">About Me</h2>
-            <div class="section-divider" data-aos="fade-up" data-aos-delay="100"></div>
-            
-            <div class="about-content">
-                <div class="about-image" data-aos="fade-right" data-aos-delay="200">
-                    <div class="about-img-wrapper">
-                        <img src="images/profile.jpg" alt="Reyza Agung Gunawan" onerror="this.src='https://via.placeholder.com/400x500/007bff/ffffff?text=Your+Photo'">
-                        <div class="about-img-overlay"></div>
-                    </div>
-                </div>
-                
-                <div class="about-text" data-aos="fade-left" data-aos-delay="300">
-                    <h3 class="about-subtitle">Mechatronics Engineer | Data & Digitalization Specialist</h3>
-                    <p class="about-description">
-                        I am a Mechatronics Engineer with professional experience spanning manufacturing operations, prototyping, 
-                        testing, and cross-functional digitalization initiatives. My career path has evolved beyond traditional 
-                        engineering into data analytics, system digitalization, and marketing intelligence, allowing me to view 
-                        problems from both technical and business perspectives.
-                    </p>
-                    <p class="about-description">
-                        In engineering, I work hands-on with production support, PPIC, quality, and testing, ensuring systems 
-                        function reliably in real-world conditions. In parallel, I design and implement digital solutions using 
-                        Laravel to replace manual, fragmented processes—focusing on data structure, traceability, and decision support.
-                    </p>
-                    <p class="about-description">
-                        Beyond internal operations, I actively study marketing analytics and SEO, particularly how Search Engine 
-                        Result Pages (SERP), interest over time, and user behavior reflect real market demand. I analyze trends as 
-                        strategic inputs for product positioning, pricing, and channel decisions.
-                    </p>
-                    <p class="about-description">
-                        My professional direction is focused on becoming a hybrid contributor—someone who can connect engineering 
-                        reality, data intelligence, and market strategy into cohesive systems.
-                    </p>
-                    
-                    <div class="about-info">
-                        <div class="info-item">
-                            <i class="fas fa-user"></i>
-                            <div>
-                                <span class="info-label">Name:</span>
-                                <span class="info-value">Reyza Agung Gunawan</span>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-briefcase"></i>
-                            <div>
-                                <span class="info-label">Role:</span>
-                                <span class="info-value">Mechatronics Engineer</span>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <span class="info-label">Email:</span>
-                                <span class="info-value">your.email@example.com</span>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <span class="info-label">Location:</span>
-                                <span class="info-value">Indonesia</span>
-                            </div>
-                        </div>
-                    </div>
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up" data-translate="aboutMe">
+          Tentang Saya
+        </h2>
+        <div
+          class="section-divider"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        ></div>
 
-                    <div class="about-stats">
-                        <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
-                            <span class="stat-number counter" data-target="3">0</span>
-                            <span class="stat-label">Years Experience</span>
-                        </div>
-                        <div class="stat-item" data-aos="zoom-in" data-aos-delay="500">
-                            <span class="stat-number counter" data-target="20">0</span>
-                            <span class="stat-label">Projects Delivered</span>
-                        </div>
-                        <div class="stat-item" data-aos="zoom-in" data-aos-delay="600">
-                            <span class="stat-number counter" data-target="4">0</span>
-                            <span class="stat-label">Core Domains</span>
-                        </div>
-                    </div>
-                </div>
+        <div class="about-content">
+          <div class="about-image" data-aos="fade-right" data-aos-delay="200">
+            <div class="about-img-wrapper">
+              <img
+                src="images/profile2.jpg"
+                alt="Reyza Agung Gunawan"
+                onerror="this.src='https://via.placeholder.com/400x500/007bff/ffffff?text=Your+Photo'"
+              />
+              <div class="about-img-overlay"></div>
             </div>
+          </div>
+
+          <div class="about-text" data-aos="fade-left" data-aos-delay="300">
+            <h3 class="about-subtitle" data-translate="aboutSubtitle">
+              Mechatronics Engineer | Data & Digitalization Specialist
+            </h3>
+            <p class="about-description" data-translate="aboutDesc1">
+              Saya adalah Mechatronics Engineer dengan pengalaman profesional di
+              operasi manufaktur, prototyping, testing, serta inisiatif
+              digitalisasi lintas fungsi. Seiring waktu, jalur karier saya
+              berkembang melampaui rekayasa tradisional menuju data analytics,
+              system digitalization, dan marketing intelligence, yang
+              memungkinkan saya menghubungkan aspek teknis dengan kebutuhan
+              bisnis.
+            </p>
+            <p class="about-description" data-translate="aboutDesc2">
+              Dalam ranah engineering, saya bekerja langsung dengan production
+              support, PPIC, quality, dan testing, memastikan sistem berjalan
+              stabil dan relevan di kondisi lapangan. Secara paralel, saya
+              merancang dan mengimplementasikan digital solutions berbasis
+              Laravel untuk menggantikan proses manual yang
+              terfragmentasi—dengan fokus pada data structure, traceability, dan
+              decision support.
+            </p>
+            <p class="about-description" data-translate="aboutDesc3">
+              Di luar operasi internal, saya aktif mempelajari marketing
+              analytics dan SEO, khususnya bagaimana Search Engine Result Page
+              (SERP), interest over time, dan user behavior merefleksikan
+              permintaan pasar yang nyata. Bagi saya, data marketing bukan hanya
+              alat promosi, tetapi strategic input untuk product positioning,
+              pricing, dan channel strategy.
+            </p>
+            <p class="about-description" data-translate="aboutDesc4">
+              Arah profesional saya adalah menjadi hybrid contributor—seseorang
+              yang mampu menjembatani engineering reality, data intelligence,
+              dan market strategy ke dalam sistem yang praktis dan bisa
+              digunakan.
+            </p>
+
+            <div class="about-stats">
+              <div
+                class="stat-item has-tooltip"
+                data-aos="zoom-in"
+                data-aos-delay="400"
+              >
+                <span class="stat-number counter" data-target="5">0</span>
+                <span class="stat-label" data-translate="yearsExperience"
+                  >Tahun Pengalaman</span
+                >
+                <div class="career-tooltip">
+                  <h4 data-translate="careerHistory">Riwayat Karir</h4>
+                  <ul>
+                    <li>
+                      <strong>2021-2022</strong><br /><span
+                        data-translate="career1"
+                        >Electrical Automotive Engineer</span
+                      >
+                    </li>
+                    <li>
+                      <strong>2022-2023</strong><br /><span
+                        data-translate="career2"
+                        >Product Performance Tester</span
+                      >
+                    </li>
+                    <li>
+                      <strong>2023-2024</strong><br /><span
+                        data-translate="career3"
+                        >Market Data Analyst</span
+                      >
+                    </li>
+                    <li>
+                      <strong>2024-Now</strong><br /><span
+                        data-translate="career4"
+                        >Operation Solution Developer</span
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="stat-item" data-aos="zoom-in" data-aos-delay="500">
+                <span class="stat-number counter" data-target="20">0</span>
+                <span class="stat-label" data-translate="projectsDelivered"
+                  >Proyek Selesai</span
+                >
+              </div>
+              <div
+                class="stat-item has-tooltip"
+                data-aos="zoom-in"
+                data-aos-delay="600"
+              >
+                <span class="stat-number counter" data-target="4">0</span>
+                <span class="stat-label" data-translate="coreDomains"
+                  >Domain Inti</span
+                >
+                <div class="career-tooltip domains-tooltip">
+                  <h4 data-translate="coreDomainsTitle">Domain Inti</h4>
+                  <ul>
+                    <li data-translate="domain1">
+                      Engineering & Manufacturing Systems
+                    </li>
+                    <li data-translate="domain2">
+                      Digitalization & System Development
+                    </li>
+                    <li data-translate="domain3">
+                      Data Analytics & Decision Support
+                    </li>
+                    <li data-translate="domain4">
+                      Marketing Analytics & Strategy
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Skills Section - Animated Progress Bars -->
-    <section id="skills" class="skills-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">My Skills</h2>
-            <div class="section-divider" data-aos="fade-up" data-aos-delay="100"></div>
-            
-            <div class="skills-content">
-                <div class="skills-column" data-aos="fade-right" data-aos-delay="200">
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">Engineering & Operations</span>
-                            <span class="skill-percentage">90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="90"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">Laravel Web Development</span>
-                            <span class="skill-percentage">85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="85"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">Data Analytics & Dashboards</span>
-                            <span class="skill-percentage">88%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="88"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">System Digitalization</span>
-                            <span class="skill-percentage">87%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="87"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skills-column" data-aos="fade-left" data-aos-delay="300">
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">MySQL & Database Design</span>
-                            <span class="skill-percentage">82%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="82"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">Marketing Analytics & SEO</span>
-                            <span class="skill-percentage">80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="80"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">Prototyping & Testing</span>
-                            <span class="skill-percentage">85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="85"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">Problem-Structuring & Analysis</span>
-                            <span class="skill-percentage">90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="90"></div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Skills & Portfolio Combined Section - Core Domains -->
+    <section id="skills" class="skills-portfolio-section">
+      <div class="container">
+        <h2
+          class="section-title"
+          data-aos="fade-up"
+          data-translate="skillsPortfolio"
+        >
+          Skills & Portfolio
+        </h2>
+        <div
+          class="section-divider"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        ></div>
+
+        <!-- Core Domain 1: Engineering & Manufacturing Systems -->
+        <div class="domain-block" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="domain-title">
+            <i class="fas fa-cogs"></i>
+            <span data-translate="domain1"
+              >Engineering & Manufacturing Systems</span
+            >
+          </h3>
+
+          <!-- Skill 1.1 -->
+          <div class="skill-card">
+            <h4 class="skill-title" data-translate="skill1_1_title">
+              Electrical System Architecture & Field Troubleshooting (3W ICE)
+            </h4>
+            <p class="skill-description" data-translate="skill1_1_desc">
+              Led the breakdown and documentation of the complete electrical
+              system of a 3-wheel ICE vehicle into a clear, easy-to-understand
+              diagram used for field problem solving. The system supports both
+              production troubleshooting and customer-side diagnostics. I
+              continue to act as a key technical advisor when issues cannot be
+              handled by field technicians, providing root-cause analysis and
+              solution direction. I have deep understanding of accessory and
+              combustion-related electrical systems, including battery,
+              charging, CDI, booster, and ignition components. This reduced
+              escalation time and improved troubleshooting efficiency.
+            </p>
+            <div class="skill-gallery">
+              <img
+                src="images/projects/skill1_1_img1.jpg"
+                alt="Project documentation 1"
+                class="skill-gallery-img"
+              />
+              <img
+                src="images/projects/skill1_1_img2.jpg"
+                alt="Project documentation 2"
+                class="skill-gallery-img"
+              />
             </div>
+            <div class="skill-tools">
+              <div class="tool-item" data-tooltip="AutoCAD">
+                <img
+                  src="images/tools/AutoCAD.png"
+                  alt="AutoCAD"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%2300d4ff%22/><text x=%2224%22 y=%2230%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22white%22>AC</text></svg>'"
+                />
+              </div>
+              <div class="tool-item" data-tooltip="KiCAD">
+                <img
+                  src="images/tools/KiCAD.png"
+                  alt="KiCAD"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%2300d4ff%22/><text x=%2224%22 y=%2230%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22white%22>KC</text></svg>'"
+                />
+              </div>
+              <div class="tool-item" data-tooltip="Festo Fluidsim">
+                <img
+                  src="images/tools/Fluidsim.png"
+                  alt="Fluidsim"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%2300d4ff%22/><text x=%2224%22 y=%2230%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22white%22>FS</text></svg>'"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill 1.2 -->
+          <div class="skill-card">
+            <h4 class="skill-title" data-translate="skill1_2_title">
+              EV & ICE Vehicle Engineering (Design, Prototyping, Testing)
+            </h4>
+            <p class="skill-description" data-translate="skill1_2_desc">
+              Contributed end-to-end engineering work for 3-wheel EV, covering
+              design, prototyping, testing, validation, and continuous
+              improvement. For EV platforms, my involvement covered head-to-toe
+              systems, including electrical architecture and functional
+              validation. These vehicles are commercially deployed and support a
+              business with approximately IDR 50 billion in annual sales,
+              ensuring engineering reliability aligns with real operational
+              usage.
+            </p>
+            <div class="skill-gallery">
+              <img
+                src="images/projects/skill1_2_img1.jpg"
+                alt="Project documentation 1"
+                class="skill-gallery-img"
+              />
+              <img
+                src="images/projects/skill1_2_img2.jpg"
+                alt="Project documentation 2"
+                class="skill-gallery-img"
+              />
+            </div>
+            <div class="skill-tools">
+              <div class="tool-item" data-tooltip="Votol Apps">
+                <img
+                  src="images/tools/Votol.png"
+                  alt="Votol"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%2300d4ff%22/><text x=%2224%22 y=%2230%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22white%22>VO</text></svg>'"
+                />
+              </div>
+              <div class="tool-item" data-tooltip="Proteus">
+                <img
+                  src="images/tools/Proteus.png"
+                  alt="Proteus"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%2300d4ff%22/><text x=%2224%22 y=%2230%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22white%22>PR</text></svg>'"
+                />
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Core Domain 2: Digitalization & System Development -->
+        <div class="domain-block" data-aos="fade-up" data-aos-delay="300">
+          <h3 class="domain-title">
+            <i class="fas fa-laptop-code"></i>
+            <span data-translate="domain2"
+              >Digitalization & System Development</span
+            >
+          </h3>
+
+          <!-- Skill 2.1 -->
+          <div class="skill-card">
+            <h4 class="skill-title" data-translate="skill2_1_title">
+              Manufacturing Digitalization & Andon System (IoT)
+            </h4>
+            <p class="skill-description" data-translate="skill2_1_desc">
+              Supported manufacturing production line by developing an IoT-based
+              Andon system to monitor quality and operational issues in real
+              time. The system applied 7 QC Tools such as Fishbone Diagram,
+              Scatter Diagram, and Pareto Analysis to structure problem
+              identification and root-cause analysis. This improved production
+              transparency and reduced response time to abnormalities on the
+              shop floor.
+            </p>
+            <div class="skill-gallery">
+              <img
+                src="images/projects/skill2_1_img1.jpg"
+                alt="Project documentation 1"
+                class="skill-gallery-img"
+              />
+              <img
+                src="images/projects/skill2_1_img2.jpg"
+                alt="Project documentation 2"
+                class="skill-gallery-img"
+              />
+            </div>
+            <div class="skill-tools">
+              <div class="tool-item" data-tooltip="Arduino">
+                <img
+                  src="images/tools/Arduino.png"
+                  alt="Arduino"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%2300d4ff%22/><text x=%2224%22 y=%2230%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22white%22>AR</text></svg>'"
+                />
+              </div>
+              <div class="tool-item" data-tooltip="7 QC Tools">
+                <img
+                  src="images/tools/qc_tools.png"
+                  alt="QC Tools"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%2300d4ff%22/><text x=%2224%22 y=%2230%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22white%22>QC</text></svg>'"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill 2.2 -->
+          <div class="skill-card">
+            <h4 class="skill-title" data-translate="skill2_2_title">
+              Company-wide Digitalization Governance & Sales Web System
+            </h4>
+            <p class="skill-description" data-translate="skill2_2_desc">
+              Acted as part of a digitalization task force responsible for
+              evaluating and approving digitalization initiatives across four
+              business units. My role ensured feasibility, system reliability,
+              and clear PIC responsibility. In parallel, I developed an
+              Operations One Solution web application using Laravel to connect
+              dealers and internal sales teams for the 3W business, centralizing
+              data and improving insight quality. A major expansion project is
+              planned for 2026 with a target to increase sales volume up to five
+              times.
+            </p>
+            <div class="skill-gallery">
+              <img
+                src="images/projects/skill2_2_img1.jpg"
+                alt="Project documentation 1"
+                class="skill-gallery-img"
+              />
+              <img
+                src="images/projects/skill2_2_img2.jpg"
+                alt="Project documentation 2"
+                class="skill-gallery-img"
+              />
+            </div>
+            <div class="skill-tools">
+              <div class="tool-item" data-tooltip="Laravel">
+                <img
+                  src="images/tools/laravel.png"
+                  alt="Laravel"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%23ff2d20%22/><text x=%2224%22 y=%2230%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22white%22>LV</text></svg>'"
+                />
+              </div>
+              <div class="tool-item" data-tooltip="MySQL">
+                <img
+                  src="images/tools/mysql.png"
+                  alt="MySQL"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%234479a1%22/><text x=%2224%22 y=%2230%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22white%22>SQL</text></svg>'"
+                />
+              </div>
+              <div class="tool-item" data-tooltip="Figma">
+                <img
+                  src="images/tools/Figma.png"
+                  alt="Figma"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%23f24e1e%22/><text x=%2224%22 y=%2230%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22white%22>FG</text></svg>'"
+                />
+              </div>
+              <div class="tool-item" data-tooltip="Xmind">
+                <img
+                  src="images/tools/Xmind.png"
+                  alt="Xmind"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%2300d4ff%22/><text x=%2224%22 y=%2230%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22white%22>XM</text></svg>'"
+                />
+              </div>
+              <div class="tool-item" data-tooltip="ProjectLibre">
+                <img
+                  src="images/tools/Libre.png"
+                  alt="ProjectLibre"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%2300d4ff%22/><text x=%2224%22 y=%2230%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22white%22>PL</text></svg>'"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Core Domain 3: Data Analytics & Decision Support -->
+        <div class="domain-block" data-aos="fade-up" data-aos-delay="400">
+          <h3 class="domain-title">
+            <i class="fas fa-chart-line"></i>
+            <span data-translate="domain3"
+              >Data Analytics & Decision Support</span
+            >
+          </h3>
+
+          <!-- Skill 3.1 -->
+          <div class="skill-card">
+            <h4 class="skill-title" data-translate="skill3_1_title">
+              Advanced Excel Analytics & ISO Documentation
+            </h4>
+            <p class="skill-description" data-translate="skill3_1_desc">
+              Applied advanced Excel techniques including VLOOKUP, HLOOKUP,
+              Pivot Tables, and VBA Macros for operational analysis and ISO
+              like-standard documentation. Developed structured data formats and
+              analytical files that improved data consistency, audit readiness,
+              and traceability across departments.
+            </p>
+            <div class="skill-gallery">
+              <img
+                src="images/projects/skill3_1_img1.jpg"
+                alt="Project documentation 1"
+                class="skill-gallery-img"
+              />
+              <img
+                src="images/projects/skill3_1_img2.jpg"
+                alt="Project documentation 2"
+                class="skill-gallery-img"
+              />
+            </div>
+            <div class="skill-tools">
+              <div class="tool-item" data-tooltip="Microsoft Excel">
+                <img
+                  src="images/tools/excel.png"
+                  alt="Excel"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%23217346%22/><text x=%2224%22 y=%2230%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22white%22>XL</text></svg>'"
+                />
+              </div>
+              <div class="tool-item" data-tooltip="VBA Macros">
+                <img
+                  src="images/tools/vba.png"
+                  alt="VBA"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%23217346%22/><text x=%2224%22 y=%2230%22 font-size=%228%22 text-anchor=%22middle%22 fill=%22white%22>VBA</text></svg>'"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill 3.2 -->
+          <div class="skill-card">
+            <h4 class="skill-title" data-translate="skill3_2_title">
+              Production Planning Analytics & Management Reporting
+            </h4>
+            <p class="skill-description" data-translate="skill3_2_desc">
+              Developed a daily Production Planning vs Actual report covering
+              more than 20 product types, enabling management to clearly monitor
+              performance and deviations. The report transformed raw production
+              data into actionable insight and supported faster planning
+              decisions. Python and Power BI were used to improve data
+              processing and visualization scalability.
+            </p>
+            <div class="skill-gallery">
+              <img
+                src="images/projects/skill3_2_img1.jpg"
+                alt="Project documentation 1"
+                class="skill-gallery-img"
+              />
+              <img
+                src="images/projects/skill3_2_img2.jpg"
+                alt="Project documentation 2"
+                class="skill-gallery-img"
+              />
+            </div>
+            <div class="skill-tools">
+              <div class="tool-item" data-tooltip="Python">
+                <img
+                  src="images/tools/python.png"
+                  alt="Python"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%233776ab%22/><text x=%2224%22 y=%2230%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22white%22>PY</text></svg>'"
+                />
+              </div>
+              <div class="tool-item" data-tooltip="Power BI">
+                <img
+                  src="images/tools/powerbi.png"
+                  alt="Power BI"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%23f2c811%22/><text x=%2224%22 y=%2230%22 font-size=%228%22 text-anchor=%22middle%22 fill=%22black%22>PBI</text></svg>'"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Core Domain 4: Marketing Analytics & Strategy -->
+        <div class="domain-block" data-aos="fade-up" data-aos-delay="500">
+          <h3 class="domain-title">
+            <i class="fas fa-bullhorn"></i>
+            <span data-translate="domain4">Marketing Analytics & Strategy</span>
+          </h3>
+
+          <!-- Skill 4.1 -->
+          <div class="skill-card">
+            <h4 class="skill-title" data-translate="skill4_1_title">
+              Marketing Strategy Frameworks & One-Year Policy (OYP)
+            </h4>
+            <p class="skill-description" data-translate="skill4_1_desc">
+              Supported the marketing division in developing One-Year Policy
+              (OYP) and Annual Plan (AP) documents by applying structured
+              marketing frameworks such as Brand Awareness, CSAT, Customer
+              Journey Mapping, 7P Analysis, and Jobs To Be Done (JTBD). These
+              concepts were translated into actionable strategies aligned with
+              business execution.
+            </p>
+            <div class="skill-gallery">
+              <img
+                src="images/projects/skill4_1_img1.jpg"
+                alt="Project documentation 1"
+                class="skill-gallery-img"
+              />
+              <img
+                src="images/projects/skill4_1_img2.jpg"
+                alt="Project documentation 2"
+                class="skill-gallery-img"
+              />
+            </div>
+            <div class="skill-tools">
+              <div class="tool-item" data-tooltip="Customer Journey Map">
+                <img
+                  src="images/tools/cjm.png"
+                  alt="Customer Journey"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%2300d4ff%22/><text x=%2224%22 y=%2230%22 font-size=%228%22 text-anchor=%22middle%22 fill=%22white%22>CJM</text></svg>'"
+                />
+              </div>
+              <div class="tool-item" data-tooltip="KPI Design">
+                <img
+                  src="images/tools/kpi.png"
+                  alt="KPI"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%2300d4ff%22/><text x=%2224%22 y=%2230%22 font-size=%228%22 text-anchor=%22middle%22 fill=%22white%22>KPI</text></svg>'"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill 4.2 -->
+          <div class="skill-card">
+            <h4 class="skill-title" data-translate="skill4_2_title">
+              Market & Competitor Intelligence (Large-Scale Data)
+            </h4>
+            <p class="skill-description" data-translate="skill4_2_desc">
+              Conducted market and competitor analysis through data scraping and
+              research, processing more than 100,000 data records. Insights
+              supported management decisions related to market expansion,
+              digital marketing strategy, and operational digitalization. Data
+              was structured and visualized for executive-level decision
+              support.
+            </p>
+            <div class="skill-gallery">
+              <img
+                src="images/projects/skill4_2_img1.jpg"
+                alt="Project documentation 1"
+                class="skill-gallery-img"
+              />
+              <img
+                src="images/projects/skill4_2_img2.jpg"
+                alt="Project documentation 2"
+                class="skill-gallery-img"
+              />
+            </div>
+            <div class="skill-tools">
+              <div class="tool-item" data-tooltip="Python">
+                <img
+                  src="images/tools/python.png"
+                  alt="Python"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%233776ab%22/><text x=%2224%22 y=%2230%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22white%22>PY</text></svg>'"
+                />
+              </div>
+              <div class="tool-item" data-tooltip="Power BI">
+                <img
+                  src="images/tools/powerbi.png"
+                  alt="Power BI"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%23f2c811%22/><text x=%2224%22 y=%2230%22 font-size=%228%22 text-anchor=%22middle%22 fill=%22black%22>PBI</text></svg>'"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Portfolio Section - Grid with Lightbox -->
-    <section id="portfolio" class="portfolio-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">My Portfolio</h2>
-            <div class="section-divider" data-aos="fade-up" data-aos-delay="100"></div>
-            
-            <div class="portfolio-filter" data-aos="fade-up" data-aos-delay="200">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="digitalization">Digitalization</button>
-                <button class="filter-btn" data-filter="data">Data Analytics</button>
-                <button class="filter-btn" data-filter="web">Web Systems</button>
-            </div>
-            
-            <div class="portfolio-grid">
-                <div class="portfolio-item" data-category="digitalization" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop" alt="Manufacturing Process Digitalization">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h3>Manufacturing Process Digitalization</h3>
-                                <p>Operational Efficiency & Visibility</p>
-                                <div class="portfolio-links">
-                                    <a href="#" class="portfolio-link" data-lightbox="mfg1">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                </div>
-                                <div style="margin-top: 10px; font-size: 0.85rem; text-align: left;">
-                                    <p>✔ Digitalized manual production and PPIC processes</p>
-                                    <p>✔ Structured data flows from engineering to management</p>
-                                    <p>✔ Improved traceability and faster decision cycles</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="web" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop" alt="Internal Web Systems">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h3>Internal Web Systems (Laravel)</h3>
-                                <p>Full-cycle Development</p>
-                                <div class="portfolio-links">
-                                    <a href="#" class="portfolio-link" data-lightbox="web1">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                </div>
-                                <div style="margin-top: 10px; font-size: 0.85rem; text-align: left;">
-                                    <p>✔ Built internal tools using Laravel for data capture</p>
-                                    <p>✔ Implemented role-based access and workflows</p>
-                                    <p>✔ Designed for non-technical users</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="data" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="Data Analytics & Dashboards">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h3>Data Analytics & Dashboards</h3>
-                                <p>Operational & Business Context</p>
-                                <div class="portfolio-links">
-                                    <a href="#" class="portfolio-link" data-lightbox="data1">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                </div>
-                                <div style="margin-top: 10px; font-size: 0.85rem; text-align: left;">
-                                    <p>✔ Transformed fragmented data into structured datasets</p>
-                                    <p>✔ Built dashboards for production and performance tracking</p>
-                                    <p>✔ Clearer performance visibility across departments</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="data" data-aos="zoom-in" data-aos-delay="500">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=600&fit=crop" alt="Marketing Analytics">
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-info">
-                                <h3>Marketing Analytics & SEO</h3>
-                                <p>Market Intelligence</p>
-                                <div class="portfolio-links">
-                                    <a href="#" class="portfolio-link" data-lightbox="marketing1">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
-                                </div>
-                                <div style="margin-top: 10px; font-size: 0.85rem; text-align: left;">
-                                    <p>✔ Studied SERP structure and intent-based keywords</p>
-                                    <p>✔ Analyzed interest over time for demand cycles</p>
-                                    <p>✔ Applied 11-level marketing strategy framework</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section - Carousel -->
-    <section id="testimonials" class="testimonials-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Testimonials</h2>
-            <div class="section-divider" data-aos="fade-up" data-aos-delay="100"></div>
-            
-            <div class="testimonials-slider" data-aos="fade-up" data-aos-delay="200">
-                <div class="testimonial-item active">
-                    <div class="testimonial-content">
-                        <i class="fas fa-quote-left quote-icon"></i>
-                        <p class="testimonial-text">
-                            Reyza's ability to bridge hardware and software systems is exceptional. His implementation of 
-                            our MES system significantly improved our production efficiency and data visibility.
-                        </p>
-                        <div class="testimonial-author">
-                            <img src="https://i.pravatar.cc/100?img=12" alt="Client 1">
-                            <div class="author-info">
-                                <h4>John Anderson</h4>
-                                <span>Production Manager, Auto Corp</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-item">
-                    <div class="testimonial-content">
-                        <i class="fas fa-quote-left quote-icon"></i>
-                        <p class="testimonial-text">
-                            Outstanding technical expertise combined with excellent problem-solving skills. Reyza delivered 
-                            a complex IoT integration project on time and exceeded our expectations.
-                        </p>
-                        <div class="testimonial-author">
-                            <img src="https://i.pravatar.cc/100?img=33" alt="Client 2">
-                            <div class="author-info">
-                                <h4>Sarah Mitchell</h4>
-                                <span>IT Director, Manufacturing Solutions</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-item">
-                    <div class="testimonial-content">
-                        <i class="fas fa-quote-left quote-icon"></i>
-                        <p class="testimonial-text">
-                            His analytical approach and system thinking helped us identify and resolve critical bottlenecks 
-                            in our production line. A true professional in digital transformation.
-                        </p>
-                        <div class="testimonial-author">
-                            <img src="https://i.pravatar.cc/100?img=45" alt="Client 3">
-                            <div class="author-info">
-                                <h4>Michael Chen</h4>
-                                <span>Operations Lead, Tech Industries</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial-controls">
-                <button class="testimonial-btn prev-btn">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="testimonial-dots">
-                    <span class="dot active" data-slide="0"></span>
-                    <span class="dot" data-slide="1"></span>
-                    <span class="dot" data-slide="2"></span>
-                </div>
-                <button class="testimonial-btn next-btn">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </div>
-    </section>
+    <!-- Keep Portfolio section ID for navigation compatibility -->
+    <section id="portfolio" style="padding: 0; margin: 0; height: 0"></section>
 
     <!-- Contact Section - Form with Validation -->
     <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
-            <div class="section-divider" data-aos="fade-up" data-aos-delay="100"></div>
-            
-            <div class="contact-content">
-                <div class="contact-info" data-aos="fade-right" data-aos-delay="200">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Address</h4>
-                            <p>Indonesia</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Phone</h4>
-                            <p>+62 xxx xxxx xxxx</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <p>your.email@example.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="https://linkedin.com/in/yourprofile" target="_blank" class="social-link">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://github.com/yourusername" target="_blank" class="social-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://twitter.com/yourusername" target="_blank" class="social-link">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="mailto:your.email@example.com" class="social-link">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <form class="contact-form" id="contactForm" data-aos="fade-left" data-aos-delay="300">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        <span class="error-message"></span>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
-                        <span class="error-message"></span>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                        <span class="error-message"></span>
-                    </div>
-                    
-                    <div class="form-group">
-                        <textarea id="message" name="message" rows="6" placeholder="Your Message" required></textarea>
-                        <span class="error-message"></span>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary ripple">
-                        <span class="btn-text">Send Message</span>
-                        <span class="btn-loader" style="display: none;">
-                            <i class="fas fa-spinner fa-spin"></i>
-                        </span>
-                    </button>
-                    
-                    <div class="form-response"></div>
-                </form>
+      <div class="container">
+        <h2
+          class="section-title"
+          data-aos="fade-up"
+          data-translate="getInTouch"
+        >
+          Hubungi Saya
+        </h2>
+        <div
+          class="section-divider"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        ></div>
+
+        <div class="contact-content">
+          <div class="contact-info" data-aos="fade-right" data-aos-delay="200">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Address</h4>
+                <p>Cikarang, Bekasi, Indonesia</p>
+              </div>
             </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Phone</h4>
+                <p>+62895711572070</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Email</h4>
+                <p>reyzacomm@gmail.com</p>
+              </div>
+            </div>
+
+            <div class="social-links">
+              <a
+                href="https://www.instagram.com/kautsar_sagara/"
+                target="_blank"
+                class="social-link"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/reyzaag/"
+                target="_blank"
+                class="social-link"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="https://github.com/Reyzasagara"
+                target="_blank"
+                class="social-link"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+
+          <form
+            class="contact-form"
+            id="contactForm"
+            data-aos="fade-left"
+            data-aos-delay="300"
+          >
+            <div class="form-group">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your Name"
+                required
+              />
+              <span class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Your Email"
+                required
+              />
+              <span class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="Subject"
+                required
+              />
+              <span class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                placeholder="Your Message"
+                required
+              ></textarea>
+              <span class="error-message"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary ripple">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-loader" style="display: none">
+                <i class="fas fa-spinner fa-spin"></i>
+              </span>
+            </button>
+
+            <div class="form-response"></div>
+          </form>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2026 Reyza Agung Gunawan. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#portfolio">Portfolio</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </div>
+      <div class="container">
+        <div class="footer-content">
+          <p>&copy; 2026 Reyza Agung Gunawan. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+          </div>
         </div>
+      </div>
     </footer>
 
     <!-- Lightbox Modal -->
     <div class="lightbox" id="lightbox">
-        <div class="lightbox-content">
-            <span class="lightbox-close">&times;</span>
-            <img src="" alt="Portfolio Image" id="lightboxImg">
-            <div class="lightbox-caption"></div>
-        </div>
+      <div class="lightbox-content">
+        <span class="lightbox-close">&times;</span>
+        <img src="" alt="Portfolio Image" id="lightboxImg" />
+        <div class="lightbox-caption"></div>
+      </div>
     </div>
+
+    <!-- Hidden canvas for color extraction -->
+    <canvas id="colorCanvas" style="display: none"></canvas>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
+
     <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
+
+    <!-- EmailJS SDK -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+
     <!-- Custom JavaScript -->
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

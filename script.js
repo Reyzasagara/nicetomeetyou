@@ -127,7 +127,12 @@ function extractColorsFromImage() {
       if (!accentColor && s > 0.35 && l > 0.35 && l < 0.85) {
         // Boost the color for better visibility and brightness
         const boosted = boostSaturation(r, g, b, 1.4);
-        const brightened = boostBrightness(boosted.r, boosted.g, boosted.b, 1.2);
+        const brightened = boostBrightness(
+          boosted.r,
+          boosted.g,
+          boosted.b,
+          1.2
+        );
         accentColor = `rgb(${brightened.r}, ${brightened.g}, ${brightened.b})`;
       }
 
@@ -318,35 +323,45 @@ const translations = {
       "Dengan pengalaman di manufacturing operations, prototyping, dan cross-functional digitalization, saya terbiasa melihat masalah dari dua sisi: technical reality dan business impact. Saya mengembangkan web-based solutions menggunakan Laravel dan menganalisis market trends melalui SEO dan marketing analytics.",
     mySkills: "Keahlian Saya",
     skillsPortfolio: "Keahlian & Portofolio",
-    
+
     // Domain 1: Engineering & Manufacturing
     domain1_title: "Rekayasa & Manufaktur",
-    skill1_1_title: "Arsitektur Sistem Elektrikal & Troubleshooting Lapangan (3W ICE)",
-    skill1_1_desc: "Memimpin pemecahan dan dokumentasi sistem kelistrikan lengkap kendaraan ICE roda 3 menjadi diagram yang jelas dan mudah dipahami untuk pemecahan masalah lapangan. Sistem ini mendukung troubleshooting produksi dan diagnostik sisi pelanggan. Saya terus bertindak sebagai penasihat teknis kunci ketika masalah tidak dapat ditangani oleh teknisi lapangan, memberikan analisis akar masalah dan arahan solusi. Saya memiliki pemahaman mendalam tentang sistem kelistrikan aksesori dan terkait pembakaran, termasuk baterai, pengisian, CDI, booster, dan komponen pengapian. Ini mengurangi waktu eskalasi dan meningkatkan efisiensi troubleshooting.",
-    skill1_2_title: "Rekayasa Kendaraan EV & ICE (Desain, Prototyping, Testing)",
-    skill1_2_desc: "Berkontribusi pada pekerjaan rekayasa end-to-end untuk EV roda 3, mencakup desain, prototyping, testing, validasi, dan continuous improvement. Untuk platform EV, keterlibatan saya mencakup sistem head-to-toe, termasuk arsitektur elektrikal dan validasi fungsional. Kendaraan ini telah digunakan secara komersial dan mendukung bisnis dengan penjualan tahunan sekitar IDR 50 miliar, memastikan keandalan rekayasa selaras dengan penggunaan operasional nyata.",
-    
+    skill1_1_title:
+      "Arsitektur Sistem Elektrikal & Troubleshooting Lapangan (3W ICE)",
+    skill1_1_desc:
+      "Memimpin pemecahan dan dokumentasi sistem kelistrikan lengkap kendaraan ICE roda 3 menjadi diagram yang jelas dan mudah dipahami untuk pemecahan masalah lapangan. Sistem ini mendukung troubleshooting produksi dan diagnostik sisi pelanggan. Saya terus bertindak sebagai penasihat teknis kunci ketika masalah tidak dapat ditangani oleh teknisi lapangan, memberikan analisis akar masalah dan arahan solusi. Saya memiliki pemahaman mendalam tentang sistem kelistrikan aksesori dan terkait pembakaran, termasuk baterai, pengisian, CDI, booster, dan komponen pengapian. Ini mengurangi waktu eskalasi dan meningkatkan efisiensi troubleshooting.",
+    skill1_2_title:
+      "Rekayasa Kendaraan EV & ICE (Desain, Prototyping, Testing)",
+    skill1_2_desc:
+      "Berkontribusi pada pekerjaan rekayasa end-to-end untuk EV roda 3, mencakup desain, prototyping, testing, validasi, dan continuous improvement. Untuk platform EV, keterlibatan saya mencakup sistem head-to-toe, termasuk arsitektur elektrikal dan validasi fungsional. Kendaraan ini telah digunakan secara komersial dan mendukung bisnis dengan penjualan tahunan sekitar IDR 50 miliar, memastikan keandalan rekayasa selaras dengan penggunaan operasional nyata.",
+
     // Domain 2: Digitalization & System Development
     domain2_title: "Digitalisasi & Pengembangan Sistem",
     skill2_1_title: "Digitalisasi Manufaktur & Sistem Andon (IoT)",
-    skill2_1_desc: "Mendukung lini produksi manufaktur dengan mengembangkan sistem Andon berbasis IoT untuk memantau masalah kualitas dan operasional secara real time. Sistem ini menerapkan 7 QC Tools seperti Diagram Fishbone, Diagram Scatter, dan Analisis Pareto untuk menyusun identifikasi masalah dan analisis akar penyebab. Ini meningkatkan transparansi produksi dan mengurangi waktu respons terhadap abnormalitas di shop floor.",
+    skill2_1_desc:
+      "Mendukung lini produksi manufaktur dengan mengembangkan sistem Andon berbasis IoT untuk memantau masalah kualitas dan operasional secara real time. Sistem ini menerapkan 7 QC Tools seperti Diagram Fishbone, Diagram Scatter, dan Analisis Pareto untuk menyusun identifikasi masalah dan analisis akar penyebab. Ini meningkatkan transparansi produksi dan mengurangi waktu respons terhadap abnormalitas di shop floor.",
     skill2_2_title: "Tata Kelola Digitalisasi Perusahaan & Sistem Web Sales",
-    skill2_2_desc: "Bertindak sebagai bagian dari tim digitalisasi yang bertanggung jawab mengevaluasi dan menyetujui inisiatif digitalisasi di empat unit bisnis. Peran saya memastikan kelayakan, keandalan sistem, dan tanggung jawab PIC yang jelas. Secara paralel, saya mengembangkan aplikasi web Operations One Solution menggunakan Laravel untuk menghubungkan dealer dan tim penjualan internal untuk bisnis 3W, memusatkan data dan meningkatkan kualitas insight. Proyek ekspansi besar direncanakan untuk 2026 dengan target meningkatkan volume penjualan hingga lima kali lipat.",
-    
+    skill2_2_desc:
+      "Bertindak sebagai bagian dari tim digitalisasi yang bertanggung jawab mengevaluasi dan menyetujui inisiatif digitalisasi di empat unit bisnis. Peran saya memastikan kelayakan, keandalan sistem, dan tanggung jawab PIC yang jelas. Secara paralel, saya mengembangkan aplikasi web Operations One Solution menggunakan Laravel untuk menghubungkan dealer dan tim penjualan internal untuk bisnis 3W, memusatkan data dan meningkatkan kualitas insight. Proyek ekspansi besar direncanakan untuk 2026 dengan target meningkatkan volume penjualan hingga lima kali lipat.",
+
     // Domain 3: Data Analytics & Decision Support
     domain3_title: "Analitik Data & Dukungan Keputusan",
     skill3_1_title: "Analitik Excel Lanjutan & Dokumentasi ISO",
-    skill3_1_desc: "Menerapkan teknik Excel lanjutan termasuk VLOOKUP, HLOOKUP, Pivot Tables, dan VBA Macros untuk analisis operasional dan dokumentasi standar seperti-ISO. Mengembangkan format data terstruktur dan file analitis yang meningkatkan konsistensi data, kesiapan audit, dan traceability di seluruh departemen.",
+    skill3_1_desc:
+      "Menerapkan teknik Excel lanjutan termasuk VLOOKUP, HLOOKUP, Pivot Tables, dan VBA Macros untuk analisis operasional dan dokumentasi standar seperti-ISO. Mengembangkan format data terstruktur dan file analitis yang meningkatkan konsistensi data, kesiapan audit, dan traceability di seluruh departemen.",
     skill3_2_title: "Analitik Perencanaan Produksi & Pelaporan Manajemen",
-    skill3_2_desc: "Mengembangkan laporan harian Perencanaan Produksi vs Aktual yang mencakup lebih dari 20 jenis produk, memungkinkan manajemen memantau kinerja dan penyimpangan dengan jelas. Laporan ini mengubah data produksi mentah menjadi insight yang dapat ditindaklanjuti dan mendukung keputusan perencanaan yang lebih cepat. Python dan Power BI digunakan untuk meningkatkan skalabilitas pemrosesan data dan visualisasi.",
-    
+    skill3_2_desc:
+      "Mengembangkan laporan harian Perencanaan Produksi vs Aktual yang mencakup lebih dari 20 jenis produk, memungkinkan manajemen memantau kinerja dan penyimpangan dengan jelas. Laporan ini mengubah data produksi mentah menjadi insight yang dapat ditindaklanjuti dan mendukung keputusan perencanaan yang lebih cepat. Python dan Power BI digunakan untuk meningkatkan skalabilitas pemrosesan data dan visualisasi.",
+
     // Domain 4: Marketing Analytics & Strategy
     domain4_title: "Analitik Marketing & Strategi",
     skill4_1_title: "Framework Strategi Marketing & One-Year Policy (OYP)",
-    skill4_1_desc: "Mendukung divisi marketing dalam mengembangkan dokumen One-Year Policy (OYP) dan Annual Plan (AP) dengan menerapkan framework marketing terstruktur seperti Brand Awareness, CSAT, Customer Journey Mapping, 7P Analysis, dan Jobs To Be Done (JTBD). Konsep-konsep ini diterjemahkan ke dalam strategi yang dapat ditindaklanjuti selaras dengan eksekusi bisnis.",
+    skill4_1_desc:
+      "Mendukung divisi marketing dalam mengembangkan dokumen One-Year Policy (OYP) dan Annual Plan (AP) dengan menerapkan framework marketing terstruktur seperti Brand Awareness, CSAT, Customer Journey Mapping, 7P Analysis, dan Jobs To Be Done (JTBD). Konsep-konsep ini diterjemahkan ke dalam strategi yang dapat ditindaklanjuti selaras dengan eksekusi bisnis.",
     skill4_2_title: "Intelijen Pasar & Kompetitor (Data Skala Besar)",
-    skill4_2_desc: "Melakukan analisis pasar dan kompetitor melalui data scraping dan riset, memproses lebih dari 100.000 catatan data. Insight mendukung keputusan manajemen terkait ekspansi pasar, strategi digital marketing, dan digitalisasi operasional. Data disusun dan divisualisasikan untuk dukungan keputusan tingkat eksekutif.",
-    
+    skill4_2_desc:
+      "Melakukan analisis pasar dan kompetitor melalui data scraping dan riset, memproses lebih dari 100.000 catatan data. Insight mendukung keputusan manajemen terkait ekspansi pasar, strategi digital marketing, dan digitalisasi operasional. Data disusun dan divisualisasikan untuk dukungan keputusan tingkat eksekutif.",
+
     myPortfolio: "Portofolio Saya",
     allProjects: "Semua Proyek",
     digitalization: "Digitalisasi",
@@ -369,7 +384,7 @@ const translations = {
     email: "Email:",
     location: "Lokasi:",
     yearsExperience: "Tahun Pengalaman",
-    projectsDelivered: "Proyek Selesai",
+    projectsDelivered: "20+ Pekerjaan Selesai",
     coreDomains: "Domain Inti",
     careerHistory: "Riwayat Karir",
     career1: "Electrical Automotive Engineer",
@@ -398,35 +413,45 @@ const translations = {
       "With professional experience spanning manufacturing operations, prototyping, and cross-functional digitalization initiatives, I view problems from both technical and business perspectives. I develop web-based solutions using Laravel and analyze market trends through SEO and marketing analytics.",
     mySkills: "My Skills",
     skillsPortfolio: "Skills & Portfolio",
-    
+
     // Domain 1: Engineering & Manufacturing
     domain1_title: "Engineering & Manufacturing",
-    skill1_1_title: "Electrical System Architecture & Field Troubleshooting (3W ICE)",
-    skill1_1_desc: "Led the breakdown and documentation of the complete electrical system of a 3-wheel ICE vehicle into a clear, easy-to-understand diagram used for field problem solving. The system supports both production troubleshooting and customer-side diagnostics. I continue to act as a key technical advisor when issues cannot be handled by field technicians, providing root-cause analysis and solution direction. I have deep understanding of accessory and combustion-related electrical systems, including battery, charging, CDI, booster, and ignition components. This reduced escalation time and improved troubleshooting efficiency.",
-    skill1_2_title: "EV & ICE Vehicle Engineering (Design, Prototyping, Testing)",
-    skill1_2_desc: "Contributed end-to-end engineering work for 3-wheel EV, covering design, prototyping, testing, validation, and continuous improvement. For EV platforms, my involvement covered head-to-toe systems, including electrical architecture and functional validation. These vehicles are commercially deployed and support a business with approximately IDR 50 billion in annual sales, ensuring engineering reliability aligns with real operational usage.",
-    
+    skill1_1_title:
+      "Electrical System Architecture & Field Troubleshooting (3W ICE)",
+    skill1_1_desc:
+      "Led the breakdown and documentation of the complete electrical system of a 3-wheel ICE vehicle into a clear, easy-to-understand diagram used for field problem solving. The system supports both production troubleshooting and customer-side diagnostics. I continue to act as a key technical advisor when issues cannot be handled by field technicians, providing root-cause analysis and solution direction. I have deep understanding of accessory and combustion-related electrical systems, including battery, charging, CDI, booster, and ignition components. This reduced escalation time and improved troubleshooting efficiency.",
+    skill1_2_title:
+      "EV & ICE Vehicle Engineering (Design, Prototyping, Testing)",
+    skill1_2_desc:
+      "Contributed end-to-end engineering work for 3-wheel EV, covering design, prototyping, testing, validation, and continuous improvement. For EV platforms, my involvement covered head-to-toe systems, including electrical architecture and functional validation. These vehicles are commercially deployed and support a business with approximately IDR 50 billion in annual sales, ensuring engineering reliability aligns with real operational usage.",
+
     // Domain 2: Digitalization & System Development
     domain2_title: "Digitalization & System Development",
     skill2_1_title: "Manufacturing Digitalization & Andon System (IoT)",
-    skill2_1_desc: "Supported manufacturing production line by developing an IoT-based Andon system to monitor quality and operational issues in real time. The system applied 7 QC Tools such as Fishbone Diagram, Scatter Diagram, and Pareto Analysis to structure problem identification and root-cause analysis. This improved production transparency and reduced response time to abnormalities on the shop floor.",
+    skill2_1_desc:
+      "Supported manufacturing production line by developing an IoT-based Andon system to monitor quality and operational issues in real time. The system applied 7 QC Tools such as Fishbone Diagram, Scatter Diagram, and Pareto Analysis to structure problem identification and root-cause analysis. This improved production transparency and reduced response time to abnormalities on the shop floor.",
     skill2_2_title: "Company-wide Digitalization Governance & Sales Web System",
-    skill2_2_desc: "Acted as part of a digitalization task force responsible for evaluating and approving digitalization initiatives across four business units. My role ensured feasibility, system reliability, and clear PIC responsibility. In parallel, I developed an Operations One Solution web application using Laravel to connect dealers and internal sales teams for the 3W business, centralizing data and improving insight quality. A major expansion project is planned for 2026 with a target to increase sales volume up to five times.",
-    
+    skill2_2_desc:
+      "Acted as part of a digitalization task force responsible for evaluating and approving digitalization initiatives across four business units. My role ensured feasibility, system reliability, and clear PIC responsibility. In parallel, I developed an Operations One Solution web application using Laravel to connect dealers and internal sales teams for the 3W business, centralizing data and improving insight quality. A major expansion project is planned for 2026 with a target to increase sales volume up to five times.",
+
     // Domain 3: Data Analytics & Decision Support
     domain3_title: "Data Analytics & Decision Support",
     skill3_1_title: "Advanced Excel Analytics & ISO Documentation",
-    skill3_1_desc: "Applied advanced Excel techniques including VLOOKUP, HLOOKUP, Pivot Tables, and VBA Macros for operational analysis and ISO like-standard documentation. Developed structured data formats and analytical files that improved data consistency, audit readiness, and traceability across departments.",
+    skill3_1_desc:
+      "Applied advanced Excel techniques including VLOOKUP, HLOOKUP, Pivot Tables, and VBA Macros for operational analysis and ISO like-standard documentation. Developed structured data formats and analytical files that improved data consistency, audit readiness, and traceability across departments.",
     skill3_2_title: "Production Planning Analytics & Management Reporting",
-    skill3_2_desc: "Developed a daily Production Planning vs Actual report covering more than 20 product types, enabling management to clearly monitor performance and deviations. The report transformed raw production data into actionable insight and supported faster planning decisions. Python and Power BI were used to improve data processing and visualization scalability.",
-    
+    skill3_2_desc:
+      "Developed a daily Production Planning vs Actual report covering more than 20 product types, enabling management to clearly monitor performance and deviations. The report transformed raw production data into actionable insight and supported faster planning decisions. Python and Power BI were used to improve data processing and visualization scalability.",
+
     // Domain 4: Marketing Analytics & Strategy
     domain4_title: "Marketing Analytics & Strategy",
     skill4_1_title: "Marketing Strategy Frameworks & One-Year Policy (OYP)",
-    skill4_1_desc: "Supported the marketing division in developing One-Year Policy (OYP) and Annual Plan (AP) documents by applying structured marketing frameworks such as Brand Awareness, CSAT, Customer Journey Mapping, 7P Analysis, and Jobs To Be Done (JTBD). These concepts were translated into actionable strategies aligned with business execution.",
+    skill4_1_desc:
+      "Supported the marketing division in developing One-Year Policy (OYP) and Annual Plan (AP) documents by applying structured marketing frameworks such as Brand Awareness, CSAT, Customer Journey Mapping, 7P Analysis, and Jobs To Be Done (JTBD). These concepts were translated into actionable strategies aligned with business execution.",
     skill4_2_title: "Market & Competitor Intelligence (Large-Scale Data)",
-    skill4_2_desc: "Conducted market and competitor analysis through data scraping and research, processing more than 100,000 data records. Insights supported management decisions related to market expansion, digital marketing strategy, and operational digitalization. Data was structured and visualized for executive-level decision support.",
-    
+    skill4_2_desc:
+      "Conducted market and competitor analysis through data scraping and research, processing more than 100,000 data records. Insights supported management decisions related to market expansion, digital marketing strategy, and operational digitalization. Data was structured and visualized for executive-level decision support.",
+
     myPortfolio: "My Portfolio",
     allProjects: "All Projects",
     digitalization: "Digitalization",
@@ -449,7 +474,7 @@ const translations = {
     email: "Email:",
     location: "Location:",
     yearsExperience: "Years Experience",
-    projectsDelivered: "Projects Delivered",
+    projectsDelivered: "20+ Jobs Done",
     coreDomains: "Core Domains",
     careerHistory: "Career History",
     career1: "Electrical Automotive Engineer",
@@ -955,7 +980,7 @@ function validateForm() {
 }
 
 // Initialize EmailJS with your public key
-(function() {
+(function () {
   emailjs.init({
     publicKey: "11l-lsn2TAzgMw_o1", // Replace with your EmailJS public key
   });
@@ -979,16 +1004,16 @@ if (contactForm) {
       const templateParams = {
         title: document.getElementById("subject").value,
         name: document.getElementById("name").value,
-        time: new Date().toLocaleString('id-ID', { 
-          dateStyle: 'full', 
-          timeStyle: 'short' 
+        time: new Date().toLocaleString("id-ID", {
+          dateStyle: "full",
+          timeStyle: "short",
         }),
         message: document.getElementById("message").value,
         email: document.getElementById("email").value,
       };
 
-      emailjs.send('service_ctrclcn', 'template_fzkgi64', templateParams)
-        .then(function(response) {
+      emailjs.send("service_ctrclcn", "template_fzkgi64", templateParams).then(
+        function (response) {
           // Reset button state
           btnText.style.display = "inline-block";
           btnLoader.style.display = "none";
@@ -1009,7 +1034,8 @@ if (contactForm) {
               formResponse.style.display = "none";
             }, 5000);
           }
-        }, function(error) {
+        },
+        function (error) {
           // Reset button state
           btnText.style.display = "inline-block";
           btnLoader.style.display = "none";
@@ -1027,7 +1053,8 @@ if (contactForm) {
               formResponse.style.display = "none";
             }, 5000);
           }
-        });
+        }
+      );
     }
   });
 

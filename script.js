@@ -318,7 +318,7 @@ const translations = {
     heroTitle:
       "Mechatronics Engineer | Data & Digitalization Specialist | Marketing Analytics",
     heroDesc1:
-      "Saya menghubungkan engineering execution, data-driven insight, dan digital systems untuk membantu organisasi meningkatkan efisiensi operasional, visibilitas, dan performa pasar.",
+      "Mechatronics Engineer dengan pengalaman kerja formal 5+ tahun di bidang automotive engineering, product testing, data analysis, marketing, dan digitalisasi bisnis. Saya menghubungkan engineering execution, data-driven insight, dan digital systems untuk membantu organisasi meningkatkan efisiensi operasional, visibilitas, dan performa pasar.",
     heroDesc2:
       "Dengan pengalaman di manufacturing operations, prototyping, dan cross-functional digitalization, saya terbiasa melihat masalah dari dua sisi: technical reality dan business impact. Saya mengembangkan web-based solutions menggunakan Laravel dan menganalisis market trends melalui SEO dan marketing analytics.",
     mySkills: "Keahlian Saya",
@@ -408,7 +408,7 @@ const translations = {
     heroTitle:
       "Mechatronics Engineer | Data & Digitalization Specialist | Marketing Analytics",
     heroDesc1:
-      "I bridge engineering execution, data-driven insight, and digital systems to help organizations improve operational efficiency, visibility, and market performance.",
+      "Mechatronics Engineer with 5+ years of hands-on experience across automotive engineering, product testing, data analysis, marketing, and business digitalization. I bridge engineering execution, data-driven insight, and digital systems to help organizations improve operational efficiency, visibility, and market performance.",
     heroDesc2:
       "With professional experience spanning manufacturing operations, prototyping, and cross-functional digitalization initiatives, I view problems from both technical and business perspectives. I develop web-based solutions using Laravel and analyze market trends through SEO and marketing analytics.",
     mySkills: "My Skills",

@@ -328,43 +328,51 @@ const translations = {
     experienceTitle: "Pengalaman Profesional",
     exp1_title: "Electrical Design Engineer – Kendaraan ICE 3W",
     exp1_badge: "Rekayasa Elektrikal | Analisis Sistem Kendaraan",
-    exp1_desc: "Melakukan reverse engineering lengkap sistem elektrikal kendaraan ICE 3W. Membangun database referensi elektrikal komprehensif termasuk perilaku voltage, current, dan load untuk semua komponen.",
+    exp1_desc:
+      "Melakukan reverse engineering lengkap sistem elektrikal kendaraan ICE 3W. Membangun database referensi elektrikal komprehensif termasuk perilaku voltage, current, dan load untuk semua komponen.",
     exp1_impact1: "Waktu troubleshooting berkurang ~40–50%",
     exp1_impact2: "Membuat peta sistem elektrikal dan database parameter",
-    exp1_impact3: "Menghilangkan ketergantungan pada vendor eksternal untuk diagnostik",
+    exp1_impact3:
+      "Menghilangkan ketergantungan pada vendor eksternal untuk diagnostik",
     exp2_title: "Problem Solver Elektrikal Aftersales & Produksi",
     exp2_badge: "Analisis Akar Masalah | Rekayasa Reliabilitas",
-    exp2_desc: "Mengatasi masalah elektrikal kritis di lapangan melalui analisis akar masalah dan redesain spesifikasi. Menghilangkan masalah melelehnya kabel ignisi dan membentuk protokol troubleshooting cepat.",
+    exp2_desc:
+      "Mengatasi masalah elektrikal kritis di lapangan melalui analisis akar masalah dan redesain spesifikasi. Menghilangkan masalah melelehnya kabel ignisi dan membentuk protokol troubleshooting cepat.",
     exp2_impact1: "Tingkat klaim elektrikal berkurang ~70–80%",
     exp2_impact2: "Mencapai SLA aftersales 1×24 jam konsisten",
     exp2_impact3: "Nol kekambuhan masalah ignition melting",
     exp3_title: "Pengembangan Kendaraan EV – Konsep hingga Produksi Massal",
     exp3_badge: "Pengembangan Produk | Sistem EV | Kepatuhan Regulasi",
-    exp3_desc: "Memimpin pengembangan kendaraan EV 3W end-to-end dari desain arsitektur elektrikal hingga sertifikasi pemerintah dan deployment produksi massal.",
+    exp3_desc:
+      "Memimpin pengembangan kendaraan EV 3W end-to-end dari desain arsitektur elektrikal hingga sertifikasi pemerintah dan deployment produksi massal.",
     exp3_impact1: "Siklus pengembangan selesai dalam ~18–24 bulan",
     exp3_impact2: "Mencapai sertifikasi Kementerian penuh",
     exp3_impact3: "Berhasil di-deploy ke proyek pemerintah",
     exp4_title: "Rekayasa Cost Reduction & Lokalisasi",
     exp4_badge: "Rekayasa Biaya | Strategi Lokalisasi",
-    exp4_desc: "Mendorong optimasi biaya BOM dan kualifikasi supplier lokal sambil menstandarisasi dokumentasi rekayasa lintas platform.",
+    exp4_desc:
+      "Mendorong optimasi biaya BOM dan kualifikasi supplier lokal sambil menstandarisasi dokumentasi rekayasa lintas platform.",
     exp4_impact1: "Biaya BOM berkurang ~5–10%",
     exp4_impact2: "Rasio konten lokal meningkat signifikan",
     exp4_impact3: "Meningkatkan ketahanan supply chain",
     exp5_title: "Rekayasa Berbasis Data & Analitik Marketing",
     exp5_badge: "Analitik Data | Strategi Marketing | Insight Bisnis",
-    exp5_desc: "Transisi ke peran data analytics, membangun dashboard Power BI dan menghasilkan insight strategis dari scraping data pasar. Menghasilkan 3 insight strategis inti yang diadopsi sebagai strategi perusahaan.",
+    exp5_desc:
+      "Transisi ke peran data analytics, membangun dashboard Power BI dan menghasilkan insight strategis dari scraping data pasar. Menghasilkan 3 insight strategis inti yang diadopsi sebagai strategi perusahaan.",
     exp5_impact1: "Waktu persiapan laporan berkurang ~60%",
     exp5_impact2: "Insight diadopsi sebagai strategi perusahaan tahun depan",
     exp5_impact3: "Memungkinkan keputusan marketing berbasis bukti",
     exp6_title: "Pengembangan Solution App & Digitalization Task Force",
     exp6_badge: "Pengembangan Sistem | Transformasi Digital",
-    exp6_desc: "Merancang dan meluncurkan solution app berbasis Laravel setelah 4 tahun perencanaan. Bergabung dengan digitalization task force yang mengerjakan digital twin, WMS, dan otomasi Power BI.",
+    exp6_desc:
+      "Merancang dan meluncurkan solution app berbasis Laravel setelah 4 tahun perencanaan. Bergabung dengan digitalization task force yang mengerjakan digital twin, WMS, dan otomasi Power BI.",
     exp6_impact1: "Pelaporan manual berkurang ~50–70%",
     exp6_impact2: "Mencapai data operasional near real-time",
     exp6_impact3: "Mempercepat kematangan digital lintas operasi",
     exp7_title: "Ekspansi Platform & Integrasi Lintas Fungsi",
     exp7_badge: "Platform Ownership | Integrasi Enterprise",
-    exp7_desc: "Memperluas cakupan platform solution ke marketing, manufacturing, PPIC, dan engineering sambil mempertahankan kepemilikan sistem elektrikal.",
+    exp7_desc:
+      "Memperluas cakupan platform solution ke marketing, manufacturing, PPIC, dan engineering sambil mempertahankan kepemilikan sistem elektrikal.",
     exp7_impact1: "Pandangan operasional terintegrasi lintas fungsi",
     exp7_impact2: "Fondasi untuk dukungan keputusan enterprise-wide",
 
@@ -462,43 +470,50 @@ const translations = {
     experienceTitle: "Professional Experience",
     exp1_title: "Electrical Design Engineer – ICE 3W Vehicle",
     exp1_badge: "Electrical Engineering | Vehicle Systems Analysis",
-    exp1_desc: "Performed full reverse engineering of 3W ICE vehicle electrical system. Built comprehensive electrical reference data including voltage, current, and load behavior for all components.",
+    exp1_desc:
+      "Performed full reverse engineering of 3W ICE vehicle electrical system. Built comprehensive electrical reference data including voltage, current, and load behavior for all components.",
     exp1_impact1: "Troubleshooting time reduced ~40–50%",
     exp1_impact2: "Created electrical system map and parameter database",
     exp1_impact3: "Eliminated dependency on external vendors for diagnostics",
     exp2_title: "Aftersales & Production Electrical Problem Solver",
     exp2_badge: "Root Cause Analysis | Reliability Engineering",
-    exp2_desc: "Resolved critical field electrical issues through root cause analysis and specification redesign. Eliminated ignition wire melting problems and established fast-response troubleshooting protocols.",
+    exp2_desc:
+      "Resolved critical field electrical issues through root cause analysis and specification redesign. Eliminated ignition wire melting problems and established fast-response troubleshooting protocols.",
     exp2_impact1: "Electrical claim rate reduced ~70–80%",
     exp2_impact2: "Achieved consistent 1×24 hour aftersales SLA",
     exp2_impact3: "Zero recurrence of ignition melting issue",
     exp3_title: "EV Vehicle Development – Concept to Mass Production",
     exp3_badge: "Product Development | EV Systems | Regulatory Compliance",
-    exp3_desc: "Led end-to-end EV 3W vehicle development from electrical architecture design to government certification and mass production deployment.",
+    exp3_desc:
+      "Led end-to-end EV 3W vehicle development from electrical architecture design to government certification and mass production deployment.",
     exp3_impact1: "Completed development cycle in ~18–24 months",
     exp3_impact2: "Achieved full Ministry certification",
     exp3_impact3: "Successfully deployed to government projects",
     exp4_title: "Cost Reduction & Localization Engineering",
     exp4_badge: "Cost Engineering | Localization Strategy",
-    exp4_desc: "Drove BOM cost optimization and local supplier qualification initiatives while standardizing engineering documentation across platforms.",
+    exp4_desc:
+      "Drove BOM cost optimization and local supplier qualification initiatives while standardizing engineering documentation across platforms.",
     exp4_impact1: "BOM cost reduced ~5–10%",
     exp4_impact2: "Increased local content ratio significantly",
     exp4_impact3: "Improved supply chain resilience",
     exp5_title: "Data-Driven Engineering & Marketing Analytics",
     exp5_badge: "Data Analytics | Marketing Strategy | Business Insight",
-    exp5_desc: "Transitioned to data analytics role, building Power BI dashboards and deriving strategic insights from market data scraping. Derived 3 core strategic insights adopted as company strategy.",
+    exp5_desc:
+      "Transitioned to data analytics role, building Power BI dashboards and deriving strategic insights from market data scraping. Derived 3 core strategic insights adopted as company strategy.",
     exp5_impact1: "Reporting preparation time reduced ~60%",
     exp5_impact2: "Insights adopted as next-year company strategy",
     exp5_impact3: "Enabled evidence-based marketing decisions",
     exp6_title: "Solution App Development & Digitalization Task Force",
     exp6_badge: "System Development | Digital Transformation",
-    exp6_desc: "Designed and launched Laravel-based solution app after 4 years of planning. Joined digitalization task force working on digital twin, WMS, and Power BI automation.",
+    exp6_desc:
+      "Designed and launched Laravel-based solution app after 4 years of planning. Joined digitalization task force working on digital twin, WMS, and Power BI automation.",
     exp6_impact1: "Manual reporting reduced ~50–70%",
     exp6_impact2: "Achieved near real-time operational data",
     exp6_impact3: "Accelerated digital maturity across operations",
     exp7_title: "Platform Expansion & Cross-Function Integration",
     exp7_badge: "Platform Ownership | Enterprise Integration",
-    exp7_desc: "Expanding solution platform coverage across marketing, manufacturing, PPIC, and engineering while maintaining electrical system ownership.",
+    exp7_desc:
+      "Expanding solution platform coverage across marketing, manufacturing, PPIC, and engineering while maintaining electrical system ownership.",
     exp7_impact1: "Integrated operational view across functions",
     exp7_impact2: "Foundation for enterprise-wide decision support",
 
@@ -1236,3 +1251,221 @@ console.log(
 window.addEventListener("load", function () {
   document.body.classList.remove("loading");
 });
+
+// ============================================
+// 16. PORTFOLIO FOCUS SYSTEM - URL Parameters
+// ============================================
+
+// Focus profiles for different job types
+const focusProfiles = {
+  'logistics-erp': {
+    title: {
+      id: 'Specialist Power BI & ERP Systems | Data Analytics & Dashboard Development',
+      en: 'Power BI & ERP Systems Specialist | Data Analytics & Dashboard Development'
+    },
+    description: {
+      id: 'Mechatronics Engineer dengan 5+ tahun pengalaman mengembangkan dashboard Power BI, sistem ERP, dan analitik data logistik. Ahli dalam Excel lanjutan, database integration, dan digitalisasi sistem manufaktur. Berpengalaman dalam analisis data dari sistem ERP, pengembangan laporan terintegrasi, dan peningkatan UX/UI sistem digital.',
+      en: 'Mechatronics Engineer with 5+ years of experience developing Power BI dashboards, ERP systems, and logistics data analytics. Expert in advanced Excel, database integration, and manufacturing system digitalization. Experienced in ERP system data analysis, integrated reporting development, and digital system UX/UI enhancement.'
+    },
+    highlightSkills: ['3.1', '3.2', '2.2'], // Excel, PowerBI/Python, Digitalization
+    highlightExperience: ['exp5', 'exp6', 'exp7'], // Data analytics, Solution app, Platform expansion
+    emphasizeTools: ['Powerbi.png', 'Excel.png', 'Python.png', 'Laravel.png', 'mysql.png']
+  },
+  'powerbi': {
+    title: {
+      id: 'Data Analytics Specialist | Power BI Dashboard & Reporting Expert',
+      en: 'Data Analytics Specialist | Power BI Dashboard & Reporting Expert'
+    },
+    description: {
+      id: 'Specialist Power BI dengan pengalaman membangun dashboard dan sistem pelaporan berbasis database. Mengintegrasikan data dari berbagai sumber untuk menghasilkan insight yang actionable bagi manajemen. Expertise dalam Excel Analytics, Python, dan visualisasi data.',
+      en: 'Power BI specialist with experience building dashboards and database-driven reporting systems. Integrating data from multiple sources to generate actionable insights for management. Expertise in Excel Analytics, Python, and data visualization.'
+    },
+    highlightSkills: ['3.2', '3.1', '4.2'],
+    highlightExperience: ['exp5', 'exp6'],
+    emphasizeTools: ['Powerbi.png', 'Python.png', 'Excel.png']
+  },
+  'digitalization': {
+    title: {
+      id: 'Digital Transformation Specialist | Laravel Web Systems & Process Automation',
+      en: 'Digital Transformation Specialist | Laravel Web Systems & Process Automation'
+    },
+    description: {
+      id: 'Engineer dengan fokus pada digitalisasi proses bisnis dan pengembangan sistem web. Mengembangkan solution apps berbasis Laravel yang menggantikan proses manual dengan sistem terintegrasi. Expertise dalam database design, system integration, dan digital transformation.',
+      en: 'Engineer focused on business process digitalization and web system development. Developing Laravel-based solution apps that replace manual processes with integrated systems. Expertise in database design, system integration, and digital transformation.'
+    },
+    highlightSkills: ['2.2', '2.1', '3.2'],
+    highlightExperience: ['exp6', 'exp7', 'exp5'],
+    emphasizeTools: ['Laravel.png', 'mysql.png', 'Powerbi.png', 'Python.png']
+  },
+  'marketing': {
+    title: {
+      id: 'Marketing Analytics & SEO Specialist | Data-Driven Strategy',
+      en: 'Marketing Analytics & SEO Specialist | Data-Driven Strategy'
+    },
+    description: {
+      id: 'Marketing analyst dengan expertise dalam data scraping, SEO analytics, dan market intelligence. Menganalisis lebih dari 100,000+ data records untuk menghasilkan strategic insights. Memahami customer journey mapping, SERP analysis, dan marketing framework untuk mendukung keputusan bisnis.',
+      en: 'Marketing analyst with expertise in data scraping, SEO analytics, and market intelligence. Analyzing 100,000+ data records to generate strategic insights. Understanding customer journey mapping, SERP analysis, and marketing frameworks to support business decisions.'
+    },
+    highlightSkills: ['4.2', '4.1', '3.2'],
+    highlightExperience: ['exp5', 'exp7'],
+    emphasizeTools: ['Powerbi.png', 'Python.png', 'Excel.png']
+  },
+  'engineering': {
+    title: {
+      id: 'Mechatronics Engineer | Electrical Systems & Product Development',
+      en: 'Mechatronics Engineer | Electrical Systems & Product Development'
+    },
+    description: {
+      id: 'Mechatronics Engineer dengan pengalaman end-to-end dalam pengembangan kendaraan EV dan ICE. Expert dalam electrical system architecture, troubleshooting, dan product development dari konsep hingga mass production. Berpengalaman dalam regulatory compliance dan reliability engineering.',
+      en: 'Mechatronics Engineer with end-to-end experience in EV and ICE vehicle development. Expert in electrical system architecture, troubleshooting, and product development from concept to mass production. Experienced in regulatory compliance and reliability engineering.'
+    },
+    highlightSkills: ['1.1', '1.2', '2.1'],
+    highlightExperience: ['exp1', 'exp2', 'exp3', 'exp4'],
+    emphasizeTools: ['AutoCAD.png', 'Proteus.png', 'Arduino.png', 'KiCAD.png']
+  }
+};
+
+// Detect URL parameter and apply focus
+function applyPortfolioFocus() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const focus = urlParams.get('focus');
+  
+  if (!focus || !focusProfiles[focus]) {
+    console.log('📋 Displaying full portfolio (no focus applied)');
+    return;
+  }
+  
+  const profile = focusProfiles[focus];
+  const lang = currentLang || 'id';
+  
+  console.log(`🎯 Applying focus: ${focus}`);
+  
+  // Update hero title
+  const heroTitle = document.querySelector('[data-translate="heroTitle"]');
+  if (heroTitle) {
+    heroTitle.textContent = profile.title[lang];
+  }
+  
+  // Update hero description
+  const heroDesc = document.querySelector('[data-translate="heroDesc1"]');
+  if (heroDesc) {
+    heroDesc.textContent = profile.description[lang];
+  }
+  
+  // Highlight relevant skills with visual emphasis
+  if (profile.highlightSkills) {
+    document.querySelectorAll('.skill-card').forEach(card => {
+      const skillId = card.querySelector('[data-translate]')?.getAttribute('data-translate')?.replace('_title', '');
+      
+      if (profile.highlightSkills.some(s => skillId?.includes(s))) {
+        card.style.order = '-1'; // Move to top
+        card.style.border = '2px solid var(--primary-color)';
+        card.style.boxShadow = '0 0 20px rgba(0, 123, 255, 0.3)';
+        
+        // Add "RELEVANT" badge
+        if (!card.querySelector('.relevance-badge')) {
+          const badge = document.createElement('div');
+          badge.className = 'relevance-badge';
+          badge.textContent = lang === 'id' ? '✓ RELEVAN' : '✓ RELEVANT';
+          badge.style.cssText = `
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 10;
+          `;
+          card.style.position = 'relative';
+          card.appendChild(badge);
+        }
+      }
+    });
+  }
+  
+  // Highlight relevant experience timeline entries
+  if (profile.highlightExperience) {
+    document.querySelectorAll('.timeline-item').forEach(item => {
+      const expId = item.querySelector('[data-translate]')?.getAttribute('data-translate')?.replace('_title', '');
+      
+      if (profile.highlightExperience.includes(expId)) {
+        item.style.border = '2px solid var(--primary-color)';
+        item.querySelector('.timeline-marker')?.style.setProperty('background', 'var(--primary-color)');
+        item.querySelector('.timeline-marker')?.style.setProperty('box-shadow', '0 0 20px var(--primary-color)');
+      } else {
+        item.style.opacity = '0.6';
+      }
+    });
+  }
+  
+  // Emphasize relevant tools with glow effect
+  if (profile.emphasizeTools) {
+    document.querySelectorAll('.tool-item img').forEach(img => {
+      const toolName = img.src.split('/').pop();
+      
+      if (profile.emphasizeTools.includes(toolName)) {
+        img.style.filter = 'brightness(1.2)';
+        img.style.transform = 'scale(1.1)';
+        img.parentElement.style.boxShadow = '0 0 15px rgba(0, 123, 255, 0.5)';
+      } else {
+        img.parentElement.style.opacity = '0.5';
+      }
+    });
+  }
+  
+  // Add focus indicator to page
+  const focusIndicator = document.createElement('div');
+  focusIndicator.className = 'focus-indicator';
+  focusIndicator.innerHTML = `
+    <div style="
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary-color);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      font-size: 0.85rem;
+      font-weight: 600;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    ">
+      <i class="fas fa-filter"></i>
+      <span>${lang === 'id' ? 'Portfolio Disesuaikan' : 'Tailored Portfolio'}</span>
+      <button onclick="window.location.href=window.location.pathname" style="
+        background: rgba(255,255,255,0.2);
+        border: none;
+        color: white;
+        padding: 4px 10px;
+        border-radius: 15px;
+        cursor: pointer;
+        font-size: 0.75rem;
+        margin-left: 5px;
+      ">${lang === 'id' ? 'Lihat Semua' : 'View All'}</button>
+    </div>
+  `;
+  document.body.appendChild(focusIndicator);
+}
+
+// Apply focus when page loads
+document.addEventListener('DOMContentLoaded', function() {
+  // Wait for translations to load first
+  setTimeout(() => {
+    applyPortfolioFocus();
+  }, 100);
+});
+
+// Reapply focus when language changes
+const originalTranslatePage = translatePage;
+translatePage = function(lang) {
+  originalTranslatePage(lang);
+  setTimeout(() => {
+    applyPortfolioFocus();
+  }, 100);
+};

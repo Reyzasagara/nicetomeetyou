@@ -1,0 +1,363 @@
+1. Electrical Design Engineer – ICE 3W Vehicle
+
+Period: Dec 2021 – Early 2022
+
+Skill Area: Electrical Engineering | Vehicle Systems Analysis
+
+Role / Context:
+Electrical Design Engineer for existing ICE 3W cargo vehicle platform
+
+Problem / Condition (Before):
+
+Electrical system knowledge was undocumented and tribal
+
+Aftersales and production troubleshooting relied on trial-and-error
+
+No validated electrical parameters per component
+
+Action Taken (What You Did):
+
+Performed full reverse engineering of vehicle wiring harness
+
+Measured and validated voltage, current, and load behavior for each electrical component
+
+Mapped combustion system, ignition, and accessory electrical working principles
+
+Built internal electrical reference data for the platform
+
+Tools / Methods Used:
+Multimeter, clamp meter, wiring diagrams, physical teardown, field testing
+
+Output / Deliverables:
+
+Electrical system map and parameter database
+
+Component-level electrical behavior documentation
+
+Impact / Result (After):
+
+Electrical issues could be diagnosed systematically instead of experimentally
+
+Engineering team gained foundational electrical knowledge of the product
+
+Quantitative Metrics (Estimated):
+
+Troubleshooting time reduced ~40–50%
+
+Electrical issue diagnosis accuracy improved significantly
+
+Business Value:
+Reduced dependency on external vendors and accelerated internal capability building
+
+Stakeholders:
+Engineering, Production, Aftersales
+
+2. Aftersales & Production Electrical Problem Solver
+
+Period: 2022 – Present
+
+Skill Area: Root Cause Analysis | Reliability Engineering
+
+Role / Context:
+Engineering support for aftersales field issues and production line problems
+
+Problem / Condition (Before):
+
+Frequent electrical claims from field
+
+Ignition wire plug/socket melting due to overcurrent and underspec components
+
+Aftersales response SLA difficult to achieve
+
+Action Taken (What You Did):
+
+Used collected electrical data to identify overcurrent root cause
+
+Redesigned specification (plug, socket, wire gauge)
+
+Guided production and aftersales technicians with clear diagnostic logic
+
+Established fast-response electrical troubleshooting protocol
+
+Tools / Methods Used:
+Failure analysis, electrical load calculation, field data feedback, specification redesign
+
+Output / Deliverables:
+
+Revised electrical specifications
+
+Field troubleshooting guideline
+
+Production quality improvement
+
+Impact / Result (After):
+
+Electrical melting issue fully eliminated
+
+Aftersales electrical response consistently met SLA
+
+Quantitative Metrics (Estimated):
+
+Electrical claim rate reduced ~70–80%
+
+1×24 hour aftersales response consistently achieved
+
+Zero recurrence of ignition melting issue to date
+
+Business Value:
+Improved brand reliability perception and reduced warranty cost
+
+Stakeholders:
+Aftersales, Production, Quality, Customers
+
+3. EV Vehicle Development – From Concept to Mass Production
+
+Period: 2022 – 2023
+
+Skill Area: Product Development | EV Systems | Regulatory Compliance
+
+Role / Context:
+Core engineer for new EV 3W vehicle development
+
+Problem / Condition (Before):
+
+No existing EV product platform
+
+High uncertainty in vendors, testing, and regulations
+
+Action Taken (What You Did):
+
+Designed EV electrical architecture
+
+Conducted component testing and system validation
+
+Searched and evaluated vendors
+
+Led internal testing and government certification testing
+
+Supported approvals at Ministry of Transportation and Ministry of Commerce
+
+Tools / Methods Used:
+EV testing procedures, vendor benchmarking, regulatory testing protocols
+
+Output / Deliverables:
+
+Fully certified EV 3W vehicle
+
+Production-ready technical documentation
+
+Impact / Result (After):
+
+EV product entered mass production
+
+Successfully sold to government projects
+
+Quantitative Metrics (Estimated):
+
+Development cycle completed within ~18–24 months
+
+Multiple government project deployments achieved
+
+Business Value:
+Opened new revenue stream and strengthened company innovation image
+
+Stakeholders:
+Engineering, Management, Government Institutions, Vendors
+
+4. Cost Reduction, Localization & Engineering Documentation
+
+Period: 2023
+
+Skill Area: Cost Engineering | Localization Strategy
+
+Role / Context:
+Cost reduction engineer for ICE and EV platforms
+
+Problem / Condition (Before):
+
+High BOM cost
+
+Heavy dependency on imported components
+
+Engineering documentation not standardized
+
+Action Taken (What You Did):
+
+Reviewed BOM for cost reduction opportunities
+
+Identified and qualified local suppliers
+
+Standardized engineering documentation
+
+Continued solving daily engineering and production issues
+
+Tools / Methods Used:
+BOM analysis, vendor comparison, documentation standardization
+
+Output / Deliverables:
+
+Reduced-cost component alternatives
+
+Improved engineering document quality
+
+Impact / Result (After):
+
+Lower production cost
+
+Improved documentation reliability
+
+Quantitative Metrics (Estimated):
+
+BOM cost reduced ~5–10%
+
+Local content ratio increased significantly
+
+Business Value:
+Improved margin and supply chain resilience
+
+Stakeholders:
+Procurement, Engineering, Finance, Vendors
+
+5. Data-Driven Engineering & Marketing Analytics Transition
+
+Period: 2024
+
+Skill Area: Data Analytics | Marketing Strategy | Business Insight
+
+Role / Context:
+Engineering staff supporting marketing and sales with data
+
+Problem / Condition (Before):
+
+Sales targets not achieved
+
+Marketing decisions based on intuition
+
+No integrated market or digital insight
+
+Action Taken (What You Did):
+
+Formal training in data analytics (Google Data Analytics)
+
+Shifted all reports to data-backed analysis
+
+Scraped market and digital data
+
+Built Power BI dashboards
+
+Derived 3 core strategic insights:
+
+Digital marketing gap
+
+Solution-based application need
+
+Area expansion channel opportunity
+
+Learned marketing frameworks (JTBD, CJM, OYP, 7O Analytics)
+
+Tools / Methods Used:
+Python, Power BI, data scraping, marketing frameworks
+
+Output / Deliverables:
+
+Executive dashboards
+
+Strategic insight presentation
+
+Impact / Result (After):
+
+Insights adopted as company strategy for next year
+
+Quantitative Metrics (Estimated):
+
+Reporting preparation time reduced ~60%
+
+Management decision speed improved significantly
+
+Business Value:
+Enabled evidence-based marketing and expansion planning
+
+Stakeholders:
+Marketing, Sales, Directors, Management
+
+6. Solution App Development & Digitalization Task Force
+
+Period: 2025
+
+Skill Area: System Development | Digital Transformation
+
+Role / Context:
+Developer and digitalization task force member
+
+Problem / Condition (Before):
+
+Solution app planned since 2021 but never realized
+
+High complexity and cost barriers
+
+Fragmented operational data
+
+Action Taken (What You Did):
+
+Designed and developed solution app using Laravel
+
+Simplified architecture to reduce cost and complexity
+
+Successfully launched app in Q4
+
+Joined digitalization task force
+
+Worked on digital twin, WMS, and Power BI automation for Asakai production
+
+Tools / Methods Used:
+Laravel, Power BI, system architecture design
+
+Output / Deliverables:
+
+Live operational solution app
+
+Automated dashboards
+
+Impact / Result (After):
+
+Operational visibility improved
+
+Digital initiatives moved from concept to execution
+
+Quantitative Metrics (Estimated):
+
+Manual reporting reduced ~50–70%
+
+Data availability near real-time for key operations
+
+Business Value:
+Accelerated digital maturity and operational efficiency
+
+Stakeholders:
+Operations, Manufacturing, Digitalization Team, Management
+
+7. Continuous Improvement & Platform Expansion
+
+Period: 2026 – Present
+
+Skill Area: Platform Ownership | Cross-Function Integration
+
+Role / Context:
+Electrical owner and solution platform improver
+
+Problem / Condition (Before):
+
+Systems siloed by function
+
+Action Taken (What You Did):
+
+Continued electrical responsibility
+
+Expanded app coverage to marketing, manufacturing, PPIC, and engineering
+
+Impact / Result (After):
+
+Integrated operational view across functions
+
+Business Value:
+Foundation for enterprise-wide decision support

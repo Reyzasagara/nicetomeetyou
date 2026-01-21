@@ -1,0 +1,35 @@
+To: recruitment.kan@haritamineral.com
+Subject: Logistic System Development Specialist_Reyza Agung Gunawan
+
+Dear Recruitment Team,
+
+Saya tertarik untuk melamar posisi Logistic System Development Specialist di PT Harita Mineral. Dengan latar belakang sebagai Mechatronics Engineer dan pengalaman 4+ tahun dalam sistem development, data analytics, dan digitalisasi, saya yakin dapat berkontribusi dalam pengembangan sistem ERP Logistik perusahaan.
+
+Berikut kualifikasi saya yang sesuai dengan requirement:
+
+✓ S1 Teknik Mekatronika dengan pengalaman di bidang IT dan sistem informasi
+✓ Berpengalaman mengembangkan dashboard dan report Power BI yang terintegrasi dengan database ERP
+✓ Mahir Microsoft Excel (advanced level) untuk analisis data dan reporting
+✓ Menguasai Bahasa Indonesia dan Inggris dengan baik (lisan dan tulisan)
+✓ Siap dinas ke site sesuai kebutuhan operasional
+
+Pengalaman Relevan:
+
+• Membangun aplikasi solution berbasis Laravel dengan integrasi database MySQL untuk operasional perusahaan
+• Mengembangkan Power BI dashboards untuk sales, production, dan operational KPIs dengan data dari multiple sources (Excel, ERP, operational databases)
+• Melakukan analisis data logistik dan inventory untuk identifikasi performance gaps dan optimization opportunities
+• Berkolaborasi dengan tim IT dalam pengembangan sistem, UAT, dan improvement UX/UI
+• Mengotomasi recurring reports, mengurangi manual processing workload hingga 50-70%
+
+Saya sangat antusias untuk berkontribusi dalam pengembangan sistem ERP Logistik Harita Group dan membantu meningkatkan efisiensi operasional melalui digitalisasi dan data-driven insights.
+
+Terlampir CV saya untuk pertimbangan lebih lanjut. Saya sangat berharap dapat berdiskusi lebih detail mengenai bagaimana pengalaman dan skill saya dapat mendukung kebutuhan tim.
+
+Terima kasih atas waktu dan pertimbangannya.
+
+Hormat saya,
+
+Reyza Agung Gunawan
++62 895 7115 72070
+reyzacomm@gmail.com
+GitHub: github.com/reyzasagara

@@ -1,0 +1,149 @@
+%-------------------------
+% LaTeX CV – Reyza Agung Gunawan (2 Pages)
+%-------------------------
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[margin=0.75in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{setspace}
+
+\hypersetup{
+    colorlinks=true,
+    urlcolor=black
+}
+
+\setlist[itemize]{noitemsep, topsep=2pt}
+\pagenumbering{gobble}
+
+\begin{document}
+
+%========================
+% HEADER
+%========================
+\begin{center}
+    {\LARGE \textbf{Reyza Agung Gunawan}}\\
+    \vspace{4pt}
+    Mechatronics Engineer | Data \& Digitalization Specialist | Marketing Analytics\\
+    \vspace{4pt}
+    Cikarang, Bekasi, Indonesia\\
+    \href{mailto:reyzacomm@gmail.com}{reyzacomm@gmail.com} \,|\, +62 895 7115 72070\\
+    GitHub: \href{https://github.com/reyzasagara}{github.com/reyzasagara}
+\end{center}
+
+\vspace{6pt}
+
+%========================
+% SUMMARY
+%========================
+\section*{Professional Summary}
+Mechatronics Engineer with 4+ years of experience spanning automotive electrical engineering, EV development, aftersales problem solving, cost optimization, data analytics, and enterprise digitalization. Proven ability to translate complex technical systems into structured data, insights, and digital tools that support engineering reliability, operational efficiency, and management decision-making. Strong cross-functional collaborator bridging engineering, manufacturing, marketing, and IT.
+
+%========================
+% PROFESSIONAL EXPERIENCE
+%========================
+\section*{Professional Experience}
+
+\textbf{Electrical Design Engineer – ICE 3W Vehicle} \hfill \textit{Dec 2021 – Early 2022}
+\begin{itemize}
+    \item Conducted full electrical reverse engineering of an existing three-wheel internal combustion engine (ICE) vehicle as an onboarding and knowledge-transfer initiative.
+    \item Disassembled and mapped complete wiring harness architecture, including power distribution, grounding strategy, protection devices, and signal routing.
+    \item Performed electrical measurements and validation testing (voltage drop, current draw, load behavior, charging characteristics) under multiple operating conditions.
+    \item Created structured electrical documentation including wiring diagrams, connector pinouts, and component specifications previously unavailable internally.
+    \item Built baseline electrical parameter database used as reference for troubleshooting, redesign, and future model development.
+    \item Reduced dependency on external vendors for diagnostics and shortened electrical issue investigation time by an estimated 40–50\%.
+\end{itemize}
+
+\vspace{6pt}
+
+\textbf{Aftersales \& Production Electrical Problem Solver} \hfill \textit{2022 – Present}
+\begin{itemize}
+    \item Acted as primary electrical technical support for production line, aftersales teams, and field service units.
+    \item Led structured root cause analysis (RCA) for recurring electrical failures using field data, warranty reports, and physical inspection.
+    \item Identified design weaknesses in ignition and power distribution systems that caused overheating and component melting in real-world usage.
+    \item Redesigned electrical specifications, component selection, and installation standards to eliminate failure modes.
+    \item Coordinated with suppliers, production engineering, and quality teams to implement corrective actions.
+    \item Established fast-response troubleshooting workflows enabling consistent 24-hour aftersales resolution for electrical issues.
+    \item Reduced electrical-related warranty claims and repeat failures by approximately 70–80\% within one production cycle.
+\end{itemize}
+
+\vspace{6pt}
+
+\textbf{EV 3-Wheel Vehicle Development (Concept to Mass Production)} \hfill \textit{2022 – 2023}
+\begin{itemize}
+    \item Participated in end-to-end development of a three-wheel electric vehicle from early concept through mass production.
+    \item Supported definition of vehicle electrical architecture, including high-voltage and low-voltage system separation.
+    \item Worked on integration of BMS, motor controller, ECU, dashboard cluster, and auxiliary electrical systems.
+    \item Supported CAN communication trials and validation between BMS, ECU, and instrument cluster.
+    \item Conducted functional testing, fault analysis, and iterative improvements during prototype and pilot build stages.
+    \item Supported regulatory testing, documentation, and certification processes required for government approval.
+    \item Contributed to achieving production readiness and market launch within approximately 18–24 months.
+\end{itemize}
+
+\vspace{6pt}
+
+\textbf{Cost Reduction \& Localization Engineering} \hfill \textit{2023}
+\begin{itemize}
+    \item Led initiatives to reduce vehicle BOM cost through component redesign and supplier localization.
+    \item Evaluated alternative components and local suppliers while ensuring compliance with electrical performance and durability requirements.
+    \item Conducted cost-benefit analysis comparing imported versus localized parts.
+    \item Revised electrical specifications to balance cost, reliability, and manufacturability.
+    \item Collaborated with purchasing and quality teams to qualify new suppliers.
+    \item Achieved approximately 5–10\% reduction in electrical BOM cost while maintaining reliability targets.
+\end{itemize}
+
+\vspace{6pt}
+
+\textbf{Data Analytics \& Marketing Insight Development} \hfill \textit{2024}
+\begin{itemize}
+    \item Transitioned engineering data handling skills into business and marketing analytics initiatives.
+    \item Designed and built Power BI dashboards for sales performance, production trends, and dealer activity.
+    \item Cleaned, merged, and transformed large datasets from Excel, SAP, and operational reports.
+    \item Automated recurring reports previously created manually, reducing reporting preparation time by approximately 60\%.
+    \item Analyzed historical sales and market data to identify performance gaps and growth opportunities.
+    \item Delivered structured insights used as input for annual planning and marketing strategy discussions.
+\end{itemize}
+
+\vspace{6pt}
+
+\textbf{Digital Solution Development \& Internal Task Force Member} \hfill \textit{2025}
+\begin{itemize}
+    \item Selected as part of an internal digitalization task force to reduce manual workflows and improve data visibility.
+    \item Designed and developed internal web-based solution applications using Laravel.
+    \item Built tools to consolidate operational, sales, and engineering data into centralized platforms.
+    \item Integrated multiple data sources and implemented role-based access for internal stakeholders.
+    \item Reduced manual data processing and reporting workload by an estimated 50–70\%.
+    \item Improved data accuracy, traceability, and real-time availability for decision-makers.
+\end{itemize}
+
+\vspace{6pt}
+
+\textbf{Enterprise Digital Platform Expansion} \hfill \textit{2026 – Present}
+\begin{itemize}
+    \item Supporting expansion of a centralized business monitoring platform across engineering, manufacturing, and marketing functions.
+    \item Translating operational and transactional data into KPIs and management-level dashboards.
+    \item Collaborating with cross-functional stakeholders to align data structure with business processes.
+    \item Positioning digital platforms as strategic tools rather than reporting-only systems.
+\end{itemize}
+
+%========================
+% SKILLS
+%========================
+\section*{Technical Skills}
+\begin{itemize}
+    \item \textbf{Engineering:} Automotive electrical systems, wiring harness design, EV systems, CAN bus, RCA
+    \item \textbf{Data \& Analytics:} Power BI, advanced Excel, data cleaning, KPI development
+    \item \textbf{Digitalization:} Laravel web applications, system integration, workflow automation
+    \item \textbf{Business:} Cost reduction, localization strategy, marketing analytics, cross-functional collaboration
+\end{itemize}
+
+%========================
+% EDUCATION
+%========================
+\section*{Education}
+\textbf{Bachelor of Engineering – Mechatronics Engineering}\\
+[University Name], Indonesia
+
+\end{document}

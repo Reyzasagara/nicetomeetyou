@@ -1,0 +1,54 @@
+To: recruitment@nskind.co.id
+Subject: QC Staff for Digitalization Project_Reyza Agung Gunawan
+
+Dear Recruitment Team,
+
+Saya tertarik untuk melamar posisi QC Staff for Digitalization Project di PT. NSK Bearings Manufacturing Indonesia. Dengan latar belakang D3 Teknik Mekatronika dan pengalaman 4+ tahun dalam full-stack development, database management, dan digitalisasi sistem produksi, saya yakin dapat berkontribusi signifikan dalam proyek digitalisasi Quality Control perusahaan.
+
+Berikut kualifikasi saya yang sesuai dengan requirement:
+
+✓ D3 Teknik Mekatronika dari Politeknik Manufaktur Bandung dengan pengalaman IT dan sistem informasi
+✓ Menguasai Full Stack Development dengan framework Laravel untuk web-based applications
+✓ Berpengalaman dalam database management dan optimization (MySQL, SQL Server)
+✓ Mahir dalam pengembangan REST API dan integrasi sistem untuk real-time data flow
+✓ Memahami konsep IoT, sistem monitoring otomatis, dan data-driven quality control
+✓ Mampu berkomunikasi dalam Bahasa Indonesia dan Inggris dengan baik
+✓ Memiliki kemampuan analitis kuat dan siap bekerja di area produksi
+
+Pengalaman Relevan:
+
+• Membangun dan memelihara aplikasi internal berbasis Laravel dengan integrasi database MySQL untuk sistem operasional perusahaan
+• Mengembangkan REST API untuk integrasi data antar sistem (ERP, operational databases, Excel sources)
+• Mengelola database MySQL dengan query optimization untuk reporting dan analisa real-time
+• Membangun dashboard monitoring untuk production KPIs, operational performance, dan quality metrics menggunakan Power BI
+• Mengintegrasikan multiple data sources (database, ERP exports, operational systems) untuk consolidated reporting
+• Mengembangkan role-based access control dan user management system untuk stakeholder lintas fungsi
+• Berkolaborasi dengan tim IT, operations, dan management dalam UAT dan improvement UX/UI
+• Menganalisa performance data untuk identifikasi bottleneck dan optimization opportunities
+• Mendokumentasikan system flow, database schema, dan API documentation untuk maintenance
+• Mengotomasi recurring reports dan manual processes, mengurangi workload hingga 50-70%
+• Menerjemahkan kebutuhan operasional lapangan menjadi solusi digital yang applicable
+
+Technical Background:
+
+• Full Stack Development: Laravel, PHP, MySQL, HTML/CSS, JavaScript
+• Database Management: MySQL, query optimization, schema design, data modeling
+• API Development: REST API, JSON, integration with multiple systems
+• Data Analytics: Power BI, DAX, Power Query, Python for data analysis
+• System Integration: ERP integration, multi-source data consolidation
+• Monitoring Systems: Real-time dashboards, automated alerting, KPI tracking
+• Documentation: System flowcharts, database ER diagrams, technical specifications
+
+Saya sangat tertarik untuk berkontribusi dalam digitalisasi sistem Quality Control NSK dan membantu meningkatkan efisiensi serta akurasi inspeksi melalui sistem otomatis dan data-driven monitoring. Pengalaman saya dalam menerjemahkan kebutuhan operasional menjadi solusi sistem akan sangat berguna untuk berkolaborasi dengan tim produksi dan quality control.
+
+Terlampir CV saya untuk pertimbangan lebih lanjut. Saya sangat berharap dapat berdiskusi lebih detail mengenai bagaimana pengalaman dan technical skills saya dapat mendukung proyek digitalisasi QC di NSK.
+
+Terima kasih atas waktu dan pertimbangannya.
+
+Hormat saya,
+
+Reyza Agung Gunawan
++62 895 7115 72070
+reyzacomm@gmail.com
+GitHub: github.com/reyzasagara
+LinkedIn: linkedin.com/in/reyzaagung

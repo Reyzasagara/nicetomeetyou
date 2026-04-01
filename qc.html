@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Reyza Agung Gunawan - QC Digitalization Specialist | System Development | Database & API Integration
+    </title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Fixed Navigation Header -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#home" class="nav-logo">R.A.G.</a>
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item">
+            <a href="#home" class="nav-link" data-title="Home"
+              ><i class="fas fa-home"></i
+            ></a>
+          </li>
+          <li class="nav-item">
+            <a href="#about" class="nav-link" data-title="About"
+              ><i class="fas fa-user"></i
+            ></a>
+          </li>
+          <li class="nav-item">
+            <a href="#experience" class="nav-link" data-title="Experience"
+              ><i class="fas fa-briefcase"></i
+            ></a>
+          </li>
+          <li class="nav-item">
+            <a href="#skills" class="nav-link" data-title="Skills"
+              ><i class="fas fa-cog"></i
+            ></a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link" data-title="Contact"
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </li>
+        </ul>
+        <button
+          class="language-toggle"
+          id="languageToggle"
+          title="Switch Language"
+        >
+          <span class="lang-text">ID</span>
+        </button>
+        <div class="hamburger" id="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section - Full Screen with Parallax -->
+    <section id="home" class="hero-section">
+      <div
+        class="hero-profile-card"
+        data-aos="fade-right"
+        data-aos-duration="1000"
+      >
+        <div class="hero-image">
+          <img
+            src="images/Profile1.jpg"
+            alt="Reyza Agung Gunawan"
+            onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop'"
+          />
+        </div>
+        <h2>Reyza Agung Gunawan</h2>
+        <p class="hero-role">QC Digitalization Specialist</p>
+
+        <div class="hero-social">
+          <a href="https://www.instagram.com/kautsar_sagara/" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/reyzaag/" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/Reyzasagara" target="_blank">
+            <i class="fab fa-github"></i
+          ></a>
+        </div>
+
+        <div class="hero-actions">
+          <a
+            href="Resume.pdf"
+            class="btn btn-primary ripple"
+            download="Reyza_Agung_Gunawan_QC_Resume.pdf"
+          >
+            <i class="fas fa-download"></i> Download CV
+          </a>
+          <a href="#contact" class="btn btn-secondary ripple">
+            <i class="fas fa-envelope"></i> Contact Me
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-content" data-aos="fade-left" data-aos-duration="1000">
+        <h1 class="hero-greeting">
+          QC System Development Specialist
+        </h1>
+
+        <div class="hero-info-grid">
+          <div class="info-item">
+            <span class="info-label">Age:</span>
+            <span class="info-value">25</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Education:</span>
+            <span class="info-value">D3 Mechatronics</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Focus:</span>
+            <span class="info-value info-available">Quality Digitalization</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Location:</span>
+            <span class="info-value">Cikarang, Bekasi</span>
+          </div>
+        </div>
+
+        <h3
+          style="
+            color: var(--text-dark);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+          "
+        >
+          Full Stack Developer | Database Expert | IoT & Quality Systems Integration
+        </h3>
+
+        <p
+          class="hero-description"
+          style="
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 20px;
+          "
+        >
+          Mechatronics Engineer with D3 education and 4+ years of professional experience specializing in quality control system digitalization, full-stack application development, and manufacturing process automation. Expert in Laravel framework, MySQL database management, REST API integration, and real-time monitoring systems for production quality control.
+        </p>
+
+        <p
+          class="hero-description"
+          style="color: var(--text-light); line-height: 1.8"
+        >
+          Proven track record in building IoT-based inspection systems, developing quality monitoring dashboards, and integrating data flow between production equipment, databases, and management reporting systems. Strong analytical mindset with hands-on experience collaborating across production floors, engineering teams, and management levels to translate technical requirements into practical digital solutions.
+        </p>
+      </div>
+    </section>
+
+    <!-- About Section - Two Column Layout -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">
+          About Me - QC Digitalization Focus
+        </h2>
+        <div
+          class="section-divider"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        ></div>
+
+        <div class="about-content">
+          <div class="about-image" data-aos="fade-right" data-aos-delay="200">
+            <div class="about-img-wrapper">
+              <img
+                src="images/Profile2.jpg"
+                alt="Reyza Agung Gunawan"
+                onerror="this.src='https://via.placeholder.com/400x500/007bff/ffffff?text=Your+Photo'"
+              />
+              <div class="about-img-overlay"></div>
+            </div>
+          </div>
+
+          <div class="about-text" data-aos="fade-left" data-aos-delay="300">
+            <h3 class="about-subtitle">
+              System Development | Quality Control Digitalization | Database & API Integration
+            </h3>
+            <p class="about-description">
+              I am a Diploma 3 (D3) Mechatronics Engineering graduate from Politeknik Manufaktur Bandung with extensive hands-on experience in manufacturing operations, quality control systems, and digitalization initiatives. My career has evolved from electrical engineering and product testing toward full-stack system development and quality monitoring automation.
+            </p>
+            <p class="about-description">
+              In quality control digitalization, I have built IoT-based Andon systems for real-time production monitoring, developed Laravel-based web applications for operational data management, and created Power BI dashboards integrated with production databases for quality KPI tracking. I understand how to structure data flows from shop floor equipment through databases to executive dashboards.
+            </p>
+            <p class="about-description">
+              My technical expertise includes Laravel for backend development, MySQL and SQL Server for database management, REST API design for system integration, and experience with IoT sensors and automated inspection concepts. I am skilled in collaborating with production operators, quality engineers, and IT teams to ensure systems meet real operational requirements while maintaining technical reliability.
+            </p>
+            <p class="about-description">
+              I am particularly interested in quality control digitalization projects that involve automatic inspection systems, defect analysis automation, real-time monitoring dashboards, and data-driven quality improvement initiatives. My goal is to bridge the gap between production reality and digital system capabilities.
+            </p>
+
+            <div class="about-stats">
+              <div
+                class="stat-item has-tooltip"
+                data-aos="zoom-in"
+                data-aos-delay="400"
+              >
+                <span class="stat-number counter" data-target="4">0</span>
+                <span class="stat-label">Years in System Development</span>
+                <div class="career-tooltip">
+                  <h4>QC & Digitalization Experience</h4>
+                  <ul>
+                    <li>
+                      <strong>2021-2022</strong><br />Electrical System Engineering
+                    </li>
+                    <li>
+                      <strong>2022-2023</strong><br />Product Testing & Quality Analysis
+                    </li>
+                    <li>
+                      <strong>2023-2024</strong><br />Data Analytics & Dashboard Development
+                    </li>
+                    <li>
+                      <strong>2024-Present</strong><br />Full Stack Development & QC Systems
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="stat-item" data-aos="zoom-in" data-aos-delay="500">
+                <span class="stat-number counter" data-target="15">0</span>
+                <span class="stat-label">Digitalization Projects Delivered</span>
+              </div>
+              <div
+                class="stat-item has-tooltip"
+                data-aos="zoom-in"
+                data-aos-delay="600"
+              >
+                <span class="stat-number counter" data-target="5">0</span>
+                <span class="stat-label">Core Technical Skills</span>
+                <div class="career-tooltip domains-tooltip">
+                  <h4>Technical Competencies</h4>
+                  <ul>
+                    <li>Full Stack Development (Laravel, MySQL)</li>
+                    <li>REST API & System Integration</li>
+                    <li>IoT & Quality Monitoring Systems</li>
+                    <li>Database Design & Optimization</li>
+                    <li>Dashboard Development (Power BI)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Timeline Section -->
+    <section id="experience" class="experience-section">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">
+          Professional Experience - QC & Digitalization Focus
+        </h2>
+        <div
+          class="section-divider"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        ></div>
+
+        <div class="timeline">
+          <!-- Experience 1 -->
+          <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-period">2025 - Present</div>
+              <h3 class="timeline-title">
+                Laravel-Based Solution App Development & Digitalization Task Force
+              </h3>
+              <div class="timeline-badge">
+                Full Stack Development | Database Management | System Integration
+              </div>
+              <p class="timeline-desc">
+                Designed and launched Laravel-based operational solution application with MySQL database backend. Built centralized platform consolidating sales, production, and operational data with role-based access control. Developed REST API endpoints for system integration and data exchange.
+              </p>
+              <ul class="timeline-highlights">
+                <li>Reduced manual reporting workload by 50-70%</li>
+                <li>Achieved near real-time operational data availability</li>
+                <li>Served as digitalization task force member evaluating enterprise-wide initiatives</li>
+                <li>Designed database schema, query optimization, and API documentation</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Experience 2 -->
+          <div class="timeline-item" data-aos="fade-up" data-aos-delay="250">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-period">2024 - Present</div>
+              <h3 class="timeline-title">
+                Quality & Production Dashboard Development (Power BI)
+              </h3>
+              <div class="timeline-badge">
+                Data Integration | KPI Monitoring | Quality Analytics
+              </div>
+              <p class="timeline-desc">
+                Built Power BI dashboards for production planning, quality metrics, and operational KPIs with data integration from multiple sources (ERP, operational databases, Excel). Automated recurring reports reducing preparation time by 60% while improving data accuracy for management decisions.
+              </p>
+              <ul class="timeline-highlights">
+                <li>Integrated Excel, ERP, and operational database sources</li>
+                <li>Developed automated daily production vs actual reports (20+ product types)</li>
+                <li>Created quality defect tracking and analysis dashboards</li>
+                <li>Delivered strategic insights adopted as company strategy</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Experience 3 -->
+          <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-period">2022 - 2024</div>
+              <h3 class="timeline-title">
+                Manufacturing Digitalization & IoT-Based Andon System
+              </h3>
+              <div class="timeline-badge">
+                IoT Systems | Quality Control | Real-Time Monitoring
+              </div>
+              <p class="timeline-desc">
+                Developed IoT-based Andon system for production line quality monitoring using Arduino microcontrollers. Applied 7 QC Tools (Fishbone Diagram, Pareto Analysis, Scatter Diagram) to structure problem identification and root-cause analysis. System improved production transparency and reduced response time to quality issues.
+              </p>
+              <ul class="timeline-highlights">
+                <li>Real-time quality alert system for production floor</li>
+                <li>Integrated sensor data with management reporting</li>
+                <li>Reduced abnormality response time significantly</li>
+                <li>Structured quality analysis using statistical methods</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Experience 4 -->
+          <div class="timeline-item" data-aos="fade-up" data-aos-delay="350">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-period">2022 - 2023</div>
+              <h3 class="timeline-title">
+                EV Vehicle Development – System Integration & Testing
+              </h3>
+              <div class="timeline-badge">
+                Product Testing | System Validation | Technical Documentation
+              </div>
+              <p class="timeline-desc">
+                Supported end-to-end electric vehicle development including electrical system integration, CAN bus communication validation, and performance testing. Collaborated with IT and engineering teams for testing protocols, data logging, and technical documentation for government certification.
+              </p>
+              <ul class="timeline-highlights">
+                <li>Completed development cycle in 18-24 months</li>
+                <li>Achieved Ministry certification for EV deployment</li>
+                <li>Validated system integration (BMS, motor controller, ECU)</li>
+                <li>Structured testing data and reliability documentation</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Experience 5 -->
+          <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-period">2022 - Present</div>
+              <h3 class="timeline-title">
+                Production & Aftersales Electrical Problem Solver
+              </h3>
+              <div class="timeline-badge">
+                Root Cause Analysis | Quality Improvement | Technical Support
+              </div>
+              <p class="timeline-desc">
+                Resolved critical electrical quality issues through systematic root cause analysis and specification redesign. Established fast-response troubleshooting protocols for production and field problems. Eliminated recurring defects through data-driven quality improvement initiatives.
+              </p>
+              <ul class="timeline-highlights">
+                <li>Electrical claim rate reduced by 70-80%</li>
+                <li>Achieved consistent 1×24 hour aftersales SLA</li>
+                <li>Zero recurrence of major quality issues</li>
+                <li>Built troubleshooting knowledge database</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Experience 6 -->
+          <div class="timeline-item" data-aos="fade-up" data-aos-delay="450">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-period">Dec 2021 - Early 2022</div>
+              <h3 class="timeline-title">
+                Vehicle Electrical System Reverse Engineering & Documentation
+              </h3>
+              <div class="timeline-badge">
+                System Analysis | Technical Documentation | Diagnostic Tools
+              </div>
+              <p class="timeline-desc">
+                Performed complete reverse engineering of 3-wheel vehicle electrical system. Built comprehensive electrical reference database including voltage, current, and load behavior for all components. Created diagnostic tools and system maps reducing troubleshooting time by 40-50%.
+              </p>
+              <ul class="timeline-highlights">
+                <li>Eliminated external vendor dependency for diagnostics</li>
+                <li>Created electrical parameter database and system maps</li>
+                <li>Standardized troubleshooting procedures</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills & Portfolio Combined Section - QC Focus -->
+    <section id="skills" class="skills-portfolio-section">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">
+          Technical Skills & Portfolio - QC Digitalization
+        </h2>
+        <div
+          class="section-divider"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        ></div>
+
+        <!-- Domain 1: Full Stack Development & Database -->
+        <div class="domain-block" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="domain-title">
+            <i class="fas fa-laptop-code"></i>
+            <span>Full Stack Development & Database Management</span>
+          </h3>
+
+          <!-- Skill 1 -->
+          <div class="skill-card">
+            <h4 class="skill-title">
+              Laravel Web Application Development with MySQL Integration
+            </h4>
+            <p class="skill-description">
+              Built production-grade Laravel applications with MySQL database backend for operational management. Developed centralized business monitoring platform consolidating sales, production, and quality data. Implemented role-based access control, user management, and API endpoints for system integration. Designed database schema, optimized queries, and ensured data integrity across multiple operational functions.
+            </p>
+            <div class="skill-gallery">
+              <img
+                src="images/projects/skill2_2_img1.jpg"
+                alt="Laravel Application"
+                class="skill-gallery-img"
+              />
+              <img
+                src="images/projects/skill2_2_img2.jpg"
+                alt="Database Schema"
+                class="skill-gallery-img"
+              />
+            </div>
+            <div class="skill-tools">
+              <div class="tool-item" data-tooltip="Laravel">
+                <img
+                  src="images/tools/Laravel.png"
+                  alt="Laravel"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%23ff2d20%22/><text x=%2224%22 y=%2230%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22white%22>LV</text></svg>'"
+                />
+              </div>
+              <div class="tool-item" data-tooltip="MySQL">
+                <img
+                  src="images/tools/mysql.png"
+                  alt="MySQL"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%234479a1%22/><text x=%2224%22 y=%2230%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22white%22>SQL</text></svg>'"
+                />
+              </div>
+              <div class="tool-item" data-tooltip="PHP">
+                <img
+                  src="images/tools/php.png"
+                  alt="PHP"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%23777bb4%22/><text x=%2224%22 y=%2230%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22white%22>PHP</text></svg>'"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Domain 2: IoT & Quality Monitoring Systems -->
+        <div class="domain-block" data-aos="fade-up" data-aos-delay="300">
+          <h3 class="domain-title">
+            <i class="fas fa-microchip"></i>
+            <span>IoT & Quality Monitoring Systems</span>
+          </h3>
+
+          <!-- Skill 2 -->
+          <div class="skill-card">
+            <h4 class="skill-title">
+              IoT-Based Andon System for Production Quality Control
+            </h4>
+            <p class="skill-description">
+              Developed IoT-based Andon system using Arduino microcontrollers for real-time production quality monitoring. System monitors quality issues and operational abnormalities on shop floor with automated alerting. Applied 7 QC Tools including Fishbone Diagram, Pareto Analysis, and Scatter Diagram for structured problem identification and root-cause analysis. Improved production transparency and reduced response time to quality defects.
+            </p>
+            <div class="skill-gallery">
+              <img
+                src="images/projects/skill2_1_img1.jpg"
+                alt="Andon System"
+                class="skill-gallery-img"
+              />
+              <img
+                src="images/projects/skill2_1_img2.jpg"
+                alt="Quality Monitoring"
+                class="skill-gallery-img"
+              />
+            </div>
+            <div class="skill-tools">
+              <div class="tool-item" data-tooltip="Arduino">
+                <img
+                  src="images/tools/Arduino.png"
+                  alt="Arduino"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%2300979d%22/><text x=%2224%22 y=%2230%22 font-size=%228%22 text-anchor=%22middle%22 fill=%22white%22>ARD</text></svg>'"
+                />
+              </div>
+              <div class="tool-item" data-tooltip="IoT Systems">
+                <img
+                  src="images/tools/iot.png"
+                  alt="IoT"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%2300d4ff%22/><text x=%2224%22 y=%2230%22 font-size=%228%22 text-anchor=%22middle%22 fill=%22white%22>IoT</text></svg>'"
+                />
+              </div>
+              <div class="tool-item" data-tooltip="7 QC Tools">
+                <img
+                  src="images/tools/qc_tools.png"
+                  alt="QC Tools"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%2300d4ff%22/><text x=%2224%22 y=%2230%22 font-size=%228%22 text-anchor=%22middle%22 fill=%22white%22>QC</text></svg>'"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Domain 3: Data Analytics & Quality Dashboards -->
+        <div class="domain-block" data-aos="fade-up" data-aos-delay="400">
+          <h3 class="domain-title">
+            <i class="fas fa-chart-line"></i>
+            <span>Data Analytics & Quality Control Dashboards</span>
+          </h3>
+
+          <!-- Skill 3 -->
+          <div class="skill-card">
+            <h4 class="skill-title">
+              Production & Quality KPI Dashboard (Power BI)
+            </h4>
+            <p class="skill-description">
+              Developed Power BI dashboards for production planning, quality metrics, and operational KPIs with integration from multiple data sources (ERP, databases, Excel). Built automated daily production vs actual reports covering 20+ product types. Created quality defect tracking and analysis dashboards supporting data-driven improvement initiatives. Reduced reporting preparation time by 60% while improving data accuracy.
+            </p>
+            <div class="skill-gallery">
+              <img
+                src="images/projects/skill3_2_img1.jpg"
+                alt="Power BI Dashboard"
+                class="skill-gallery-img"
+              />
+              <img
+                src="images/projects/skill3_2_img2.jpg"
+                alt="Quality Analytics"
+                class="skill-gallery-img"
+              />
+            </div>
+            <div class="skill-tools">
+              <div class="tool-item" data-tooltip="Power BI">
+                <img
+                  src="images/tools/Powerbi.png"
+                  alt="Power BI"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%23f2c811%22/><text x=%2224%22 y=%2230%22 font-size=%228%22 text-anchor=%22middle%22 fill=%22black%22>PBI</text></svg>'"
+                />
+              </div>
+              <div class="tool-item" data-tooltip="Python">
+                <img
+                  src="images/tools/Python.png"
+                  alt="Python"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%233776ab%22/><text x=%2224%22 y=%2230%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22white%22>PY</text></svg>'"
+                />
+              </div>
+              <div class="tool-item" data-tooltip="DAX & Power Query">
+                <img
+                  src="images/tools/dax.png"
+                  alt="DAX"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%23f2c811%22/><text x=%2224%22 y=%2230%22 font-size=%228%22 text-anchor=%22middle%22 fill=%22black%22>DAX</text></svg>'"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill 4 -->
+          <div class="skill-card">
+            <h4 class="skill-title">
+              Advanced Excel Analytics for Quality & Operations
+            </h4>
+            <p class="skill-description">
+              Applied advanced Excel techniques including VLOOKUP, HLOOKUP, Pivot Tables, and VBA Macros for quality data analysis and operational reporting. Developed structured data formats for consistency, traceability, and audit readiness. Created automated analysis templates for quality metrics, defect tracking, and production efficiency monitoring.
+            </p>
+            <div class="skill-gallery">
+              <img
+                src="images/projects/skill3_1_img1.jpg"
+                alt="Excel Analytics"
+                class="skill-gallery-img"
+              />
+              <img
+                src="images/projects/skill3_1_img2.jpg"
+                alt="Data Analysis"
+                class="skill-gallery-img"
+              />
+            </div>
+            <div class="skill-tools">
+              <div class="tool-item" data-tooltip="Microsoft Excel">
+                <img
+                  src="images/tools/Excel.png"
+                  alt="Excel"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%23217346%22/><text x=%2224%22 y=%2230%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22white%22>XL</text></svg>'"
+                />
+              </div>
+              <div class="tool-item" data-tooltip="VBA Macros">
+                <img
+                  src="images/tools/vba.png"
+                  alt="VBA"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%23217346%22/><text x=%2224%22 y=%2230%22 font-size=%228%22 text-anchor=%22middle%22 fill=%22white%22>VBA</text></svg>'"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Domain 4: Engineering & System Integration -->
+        <div class="domain-block" data-aos="fade-up" data-aos-delay="500">
+          <h3 class="domain-title">
+            <i class="fas fa-cogs"></i>
+            <span>Engineering Systems & Technical Documentation</span>
+          </h3>
+
+          <!-- Skill 5 -->
+          <div class="skill-card">
+            <h4 class="skill-title">
+              EV & ICE Vehicle Engineering (Design, Testing, Validation)
+            </h4>
+            <p class="skill-description">
+              Contributed end-to-end engineering work for electric and ICE 3-wheel vehicles covering design, prototyping, testing, and validation. Supported electrical system integration including BMS, motor controllers, and CAN bus communication. Conducted performance testing, data logging, and technical documentation for regulatory certification. Vehicles deployed commercially with proven reliability in field operations.
+            </p>
+            <div class="skill-gallery">
+              <img
+                src="images/projects/skill1_2_img1.jpg"
+                alt="EV Engineering"
+                class="skill-gallery-img"
+              />
+              <img
+                src="images/projects/skill1_2_img2.jpg"
+                alt="System Testing"
+                class="skill-gallery-img"
+              />
+            </div>
+            <div class="skill-tools">
+              <div class="tool-item" data-tooltip="System Integration">
+                <img
+                  src="images/tools/integration.png"
+                  alt="Integration"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3..org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%2300d4ff%22/><text x=%2224%22 y=%2230%22 font-size=%228%22 text-anchor=%22middle%22 fill=%22white%22>SYS</text></svg>'"
+                />
+              </div>
+              <div class="tool-item" data-tooltip="Testing & Validation">
+                <img
+                  src="images/tools/testing.png"
+                  alt="Testing"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%2300d4ff%22/><text x=%2224%22 y=%2230%22 font-size=%228%22 text-anchor=%22middle%22 fill=%22white%22>TST</text></svg>'"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill 6 -->
+          <div class="skill-card">
+            <h4 class="skill-title">
+              Electrical System Architecture & Troubleshooting
+            </h4>
+            <p class="skill-description">
+              Led reverse engineering and documentation of complete vehicle electrical systems. Built comprehensive electrical reference database including component specifications, wiring diagrams, and diagnostic procedures. Created troubleshooting knowledge base and diagnostic tools reducing problem resolution time by 40-50%. Continue to serve as technical advisor for complex electrical quality issues.
+            </p>
+            <div class="skill-gallery">
+              <img
+                src="images/projects/skill1_1_img1.jpg"
+                alt="Electrical Documentation"
+                class="skill-gallery-img"
+              />
+              <img
+                src="images/projects/skill1_1_img2.jpg"
+                alt="System Diagrams"
+                class="skill-gallery-img"
+              />
+            </div>
+            <div class="skill-tools">
+              <div class="tool-item" data-tooltip="AutoCAD">
+                <img
+                  src="images/tools/AutoCAD.png"
+                  alt="AutoCAD"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%2300d4ff%22/><text x=%2224%22 y=%2230%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22white%22>AC</text></svg>'"
+                />
+              </div>
+              <div class="tool-item" data-tooltip="KiCAD">
+                <img
+                  src="images/tools/KiCAD.png"
+                  alt="KiCAD"
+                  onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 fill=%22%2300d4ff%22/><text x=%2224%22 y=%2230%22 font-size=%2212%22 text-anchor=%22middle%22 fill=%22white%22>KC</text></svg>'"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Keep Portfolio section ID for navigation compatibility -->
+    <section id="portfolio" style="padding: 0; margin: 0; height: 0"></section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">
+          Get In Touch
+        </h2>
+        <div
+          class="section-divider"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        ></div>
+
+        <div class="contact-content">
+          <div class="contact-info" data-aos="fade-right" data-aos-delay="200">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Address</h4>
+                <p>Cikarang, Bekasi, Indonesia</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Phone</h4>
+                <p>+62 895 7115 72070</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Email</h4>
+                <p>reyzacomm@gmail.com</p>
+              </div>
+            </div>
+
+            <div class="social-links">
+              <a
+                href="https://www.instagram.com/kautsar_sagara/"
+                target="_blank"
+                class="social-link"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/reyzaag/"
+                target="_blank"
+                class="social-link"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="https://github.com/Reyzasagara"
+                target="_blank"
+                class="social-link"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+
+          <form
+            class="contact-form"
+            id="contactForm"
+            data-aos="fade-left"
+            data-aos-delay="300"
+          >
+            <div class="form-group">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your Name"
+                required
+              />
+              <span class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Your Email"
+                required
+              />
+              <span class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="Subject"
+                required
+              />
+              <span class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                placeholder="Your Message"
+                required
+              ></textarea>
+              <span class="error-message"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary ripple">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-loader" style="display: none">
+                <i class="fas fa-spinner fa-spin"></i>
+              </span>
+            </button>
+
+            <div class="form-response"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <p>&copy; 2026 Reyza Agung Gunawan - QC Digitalization Specialist. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+      <div class="lightbox-content">
+        <span class="lightbox-close">&times;</span>
+        <img src="" alt="Portfolio Image" id="lightboxImg" />
+        <div class="lightbox-caption"></div>
+      </div>
+    </div>
+
+    <!-- Hidden canvas for color extraction -->
+    <canvas id="colorCanvas" style="display: none"></canvas>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- EmailJS SDK -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>

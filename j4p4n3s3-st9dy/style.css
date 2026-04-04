@@ -1579,6 +1579,54 @@ footer {
     letter-spacing: 0.5px;
 }
 
+/* Collapsible sections */
+.rw-collapsible {
+    margin-bottom: 4px;
+}
+.rw-collapsible > summary {
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+.rw-collapsible > summary::-webkit-details-marker { display: none; }
+.rw-collapsible > summary::marker { display: none; content: ''; }
+.wr-script-label { flex: 1; }
+.wr-script-pct {
+    font-size: 13px;
+    font-weight: 700;
+    opacity: 0.8;
+    margin-right: 10px;
+}
+.wr-collapse-icon {
+    width: 20px; height: 20px;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+.wr-collapse-icon::after {
+    content: '▼';
+    font-size: 10px;
+    opacity: 0.6;
+}
+.rw-collapsible:not([open]) .wr-collapse-icon {
+    transform: rotate(-90deg);
+}
+.rw-collapsible-body {
+    animation: collapseOpen 0.25s ease;
+}
+@keyframes collapseOpen {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.wr-traditional {
+    background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+    border-left: 4px solid var(--text-dim);
+    color: var(--text-dim);
+}
+
 /* Level cards */
 .wr-levels { display: flex; flex-direction: column; gap: 10px; }
 .wr-level-card {

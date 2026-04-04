@@ -1001,9 +1001,12 @@ function markReadingResult(char, isCorrect) {
     saveProgress();
 }
 
-function renderReadingPanel() {
+function renderReadingPanel(scrollToLevel) {
     const panel = document.getElementById("readingPanel");
     if (!panel || typeof KANA_DATA === "undefined") { panel.innerHTML = "<p>Loading data...</p>"; return; }
+
+    // Determine which sections should be open
+    const openSections = JSON.parse(localStorage.getItem('jcoach_rp_open') || '{"hiragana":true,"katakana":true,"kanji":true,"traditional":false}');
 
     let html = `<div class="rw-content"><h2 class="rw-title">📚 Reading Practice</h2>
         <p class="rw-subtitle">Word-first approach: learn characters through real words, then drill by category.</p>`;
@@ -1015,41 +1018,54 @@ function renderReadingPanel() {
             if (!wrProgress[lv]) wrProgress[lv] = { unlocked: true, bestSpeed: null, wordsLearned: 0, speedClears: 0 };
             else if (!wrProgress[lv].unlocked) wrProgress[lv].unlocked = true;
         });
-        WORD_FIRST_DATA.forEach(lvl => {
-            const prog = getWRLevel(lvl.level);
-            const isUnlocked = prog.unlocked;
-            const wCount = lvl.words.length;
-            const pct = wCount > 0 ? Math.round((Math.min(prog.wordsLearned, wCount) / wCount) * 100) : 0;
-            const isComplete = pct >= 100;
 
-            // Hiragana section headers
-            if (lvl.level === 1)  html += `<h3 class="wr-section-header wr-script-header wr-hiragana">ひらがな Hiragana</h3><h4 class="wr-step-header">🔤 Step 1 — Learn Through Words</h4>`;
-            if (lvl.level === 10) html += `<h4 class="wr-step-header">👁️ Step 2 — Visual Groups</h4>`;
-            if (lvl.level === 14) html += `<h4 class="wr-step-header">📚 Step 3 — Mini Vocabulary</h4>`;
-            // Katakana section headers
-            if (lvl.level === 17) html += `<h3 class="wr-section-header wr-script-header wr-katakana">カタカナ Katakana</h3><h4 class="wr-step-header">🔤 Step 1 — Katakana Through Loanwords</h4>`;
-            if (lvl.level === 23) html += `<h4 class="wr-step-header">👁️ Step 2 — Visual Confusion Groups</h4>`;
-            if (lvl.level === 25) html += `<h4 class="wr-step-header">💼 Step 3 — Workplace Katakana</h4>`;
-            // Kanji section headers
-            if (lvl.level === 27) html += `<h3 class="wr-section-header wr-script-header wr-kanji">漢字 Kanji</h3><h4 class="wr-step-header">🔤 Step 1 — Kanji Through Words</h4>`;
-            if (lvl.level === 31) html += `<h4 class="wr-step-header">👁️ Step 2 — Kanji Visual Groups</h4>`;
-            if (lvl.level === 34) html += `<h4 class="wr-step-header">📚 Step 3 — Workplace Kanji</h4>`;
+        const sections = [
+            { key: 'hiragana', label: 'ひらがな Hiragana', cls: 'wr-hiragana', startLvl: 1, endLvl: 16, stepHeaders: {1: '🔤 Step 1 — Learn Through Words', 10: '👁️ Step 2 — Visual Groups', 14: '📚 Step 3 — Mini Vocabulary'} },
+            { key: 'katakana', label: 'カタカナ Katakana', cls: 'wr-katakana', startLvl: 17, endLvl: 26, stepHeaders: {17: '🔤 Step 1 — Katakana Through Loanwords', 23: '👁️ Step 2 — Visual Confusion Groups', 25: '💼 Step 3 — Workplace Katakana'} },
+            { key: 'kanji', label: '漢字 Kanji', cls: 'wr-kanji', startLvl: 27, endLvl: 34, stepHeaders: {27: '🔤 Step 1 — Kanji Through Words', 31: '👁️ Step 2 — Kanji Visual Groups', 34: '📚 Step 3 — Workplace Kanji'} },
+        ];
 
-            const scriptClass = lvl.script === 'katakana' ? 'wr-card-katakana' : lvl.script === 'kanji' ? 'wr-card-kanji' : '';
-            html += `<div class="rw-category-card ${scriptClass} ${!isUnlocked ? 'wr-locked-card' : ''} ${isComplete ? 'wr-complete-card' : ''}">
-                <div class="rw-cat-header">
-                    <span class="rw-cat-icon">${lvl.focus.length ? lvl.focus[0] : '📝'}</span>
-                    <div class="rw-cat-info"><h3>${lvl.title}</h3><p>${lvl.subtitle}</p></div>
-                    ${lvl.focus.length ? `<div class="wr-level-chars">${lvl.focus.join(' ')}</div>` : ''}
-                    <div class="rw-cat-progress"><span class="rw-cat-pct">${pct}%</span></div>
-                </div>
-                <div class="rw-progress-bar"><div class="rw-progress-fill" style="width:${Math.min(pct, 100)}%"></div></div>
-                ${isUnlocked ? `<div class="rw-groups"><div class="rw-group-row">
-                    <button class="rw-study-btn" onclick="startWFReadLearn(${lvl.level})">📖 Learn</button>
-                    <button class="rw-quiz-btn" onclick="startWFReadQuiz(${lvl.level})">🧠 Quiz</button>
-                    ${prog.bestSpeed ? `<span class="wr-best-time">🏆 ${(prog.bestSpeed / 1000).toFixed(1)}s</span>` : ''}
-                </div></div>` : `<div class="wr-level-locked">🔒 Complete previous level first</div>`}
-            </div>`;
+        sections.forEach(sec => {
+            const secLevels = WORD_FIRST_DATA.filter(l => l.level >= sec.startLvl && l.level <= sec.endLvl);
+            const totalWords = secLevels.reduce((s, l) => s + l.words.length, 0);
+            const learnedWords = secLevels.reduce((s, l) => { const p = getWRLevel(l.level); return s + Math.min(p.wordsLearned || 0, l.words.length); }, 0);
+            const secPct = totalWords > 0 ? Math.round((learnedWords / totalWords) * 100) : 0;
+            const isOpen = scrollToLevel >= sec.startLvl && scrollToLevel <= sec.endLvl ? true : openSections[sec.key] !== false;
+
+            html += `<details class="rw-collapsible" ${isOpen ? 'open' : ''} data-section="${sec.key}">
+                <summary class="wr-section-header wr-script-header ${sec.cls}">
+                    <span class="wr-script-label">${sec.label}</span>
+                    <span class="wr-script-pct">${secPct}%</span>
+                    <span class="wr-collapse-icon"></span>
+                </summary>
+                <div class="rw-collapsible-body">`;
+
+            secLevels.forEach(lvl => {
+                const prog = getWRLevel(lvl.level);
+                const isUnlocked = prog.unlocked;
+                const wCount = lvl.words.length;
+                const pct = wCount > 0 ? Math.round((Math.min(prog.wordsLearned, wCount) / wCount) * 100) : 0;
+                const isComplete = pct >= 100;
+
+                if (sec.stepHeaders[lvl.level]) html += `<h4 class="wr-step-header">${sec.stepHeaders[lvl.level]}</h4>`;
+
+                const scriptClass = lvl.script === 'katakana' ? 'wr-card-katakana' : lvl.script === 'kanji' ? 'wr-card-kanji' : '';
+                html += `<div class="rw-category-card ${scriptClass} ${!isUnlocked ? 'wr-locked-card' : ''} ${isComplete ? 'wr-complete-card' : ''}" id="wf-level-${lvl.level}">
+                    <div class="rw-cat-header">
+                        <span class="rw-cat-icon">${lvl.focus.length ? lvl.focus[0] : '📝'}</span>
+                        <div class="rw-cat-info"><h3>${lvl.title}</h3><p>${lvl.subtitle}</p></div>
+                        ${lvl.focus.length ? `<div class="wr-level-chars">${lvl.focus.join(' ')}</div>` : ''}
+                        <div class="rw-cat-progress"><span class="rw-cat-pct">${pct}%</span></div>
+                    </div>
+                    <div class="rw-progress-bar"><div class="rw-progress-fill" style="width:${Math.min(pct, 100)}%"></div></div>
+                    ${isUnlocked ? `<div class="rw-groups"><div class="rw-group-row">
+                        <button class="rw-study-btn" onclick="startWFReadLearn(${lvl.level})">📖 Learn</button>
+                        <button class="rw-quiz-btn" onclick="startWFReadQuiz(${lvl.level})">🧠 Quiz</button>
+                        ${prog.bestSpeed ? `<span class="wr-best-time">🏆 ${(prog.bestSpeed / 1000).toFixed(1)}s</span>` : ''}
+                    </div></div>` : `<div class="wr-level-locked">🔒 Complete previous level first</div>`}
+                </div>`;
+            });
+            html += `</div></details>`;
         });
 
         // Speed challenge
@@ -1069,7 +1085,13 @@ function renderReadingPanel() {
     }
 
     // === Traditional Categories ===
-    html += `<h3 class="wr-section-header" style="margin-top:24px">📊 Full Reading Practice</h3>`;
+    const tradOpen = openSections.traditional !== false;
+    html += `<details class="rw-collapsible" ${tradOpen ? 'open' : ''} data-section="traditional">
+        <summary class="wr-section-header wr-script-header wr-traditional" style="margin-top:24px">
+            <span class="wr-script-label">📊 Full Reading Practice</span>
+            <span class="wr-collapse-icon"></span>
+        </summary>
+        <div class="rw-collapsible-body">`;
 
     const categories = [
         { key: "hiragana", data: KANA_DATA.hiragana, icon: "あ" },
@@ -1115,8 +1137,22 @@ function renderReadingPanel() {
         html += `</div></div>`;
     });
 
-    html += `</div>`;
+    html += `</div></details></div>`;
     panel.innerHTML = html;
+
+    // Attach collapsible toggle persistence
+    panel.querySelectorAll('.rw-collapsible[data-section]').forEach(d => d.addEventListener('toggle', () => {
+        const o = {}; panel.querySelectorAll('.rw-collapsible[data-section]').forEach(el => o[el.dataset.section] = el.open);
+        localStorage.setItem('jcoach_rp_open', JSON.stringify(o));
+    }));
+
+    // Scroll to target level if specified
+    if (scrollToLevel) {
+        requestAnimationFrame(() => {
+            const el = document.getElementById(`wf-level-${scrollToLevel}`);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    }
 }
 
 function getGroupItems(category, groupName) {
@@ -1407,7 +1443,7 @@ function startWFReadLearn(level) {
 
         panel.innerHTML = `<div class="wr-content">
             <div class="wr-learn-header">
-                <button class="rw-back-btn" onclick="unlockNextWR(${level});renderReadingPanel()">← Back</button>
+                <button class="rw-back-btn" onclick="unlockNextWR(${level});renderReadingPanel(${level})">← Back</button>
                 <span>${idx + 1} / ${words.length}</span>
                 <span>${lvlData.title}</span>
             </div>
@@ -1457,13 +1493,16 @@ function startWFReadLearn(level) {
             unlockNextWR(level);
             xp += 15;
             saveProgress();
+            const nextLvl = WORD_FIRST_DATA.find(l => l.level === level + 1);
+            const hasNext = nextLvl && getWRLevel(level + 1).unlocked;
             panel.innerHTML = `<div class="wr-content">
                 <div class="wr-complete">
                     <h3>🎉 Level ${level} Complete!</h3>
-                    <p>You learned ${words.length} words. Try the <strong>🧠 Quiz</strong> to build instant recognition!</p>
+                    <p>You learned ${words.length} words. Try the <strong>🧠 Quiz</strong> or continue to the next level!</p>
                     <div class="wr-complete-actions">
                         <button class="wr-speed-btn" onclick="startWFReadQuiz(${level})">🧠 Quiz</button>
-                        <button class="btn-primary" onclick="renderReadingPanel()">← Back to Reading</button>
+                        ${hasNext ? `<button class="btn-primary" onclick="startWFReadLearn(${level + 1})">▶ Next Level</button>` : ''}
+                        <button class="rw-back-btn" onclick="renderReadingPanel(${level})">← Back to Reading</button>
                     </div>
                 </div>
             </div>`;
@@ -1499,7 +1538,8 @@ function startWFReadQuiz(level) {
                 ${pct < 80 ? `<p class="wr-speed-tip">💡 Goal: Read each word <strong>instantly</strong> — not い…ぬ…maybe… but いぬ = dog! 🐕</p>` : ''}
                 <div class="wr-complete-actions">
                     <button class="wr-speed-btn" onclick="startWFReadQuiz(${level})">🔄 Try Again</button>
-                    <button class="btn-primary" onclick="renderReadingPanel()">← Back</button>
+                    ${WORD_FIRST_DATA.find(l => l.level === level + 1) && getWRLevel(level + 1).unlocked ? `<button class="btn-primary" onclick="startWFReadLearn(${level + 1})">▶ Next Level</button>` : ''}
+                    <button class="rw-back-btn" onclick="renderReadingPanel(${level})">← Back</button>
                 </div>
             </div></div>`;
             return;
@@ -1516,7 +1556,7 @@ function startWFReadQuiz(level) {
 
         panel.innerHTML = `<div class="wr-content">
             <div class="wr-learn-header">
-                <button class="rw-back-btn" onclick="renderReadingPanel()">← Back</button>
+                <button class="rw-back-btn" onclick="renderReadingPanel(${level})">← Back</button>
                 <span>${idx + 1}/${words.length}</span>
                 <span class="wr-timer" id="wrTimer">0.0s</span>
             </div>
@@ -1575,7 +1615,7 @@ function startWFReadChallenge() {
                 </div>
                 <div class="wr-complete-actions">
                     <button class="wr-speed-btn" onclick="startWFReadChallenge()">🔄 Again</button>
-                    <button class="btn-primary" onclick="renderReadingPanel()">← Back</button>
+                    <button class="rw-back-btn" onclick="renderReadingPanel()">← Back</button>
                 </div>
             </div></div>`;
             return;

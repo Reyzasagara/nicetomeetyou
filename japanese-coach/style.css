@@ -1403,6 +1403,13 @@ footer {
 }
 .sp-tip-icon { font-size: 20px; flex-shrink: 0; }
 
+/* Sync banner */
+.sp-sync-banner {
+    background: rgba(76,175,80,0.12); border: 1px solid rgba(76,175,80,0.3);
+    border-radius: 10px; padding: 10px 16px; margin-bottom: 16px;
+    font-size: 13px; text-align: center; color: var(--success);
+}
+
 /* Actions */
 .sp-actions { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
 .sp-action-btn {

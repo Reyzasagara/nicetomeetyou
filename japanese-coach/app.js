@@ -3372,10 +3372,84 @@ function getStudyDay() {
     return Math.floor((now - start) / 86400000) + 1;
 }
 
+// --- Sync Reading/Writing progress into Study Plan SRS ---
+// If user already learned characters in Reading/Writing modes,
+// auto-populate SRS and auto-complete Study Plan days.
+function syncProgressToSRS() {
+    if (!studyPlanState.startDate) return;
+    let changed = false;
+    let completed = JSON.parse(localStorage.getItem("jcoach_sp_completed") || "[]");
+
+    STUDY_CURRICULUM.forEach(dayData => {
+        if (dayData.isTest) return;
+
+        if (dayData.new) {
+            // Days with new characters — sync from reading/writing
+            const items = getItemsForGroup(dayData.new.cat, dayData.new.group);
+            if (!items.length) return;
+
+            let allLearned = true;
+            items.forEach(item => {
+                const rp = readingProgress[item.char];
+                const wp = writingProgress[item.char];
+                const rpCorrect = rp ? rp.correct : 0;
+                const wpCorrect = wp ? wp.correct : 0;
+                const totalCorrect = rpCorrect + wpCorrect;
+
+                if (totalCorrect > 0 && !srsData[item.char]) {
+                    let box = 0;
+                    if (totalCorrect >= 6) box = 4;
+                    else if (totalCorrect >= 3) box = 3;
+                    else if (totalCorrect >= 2) box = 2;
+                    else box = 1;
+
+                    srsData[item.char] = {
+                        box,
+                        lastReview: Date.now(),
+                        nextReview: Date.now() + SRS_INTERVALS[box] * 86400000,
+                        correct: totalCorrect,
+                        wrong: 0,
+                        cat: dayData.new.cat,
+                        group: dayData.new.group
+                    };
+                    changed = true;
+                } else if (totalCorrect === 0 && !srsData[item.char]) {
+                    allLearned = false;
+                }
+            });
+
+            if (allLearned && !completed.includes(dayData.day)) {
+                completed.push(dayData.day);
+                changed = true;
+            }
+        } else if (dayData.review && dayData.review.length > 0) {
+            // Review-only days — auto-complete if all review items are in SRS
+            let allInSRS = true;
+            dayData.review.forEach(ref => {
+                const [cat, group] = ref.split(":");
+                const items = getItemsForGroup(cat, group);
+                items.forEach(item => {
+                    if (!srsData[item.char]) allInSRS = false;
+                });
+            });
+            if (allInSRS && !completed.includes(dayData.day)) {
+                completed.push(dayData.day);
+                changed = true;
+            }
+        }
+    });
+
+    if (changed) {
+        localStorage.setItem("jcoach_sp_completed", JSON.stringify(completed));
+        saveSRS();
+    }
+}
+
 function startStudyPlan() {
     studyPlanState.startDate = new Date().toISOString();
     studyPlanState.currentDay = 1;
     saveSRS();
+    syncProgressToSRS(); // Sync existing progress immediately
     renderStudyPlanPanel();
 }
 
@@ -3411,6 +3485,9 @@ function getItemsForGroup(cat, groupName) {
 function renderStudyPlanPanel() {
     const panel = document.getElementById("studyPlanPanel");
     if (!panel) return;
+
+    // Sync reading/writing progress into SRS
+    syncProgressToSRS();
 
     // Not started yet
     if (!studyPlanState.startDate) {
@@ -3466,8 +3543,19 @@ function renderStudyPlanPanel() {
         return;
     }
 
-    const today = getStudyDay();
-    const dayData = STUDY_CURRICULUM.find(d => d.day === Math.min(today, 30)) || STUDY_CURRICULUM[STUDY_CURRICULUM.length - 1];
+    const calendarDay = getStudyDay();
+    const completedDays = JSON.parse(localStorage.getItem("jcoach_sp_completed") || "[]");
+
+    // Effective day = first uncompleted day, but not past calendar day's max
+    // This handles sync: if days 1-14 are auto-completed, jump to day 15
+    let effectiveDay = calendarDay;
+    for (let d = 1; d <= 30; d++) {
+        if (!completedDays.includes(d)) { effectiveDay = d; break; }
+        if (d === 30) effectiveDay = 30; // All done
+    }
+    // Don't go backwards from calendar, but DO allow jumping forward past it
+    const today = Math.min(Math.max(effectiveDay, calendarDay), 30);
+    const dayData = STUDY_CURRICULUM.find(d => d.day === today) || STUDY_CURRICULUM[STUDY_CURRICULUM.length - 1];
 
     // Calculate SRS stats
     const totalCards = Object.keys(srsData).length;
@@ -3476,12 +3564,18 @@ function renderStudyPlanPanel() {
     const dueCount = getDueItems().length;
     const masteredCount = boxCounts[4] + boxCounts[5];
 
-    // Completion status per day
-    const completedDays = JSON.parse(localStorage.getItem("jcoach_sp_completed") || "[]");
+    // Show sync banner if progress was imported
+    const syncedCount = Object.values(srsData).filter(c => c.lastReview && !c.wrong && c.box > 0).length;
+    const syncBanner = syncedCount > 0 ? `
+        <div class="sp-sync-banner">
+            <span>🔄</span> <strong>${syncedCount} characters</strong> synced from Reading & Writing progress
+        </div>
+    ` : '';
 
     panel.innerHTML = `<div class="sp-content">
-        <h2 class="sp-title">📅 Day ${Math.min(today, 30)} of 30</h2>
+        <h2 class="sp-title">📅 Day ${today} of 30</h2>
         <p class="sp-day-label">${dayData.label}</p>
+        ${syncBanner}
 
         <!-- SRS Box Visualization -->
         <div class="sp-srs-boxes">
@@ -3514,11 +3608,19 @@ function renderStudyPlanPanel() {
                     🏆 Take N5 Practice Test
                 </button>
             ` : `
-                ${dayData.new ? `
-                    <button class="btn-primary sp-action-btn sp-new-btn" onclick="startSRSLearn('${dayData.new.cat}','${dayData.new.group}')">
-                        📖 Learn New: ${dayData.new.group}
-                    </button>
-                ` : ''}
+                ${dayData.new ? (() => {
+                    const newItems = getItemsForGroup(dayData.new.cat, dayData.new.group);
+                    const allInSRS = newItems.length > 0 && newItems.every(i => srsData[i.char] && srsData[i.char].box > 0);
+                    return allInSRS ? `
+                        <button class="btn-primary sp-action-btn sp-new-btn" style="opacity:0.7" onclick="startSRSLearn('${dayData.new.cat}','${dayData.new.group}')">
+                            ✅ ${dayData.new.group} — Already learned (review)
+                        </button>
+                    ` : `
+                        <button class="btn-primary sp-action-btn sp-new-btn" onclick="startSRSLearn('${dayData.new.cat}','${dayData.new.group}')">
+                            📖 Learn New: ${dayData.new.group}
+                        </button>
+                    `;
+                })() : ''}
                 ${dueCount > 0 ? `
                     <button class="btn-primary sp-action-btn sp-review-btn" onclick="startSRSReview()">
                         🧠 Review Due Cards (${dueCount})

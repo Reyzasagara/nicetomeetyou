@@ -1009,7 +1009,67 @@ function renderReadingPanel(scrollToLevel) {
     const openSections = JSON.parse(localStorage.getItem('jcoach_rp_open') || '{"hiragana":true,"katakana":true,"kanji":true,"traditional":false}');
 
     let html = `<div class="rw-content"><h2 class="rw-title">📚 Reading Practice</h2>
-        <p class="rw-subtitle">Word-first approach: learn characters through real words, then drill by category.</p>`;
+        <p class="rw-subtitle">Step 1: Learn individual characters with mnemonics. Step 2: Apply to real words.</p>`;
+
+    // === STEP 1: Traditional Character Recognition ===
+    const tradOpen = openSections.traditional !== false;
+    html += `<details class="rw-collapsible" ${tradOpen ? 'open' : ''} data-section="traditional">
+        <summary class="wr-section-header wr-script-header wr-traditional">
+            <span class="wr-script-label">🎯 Step 1 — Character Recognition</span>
+            <span class="wr-script-pct">Master each character first</span>
+            <span class="wr-collapse-icon"></span>
+        </summary>
+        <div class="rw-collapsible-body">`;
+
+    const categories = [
+        { key: "hiragana", data: KANA_DATA.hiragana, icon: "あ" },
+        { key: "katakana", data: KANA_DATA.katakana, icon: "ア" },
+        { key: "kanji", data: KANA_DATA.kanji, icon: "漢" },
+        { key: "dailyWords", data: KANA_DATA.dailyWords, icon: "語" },
+        { key: "grammar", data: KANA_DATA.grammar, icon: "文" },
+    ];
+
+    categories.forEach(cat => {
+        const groups = cat.key === "grammar" ? [{ name: "All Patterns", chars: cat.data.patterns.map(p => ({ char: p.pattern, romaji: p.id })) }] : cat.data.groups;
+        const allChars = groups.flatMap(g => (g.chars || g.words || []).map(c => c.char || c.word));
+        let totalScore = 0;
+        allChars.forEach(c => { const p = readingProgress[c]; if (p) totalScore += Math.min(p.correct, 3) / 3; });
+        const pct = allChars.length > 0 ? Math.round((totalScore / allChars.length) * 100) : 0;
+        const learned = allChars.filter(c => readingProgress[c] && readingProgress[c].correct > 0).length;
+
+        html += `<div class="rw-category-card">
+            <div class="rw-cat-header">
+                <span class="rw-cat-icon">${cat.icon}</span>
+                <div class="rw-cat-info"><h3>${cat.data.label}</h3><p>${cat.data.desc}</p></div>
+                <div class="rw-cat-progress"><span class="rw-cat-pct">${pct}%</span><span class="rw-cat-count">${learned}/${allChars.length}</span></div>
+            </div>
+            <div class="rw-progress-bar"><div class="rw-progress-fill" style="width:${pct}%"></div></div>
+            <div class="rw-groups">`;
+        if (cat.key === "grammar") {
+            html += `<div class="rw-group-row">
+                <button class="rw-study-btn" onclick="startReadingStudy('grammar','patterns')">📖 Study</button>
+                <button class="rw-quiz-btn" onclick="startReadingQuiz('grammar','patterns')">🧠 Quiz</button>
+            </div>`;
+        } else {
+            groups.forEach(g => {
+                const gChars = (g.chars || g.words || []).map(c => c.char || c.word);
+                const gLearned = gChars.filter(c => readingProgress[c] && readingProgress[c].correct > 0).length;
+                html += `<div class="rw-group-row">
+                    <span class="rw-group-name">${g.name}</span>
+                    <span class="rw-group-stat">${gLearned}/${gChars.length}</span>
+                    <button class="rw-study-btn" onclick="startReadingStudy('${cat.key}','${g.name}')">📖 Study</button>
+                    <button class="rw-quiz-btn" onclick="startReadingQuiz('${cat.key}','${g.name}')">🧠 Quiz</button>
+                </div>`;
+            });
+        }
+        html += `</div></div>`;
+    });
+
+    html += `</div></details>`;
+
+    // === STEP 2: Word-First Practice ===
+    html += `<h3 class="wr-section-header" style="margin-top:32px; font-size:18px; color:var(--accent)">📚 Step 2 — Word Practice Methods</h3>
+        <p style="text-align:center; color:var(--text-dim); font-size:14px; margin-bottom:16px">Apply your character knowledge to real words!</p>`;
 
     // === Word-First Levels ===
     if (typeof WORD_FIRST_DATA !== "undefined") {
@@ -1084,60 +1144,7 @@ function renderReadingPanel(scrollToLevel) {
         }
     }
 
-    // === Traditional Categories ===
-    const tradOpen = openSections.traditional !== false;
-    html += `<details class="rw-collapsible" ${tradOpen ? 'open' : ''} data-section="traditional">
-        <summary class="wr-section-header wr-script-header wr-traditional" style="margin-top:24px">
-            <span class="wr-script-label">📊 Full Reading Practice</span>
-            <span class="wr-collapse-icon"></span>
-        </summary>
-        <div class="rw-collapsible-body">`;
-
-    const categories = [
-        { key: "hiragana", data: KANA_DATA.hiragana, icon: "あ" },
-        { key: "katakana", data: KANA_DATA.katakana, icon: "ア" },
-        { key: "kanji", data: KANA_DATA.kanji, icon: "漢" },
-        { key: "dailyWords", data: KANA_DATA.dailyWords, icon: "語" },
-        { key: "grammar", data: KANA_DATA.grammar, icon: "文" },
-    ];
-
-    categories.forEach(cat => {
-        const groups = cat.key === "grammar" ? [{ name: "All Patterns", chars: cat.data.patterns.map(p => ({ char: p.pattern, romaji: p.id })) }] : cat.data.groups;
-        const allChars = groups.flatMap(g => (g.chars || g.words || []).map(c => c.char || c.word));
-        let totalScore = 0;
-        allChars.forEach(c => { const p = readingProgress[c]; if (p) totalScore += Math.min(p.correct, 3) / 3; });
-        const pct = allChars.length > 0 ? Math.round((totalScore / allChars.length) * 100) : 0;
-        const learned = allChars.filter(c => readingProgress[c] && readingProgress[c].correct > 0).length;
-
-        html += `<div class="rw-category-card">
-            <div class="rw-cat-header">
-                <span class="rw-cat-icon">${cat.icon}</span>
-                <div class="rw-cat-info"><h3>${cat.data.label}</h3><p>${cat.data.desc}</p></div>
-                <div class="rw-cat-progress"><span class="rw-cat-pct">${pct}%</span><span class="rw-cat-count">${learned}/${allChars.length}</span></div>
-            </div>
-            <div class="rw-progress-bar"><div class="rw-progress-fill" style="width:${pct}%"></div></div>
-            <div class="rw-groups">`;
-        if (cat.key === "grammar") {
-            html += `<div class="rw-group-row">
-                <button class="rw-study-btn" onclick="startReadingStudy('grammar','patterns')">📖 Study</button>
-                <button class="rw-quiz-btn" onclick="startReadingQuiz('grammar','patterns')">🧠 Quiz</button>
-            </div>`;
-        } else {
-            groups.forEach(g => {
-                const gChars = (g.chars || g.words || []).map(c => c.char || c.word);
-                const gLearned = gChars.filter(c => readingProgress[c] && readingProgress[c].correct > 0).length;
-                html += `<div class="rw-group-row">
-                    <span class="rw-group-name">${g.name}</span>
-                    <span class="rw-group-stat">${gLearned}/${gChars.length}</span>
-                    <button class="rw-study-btn" onclick="startReadingStudy('${cat.key}','${g.name}')">📖 Study</button>
-                    <button class="rw-quiz-btn" onclick="startReadingQuiz('${cat.key}','${g.name}')">🧠 Quiz</button>
-                </div>`;
-            });
-        }
-        html += `</div></div>`;
-    });
-
-    html += `</div></details></div>`;
+    html += `</div>`;
     panel.innerHTML = html;
 
     // Attach collapsible toggle persistence

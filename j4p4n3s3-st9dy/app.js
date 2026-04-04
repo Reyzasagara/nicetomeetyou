@@ -1032,10 +1032,8 @@ function renderReadingPanel(scrollToLevel) {
     categories.forEach(cat => {
         const groups = cat.key === "grammar" ? [{ name: "All Patterns", chars: cat.data.patterns.map(p => ({ char: p.pattern, romaji: p.id })) }] : cat.data.groups;
         const allChars = groups.flatMap(g => (g.chars || g.words || []).map(c => c.char || c.word));
-        let totalScore = 0;
-        allChars.forEach(c => { const p = readingProgress[c]; if (p) totalScore += Math.min(p.correct, 3) / 3; });
-        const pct = allChars.length > 0 ? Math.round((totalScore / allChars.length) * 100) : 0;
         const learned = allChars.filter(c => readingProgress[c] && readingProgress[c].correct > 0).length;
+        const pct = allChars.length > 0 ? Math.round((learned / allChars.length) * 100) : 0;
 
         html += `<div class="rw-category-card">
             <div class="rw-cat-header">

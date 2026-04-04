@@ -627,11 +627,12 @@ const WORD_FIRST_DATA = [
     },
 
     // ============================================
-    // KATAKANA WORD-FIRST LEVELS (17–28)
-    // Learn katakana through real loanwords & tech terms
+    // KATAKANA WORD-FIRST LEVELS (17–26)
+    // Sound Conversion Method: Convert English → Japanese sounds
+    // 🔑 Katakana = encode sound
     // ============================================
 
-    // ===== Step 1: Basic Katakana Through Common Loanwords =====
+    // ===== Step 1: Sound Conversion — Learn the Rules =====
     {
         level: 17,
         title: "Vowel Katakana",
@@ -639,12 +640,12 @@ const WORD_FIRST_DATA = [
         focus: ["ア", "イ", "ウ", "エ", "オ"],
         script: "katakana",
         words: [
-            { word: "アイ", romaji: "ai", meaning: "AI (artificial intelligence)", emoji: "🤖" },
-            { word: "エア", romaji: "ea", meaning: "air", emoji: "🌬️" },
-            { word: "オイル", romaji: "oiru", meaning: "oil", emoji: "🛢️" },
-            { word: "イオン", romaji: "ion", meaning: "ion / AEON (store)", emoji: "🏬" },
-            { word: "ウイ", romaji: "ui", meaning: "UI (user interface)", emoji: "🖥️" },
-            { word: "エイ", romaji: "ei", meaning: "ray (fish)", emoji: "🐟" },
+            { word: "アイ", romaji: "ai", meaning: "AI (artificial intelligence)", emoji: "🤖", english: "AI", soundSteps: ["A-I", "ア-イ"], rule: "Each letter becomes a syllable" },
+            { word: "エア", romaji: "ea", meaning: "air", emoji: "🌬️", english: "air", soundSteps: ["air → e-a", "エ-ア"], rule: "Drop silent letters, split into vowels" },
+            { word: "オイル", romaji: "oiru", meaning: "oil", emoji: "🛢️", english: "oil", soundSteps: ["oil → o-i-ru", "オ-イ-ル"], rule: "L becomes ル (ru)" },
+            { word: "イオン", romaji: "ion", meaning: "ion / AEON (store)", emoji: "🏬", english: "ion", soundSteps: ["i-on → i-o-n", "イ-オ-ン"], rule: "Final N becomes ン" },
+            { word: "ウイ", romaji: "ui", meaning: "UI (user interface)", emoji: "🖥️", english: "UI", soundSteps: ["U-I", "ウ-イ"], rule: "Abbreviations: each letter = syllable" },
+            { word: "エイ", romaji: "ei", meaning: "ray (fish)", emoji: "🐟", english: "ray", soundSteps: ["ray → e-i", "エ-イ"], rule: "R sound → no change, 'ay' → エイ" },
         ]
     },
     {
@@ -654,12 +655,12 @@ const WORD_FIRST_DATA = [
         focus: ["カ", "キ", "ク", "ケ", "コ"],
         script: "katakana",
         words: [
-            { word: "コーク", romaji: "kooku", meaning: "Coke", emoji: "🥤" },
-            { word: "ケーキ", romaji: "keeki", meaning: "cake", emoji: "🎂" },
-            { word: "カメラ", romaji: "kamera", meaning: "camera", emoji: "📷" },
-            { word: "コピー", romaji: "kopii", meaning: "copy", emoji: "📄" },
-            { word: "クイズ", romaji: "kuizu", meaning: "quiz", emoji: "❓" },
-            { word: "キー", romaji: "kii", meaning: "key", emoji: "🔑" },
+            { word: "ケーキ", romaji: "keeki", meaning: "cake", emoji: "🎂", english: "cake", soundSteps: ["cake → ke-e-ki", "ケ-ー-キ"], rule: "Long 'a' → ー (elongation mark)" },
+            { word: "カメラ", romaji: "kamera", meaning: "camera", emoji: "📷", english: "camera", soundSteps: ["ca-me-ra", "カ-メ-ラ"], rule: "Direct syllable mapping" },
+            { word: "コピー", romaji: "kopii", meaning: "copy", emoji: "📄", english: "copy", soundSteps: ["co-py → ko-pi-i", "コ-ピ-ー"], rule: "Y ending → long イー" },
+            { word: "クイズ", romaji: "kuizu", meaning: "quiz", emoji: "❓", english: "quiz", soundSteps: ["qui-z → ku-i-zu", "ク-イ-ズ"], rule: "QU → ク, Z → ズ" },
+            { word: "キー", romaji: "kii", meaning: "key", emoji: "🔑", english: "key", soundSteps: ["key → ki-i", "キ-ー"], rule: "Short word gets ー for long vowel" },
+            { word: "コーク", romaji: "kooku", meaning: "Coke", emoji: "🥤", english: "Coke", soundSteps: ["coke → ko-o-ku", "コ-ー-ク"], rule: "Silent E disappears, O elongated" },
         ]
     },
     {
@@ -669,12 +670,12 @@ const WORD_FIRST_DATA = [
         focus: ["サ", "シ", "ス", "セ", "ソ"],
         script: "katakana",
         words: [
-            { word: "システム", romaji: "shisutemu", meaning: "system", emoji: "⚙️" },
-            { word: "サイズ", romaji: "saizu", meaning: "size", emoji: "📏" },
-            { word: "スキー", romaji: "sukii", meaning: "ski", emoji: "⛷️" },
-            { word: "ソース", romaji: "soosu", meaning: "sauce / source", emoji: "🍶" },
-            { word: "セール", romaji: "seeru", meaning: "sale", emoji: "🏷️" },
-            { word: "スーツ", romaji: "suutsu", meaning: "suit", emoji: "🤵" },
+            { word: "システム", romaji: "shisutemu", meaning: "system", emoji: "⚙️", english: "system", soundSteps: ["sys-tem → shi-su-te-mu", "シ-ス-テ-ム"], rule: "SY → シ, final M gets ム" },
+            { word: "サイズ", romaji: "saizu", meaning: "size", emoji: "📏", english: "size", soundSteps: ["size → sa-i-zu", "サ-イ-ズ"], rule: "S → サ, Z → ズ" },
+            { word: "スキー", romaji: "sukii", meaning: "ski", emoji: "⛷️", english: "ski", soundSteps: ["ski → su-ki-i", "ス-キ-ー"], rule: "SK cluster → ス-キ (add vowel)" },
+            { word: "ソース", romaji: "soosu", meaning: "sauce / source", emoji: "🍶", english: "sauce", soundSteps: ["sauce → so-o-su", "ソ-ー-ス"], rule: "AU → オー, CE → ス" },
+            { word: "セール", romaji: "seeru", meaning: "sale", emoji: "🏷️", english: "sale", soundSteps: ["sale → se-e-ru", "セ-ー-ル"], rule: "Silent E → elongation, L → ル" },
+            { word: "スーツ", romaji: "suutsu", meaning: "suit", emoji: "🤵", english: "suit", soundSteps: ["suit → su-u-tsu", "ス-ー-ツ"], rule: "UI → ウー, T → ツ" },
         ]
     },
     {
@@ -684,12 +685,12 @@ const WORD_FIRST_DATA = [
         focus: ["タ", "チ", "ツ", "テ", "ト"],
         script: "katakana",
         words: [
-            { word: "データ", romaji: "deeta", meaning: "data", emoji: "📊" },
-            { word: "テスト", romaji: "tesuto", meaning: "test", emoji: "📝" },
-            { word: "チーム", romaji: "chiimu", meaning: "team", emoji: "👥" },
-            { word: "タクシー", romaji: "takushii", meaning: "taxi", emoji: "🚕" },
-            { word: "トイレ", romaji: "toire", meaning: "toilet", emoji: "🚻" },
-            { word: "ツアー", romaji: "tsuaa", meaning: "tour", emoji: "🗺️" },
+            { word: "データ", romaji: "deeta", meaning: "data", emoji: "📊", english: "data", soundSteps: ["da-ta → de-e-ta", "デ-ー-タ"], rule: "DA → デー (Japanese pronunciation)" },
+            { word: "テスト", romaji: "tesuto", meaning: "test", emoji: "📝", english: "test", soundSteps: ["test → te-su-to", "テ-ス-ト"], rule: "Consonant clusters split: ST → ス-ト" },
+            { word: "チーム", romaji: "chiimu", meaning: "team", emoji: "👥", english: "team", soundSteps: ["team → chi-i-mu", "チ-ー-ム"], rule: "TEA → チー, M → ム" },
+            { word: "タクシー", romaji: "takushii", meaning: "taxi", emoji: "🚕", english: "taxi", soundSteps: ["tax-i → ta-ku-shi-i", "タ-ク-シ-ー"], rule: "X → クシ (ku-shi)" },
+            { word: "トイレ", romaji: "toire", meaning: "toilet", emoji: "🚻", english: "toilet", soundSteps: ["toi-let → to-i-re", "ト-イ-レ"], rule: "LET → レ (simplified ending)" },
+            { word: "ツアー", romaji: "tsuaa", meaning: "tour", emoji: "🗺️", english: "tour", soundSteps: ["tour → tsu-a-a", "ツ-ア-ー"], rule: "TOU → ツア, R → ー" },
         ]
     },
     {
@@ -699,12 +700,12 @@ const WORD_FIRST_DATA = [
         focus: ["ナ", "ニ", "ヌ", "ネ", "ノ", "ハ", "ヒ", "フ", "ヘ", "ホ"],
         script: "katakana",
         words: [
-            { word: "ニュース", romaji: "nyuusu", meaning: "news", emoji: "📰" },
-            { word: "ノート", romaji: "nooto", meaning: "notebook", emoji: "📓" },
-            { word: "ネット", romaji: "netto", meaning: "internet", emoji: "🌐" },
-            { word: "ホテル", romaji: "hoteru", meaning: "hotel", emoji: "🏨" },
-            { word: "ハンバーガー", romaji: "hanbaagaa", meaning: "hamburger", emoji: "🍔" },
-            { word: "ヒント", romaji: "hinto", meaning: "hint", emoji: "💡" },
+            { word: "ニュース", romaji: "nyuusu", meaning: "news", emoji: "📰", english: "news", soundSteps: ["news → nyu-u-su", "ニュ-ー-ス"], rule: "NEW → ニュー, S → ス" },
+            { word: "ノート", romaji: "nooto", meaning: "notebook", emoji: "📓", english: "note", soundSteps: ["note → no-o-to", "ノ-ー-ト"], rule: "Silent E → elongation ー" },
+            { word: "ネット", romaji: "netto", meaning: "internet", emoji: "🌐", english: "net", soundSteps: ["net → ne-t-to", "ネッ-ト"], rule: "Double T → ッ (small tsu = pause)" },
+            { word: "ホテル", romaji: "hoteru", meaning: "hotel", emoji: "🏨", english: "hotel", soundSteps: ["ho-tel → ho-te-ru", "ホ-テ-ル"], rule: "L → ル (always)" },
+            { word: "ハンバーガー", romaji: "hanbaagaa", meaning: "hamburger", emoji: "🍔", english: "hamburger", soundSteps: ["ham-bur-ger → han-ba-a-ga-a", "ハン-バ-ー-ガ-ー"], rule: "M before B → ン, ER → アー" },
+            { word: "ヒント", romaji: "hinto", meaning: "hint", emoji: "💡", english: "hint", soundSteps: ["hint → hi-n-to", "ヒ-ン-ト"], rule: "NT cluster → ン-ト" },
         ]
     },
     {
@@ -714,12 +715,12 @@ const WORD_FIRST_DATA = [
         focus: ["マ", "ミ", "ム", "メ", "モ", "ヤ", "ユ", "ヨ", "ラ", "リ", "ル", "レ", "ロ", "ワ", "ン"],
         script: "katakana",
         words: [
-            { word: "メール", romaji: "meeru", meaning: "email", emoji: "✉️" },
-            { word: "ミルク", romaji: "miruku", meaning: "milk", emoji: "🥛" },
-            { word: "ラーメン", romaji: "raamen", meaning: "ramen", emoji: "🍜" },
-            { word: "レストラン", romaji: "resutoran", meaning: "restaurant", emoji: "🍴" },
-            { word: "ユーザー", romaji: "yuuzaa", meaning: "user", emoji: "👤" },
-            { word: "ワイン", romaji: "wain", meaning: "wine", emoji: "🍷" },
+            { word: "メール", romaji: "meeru", meaning: "email", emoji: "✉️", english: "mail", soundSteps: ["mail → me-e-ru", "メ-ー-ル"], rule: "AI → エー, L → ル" },
+            { word: "ミルク", romaji: "miruku", meaning: "milk", emoji: "🥛", english: "milk", soundSteps: ["milk → mi-ru-ku", "ミ-ル-ク"], rule: "LK cluster → ル-ク" },
+            { word: "ラーメン", romaji: "raamen", meaning: "ramen", emoji: "🍜", english: "ramen", soundSteps: ["ra-men → ra-a-me-n", "ラ-ー-メ-ン"], rule: "Already Japanese! Long ア" },
+            { word: "レストラン", romaji: "resutoran", meaning: "restaurant", emoji: "🍴", english: "restaurant", soundSteps: ["res-tau-rant → re-su-to-ra-n", "レ-ス-ト-ラ-ン"], rule: "Break all clusters, final NT → ン" },
+            { word: "ユーザー", romaji: "yuuzaa", meaning: "user", emoji: "👤", english: "user", soundSteps: ["u-ser → yu-u-za-a", "ユ-ー-ザ-ー"], rule: "U → ユ, SER → ザー" },
+            { word: "ワイン", romaji: "wain", meaning: "wine", emoji: "🍷", english: "wine", soundSteps: ["wine → wa-i-n", "ワ-イ-ン"], rule: "WI → ワイ, NE → ン" },
         ]
     },
 
@@ -732,10 +733,10 @@ const WORD_FIRST_DATA = [
         script: "katakana",
         visualGroup: true,
         words: [
-            { word: "シャツ", romaji: "shatsu", meaning: "shirt", emoji: "👔", tip: "シ(shi) strokes go UP↗, ツ(tsu) strokes go DOWN↘" },
-            { word: "ツイッター", romaji: "tsuittaa", meaning: "Twitter/X", emoji: "🐦", tip: "ツ starts Twitter — strokes point down!" },
-            { word: "シート", romaji: "shiito", meaning: "seat/sheet", emoji: "💺", tip: "シ goes left-to-right ↗ like 'shi-ft'" },
-            { word: "シーツ", romaji: "shiitsu", meaning: "bed sheets", emoji: "🛏️", tip: "Contains BOTH! シ vs ツ side by side" },
+            { word: "シャツ", romaji: "shatsu", meaning: "shirt", emoji: "👔", english: "shirt", soundSteps: ["shirt → sha-tsu", "シャ-ツ"], tip: "シ(shi) strokes go UP↗, ツ(tsu) strokes go DOWN↘", rule: "SH → シャ, RT → ツ" },
+            { word: "ツイッター", romaji: "tsuittaa", meaning: "Twitter/X", emoji: "🐦", english: "Twitter", soundSteps: ["twit-ter → tsu-i-t-ta-a", "ツ-イッ-タ-ー"], tip: "ツ starts Twitter — strokes point down!", rule: "TW → ツイ, TT → ッタ" },
+            { word: "シート", romaji: "shiito", meaning: "seat/sheet", emoji: "💺", english: "sheet", soundSteps: ["sheet → shi-i-to", "シ-ー-ト"], tip: "シ goes left-to-right ↗ like 'shi-ft'", rule: "SH → シ, EET → ート" },
+            { word: "シーツ", romaji: "shiitsu", meaning: "bed sheets", emoji: "🛏️", english: "sheets", soundSteps: ["sheets → shi-i-tsu", "シ-ー-ツ"], tip: "Contains BOTH! シ vs ツ side by side", rule: "SH → シ, TS → ツ" },
         ]
     },
     {
@@ -746,10 +747,10 @@ const WORD_FIRST_DATA = [
         script: "katakana",
         visualGroup: true,
         words: [
-            { word: "ソン", romaji: "son", meaning: "loss/damage", emoji: "📉", tip: "ソ(so) strokes go DOWN↘, ン(n) strokes go UP↗" },
-            { word: "ソフト", romaji: "sofuto", meaning: "software", emoji: "💻", tip: "ソ starts it — two short strokes pointing down" },
-            { word: "パソコン", romaji: "pasokon", meaning: "PC/computer", emoji: "🖥️", tip: "Has both ソ and ン — compare them!" },
-            { word: "ンー", romaji: "nn", meaning: "hmm...", emoji: "🤔", tip: "ン always ends syllables — strokes go up↗" },
+            { word: "ソン", romaji: "son", meaning: "loss/damage", emoji: "📉", english: "son (損)", soundSteps: ["so-n", "ソ-ン"], tip: "ソ(so) strokes go DOWN↘, ン(n) strokes go UP↗", rule: "Direct mapping" },
+            { word: "ソフト", romaji: "sofuto", meaning: "software", emoji: "💻", english: "soft", soundSteps: ["soft → so-fu-to", "ソ-フ-ト"], tip: "ソ starts it — two short strokes pointing down", rule: "FT → フト" },
+            { word: "パソコン", romaji: "pasokon", meaning: "PC/computer", emoji: "🖥️", english: "personal computer", soundSteps: ["perso(nal) com(puter) → pa-so-ko-n", "パ-ソ-コ-ン"], tip: "Has both ソ and ン — compare them!", rule: "Abbreviated: PERSOnal COMputer → パソコン" },
+            { word: "マンション", romaji: "manshon", meaning: "apartment", emoji: "🏢", english: "mansion", soundSteps: ["man-sion → ma-n-sho-n", "マ-ン-ショ-ン"], tip: "Two ン's! Each final N → ン", rule: "SION → ション" },
         ]
     },
 
@@ -761,14 +762,14 @@ const WORD_FIRST_DATA = [
         focus: [],
         script: "katakana",
         words: [
-            { word: "デジタル", romaji: "dejitaru", meaning: "digital", emoji: "💻" },
-            { word: "センサー", romaji: "sensaa", meaning: "sensor", emoji: "📡" },
-            { word: "モニター", romaji: "monitaa", meaning: "monitor", emoji: "🖥️" },
-            { word: "エラー", romaji: "eraa", meaning: "error", emoji: "⚠️" },
-            { word: "プロセス", romaji: "purosesu", meaning: "process", emoji: "🔄" },
-            { word: "レポート", romaji: "repooto", meaning: "report", emoji: "📋" },
-            { word: "マニュアル", romaji: "manyuaru", meaning: "manual", emoji: "📖" },
-            { word: "パスワード", romaji: "pasuwaado", meaning: "password", emoji: "🔒" },
+            { word: "デジタル", romaji: "dejitaru", meaning: "digital", emoji: "💻", english: "digital", soundSteps: ["di-gi-tal → de-ji-ta-ru", "デ-ジ-タ-ル"], rule: "DI → デ, GI → ジ, TAL → タル" },
+            { word: "センサー", romaji: "sensaa", meaning: "sensor", emoji: "📡", english: "sensor", soundSteps: ["sen-sor → se-n-sa-a", "セ-ン-サ-ー"], rule: "SOR → サー, N → ン" },
+            { word: "モニター", romaji: "monitaa", meaning: "monitor", emoji: "🖥️", english: "monitor", soundSteps: ["mo-ni-tor → mo-ni-ta-a", "モ-ニ-タ-ー"], rule: "TOR → ター" },
+            { word: "エラー", romaji: "eraa", meaning: "error", emoji: "⚠️", english: "error", soundSteps: ["er-ror → e-ra-a", "エ-ラ-ー"], rule: "RR → ラー" },
+            { word: "プロセス", romaji: "purosesu", meaning: "process", emoji: "🔄", english: "process", soundSteps: ["pro-cess → pu-ro-se-su", "プ-ロ-セ-ス"], rule: "PR → プロ, SS → ス" },
+            { word: "レポート", romaji: "repooto", meaning: "report", emoji: "📋", english: "report", soundSteps: ["re-port → re-po-o-to", "レ-ポ-ー-ト"], rule: "PORT → ポート" },
+            { word: "マニュアル", romaji: "manyuaru", meaning: "manual", emoji: "📖", english: "manual", soundSteps: ["man-u-al → ma-nyu-a-ru", "マ-ニュ-ア-ル"], rule: "NU → ニュ, AL → アル" },
+            { word: "パスワード", romaji: "pasuwaado", meaning: "password", emoji: "🔒", english: "password", soundSteps: ["pass-word → pa-su-wa-a-do", "パ-ス-ワ-ー-ド"], rule: "SS → ス, WORD → ワード" },
         ]
     },
     {
@@ -778,129 +779,130 @@ const WORD_FIRST_DATA = [
         focus: [],
         script: "katakana",
         words: [
-            { word: "ミーティング", romaji: "miitingu", meaning: "meeting", emoji: "🤝" },
-            { word: "スケジュール", romaji: "sukejuuru", meaning: "schedule", emoji: "📅" },
-            { word: "プレゼン", romaji: "purezen", meaning: "presentation", emoji: "📊" },
-            { word: "プロジェクト", romaji: "purojekuto", meaning: "project", emoji: "📁" },
-            { word: "マネージャー", romaji: "maneejaa", meaning: "manager", emoji: "👔" },
-            { word: "コスト", romaji: "kosuto", meaning: "cost", emoji: "💰" },
-            { word: "クレーム", romaji: "kureemu", meaning: "complaint/claim", emoji: "😤" },
-            { word: "サンプル", romaji: "sanpuru", meaning: "sample", emoji: "🧪" },
+            { word: "ミーティング", romaji: "miitingu", meaning: "meeting", emoji: "🤝", english: "meeting", soundSteps: ["mee-ting → mi-i-ti-n-gu", "ミ-ー-ティ-ン-グ"], rule: "EE → ー, -ING → イング" },
+            { word: "スケジュール", romaji: "sukejuuru", meaning: "schedule", emoji: "📅", english: "schedule", soundSteps: ["sche-dule → su-ke-ju-u-ru", "ス-ケ-ジュ-ー-ル"], rule: "SCH → スケ, DULE → ジュール" },
+            { word: "プレゼン", romaji: "purezen", meaning: "presentation", emoji: "📊", english: "presentation", soundSteps: ["presen(tation) → pu-re-ze-n", "プ-レ-ゼ-ン"], rule: "Abbreviated! Only first part used" },
+            { word: "プロジェクト", romaji: "purojekuto", meaning: "project", emoji: "📁", english: "project", soundSteps: ["pro-ject → pu-ro-je-ku-to", "プ-ロ-ジェ-ク-ト"], rule: "PR → プロ, JECT → ジェクト" },
+            { word: "マネージャー", romaji: "maneejaa", meaning: "manager", emoji: "👔", english: "manager", soundSteps: ["ma-na-ger → ma-ne-e-ja-a", "マ-ネ-ー-ジャ-ー"], rule: "GER → ジャー" },
+            { word: "コスト", romaji: "kosuto", meaning: "cost", emoji: "💰", english: "cost", soundSteps: ["cost → ko-su-to", "コ-ス-ト"], rule: "ST → スト (break cluster)" },
+            { word: "クレーム", romaji: "kureemu", meaning: "complaint/claim", emoji: "😤", english: "claim", soundSteps: ["claim → ku-re-e-mu", "ク-レ-ー-ム"], rule: "CL → クレ, AIM → ーム" },
+            { word: "サンプル", romaji: "sanpuru", meaning: "sample", emoji: "🧪", english: "sample", soundSteps: ["sam-ple → sa-n-pu-ru", "サ-ン-プ-ル"], rule: "M before P → ン, PLE → プル" },
         ]
     },
 
     // ============================================
     // KANJI WORD-FIRST LEVELS (27–34)
-    // Learn N5 kanji through real compound words
+    // Radical + Meaning Method: Decode meaning through structure
+    // 🔑 Kanji = decode meaning
     // ============================================
 
-    // ===== Step 1: Number & Time Kanji Through Words =====
+    // ===== Step 1: Number & Time — Simple Kanji with Pictographic Radicals =====
     {
         level: 27,
         title: "Number Kanji Words",
-        subtitle: "一二三 — learn kanji through counting",
+        subtitle: "一二三 — kanji that ARE their meaning",
         focus: ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"],
         script: "kanji",
         words: [
-            { word: "一つ", romaji: "hitotsu", meaning: "one thing", emoji: "1️⃣" },
-            { word: "二人", romaji: "futari", meaning: "two people", emoji: "👫" },
-            { word: "三月", romaji: "sangatsu", meaning: "March", emoji: "🗓️" },
-            { word: "四時", romaji: "yoji", meaning: "4 o'clock", emoji: "🕓" },
-            { word: "五百", romaji: "gohyaku", meaning: "five hundred", emoji: "💴" },
-            { word: "十分", romaji: "juppun", meaning: "10 minutes", emoji: "⏱️" },
+            { word: "一つ", romaji: "hitotsu", meaning: "one thing", emoji: "1️⃣", radicals: [{char: "一", parts: ["一 = one line"], meaning: "one"}] },
+            { word: "二人", romaji: "futari", meaning: "two people", emoji: "👫", radicals: [{char: "二", parts: ["二 = two lines"], meaning: "two"}, {char: "人", parts: ["人 = person standing"], meaning: "person"}] },
+            { word: "三月", romaji: "sangatsu", meaning: "March", emoji: "🗓️", radicals: [{char: "三", parts: ["三 = three lines"], meaning: "three"}, {char: "月", parts: ["月 = crescent moon"], meaning: "moon/month"}] },
+            { word: "四時", romaji: "yoji", meaning: "4 o'clock", emoji: "🕓", radicals: [{char: "四", parts: ["囗 = enclosure", "八 = divide"], meaning: "four"}, {char: "時", parts: ["日 = sun", "寺 = temple"], meaning: "time"}] },
+            { word: "五百", romaji: "gohyaku", meaning: "five hundred", emoji: "💴", radicals: [{char: "五", parts: ["五 = cross shape"], meaning: "five"}, {char: "百", parts: ["一 = one", "白 = white"], meaning: "hundred"}] },
+            { word: "十分", romaji: "juppun", meaning: "10 minutes", emoji: "⏱️", radicals: [{char: "十", parts: ["十 = cross (+)"], meaning: "ten"}, {char: "分", parts: ["八 = divide", "刀 = knife"], meaning: "minute/divide"}] },
         ]
     },
     {
         level: 28,
         title: "Time & Calendar Kanji",
-        subtitle: "日月火水 — days of the week",
+        subtitle: "日月火水 — nature elements as days",
         focus: ["日", "月", "火", "水", "木", "金", "土"],
         script: "kanji",
         words: [
-            { word: "日曜日", romaji: "nichiyoubi", meaning: "Sunday", emoji: "☀️" },
-            { word: "月曜日", romaji: "getsuyoubi", meaning: "Monday", emoji: "🌙" },
-            { word: "火曜日", romaji: "kayoubi", meaning: "Tuesday", emoji: "🔥" },
-            { word: "水曜日", romaji: "suiyoubi", meaning: "Wednesday", emoji: "💧" },
-            { word: "金曜日", romaji: "kinyoubi", meaning: "Friday", emoji: "💰" },
-            { word: "今日", romaji: "kyou", meaning: "today", emoji: "📅" },
+            { word: "日曜日", romaji: "nichiyoubi", meaning: "Sunday", emoji: "☀️", radicals: [{char: "日", parts: ["☀ sun pictograph"], meaning: "sun/day"}] },
+            { word: "月曜日", romaji: "getsuyoubi", meaning: "Monday", emoji: "🌙", radicals: [{char: "月", parts: ["🌙 crescent moon"], meaning: "moon/month"}] },
+            { word: "火曜日", romaji: "kayoubi", meaning: "Tuesday", emoji: "🔥", radicals: [{char: "火", parts: ["🔥 flames pictograph"], meaning: "fire"}] },
+            { word: "水曜日", romaji: "suiyoubi", meaning: "Wednesday", emoji: "💧", radicals: [{char: "水", parts: ["💧 flowing water"], meaning: "water"}] },
+            { word: "金曜日", romaji: "kinyoubi", meaning: "Friday", emoji: "💰", radicals: [{char: "金", parts: ["人 = roof/person", "王 = king", "丶丶 = nuggets"], meaning: "gold/money"}] },
+            { word: "今日", romaji: "kyou", meaning: "today", emoji: "📅", radicals: [{char: "今", parts: ["人 = person", "一 = now marker"], meaning: "now"}, {char: "日", parts: ["☀ sun pictograph"], meaning: "day"}] },
         ]
     },
     {
         level: 29,
         title: "People & Body Kanji",
-        subtitle: "人男女子 — people you meet",
+        subtitle: "人男女子 — radicals build people",
         focus: ["人", "男", "女", "子", "母", "父"],
         script: "kanji",
         words: [
-            { word: "日本人", romaji: "nihonjin", meaning: "Japanese person", emoji: "🇯🇵" },
-            { word: "男の人", romaji: "otoko no hito", meaning: "man", emoji: "👨" },
-            { word: "女の子", romaji: "onna no ko", meaning: "girl", emoji: "👧" },
-            { word: "子ども", romaji: "kodomo", meaning: "child", emoji: "👶" },
-            { word: "お母さん", romaji: "okaasan", meaning: "mother (polite)", emoji: "👩" },
-            { word: "お父さん", romaji: "otousan", meaning: "father (polite)", emoji: "👨" },
+            { word: "日本人", romaji: "nihonjin", meaning: "Japanese person", emoji: "🇯🇵", radicals: [{char: "日", parts: ["☀ sun"], meaning: "sun"}, {char: "本", parts: ["木 = tree", "一 = root mark"], meaning: "origin/book"}, {char: "人", parts: ["人 = walking person"], meaning: "person"}] },
+            { word: "男の人", romaji: "otoko no hito", meaning: "man", emoji: "👨", radicals: [{char: "男", parts: ["田 = rice field", "力 = power/strength"], meaning: "man (strength in field)"}] },
+            { word: "女の子", romaji: "onna no ko", meaning: "girl", emoji: "👧", radicals: [{char: "女", parts: ["女 = kneeling figure"], meaning: "woman"}, {char: "子", parts: ["子 = child with arms"], meaning: "child"}] },
+            { word: "子ども", romaji: "kodomo", meaning: "child", emoji: "👶", radicals: [{char: "子", parts: ["子 = swaddled baby"], meaning: "child"}] },
+            { word: "お母さん", romaji: "okaasan", meaning: "mother (polite)", emoji: "👩", radicals: [{char: "母", parts: ["母 = breasts (nurturing)"], meaning: "mother"}] },
+            { word: "お父さん", romaji: "otousan", meaning: "father (polite)", emoji: "👨", radicals: [{char: "父", parts: ["父 = hand holding axe"], meaning: "father"}] },
         ]
     },
     {
         level: 30,
         title: "Places & Directions Kanji",
-        subtitle: "上下中外 — where things are",
+        subtitle: "上下中外 — spatial radicals",
         focus: ["上", "下", "中", "外", "右", "左"],
         script: "kanji",
         words: [
-            { word: "上手", romaji: "jouzu", meaning: "good at/skillful", emoji: "👍" },
-            { word: "下さい", romaji: "kudasai", meaning: "please give", emoji: "🙏" },
-            { word: "中国", romaji: "chuugoku", meaning: "China", emoji: "🇨🇳" },
-            { word: "外国人", romaji: "gaikokujin", meaning: "foreigner", emoji: "🌍" },
-            { word: "右手", romaji: "migite", meaning: "right hand", emoji: "✋" },
-            { word: "左右", romaji: "sayuu", meaning: "left and right", emoji: "↔️" },
+            { word: "上手", romaji: "jouzu", meaning: "good at/skillful", emoji: "👍", radicals: [{char: "上", parts: ["一 = ground", "| = pointing UP ↑"], meaning: "up/above"}, {char: "手", parts: ["手 = hand with fingers"], meaning: "hand"}] },
+            { word: "下さい", romaji: "kudasai", meaning: "please give", emoji: "🙏", radicals: [{char: "下", parts: ["一 = ceiling", "| = pointing DOWN ↓"], meaning: "down/below"}] },
+            { word: "中国", romaji: "chuugoku", meaning: "China", emoji: "🇨🇳", radicals: [{char: "中", parts: ["口 = box", "| = line through middle"], meaning: "middle/inside"}, {char: "国", parts: ["囗 = border", "玉 = jewel"], meaning: "country"}] },
+            { word: "外国人", romaji: "gaikokujin", meaning: "foreigner", emoji: "🌍", radicals: [{char: "外", parts: ["夕 = evening", "卜 = divination"], meaning: "outside"}, {char: "国", parts: ["囗 = border", "玉 = jewel"], meaning: "country"}] },
+            { word: "右手", romaji: "migite", meaning: "right hand", emoji: "✋", radicals: [{char: "右", parts: ["ナ = hand", "口 = mouth"], meaning: "right (eat with right hand)"}] },
+            { word: "左右", romaji: "sayuu", meaning: "left and right", emoji: "↔️", radicals: [{char: "左", parts: ["ナ = hand", "工 = work"], meaning: "left (work hand)"}, {char: "右", parts: ["ナ = hand", "口 = mouth"], meaning: "right (eating hand)"}] },
         ]
     },
 
-    // ===== Step 2: Kanji Visual Groups =====
+    // ===== Step 2: Kanji Radical Decoding =====
     {
         level: 31,
         title: "Nature Kanji Group",
-        subtitle: "山川天気 — nature around you",
+        subtitle: "山川天気 — pictographs of nature",
         focus: ["山", "川", "天", "気", "雨", "花"],
         script: "kanji",
         visualGroup: true,
         words: [
-            { word: "富士山", romaji: "fujisan", meaning: "Mt. Fuji", emoji: "🗻", tip: "山 looks like 3 mountain peaks!" },
-            { word: "川", romaji: "kawa", meaning: "river", emoji: "🏞️", tip: "川 = three flowing streams" },
-            { word: "天気", romaji: "tenki", meaning: "weather", emoji: "🌤️", tip: "天(sky) + 気(energy) = weather" },
-            { word: "大雨", romaji: "ooame", meaning: "heavy rain", emoji: "🌧️", tip: "雨 looks like rain under a roof" },
-            { word: "花火", romaji: "hanabi", meaning: "fireworks", emoji: "🎆", tip: "花(flower) + 火(fire) = fireworks!" },
+            { word: "富士山", romaji: "fujisan", meaning: "Mt. Fuji", emoji: "🗻", tip: "山 looks like 3 mountain peaks!", radicals: [{char: "山", parts: ["⛰ three peaks pictograph"], meaning: "mountain"}] },
+            { word: "川", romaji: "kawa", meaning: "river", emoji: "🏞️", tip: "川 = three flowing streams", radicals: [{char: "川", parts: ["〜〜〜 three flowing streams"], meaning: "river"}] },
+            { word: "天気", romaji: "tenki", meaning: "weather", emoji: "🌤️", tip: "天(sky) + 気(energy) = weather", radicals: [{char: "天", parts: ["一 = horizon", "大 = big (sky is big)"], meaning: "heaven/sky"}, {char: "気", parts: ["气 = steam rising", "メ = rice"], meaning: "spirit/energy"}] },
+            { word: "大雨", romaji: "ooame", meaning: "heavy rain", emoji: "🌧️", tip: "雨 looks like rain under a roof", radicals: [{char: "大", parts: ["大 = person with arms wide"], meaning: "big"}, {char: "雨", parts: ["一 = sky", "冂 = window", "丶丶 = raindrops"], meaning: "rain"}] },
+            { word: "花火", romaji: "hanabi", meaning: "fireworks", emoji: "🎆", tip: "花(flower) + 火(fire) = fireworks!", radicals: [{char: "花", parts: ["艹 = grass/plant", "化 = change"], meaning: "flower"}, {char: "火", parts: ["🔥 flames"], meaning: "fire"}] },
         ]
     },
     {
         level: 32,
         title: "Action Kanji Group",
-        subtitle: "食飲見聞 — things you do daily",
+        subtitle: "食飲見聞 — radicals show the action",
         focus: ["食", "飲", "見", "聞", "読", "書"],
         script: "kanji",
         visualGroup: true,
         words: [
-            { word: "食べる", romaji: "taberu", meaning: "to eat", emoji: "🍽️", tip: "食 has a roof (亠) over good (良) — eating is good!" },
-            { word: "飲み物", romaji: "nomimono", meaning: "drink/beverage", emoji: "🥤", tip: "飲(drink) + 物(thing) = beverage" },
-            { word: "見る", romaji: "miru", meaning: "to see", emoji: "👀", tip: "見 = eye (目) on legs (儿) — walking to see" },
-            { word: "新聞", romaji: "shinbun", meaning: "newspaper", emoji: "📰", tip: "新(new) + 聞(hear) = newspaper" },
-            { word: "読書", romaji: "dokusho", meaning: "reading books", emoji: "📚", tip: "読(read) + 書(write) = reading" },
+            { word: "食べる", romaji: "taberu", meaning: "to eat", emoji: "🍽️", tip: "食 has a roof over good — eating is good!", radicals: [{char: "食", parts: ["人 = roof/cover", "良 = good"], meaning: "eat (good under roof)"}] },
+            { word: "飲み物", romaji: "nomimono", meaning: "drink/beverage", emoji: "🥤", tip: "飲(drink) + 物(thing) = beverage", radicals: [{char: "飲", parts: ["食 = food", "欠 = yawn/open mouth"], meaning: "drink"}, {char: "物", parts: ["牛 = cow", "勿 = must not"], meaning: "thing"}] },
+            { word: "見る", romaji: "miru", meaning: "to see", emoji: "👀", tip: "見 = eye on legs — walking to see", radicals: [{char: "見", parts: ["目 = eye 👁", "儿 = legs"], meaning: "see (eye walking)"}] },
+            { word: "新聞", romaji: "shinbun", meaning: "newspaper", emoji: "📰", tip: "新(new) + 聞(hear) = *new things heard*", radicals: [{char: "新", parts: ["立 = stand", "木 = tree", "斤 = axe"], meaning: "new (freshly cut)"}, {char: "聞", parts: ["門 = gate", "耳 = ear 👂"], meaning: "hear (ear at gate)"}] },
+            { word: "読書", romaji: "dokusho", meaning: "reading books", emoji: "📚", tip: "読(read) + 書(write) = reading", radicals: [{char: "読", parts: ["言 = speech", "売 = sell"], meaning: "read (sell words)"}, {char: "書", parts: ["聿 = brush", "日 = day"], meaning: "write (brush by day)"}] },
         ]
     },
     {
         level: 33,
         title: "Size & Quality Kanji",
-        subtitle: "大小高安 — describing things",
+        subtitle: "大小高安 — radicals describe qualities",
         focus: ["大", "小", "高", "安", "新", "古"],
         script: "kanji",
         visualGroup: true,
         words: [
-            { word: "大きい", romaji: "ookii", meaning: "big", emoji: "🔴", tip: "大 = person with arms stretched wide!" },
-            { word: "小さい", romaji: "chiisai", meaning: "small", emoji: "🔹", tip: "小 = person with arms down, getting smaller" },
-            { word: "高い", romaji: "takai", meaning: "expensive/tall", emoji: "💰", tip: "高 = tall building with floors" },
-            { word: "安い", romaji: "yasui", meaning: "cheap/safe", emoji: "🏷️", tip: "安 = woman (女) under a roof = safe" },
-            { word: "新しい", romaji: "atarashii", meaning: "new", emoji: "✨", tip: "新 has tree(木) + axe — freshly cut!" },
-            { word: "古い", romaji: "furui", meaning: "old (things)", emoji: "🏚️", tip: "古 = ten(十) + mouth(口) = passed through 10 mouths = old" },
+            { word: "大きい", romaji: "ookii", meaning: "big", emoji: "🔴", tip: "大 = person with arms stretched wide!", radicals: [{char: "大", parts: ["人 = person", "一一 = arms spread"], meaning: "big (wide person)"}] },
+            { word: "小さい", romaji: "chiisai", meaning: "small", emoji: "🔹", tip: "小 = small dots beside a line", radicals: [{char: "小", parts: ["| = center line", "丶丶 = tiny marks"], meaning: "small"}] },
+            { word: "高い", romaji: "takai", meaning: "expensive/tall", emoji: "💰", tip: "高 = tall building with floors", radicals: [{char: "高", parts: ["亠 = roof", "口 = rooms", "冂 = structure"], meaning: "tall/high (tall building)"}] },
+            { word: "安い", romaji: "yasui", meaning: "cheap/safe", emoji: "🏷️", tip: "安 = woman under a roof = safe", radicals: [{char: "安", parts: ["宀 = roof", "女 = woman"], meaning: "safe/cheap (woman safe at home)"}] },
+            { word: "新しい", romaji: "atarashii", meaning: "new", emoji: "✨", tip: "新 has tree + axe — freshly cut!", radicals: [{char: "新", parts: ["立 = stand", "木 = tree", "斤 = axe"], meaning: "new (fresh-cut tree)"}] },
+            { word: "古い", romaji: "furui", meaning: "old (things)", emoji: "🏚️", tip: "古 = ten + mouth = told 10 times = old", radicals: [{char: "古", parts: ["十 = ten", "口 = mouth"], meaning: "old (10 mouths = many generations)"}] },
         ]
     },
 
@@ -908,16 +910,16 @@ const WORD_FIRST_DATA = [
     {
         level: 34,
         title: "School & Work Kanji",
-        subtitle: "学校社会 — workplace kanji",
+        subtitle: "学校社会 — compound meanings",
         focus: ["学", "校", "会", "社", "語", "本"],
         script: "kanji",
         words: [
-            { word: "学校", romaji: "gakkou", meaning: "school", emoji: "🏫" },
-            { word: "会社", romaji: "kaisha", meaning: "company", emoji: "🏢" },
-            { word: "日本語", romaji: "nihongo", meaning: "Japanese language", emoji: "🇯🇵" },
-            { word: "会議", romaji: "kaigi", meaning: "meeting/conference", emoji: "🤝" },
-            { word: "本", romaji: "hon", meaning: "book", emoji: "📕" },
-            { word: "社長", romaji: "shachou", meaning: "company president", emoji: "👔" },
+            { word: "学校", romaji: "gakkou", meaning: "school", emoji: "🏫", radicals: [{char: "学", parts: ["⺌ = sparkles (wisdom)", "冖 = cover", "子 = child"], meaning: "study (child gaining wisdom)"}, {char: "校", parts: ["木 = tree/wooden", "交 = cross/mix"], meaning: "school (wooden building for mixing knowledge)"}] },
+            { word: "会社", romaji: "kaisha", meaning: "company", emoji: "🏢", radicals: [{char: "会", parts: ["人 = person", "云 = cloud/gather"], meaning: "meet (people gathering)"}, {char: "社", parts: ["礻 = spirit/altar", "土 = earth"], meaning: "company/shrine"}] },
+            { word: "日本語", romaji: "nihongo", meaning: "Japanese language", emoji: "🇯🇵", radicals: [{char: "日", parts: ["☀ sun"], meaning: "sun/Japan"}, {char: "本", parts: ["木 = tree", "一 = root"], meaning: "origin (tree root)"}, {char: "語", parts: ["言 = speech", "吾 = I/self"], meaning: "language (my speech)"}] },
+            { word: "会議", romaji: "kaigi", meaning: "meeting/conference", emoji: "🤝", radicals: [{char: "会", parts: ["人 = person", "云 = gather"], meaning: "meet"}, {char: "議", parts: ["言 = speech", "義 = justice"], meaning: "discuss"}] },
+            { word: "本", romaji: "hon", meaning: "book", emoji: "📕", radicals: [{char: "本", parts: ["木 = tree", "一 = root marker"], meaning: "book/origin (root of a tree)"}] },
+            { word: "社長", romaji: "shachou", meaning: "company president", emoji: "👔", radicals: [{char: "社", parts: ["礻 = altar", "土 = earth"], meaning: "company"}, {char: "長", parts: ["長 = long hair (elder)"], meaning: "chief/long"}] },
         ]
     },
 ];

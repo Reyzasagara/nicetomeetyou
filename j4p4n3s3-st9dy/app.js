@@ -1021,8 +1021,8 @@ function renderReadingPanel(scrollToLevel) {
 
         const sections = [
             { key: 'hiragana', label: 'ひらがな Hiragana', cls: 'wr-hiragana', startLvl: 1, endLvl: 16, stepHeaders: {1: '🔤 Step 1 — Learn Through Words', 10: '👁️ Step 2 — Visual Groups', 14: '📚 Step 3 — Mini Vocabulary'} },
-            { key: 'katakana', label: 'カタカナ Katakana', cls: 'wr-katakana', startLvl: 17, endLvl: 26, stepHeaders: {17: '🔤 Step 1 — Katakana Through Loanwords', 23: '👁️ Step 2 — Visual Confusion Groups', 25: '💼 Step 3 — Workplace Katakana'} },
-            { key: 'kanji', label: '漢字 Kanji', cls: 'wr-kanji', startLvl: 27, endLvl: 34, stepHeaders: {27: '🔤 Step 1 — Kanji Through Words', 31: '👁️ Step 2 — Kanji Visual Groups', 34: '📚 Step 3 — Workplace Kanji'} },
+            { key: 'katakana', label: 'カタカナ Katakana', cls: 'wr-katakana', startLvl: 17, endLvl: 26, stepHeaders: {17: '� Step 1 — Sound Conversion Method', 23: '👁️ Step 2 — Visual Confusion Pairs', 25: '💼 Step 3 — Workplace Sound Conversion'} },
+            { key: 'kanji', label: '漢字 Kanji', cls: 'wr-kanji', startLvl: 27, endLvl: 34, stepHeaders: {27: '🧩 Step 1 — Radical + Meaning Method', 31: '🌿 Step 2 — Radical Decoding', 34: '🏢 Step 3 — Workplace Radicals'} },
         ];
 
         sections.forEach(sec => {
@@ -1409,10 +1409,8 @@ function startWFReadLearn(level) {
     let idx = 0;
     let phase = "word";
 
-    function renderLearnCard() {
-        const w = words[idx];
+    function buildHiraganaDetail(w) {
         const mn = typeof MNEMONICS !== "undefined" ? MNEMONICS : {};
-        phase = "word";
         const chars = [...w.word];
         const breakdownHTML = chars.map(c => {
             const m = mn[c] || null;
@@ -1440,6 +1438,70 @@ function startWFReadLearn(level) {
             </div>`;
         }).join('');
         const tipHTML = w.tip ? `<div class="wr-tip">${w.tip}</div>` : '';
+        return `<span class="wr-detail-word">${w.word}</span>
+            <span class="wr-detail-romaji">${w.romaji}</span>
+            <span class="wr-detail-meaning">${w.emoji} ${w.meaning}</span>
+            <div class="wr-breakdown">${breakdownHTML}</div>
+            ${tipHTML}`;
+    }
+
+    function buildKatakanaDetail(w) {
+        const steps = w.soundSteps || [];
+        const stepsHTML = steps.length >= 2
+            ? `<div class="wr-sound-steps">
+                <div class="wr-sound-step wr-sound-en"><span class="wr-sound-label">English</span><span class="wr-sound-val">${w.english || ''}</span></div>
+                <div class="wr-sound-arrow">▼</div>
+                <div class="wr-sound-step wr-sound-convert"><span class="wr-sound-label">Sound</span><span class="wr-sound-val">${steps[0]}</span></div>
+                <div class="wr-sound-arrow">▼</div>
+                <div class="wr-sound-step wr-sound-kata"><span class="wr-sound-label">カタカナ</span><span class="wr-sound-val">${steps[1]}</span></div>
+              </div>` : '';
+        const ruleHTML = w.rule ? `<div class="wr-sound-rule">📏 <strong>Rule:</strong> ${w.rule}</div>` : '';
+        const tipHTML = w.tip ? `<div class="wr-tip">${w.tip}</div>` : '';
+        return `<span class="wr-detail-word">${w.word}</span>
+            <span class="wr-detail-romaji">${w.romaji}</span>
+            <span class="wr-detail-meaning">${w.emoji} ${w.meaning}</span>
+            ${stepsHTML}
+            ${ruleHTML}
+            ${tipHTML}`;
+    }
+
+    function buildKanjiDetail(w) {
+        const rads = w.radicals || [];
+        const radHTML = rads.map(r => {
+            const partsHTML = (r.parts || []).map(p => `<span class="wr-radical-part">${p}</span>`).join('');
+            const logicHTML = r.logic ? `<div class="wr-radical-logic">→ ${r.logic}</div>` : '';
+            return `<div class="wr-radical-card">
+                <span class="wr-radical-char">${r.char}</span>
+                <span class="wr-radical-meaning">${r.meaning || ''}</span>
+                <div class="wr-radical-parts">${partsHTML}</div>
+                ${logicHTML}
+            </div>`;
+        }).join('');
+        const tipHTML = w.tip ? `<div class="wr-tip">${w.tip}</div>` : '';
+        return `<span class="wr-detail-word">${w.word}</span>
+            <span class="wr-detail-romaji">${w.romaji}</span>
+            <span class="wr-detail-meaning">${w.emoji} ${w.meaning}</span>
+            <div class="wr-radicals">${radHTML}</div>
+            ${tipHTML}`;
+    }
+
+    function renderLearnCard() {
+        const w = words[idx];
+        phase = "word";
+        const script = lvlData.script;
+        let frontHint = "tap to reveal ↓";
+        let detailHTML = "";
+        if (script === "katakana") {
+            frontHint = "How does this sound in Japanese? ↓";
+            detailHTML = buildKatakanaDetail(w);
+        } else if (script === "kanji") {
+            frontHint = "What do the parts mean? ↓";
+            detailHTML = buildKanjiDetail(w);
+        } else {
+            detailHTML = buildHiraganaDetail(w);
+        }
+        const frontWord = (script === "katakana" && w.english) ? w.english : w.word;
+        const frontLabel = script === "katakana" ? `<span class="wr-word-sub">${w.word}</span>` : '';
 
         panel.innerHTML = `<div class="wr-content">
             <div class="wr-learn-header">
@@ -1447,18 +1509,15 @@ function startWFReadLearn(level) {
                 <span>${idx + 1} / ${words.length}</span>
                 <span>${lvlData.title}</span>
             </div>
-            <div class="wr-card" id="wrCard">
+            <div class="wr-card ${script ? 'wr-card-' + script : ''}" id="wrCard">
                 <div class="wr-card-word" id="wrWordFace">
                     <span class="wr-word-emoji">${w.emoji}</span>
-                    <span class="wr-word-big">${w.word}</span>
-                    <span class="wr-word-hint">tap to reveal ↓</span>
+                    <span class="wr-word-big">${frontWord}</span>
+                    ${frontLabel}
+                    <span class="wr-word-hint">${frontHint}</span>
                 </div>
                 <div class="wr-card-detail" id="wrDetailFace" style="display:none">
-                    <span class="wr-detail-word">${w.word}</span>
-                    <span class="wr-detail-romaji">${w.romaji}</span>
-                    <span class="wr-detail-meaning">${w.emoji} ${w.meaning}</span>
-                    <div class="wr-breakdown">${breakdownHTML}</div>
-                    ${tipHTML}
+                    ${detailHTML}
                 </div>
             </div>
             <div class="wr-nav-row">

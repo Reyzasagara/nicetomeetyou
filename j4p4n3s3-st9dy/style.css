@@ -1103,6 +1103,13 @@ footer {
     transform: translateY(-1px);
 }
 .rw-cat-header { display: flex; align-items: center; gap: 12px; }
+.rw-cat-header.rw-collapsible-header {
+    cursor: pointer; list-style: none; padding: 8px 0;
+}
+.rw-cat-header.rw-collapsible-header:hover {
+    background: rgba(74,158,255,0.05); border-radius: 8px; padding: 8px;
+}
+.rw-cat-header.rw-collapsible-header::-webkit-details-marker { display: none; }
 .rw-cat-icon { font-size: 32px; min-width: 40px; text-align: center; }
 .rw-cat-info { flex: 1; }
 .rw-cat-info h3 { font-size: 16px; margin-bottom: 2px; }

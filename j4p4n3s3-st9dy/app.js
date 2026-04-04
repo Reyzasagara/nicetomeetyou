@@ -872,14 +872,112 @@ function renderHistory() {
                 </div>
             </div>
 
+            <!-- Save / Load Profile -->
+            <div class="history-card" style="border-color:var(--accent)">
+                <h3 style="color:var(--accent)">💾 Save & Load Progress</h3>
+                <p style="font-size:12px;color:var(--text-dim);margin-bottom:4px">
+                    Your progress is saved in <strong>this browser only</strong>. Use Save/Load to backup or transfer between devices.
+                </p>
+                <p style="font-size:11px;color:var(--text-dim);margin-bottom:12px">
+                    Last saved: <strong id="lastSaveTime">${localStorage.getItem('jcoach_last_save') ? new Date(localStorage.getItem('jcoach_last_save')).toLocaleString() : 'Never'}</strong>
+                </p>
+                <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
+                    <button class="btn-primary" style="max-width:200px;background:#4a9eff" onclick="exportProgress()">
+                        ⬇️ Save to File
+                    </button>
+                    <button class="btn-primary" style="max-width:200px;background:#2ecc71" onclick="document.getElementById('importFile').click()">
+                        ⬆️ Load from File
+                    </button>
+                    <input type="file" id="importFile" accept=".json" style="display:none" onchange="importProgress(event)">
+                </div>
+                <div id="saveLoadStatus" style="font-size:12px;display:none;padding:8px 12px;border-radius:8px;margin-bottom:8px"></div>
+            </div>
+
             <!-- Danger Zone -->
             <div class="history-card" style="border-color:#f44336">
-                <h3 style="color:#f44336">Reset Progress</h3>
+                <h3 style="color:#f44336">⚠️ Reset Progress</h3>
                 <p style="font-size:12px;color:var(--text-dim);margin-bottom:8px">This will clear all words, grammar, XP, history, and test results.</p>
                 <button class="btn-primary" style="background:#f44336;max-width:200px" onclick="if(confirm('Reset ALL progress? This cannot be undone.')){localStorage.clear();location.reload();}">Reset Everything</button>
             </div>
         </div>
     `;
+}
+
+// ============================================
+// SAVE / LOAD PROGRESS (Export/Import JSON)
+// ============================================
+const SAVE_KEYS = [
+    'jcoach_words', 'jcoach_grammar', 'jcoach_xp', 'jcoach_history',
+    'jcoach_jlpt_results', 'jcoach_reading', 'jcoach_writing', 'jcoach_notes',
+    'jcoach_srs', 'jcoach_studyplan', 'jcoach_sp_completed',
+    'jcoach_wr', 'jcoach_kb_size'
+];
+
+function showSaveLoadStatus(msg, isError) {
+    const el = document.getElementById('saveLoadStatus');
+    if (!el) return;
+    el.style.display = 'block';
+    el.style.background = isError ? 'rgba(244,67,54,0.15)' : 'rgba(46,204,113,0.15)';
+    el.style.color = isError ? '#f44336' : '#2ecc71';
+    el.textContent = msg;
+    setTimeout(() => { el.style.display = 'none'; }, 4000);
+}
+
+function exportProgress() {
+    const data = { _meta: { app: 'JapaneseCoach', version: 3, exported: new Date().toISOString() } };
+    SAVE_KEYS.forEach(key => {
+        const val = localStorage.getItem(key);
+        if (val !== null) data[key] = val;
+    });
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    const d = new Date();
+    a.href = url;
+    a.download = `jcoach_save_${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    localStorage.setItem('jcoach_last_save', new Date().toISOString());
+    showSaveLoadStatus('✅ Progress saved to file!', false);
+    const ts = document.getElementById('lastSaveTime');
+    if (ts) ts.textContent = new Date().toLocaleString();
+}
+
+function importProgress(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    if (!file.name.endsWith('.json')) {
+        showSaveLoadStatus('❌ Please select a .json file', true);
+        event.target.value = '';
+        return;
+    }
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        try {
+            const data = JSON.parse(e.target.result);
+            // Validate it's a JapaneseCoach save
+            if (!data._meta || data._meta.app !== 'JapaneseCoach') {
+                showSaveLoadStatus('❌ Invalid save file. Not a Japanese Coach backup.', true);
+                return;
+            }
+            // Count what we're loading
+            let loaded = 0;
+            SAVE_KEYS.forEach(key => {
+                if (data[key] !== undefined) {
+                    localStorage.setItem(key, data[key]);
+                    loaded++;
+                }
+            });
+            showSaveLoadStatus(`✅ Loaded ${loaded} data entries. Reloading...`, false);
+            setTimeout(() => location.reload(), 1500);
+        } catch (err) {
+            showSaveLoadStatus('❌ Error reading file: ' + err.message, true);
+        }
+    };
+    reader.readAsText(file);
+    event.target.value = '';
 }
 
 // ============================================

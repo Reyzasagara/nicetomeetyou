@@ -1185,6 +1185,26 @@ function getGroupItems(category, groupName) {
     }));
 }
 
+function getNextGroup(category, currentGroupName) {
+    if (category === "grammar") return null;
+    const catData = KANA_DATA[category];
+    if (!catData || !catData.groups) return null;
+    const groups = catData.groups;
+    const currentIdx = groups.findIndex(g => g.name === currentGroupName);
+    if (currentIdx === -1 || currentIdx >= groups.length - 1) return null;
+    return groups[currentIdx + 1].name;
+}
+
+function getPrevGroup(category, currentGroupName) {
+    if (category === "grammar") return null;
+    const catData = KANA_DATA[category];
+    if (!catData || !catData.groups) return null;
+    const groups = catData.groups;
+    const currentIdx = groups.findIndex(g => g.name === currentGroupName);
+    if (currentIdx <= 0) return null;
+    return groups[currentIdx - 1].name;
+}
+
 function startReadingStudy(category, groupName) {
     const items = getGroupItems(category, groupName);
     if (!items.length) return;
@@ -1299,7 +1319,23 @@ function startReadingStudy(category, groupName) {
         document.getElementById("rw-prev").onclick = () => { if (idx > 0) { idx--; renderCard(); } };
         document.getElementById("rw-next").onclick = () => {
             if (idx < items.length - 1) { idx++; renderCard(); }
-            else renderReadingPanel();
+            else {
+                // Study complete - show completion screen with navigation
+                const prevGrp = getPrevGroup(category, groupName);
+                const nextGrp = getNextGroup(category, groupName);
+                panel.innerHTML = `<div class="rw-content">
+                    <div class="rw-quiz-result">
+                        <h3>✅ Study Complete!</h3>
+                        <div class="rw-score">You studied ${items.length} characters</div>
+                        <div class="rw-quiz-actions">
+                            <button class="btn-primary" style="max-width:200px" onclick="startReadingQuiz('${category}','${groupName}')">📝 Take Quiz</button>
+                            ${prevGrp ? `<button class="rw-nav-btn" onclick="startReadingStudy('${category}','${prevGrp}')" style="margin-top:8px">◀ Prev Group</button>` : ''}
+                            ${nextGrp ? `<button class="rw-nav-btn" onclick="startReadingStudy('${category}','${nextGrp}')" style="margin-top:8px">Next Group ▶</button>` : ''}
+                            <button class="rw-back-btn" onclick="renderReadingPanel()" style="margin-top:8px">← Back to Reading</button>
+                        </div>
+                    </div>
+                </div>`;
+            }
         };
     }
     renderCard();
@@ -1322,12 +1358,16 @@ function renderReadingQuestion() {
         const pct = Math.round((q.correct / q.items.length) * 100);
         xp += q.correct * 5;
         saveProgress();
+        const nextGrp = getNextGroup(q.category, q.group);
+        const prevGrp = getPrevGroup(q.category, q.group);
         panel.innerHTML = `<div class="rw-content">
             <div class="rw-quiz-result">
                 <h3>${pct >= 80 ? '🎉 Excellent!' : pct >= 60 ? '👍 Good job!' : '💪 Keep practicing!'}</h3>
                 <div class="rw-score">${q.correct}/${q.items.length} correct (${pct}%)</div>
                 <div class="rw-quiz-actions">
-                    <button class="btn-primary" style="max-width:200px" onclick="startReadingQuiz('${q.category}','${q.group}')">Try Again</button>
+                    <button class="btn-primary" style="max-width:200px" onclick="startReadingQuiz('${q.category}','${q.group}')">🔄 Try Again</button>
+                    ${nextGrp ? `<button class="btn-primary" style="max-width:200px; margin-top:8px" onclick="startReadingStudy('${q.category}','${nextGrp}')">📖 Next Group ▶</button>` : ''}
+                    ${prevGrp ? `<button class="rw-nav-btn" onclick="startReadingStudy('${q.category}','${prevGrp}')" style="margin-top:8px">◀ Prev Group</button>` : ''}
                     <button class="rw-back-btn" onclick="renderReadingPanel()" style="margin-top:8px">← Back to Reading</button>
                 </div>
             </div>

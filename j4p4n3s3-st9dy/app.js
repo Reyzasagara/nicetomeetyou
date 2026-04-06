@@ -608,6 +608,19 @@ async function init() {
     initSpeechRecognition();
     updateLevelUI();
 
+    // Initialize sync status and set up click handler
+    if (githubToken) {
+        updateSyncStatus('☁️');
+        const syncStatus = document.getElementById('syncStatus');
+        if (syncStatus) {
+            syncStatus.style.cursor = 'pointer';
+            syncStatus.title = 'Click to sync now';
+            syncStatus.onclick = () => {
+                if (!isSyncing) syncToGist();
+            };
+        }
+    }
+
     // Close popups on outside click
     document.addEventListener("click", (e) => {
         if (!e.target.closest(".word-popup") && !e.target.closest(".clickable-word")) {
@@ -635,6 +648,19 @@ function saveSettings() {
             githubToken = token;
             localStorage.setItem("jcoach_github_token", githubToken);
             updateSyncStatus('☁️');
+            // Set up click handler for manual sync
+            setTimeout(() => {
+                const syncStatus = document.getElementById('syncStatus');
+                if (syncStatus) {
+                    syncStatus.style.cursor = 'pointer';
+                    syncStatus.title = 'Click to sync now';
+                    syncStatus.onclick = () => {
+                        if (!isSyncing) syncToGist();
+                    };
+                }
+                // Do initial sync after token is set
+                syncToGist();
+            }, 100);
         } else {
             githubToken = "";
             localStorage.removeItem("jcoach_github_token");
@@ -3100,6 +3126,11 @@ let wrProgress = JSON.parse(localStorage.getItem("jcoach_wr") || "{}");
 
 function saveWR() {
     localStorage.setItem("jcoach_wr", JSON.stringify(wrProgress));
+    
+    // Auto-sync to cloud if enabled
+    if (githubToken && Date.now() - lastSyncTime > 10000) {
+        syncToGist();
+    }
 }
 
 function getWRLevel(level) {
@@ -3519,6 +3550,11 @@ let studyPlanState = JSON.parse(localStorage.getItem("jcoach_studyplan") || '{"s
 function saveSRS() {
     localStorage.setItem("jcoach_srs", JSON.stringify(srsData));
     localStorage.setItem("jcoach_studyplan", JSON.stringify(studyPlanState));
+    
+    // Auto-sync to cloud if enabled
+    if (githubToken && Date.now() - lastSyncTime > 10000) {
+        syncToGist();
+    }
 }
 
 function getSRSCard(char) {

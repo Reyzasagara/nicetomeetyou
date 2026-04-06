@@ -138,6 +138,10 @@ header {
     font-size: 14px;
     margin-right: 8px;
     opacity: 0.8;
+    transition: opacity 0.2s;
+}
+.sync-status:hover {
+    opacity: 1;
 }
 
 /* Mode Bar */

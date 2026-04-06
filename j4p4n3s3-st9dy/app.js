@@ -161,6 +161,7 @@ async function syncToGist() {
         // Check if cloud has better progress
         if (gistId) {
             try {
+                console.log('Checking cloud progress for gist:', gistId);
                 const checkResponse = await fetch(`https://api.github.com/gists/${gistId}`, {
                     headers: {
                         'Authorization': `token ${githubToken}`,
@@ -176,9 +177,11 @@ async function syncToGist() {
                         const localXP = parseInt(localStorage.getItem("jcoach_xp") || "0");
                         const cloudXP = parseInt(cloudData.jcoach_xp || "0");
                         
+                        console.log(`📊 Progress comparison: Local=${localXP} XP, Cloud=${cloudXP} XP`);
+                        
                         // If cloud has more progress, load it instead of uploading
                         if (cloudXP > localXP) {
-                            console.log(`Cloud has more progress (${cloudXP} XP vs local ${localXP} XP) - loading from cloud`);
+                            console.log(`✅ Cloud has more progress (${cloudXP} XP > ${localXP} XP) - loading from cloud`);
                             Object.entries(cloudData).forEach(([key, value]) => {
                                 if (key !== '_meta' && key.startsWith('jcoach_')) {
                                     localStorage.setItem(key, value);
@@ -192,6 +195,8 @@ async function syncToGist() {
                                 location.reload();
                             }, 500);
                             return;
+                        } else {
+                            console.log(`📤 Local has equal or more progress (${localXP} >= ${cloudXP}) - will upload to cloud`);
                         }
                     }
                 }

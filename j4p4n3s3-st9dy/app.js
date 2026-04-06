@@ -40,6 +40,78 @@ function saveProgress() {
     updateLevelUI();
 }
 
+// --- Cloud Sync: Export/Import Progress ---
+function exportProgress() {
+    const data = {};
+    const now = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+    
+    // Gather all jcoach_* keys except sensitive ones
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key && key.startsWith('jcoach_') && key !== 'jcoach_apikey') {
+            data[key] = localStorage.getItem(key);
+        }
+    }
+    
+    // Add metadata
+    data._meta = {
+        exportDate: new Date().toISOString(),
+        version: '1.0',
+        device: navigator.userAgent.split(')')[0] + ')'
+    };
+    
+    // Download as JSON file
+    const json = JSON.stringify(data, null, 2);
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `jcoach-progress-${now}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+    
+    alert('✅ Progress exported! Transfer this file to your other device and import it there.');
+}
+
+function importProgress() {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'application/json';
+    input.onchange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            try {
+                const data = JSON.parse(event.target.result);
+                
+                // Confirm before overwriting
+                const meta = data._meta || {};
+                const confirmMsg = `Import progress from ${meta.exportDate || 'unknown date'}?\n\n⚠️ This will REPLACE your current progress on this device!`;
+                if (!confirm(confirmMsg)) return;
+                
+                // Restore all keys except _meta
+                let count = 0;
+                Object.entries(data).forEach(([key, value]) => {
+                    if (key !== '_meta' && key.startsWith('jcoach_')) {
+                        localStorage.setItem(key, value);
+                        count++;
+                    }
+                });
+                
+                alert(`✅ Imported ${count} data items. Reloading app...`);
+                location.reload();
+            } catch (err) {
+                alert('❌ Failed to import: Invalid file format');
+                console.error(err);
+            }
+        };
+        reader.readAsText(file);
+    };
+    input.click();
+}
+
 function logSession() {
     if (sessionMessages < 1) return;
     sessionHistory.push({

@@ -1430,14 +1430,11 @@ function renderReadingPanel(scrollToLevel) {
             groups.forEach((g, idx) => {
                 const gChars = (g.chars || g.words || []).map(c => c.char || c.word);
                 const gLearned = gChars.filter(c => readingProgress[c] && readingProgress[c].correct > 0).length;
-                const prevBtn = idx > 0 ? `<button class="wr-nav-btn" onclick="document.querySelectorAll('[data-section=\\'${cat.key}\\'] .rw-group-row')[${idx - 1}].scrollIntoView({behavior:'smooth',block:'center'})">◀ Prev</button>` : '<span></span>';
-                const nextBtn = idx < groups.length - 1 ? `<button class="wr-nav-btn" onclick="document.querySelectorAll('[data-section=\\'${cat.key}\\'] .rw-group-row')[${idx + 1}].scrollIntoView({behavior:'smooth',block:'center'})">Next ▶</button>` : '<span></span>';
                 html += `<div class="rw-group-row" id="trad-${cat.key}-${idx}">
                     <span class="rw-group-name">${g.name} (${idx + 1}/${groups.length})</span>
                     <span class="rw-group-stat">${gLearned}/${gChars.length}</span>
                     <button class="rw-study-btn" onclick="startReadingStudy('${cat.key}','${g.name}')">📖 Study</button>
                     <button class="rw-quiz-btn" onclick="startReadingQuiz('${cat.key}','${g.name}')">🧠 Quiz</button>
-                    <div class="wr-nav-row" style="margin-top:8px">${prevBtn} ${nextBtn}</div>
                 </div>`;
             });
         }

@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Offline Banner -->
+    <div id="offlineBanner" style="display:none; position:fixed; top:0; left:0; right:0; z-index:9999;
+        background:#e65100; color:#fff; text-align:center; padding:8px 16px; font-size:14px; font-weight:600;">
+        📡 Offline — Reading &amp; Writing work normally. Progress saved locally, will sync when back online.
+    </div>
     <!-- API Key Modal -->
     <div id="apiKeyModal" class="modal">
         <div class="modal-content">
@@ -122,5 +127,32 @@
     <script src="kana.js"></script>
     <script src="mnemonics.js"></script>
     <script src="app.js"></script>
+    <script>
+        // Register Service Worker for offline support
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW reg failed:', err));
+        }
+
+        // Offline banner
+        const offlineBanner = document.getElementById('offlineBanner');
+        function updateOnlineStatus() {
+            if (!navigator.onLine) {
+                offlineBanner.style.display = 'block';
+                document.body.style.paddingTop = '38px';
+            } else {
+                offlineBanner.style.display = 'none';
+                document.body.style.paddingTop = '';
+                // Back online — trigger sync if token is set
+                const token = localStorage.getItem('jcoach_github_token');
+                if (token && typeof syncToGist === 'function') {
+                    console.log('🌐 Back online — syncing progress...');
+                    syncToGist();
+                }
+            }
+        }
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+        updateOnlineStatus();
+    </script>
 </body>
 </html>

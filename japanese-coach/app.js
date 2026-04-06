@@ -183,6 +183,9 @@ async function syncToGist() {
                         
                         console.log(`📊 Progress comparison: Local=${localXP} XP, Cloud=${cloudXP} XP`);
                         
+                        // Show comparison to user (helpful for debugging on mobile)
+                        alert(`📊 Sync Check:\n\nYour device: ${localXP} XP\nCloud: ${cloudXP} XP\n\n${cloudXP > localXP ? '⬇️ Downloading from cloud...' : '📤 Uploading to cloud...'}`);
+                        
                         // If cloud has more progress, load it instead of uploading
                         if (cloudXP > localXP) {
                             console.log(`✅ Cloud has more progress (${cloudXP} XP > ${localXP} XP) - loading from cloud`);
@@ -205,12 +208,15 @@ async function syncToGist() {
                     }
                 } else {
                     console.log('❌ Cloud fetch failed with status:', checkResponse.status);
+                    alert(`❌ Cloud sync check failed\n\nStatus: ${checkResponse.status}\n\nWill try to upload anyway.`);
                 }
             } catch (checkErr) {
                 console.log('❌ Error checking cloud progress, proceeding with upload:', checkErr);
+                alert(`❌ Error checking cloud:\n\n${checkErr.message}\n\nWill try to upload anyway.`);
             }
         } else {
             console.log('⚠️ No gist ID found, will create new gist');
+            alert('⚠️ No gist ID found - will create new cloud storage');
         }
 
         // Cloud doesn't exist or local has more progress - upload local data

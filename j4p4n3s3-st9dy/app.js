@@ -236,7 +236,24 @@ async function loadFromGist() {
 
 function updateSyncStatus(text) {
     const indicator = document.getElementById('syncStatus');
-    if (indicator) indicator.textContent = text;
+    if (indicator) {
+        indicator.textContent = text;
+        // Show button if there's text (cloud sync enabled), hide if empty
+        indicator.style.display = text ? 'inline-block' : 'none';
+        // Update tooltip based on status
+        if (text === '☁️') indicator.title = 'Click to sync now';
+        else if (text === '⏳ Syncing...') indicator.title = 'Syncing to cloud...';
+        else if (text === '✅ Synced') indicator.title = 'Synced to cloud';
+        else if (text === '⬇️ Loaded') indicator.title = 'Loaded from cloud';
+        else if (text === '❌ Sync failed') indicator.title = 'Sync failed - check token';
+    }
+}
+
+// Manual sync trigger (called from HTML button)
+function manualSync() {
+    if (githubToken && !isSyncing) {
+        syncToGist();
+    }
 }
 
 function logSession() {
@@ -608,17 +625,9 @@ async function init() {
     initSpeechRecognition();
     updateLevelUI();
 
-    // Initialize sync status and set up click handler
+    // Initialize sync status if enabled
     if (githubToken) {
         updateSyncStatus('☁️');
-        const syncStatus = document.getElementById('syncStatus');
-        if (syncStatus) {
-            syncStatus.style.cursor = 'pointer';
-            syncStatus.title = 'Click to sync now';
-            syncStatus.onclick = () => {
-                if (!isSyncing) syncToGist();
-            };
-        }
     }
 
     // Close popups on outside click
@@ -648,19 +657,8 @@ function saveSettings() {
             githubToken = token;
             localStorage.setItem("jcoach_github_token", githubToken);
             updateSyncStatus('☁️');
-            // Set up click handler for manual sync
-            setTimeout(() => {
-                const syncStatus = document.getElementById('syncStatus');
-                if (syncStatus) {
-                    syncStatus.style.cursor = 'pointer';
-                    syncStatus.title = 'Click to sync now';
-                    syncStatus.onclick = () => {
-                        if (!isSyncing) syncToGist();
-                    };
-                }
-                // Do initial sync after token is set
-                syncToGist();
-            }, 100);
+            // Do initial sync after token is set
+            setTimeout(() => syncToGist(), 100);
         } else {
             githubToken = "";
             localStorage.removeItem("jcoach_github_token");

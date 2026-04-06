@@ -1297,10 +1297,10 @@ footer {
     display: flex; justify-content: center; gap: 16px; margin-top: 16px;
 }
 .rw-nav-btn {
-    padding: 8px 20px; border: 1px solid var(--text-dim); border-radius: 8px;
-    background: none; color: var(--text); cursor: pointer; font-size: 14px;
+    padding: 10px 20px; border: 2px solid var(--accent); border-radius: 10px;
+    background: transparent; color: var(--accent); cursor: pointer; font-size: 14px; font-weight: 600;
 }
-.rw-nav-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.rw-nav-btn:hover:not(:disabled) { background: rgba(74,158,255,0.1); }
 .rw-nav-btn:disabled { opacity: 0.3; cursor: default; }
 .rw-speak-btn {
     padding: 8px 16px; border: none; border-radius: 8px;
@@ -1542,6 +1542,19 @@ footer {
     .rw-quiz-prompt { font-size: 40px; }
     .wr-speed-stats { flex-direction: column; }
     .wr-method-cards { flex-direction: column; }
+    
+    /* Mobile: Make all nav buttons consistent and touch-friendly */
+    .rw-nav-btn, .wr-nav-btn {
+        padding: 12px 24px;
+        font-size: 15px;
+        min-width: 120px;
+        min-height: 44px;
+        border-width: 2px;
+    }
+    .rw-nav-row, .wr-nav-row {
+        gap: 12px;
+        margin-top: 20px;
+    }
 }
 
 /* ============================================
@@ -2101,22 +2114,23 @@ footer {
 }
 
 @media (max-width: 600px) {
-    /* On mobile, reduce keyboard sizes slightly */
-    .jpkb-key { width: 28px; height: 34px; font-size: 14px; }
-    .jpkb-row { gap: 2px; margin-bottom: 2px; }
+    /* Mobile: Make keyboard BIGGER by default (easier to tap) */
+    .jpkb-key { width: 36px; height: 42px; font-size: 18px; }
+    .jpkb-row { gap: 4px; margin-bottom: 4px; }
+    .jpkb-fn { padding: 0 16px; font-size: 14px; }
     
-    /* Small keyboard on mobile */
-    .jpkb-small .jpkb-key { width: 22px; height: 28px; font-size: 12px; }
-    .jpkb-small .jpkb-row { gap: 2px; }
-    .jpkb-small .jpkb-fn { padding: 0 8px; font-size: 10px; }
+    /* Small keyboard on mobile - still usable */
+    .jpkb-small .jpkb-key { width: 28px; height: 34px; font-size: 14px; }
+    .jpkb-small .jpkb-row { gap: 3px; margin-bottom: 3px; }
+    .jpkb-small .jpkb-fn { padding: 0 10px; font-size: 11px; }
     
-    /* Large keyboard on mobile */
-    .jpkb-large .jpkb-key { width: 34px; height: 40px; font-size: 16px; }
-    .jpkb-large .jpkb-row { gap: 3px; }
-    .jpkb-large .jpkb-fn { padding: 0 14px; font-size: 13px; }
+    /* Large keyboard on mobile - EXTRA BIG for easy tapping */
+    .jpkb-large .jpkb-key { width: 42px; height: 50px; font-size: 22px; }
+    .jpkb-large .jpkb-row { gap: 5px; margin-bottom: 5px; }
+    .jpkb-large .jpkb-fn { padding: 0 20px; font-size: 16px; }
     
-    .kbd-c { width: 30px; height: 36px; font-size: 18px; }
-    .kb-prompt-romaji { font-size: 22px; }
-    .kb-prompt-emoji { font-size: 32px; }
+    .kbd-c { width: 38px; height: 44px; font-size: 22px; }
+    .kb-prompt-romaji { font-size: 24px; }
+    .kb-prompt-emoji { font-size: 36px; }
     .wr-speed-word { font-size: 40px; }
 }

@@ -161,7 +161,7 @@ async function syncToGist() {
         // Check if cloud has better progress
         if (gistId) {
             try {
-                console.log('Checking cloud progress for gist:', gistId);
+                console.log('🔍 Checking cloud progress for gist:', gistId);
                 const checkResponse = await fetch(`https://api.github.com/gists/${gistId}`, {
                     headers: {
                         'Authorization': `token ${githubToken}`,
@@ -169,9 +169,13 @@ async function syncToGist() {
                     }
                 });
                 
+                console.log('✓ Cloud fetch response ok:', checkResponse.ok);
+                
                 if (checkResponse.ok) {
                     const gist = await checkResponse.json();
+                    console.log('✓ Gist files:', Object.keys(gist.files));
                     const file = gist.files["jcoach-progress.json"];
+                    console.log('✓ Progress file found:', !!file, 'has content:', !!(file && file.content));
                     if (file && file.content) {
                         const cloudData = JSON.parse(file.content);
                         const localXP = parseInt(localStorage.getItem("jcoach_xp") || "0");
@@ -199,10 +203,14 @@ async function syncToGist() {
                             console.log(`📤 Local has equal or more progress (${localXP} >= ${cloudXP}) - will upload to cloud`);
                         }
                     }
+                } else {
+                    console.log('❌ Cloud fetch failed with status:', checkResponse.status);
                 }
             } catch (checkErr) {
-                console.log('Could not check cloud progress, proceeding with upload:', checkErr);
+                console.log('❌ Error checking cloud progress, proceeding with upload:', checkErr);
             }
+        } else {
+            console.log('⚠️ No gist ID found, will create new gist');
         }
 
         // Cloud doesn't exist or local has more progress - upload local data

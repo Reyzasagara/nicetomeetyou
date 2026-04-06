@@ -46,7 +46,7 @@ function saveProgress() {
 }
 
 // --- Cloud Sync: Export/Import Progress ---
-function exportProgress() {
+window.exportProgress = function() {
     const data = {};
     const now = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
     
@@ -78,7 +78,7 @@ function exportProgress() {
     alert('✅ Progress exported! Transfer this file to your other device and import it there.');
 }
 
-function importProgress() {
+window.importProgress = function() {
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = 'application/json';
@@ -183,12 +183,15 @@ async function syncToGist() {
             updateSyncStatus('✅ Synced');
             setTimeout(() => updateSyncStatus('☁️'), 2000);
         } else {
-            throw new Error(`HTTP ${response.status}`);
+            const errorText = await response.text();
+            throw new Error(`GitHub API error ${response.status}: ${errorText}`);
         }
     } catch (err) {
         console.error('Gist sync failed:', err);
-        updateSyncStatus('❌ Sync failed');
+        updateSyncStatus('❌ Failed');
         setTimeout(() => updateSyncStatus('☁️'), 3000);
+        // Re-throw for manual sync error handling
+        throw err;
     } finally {
         isSyncing = false;
     }
@@ -250,10 +253,24 @@ function updateSyncStatus(text) {
 }
 
 // Manual sync trigger (called from HTML button)
-function manualSync() {
-    if (githubToken && !isSyncing) {
-        syncToGist();
+window.manualSync = function() {
+    console.log('Manual sync clicked, token:', githubToken ? 'set' : 'missing', 'isSyncing:', isSyncing);
+    
+    if (!githubToken) {
+        alert('❌ No GitHub token set. Go to Settings ⚙ to add one.');
+        return;
     }
+    if (isSyncing) {
+        alert('⏳ Already syncing...');
+        return;
+    }
+    // Visual feedback
+    updateSyncStatus('⏳ Syncing...');
+    syncToGist().catch(err => {
+        console.error('Manual sync error:', err);
+        alert('❌ Sync failed: ' + err.message);
+        updateSyncStatus('☁️');
+    });
 }
 
 function logSession() {

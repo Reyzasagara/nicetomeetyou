@@ -129,6 +129,48 @@ async function syncToGist() {
     updateSyncStatus('⏳ Syncing...');
 
     try {
+        // First, check if cloud has better progress
+        if (gistId) {
+            try {
+                const checkResponse = await fetch(`https://api.github.com/gists/${gistId}`, {
+                    headers: {
+                        'Authorization': `token ${githubToken}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                });
+                
+                if (checkResponse.ok) {
+                    const gist = await checkResponse.json();
+                    const file = gist.files["jcoach-progress.json"];
+                    if (file && file.content) {
+                        const cloudData = JSON.parse(file.content);
+                        const localXP = parseInt(localStorage.getItem("jcoach_xp") || "0");
+                        const cloudXP = parseInt(cloudData.jcoach_xp || "0");
+                        
+                        // If cloud has more progress, load it instead of uploading
+                        if (cloudXP > localXP) {
+                            console.log(`Cloud has more progress (${cloudXP} XP vs local ${localXP} XP) - loading from cloud`);
+                            Object.entries(cloudData).forEach(([key, value]) => {
+                                if (key !== '_meta' && key.startsWith('jcoach_')) {
+                                    localStorage.setItem(key, value);
+                                }
+                            });
+                            updateSyncStatus('⬇️ Loaded');
+                            setTimeout(() => {
+                                updateSyncStatus('☁️');
+                                alert('✅ Loaded better progress from cloud!\nRefresh the page to see updates.');
+                            }, 1000);
+                            isSyncing = false;
+                            return;
+                        }
+                    }
+                }
+            } catch (checkErr) {
+                console.log('Could not check cloud progress, proceeding with upload:', checkErr);
+            }
+        }
+
+        // Cloud doesn't exist or local has more progress - upload local data
         const data = {};
         for (let i = 0; i < localStorage.length; i++) {
             const key = localStorage.key(i);
@@ -180,6 +222,8 @@ async function syncToGist() {
                 localStorage.setItem("jcoach_gist_id", gistId);
             }
             lastSyncTime = Date.now();
+            const localXP = parseInt(localStorage.getItem("jcoach_xp") || "0");
+            console.log(`Uploaded local progress to cloud (${localXP} XP)`);
             updateSyncStatus('✅ Synced');
             setTimeout(() => updateSyncStatus('☁️'), 2000);
         } else {

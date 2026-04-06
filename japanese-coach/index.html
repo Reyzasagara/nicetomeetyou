@@ -25,6 +25,11 @@
                     <option value="gpt-3.5-turbo">GPT-3.5 Turbo (cheapest)</option>
                 </select>
             </div>
+            <div class="input-group">
+                <label for="githubTokenInput">GitHub Token (Optional — for cloud sync)</label>
+                <input type="password" id="githubTokenInput" placeholder="ghp_..." autocomplete="off">
+                <small style="color: #8899aa; margin-top: 4px; display: block;">Get token at: github.com/settings/tokens → New token → Select 'gist' scope</small>
+            </div>
             <button id="saveKeyBtn" class="btn-primary">Start Learning</button>
         </div>
     </div>
@@ -38,6 +43,7 @@
                 <span class="subtitle">Japanese Career Coach</span>
             </div>
             <div class="header-right">
+                <span id="syncStatus" class="sync-status" title="Cloud sync status"></span>
                 <button id="saveBtn" class="btn-icon" title="Export progress (save to file)" onclick="exportProgress()">💾</button>
                 <button id="loadBtn" class="btn-icon" title="Import progress (load from file)" onclick="importProgress()">📂</button>
                 <button id="settingsBtn" class="btn-icon" title="Settings">⚙</button>

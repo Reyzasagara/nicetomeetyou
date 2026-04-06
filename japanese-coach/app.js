@@ -38,6 +38,11 @@ function saveProgress() {
     localStorage.setItem("jcoach_writing", JSON.stringify(writingProgress));
     localStorage.setItem("jcoach_notes", JSON.stringify(userNotes));
     updateLevelUI();
+    
+    // Auto-sync to GitHub Gist if enabled
+    if (githubToken && Date.now() - lastSyncTime > 10000) {
+        syncToGist();
+    }
 }
 
 // --- Cloud Sync: Export/Import Progress ---
@@ -110,6 +115,128 @@ function importProgress() {
         reader.readAsText(file);
     };
     input.click();
+}
+
+// --- GitHub Gist Auto-Sync (Cloud Save) ---
+let githubToken = localStorage.getItem("jcoach_github_token") || "";
+let gistId = localStorage.getItem("jcoach_gist_id") || "";
+let lastSyncTime = 0;
+let isSyncing = false;
+
+async function syncToGist() {
+    if (!githubToken || isSyncing) return;
+    isSyncing = true;
+    updateSyncStatus('⏳ Syncing...');
+
+    try {
+        const data = {};
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            if (key && key.startsWith('jcoach_') && key !== 'jcoach_apikey' && key !== 'jcoach_github_token') {
+                data[key] = localStorage.getItem(key);
+            }
+        }
+        data._meta = {
+            lastSync: new Date().toISOString(),
+            version: '1.0'
+        };
+
+        const content = JSON.stringify(data, null, 2);
+        const body = {
+            description: "Japanese Coach - Progress Data (Auto-synced)",
+            public: false,
+            files: {
+                "jcoach-progress.json": { content }
+            }
+        };
+
+        let response;
+        if (gistId) {
+            // Update existing gist
+            response = await fetch(`https://api.github.com/gists/${gistId}`, {
+                method: 'PATCH',
+                headers: {
+                    'Authorization': `token ${githubToken}`,
+                    'Accept': 'application/vnd.github.v3+json'
+                },
+                body: JSON.stringify(body)
+            });
+        } else {
+            // Create new gist
+            response = await fetch('https://api.github.com/gists', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `token ${githubToken}`,
+                    'Accept': 'application/vnd.github.v3+json'
+                },
+                body: JSON.stringify(body)
+            });
+        }
+
+        if (response.ok) {
+            const result = await response.json();
+            if (!gistId) {
+                gistId = result.id;
+                localStorage.setItem("jcoach_gist_id", gistId);
+            }
+            lastSyncTime = Date.now();
+            updateSyncStatus('✅ Synced');
+            setTimeout(() => updateSyncStatus('☁️'), 2000);
+        } else {
+            throw new Error(`HTTP ${response.status}`);
+        }
+    } catch (err) {
+        console.error('Gist sync failed:', err);
+        updateSyncStatus('❌ Sync failed');
+        setTimeout(() => updateSyncStatus('☁️'), 3000);
+    } finally {
+        isSyncing = false;
+    }
+}
+
+async function loadFromGist() {
+    if (!githubToken || !gistId) return false;
+
+    try {
+        const response = await fetch(`https://api.github.com/gists/${gistId}`, {
+            headers: {
+                'Authorization': `token ${githubToken}`,
+                'Accept': 'application/vnd.github.v3+json'
+            }
+        });
+
+        if (response.ok) {
+            const gist = await response.json();
+            const file = gist.files["jcoach-progress.json"];
+            if (file && file.content) {
+                const data = JSON.parse(file.content);
+                const cloudSync = data._meta?.lastSync;
+                const localXP = parseInt(localStorage.getItem("jcoach_xp") || "0");
+                const cloudXP = parseInt(data.jcoach_xp || "0");
+
+                // Only auto-load if cloud is newer and has more progress
+                if (cloudXP > localXP) {
+                    Object.entries(data).forEach(([key, value]) => {
+                        if (key !== '_meta' && key.startsWith('jcoach_')) {
+                            localStorage.setItem(key, value);
+                        }
+                    });
+                    console.log(`Loaded progress from cloud (${cloudXP} XP vs local ${localXP} XP)`);
+                    updateSyncStatus('⬇️ Loaded');
+                    setTimeout(() => updateSyncStatus('☁️'), 2000);
+                    return true;
+                }
+            }
+        }
+    } catch (err) {
+        console.error('Failed to load from Gist:', err);
+    }
+    return false;
+}
+
+function updateSyncStatus(text) {
+    const indicator = document.getElementById('syncStatus');
+    if (indicator) indicator.textContent = text;
 }
 
 function logSession() {
@@ -441,13 +568,31 @@ const chatArea = $("#chatArea");
 const inputArea = $("#inputArea");
 
 // --- Init ---
-function init() {
+async function init() {
+    // Try loading progress from cloud first
+    if (githubToken && gistId) {
+        const loaded = await loadFromGist();
+        if (loaded) {
+            // Reload variables from localStorage after cloud import
+            learnedWords = JSON.parse(localStorage.getItem("jcoach_words") || "[]");
+            learnedGrammar = JSON.parse(localStorage.getItem("jcoach_grammar") || "[]");
+            xp = parseInt(localStorage.getItem("jcoach_xp") || "0");
+            sessionHistory = JSON.parse(localStorage.getItem("jcoach_history") || "[]");
+            jlptTestResults = JSON.parse(localStorage.getItem("jcoach_jlpt_results") || "[]");
+            readingProgress = JSON.parse(localStorage.getItem("jcoach_reading") || "{}");
+            writingProgress = JSON.parse(localStorage.getItem("jcoach_writing") || "{}");
+            userNotes = JSON.parse(localStorage.getItem("jcoach_notes") || "{}");
+        }
+    }
+
     if (apiKey) showApp();
 
     saveKeyBtn.addEventListener("click", saveSettings);
     settingsBtn.addEventListener("click", () => {
         apiKeyInput.value = apiKey;
         modelSelect.value = model;
+        const githubTokenInput = document.getElementById("githubTokenInput");
+        if (githubTokenInput) githubTokenInput.value = githubToken;
         apiKeyModal.classList.remove("hidden");
     });
     sendBtn.addEventListener("click", sendMessage);
@@ -481,6 +626,24 @@ function saveSettings() {
     model = modelSelect.value;
     localStorage.setItem("jcoach_apikey", apiKey);
     localStorage.setItem("jcoach_model", model);
+    
+    // Save GitHub token for cloud sync (optional)
+    const githubTokenInput = document.getElementById("githubTokenInput");
+    if (githubTokenInput) {
+        const token = githubTokenInput.value.trim();
+        if (token) {
+            githubToken = token;
+            localStorage.setItem("jcoach_github_token", githubToken);
+            updateSyncStatus('☁️');
+        } else {
+            githubToken = "";
+            localStorage.removeItem("jcoach_github_token");
+            localStorage.removeItem("jcoach_gist_id");
+            gistId = "";
+            updateSyncStatus('');
+        }
+    }
+    
     showApp();
 }
 

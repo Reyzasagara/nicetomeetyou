@@ -134,6 +134,11 @@ header {
     font-size: 12px;
     color: var(--text-dim);
 }
+.sync-status {
+    font-size: 14px;
+    margin-right: 8px;
+    opacity: 0.8;
+}
 
 /* Mode Bar */
 .mode-bar {

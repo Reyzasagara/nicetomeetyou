@@ -129,7 +129,36 @@ async function syncToGist() {
     updateSyncStatus('⏳ Syncing...');
 
     try {
-        // First, check if cloud has better progress
+        // If no gistId, search for existing gist first
+        if (!gistId) {
+            console.log('No gist ID found, searching for existing gist...');
+            try {
+                const listResponse = await fetch('https://api.github.com/gists', {
+                    headers: {
+                        'Authorization': `token ${githubToken}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                });
+                
+                if (listResponse.ok) {
+                    const gists = await listResponse.json();
+                    const existing = gists.find(g => 
+                        g.description === "Japanese Coach - Progress Data (Auto-synced)" && 
+                        g.files["jcoach-progress.json"]
+                    );
+                    
+                    if (existing) {
+                        gistId = existing.id;
+                        localStorage.setItem("jcoach_gist_id", gistId);
+                        console.log('Found existing gist:', gistId);
+                    }
+                }
+            } catch (searchErr) {
+                console.log('Could not search for existing gist:', searchErr);
+            }
+        }
+
+        // Check if cloud has better progress
         if (gistId) {
             try {
                 const checkResponse = await fetch(`https://api.github.com/gists/${gistId}`, {
@@ -156,11 +185,12 @@ async function syncToGist() {
                                 }
                             });
                             updateSyncStatus('⬇️ Loaded');
-                            setTimeout(() => {
-                                updateSyncStatus('☁️');
-                                alert('✅ Loaded better progress from cloud!\nRefresh the page to see updates.');
-                            }, 1000);
                             isSyncing = false;
+                            // Auto-reload page to apply changes
+                            setTimeout(() => {
+                                alert(`✅ Loaded better progress from cloud!\n\nLocal: ${localXP} XP → Cloud: ${cloudXP} XP\n\nPage will reload now.`);
+                                location.reload();
+                            }, 500);
                             return;
                         }
                     }
@@ -195,6 +225,7 @@ async function syncToGist() {
         let response;
         if (gistId) {
             // Update existing gist
+            console.log('Updating existing gist:', gistId);
             response = await fetch(`https://api.github.com/gists/${gistId}`, {
                 method: 'PATCH',
                 headers: {
@@ -205,6 +236,7 @@ async function syncToGist() {
             });
         } else {
             // Create new gist
+            console.log('Creating new gist');
             response = await fetch('https://api.github.com/gists', {
                 method: 'POST',
                 headers: {
@@ -220,6 +252,7 @@ async function syncToGist() {
             if (!gistId) {
                 gistId = result.id;
                 localStorage.setItem("jcoach_gist_id", gistId);
+                console.log('New gist created with ID:', gistId);
             }
             lastSyncTime = Date.now();
             const localXP = parseInt(localStorage.getItem("jcoach_xp") || "0");
@@ -308,6 +341,10 @@ window.manualSync = function() {
         alert('⏳ Already syncing...');
         return;
     }
+    
+    const localXP = parseInt(localStorage.getItem("jcoach_xp") || "0");
+    console.log('Starting manual sync with local XP:', localXP);
+    
     // Visual feedback
     updateSyncStatus('⏳ Syncing...');
     syncToGist().catch(err => {

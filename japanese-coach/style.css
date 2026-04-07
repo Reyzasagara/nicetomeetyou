@@ -101,6 +101,21 @@ body {
 .btn-primary:hover { background: linear-gradient(135deg, var(--accent-hover) 0%, #5ca0f0 100%); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(74,158,255,0.35); }
 .btn-primary:active { transform: translateY(0); }
 
+.btn-secondary {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #777;
+    border-radius: 10px;
+    background: #555;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+.btn-secondary:hover { background: #666; border-color: #888; }
+.btn-secondary:active { transform: translateY(1px); }
+
 .btn-icon {
     background: none;
     border: none;

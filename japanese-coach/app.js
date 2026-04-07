@@ -6,7 +6,7 @@
 // --- State ---
 let apiKey = localStorage.getItem("jcoach_apikey") || "";
 let model = localStorage.getItem("jcoach_model") || "gpt-4o-mini";
-let currentMode = "conversation";
+let currentMode = "reading";
 let conversationHistory = [];
 let isRecording = false;
 let recognition = null;
@@ -719,7 +719,8 @@ async function init() {
         }
     }
 
-    if (apiKey) showApp();
+    // Always show app - offline modes work without API key
+    showApp();
 
     saveKeyBtn.addEventListener("click", saveSettings);
     settingsBtn.addEventListener("click", () => {
@@ -760,10 +761,13 @@ async function init() {
 
 function saveSettings() {
     const key = apiKeyInput.value.trim();
-    if (!key) { apiKeyInput.style.borderColor = "#f44336"; return; }
-    apiKey = key;
+    // API key is now optional - allow offline-only use
+    if (key) {
+        apiKey = key;
+        localStorage.setItem("jcoach_apikey", apiKey);
+        apiKeyInput.style.borderColor = ""; // Reset error state
+    }
     model = modelSelect.value;
-    localStorage.setItem("jcoach_apikey", apiKey);
     localStorage.setItem("jcoach_model", model);
     
     // Save GitHub token for cloud sync (optional)
@@ -791,8 +795,10 @@ function saveSettings() {
 function showApp() {
     apiKeyModal.classList.add("hidden");
     app.classList.remove("hidden");
-    addSystemMessage(getModeWelcome(currentMode));
     updateLevelUI();
+    
+    // Initialize with current mode (reading by default for offline access)
+    switchMode(currentMode);
 }
 
 function getModeWelcome(mode) {
@@ -810,6 +816,14 @@ function getModeWelcome(mode) {
 
 // --- Modes ---
 function switchMode(mode) {
+    // Check if mode requires API key (online modes)
+    const onlineModes = ['conversation', 'interview', 'jlpt'];
+    if (onlineModes.includes(mode) && !apiKey) {
+        // Show API modal for online modes
+        apiKeyModal.classList.remove("hidden");
+        return;
+    }
+    
     currentMode = mode;
     document.querySelectorAll(".mode-btn").forEach((b) => b.classList.remove("active"));
     const btn = document.querySelector(`[data-mode="${mode}"]`);

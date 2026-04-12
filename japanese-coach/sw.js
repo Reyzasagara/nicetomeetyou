@@ -1,5 +1,5 @@
 // Service Worker for Japanese Coach - Offline Support
-const CACHE_NAME = 'jcoach-v2';
+const CACHE_NAME = 'jcoach-v3';
 const ASSETS = [
     './',
     './index.html',
@@ -28,27 +28,25 @@ self.addEventListener('activate', event => {
     self.clients.claim();
 });
 
-// Fetch: serve from cache, fallback to network
+// Fetch: network-first for app files, cache as fallback for offline
 self.addEventListener('fetch', event => {
-    // Only handle same-origin and GitHub Pages requests, not GitHub API
     const url = new URL(event.request.url);
     if (url.hostname === 'api.github.com' || url.hostname === 'api.openai.com') {
-        // AI and sync calls — always go to network, don't cache
         return;
     }
 
     event.respondWith(
-        caches.match(event.request).then(cached => {
-            if (cached) return cached;
-            // Not in cache — try network and cache the result
-            return fetch(event.request).then(response => {
-                if (response && response.status === 200 && response.type !== 'opaque') {
-                    const clone = response.clone();
-                    caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
-                }
-                return response;
-            }).catch(() => {
-                // Network failed and not cached — return offline fallback for HTML
+        fetch(event.request).then(response => {
+            // Got network response — update cache and return
+            if (response && response.status === 200 && response.type !== 'opaque') {
+                const clone = response.clone();
+                caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+            }
+            return response;
+        }).catch(() => {
+            // Network failed — serve from cache (offline mode)
+            return caches.match(event.request).then(cached => {
+                if (cached) return cached;
                 if (event.request.mode === 'navigate') {
                     return caches.match('./index.html');
                 }

@@ -130,9 +130,11 @@
     <script src="mnemonics.js"></script>
     <script src="app.js"></script>
     <script>
-        // Register Service Worker for offline support
+        // Register Service Worker for offline support (force update)
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW reg failed:', err));
+            navigator.serviceWorker.register('./sw.js').then(reg => {
+                reg.update(); // Force check for new SW version
+            }).catch(err => console.log('SW reg failed:', err));
         }
 
         // Offline banner

@@ -1,5 +1,5 @@
 // Service Worker for Japanese Coach - Offline Support
-const CACHE_NAME = 'jcoach-v1';
+const CACHE_NAME = 'jcoach-v2';
 const ASSETS = [
     './',
     './index.html',

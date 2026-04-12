@@ -181,8 +181,9 @@ async function syncToGist(isManual = false) {
                         console.log(`📊 Progress comparison: Local=${localXP} XP, Cloud=${cloudXP} XP`);
                         
                         // Only show comparison during manual sync or if there's a conflict
+                        // No alert - use console only to avoid interrupting study
                         if (isManual) {
-                            alert(`📊 Sync Check:\n\nYour device: ${localXP} XP\nCloud: ${cloudXP} XP\n\n${cloudXP > localXP ? '⬇️ Downloading from cloud...' : '📤 Uploading to cloud...'}`);
+                            console.log(`📊 Manual Sync: Local=${localXP} XP, Cloud=${cloudXP} XP`);
                         }
                         
                         // If cloud has more progress, load it instead of uploading
@@ -195,9 +196,9 @@ async function syncToGist(isManual = false) {
                             });
                             updateSyncStatus('⬇️ Loaded');
                             isSyncing = false;
-                            // Auto-reload page to apply changes
+                            // Silently reload to apply cloud progress
                             setTimeout(() => {
-                                alert(`✅ Loaded better progress from cloud!\n\nLocal: ${localXP} XP → Cloud: ${cloudXP} XP\n\nPage will reload now.`);
+                                console.log(`✅ Loaded better progress from cloud: ${localXP} → ${cloudXP} XP`);
                                 location.reload();
                             }, 500);
                             return;
@@ -207,21 +208,12 @@ async function syncToGist(isManual = false) {
                     }
                 } else {
                     console.log('❌ Cloud fetch failed with status:', checkResponse.status);
-                    if (isManual) {
-                        alert(`❌ Cloud sync check failed\n\nStatus: ${checkResponse.status}\n\nWill try to upload anyway.`);
-                    }
                 }
             } catch (checkErr) {
                 console.log('❌ Error checking cloud progress, proceeding with upload:', checkErr);
-                if (isManual) {
-                    alert(`❌ Error checking cloud:\n\n${checkErr.message}\n\nWill try to upload anyway.`);
-                }
             }
         } else {
             console.log('⚠️ No gist ID found, will create new gist');
-            if (isManual) {
-                alert('⚠️ No gist ID found - will create new cloud storage');
-            }
         }
 
         // Cloud doesn't exist or local has more progress - upload local data
@@ -362,11 +354,11 @@ window.manualSync = function() {
     console.log('Manual sync clicked, token:', githubToken ? 'set' : 'missing', 'isSyncing:', isSyncing);
     
     if (!githubToken) {
-        alert('❌ No GitHub token set. Go to Settings ⚙ to add one.');
+        console.log('No GitHub token set');
         return;
     }
     if (isSyncing) {
-        alert('⏳ Already syncing...');
+        console.log('Already syncing...');
         return;
     }
     
@@ -377,8 +369,8 @@ window.manualSync = function() {
     updateSyncStatus('⏳ Syncing...');
     syncToGist(true).catch(err => {
         console.error('Manual sync error:', err);
-        alert('❌ Sync failed: ' + err.message);
-        updateSyncStatus('☁️');
+        updateSyncStatus('❌');
+        setTimeout(() => updateSyncStatus('☁️'), 3000);
     });
 }
 

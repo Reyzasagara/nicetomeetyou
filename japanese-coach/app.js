@@ -39,10 +39,7 @@ function saveProgress() {
     localStorage.setItem("jcoach_notes", JSON.stringify(userNotes));
     updateLevelUI();
     
-    // Auto-sync to GitHub Gist if enabled
-    if (githubToken && Date.now() - lastSyncTime > 10000) {
-        syncToGist();
-    }
+    // Auto-sync removed - only sync manually or on page close
 }
 
 // --- Cloud Sync: Export/Import Progress ---
@@ -123,10 +120,10 @@ let gistId = localStorage.getItem("jcoach_gist_id") || "";
 let lastSyncTime = 0;
 let isSyncing = false;
 
-async function syncToGist() {
+async function syncToGist(isManual = false) {
     if (!githubToken || isSyncing) return;
     isSyncing = true;
-    updateSyncStatus('⏳ Syncing...');
+    if (isManual) updateSyncStatus('⏳ Syncing...');
 
     try {
         // If no gistId, search for existing gist first
@@ -183,8 +180,10 @@ async function syncToGist() {
                         
                         console.log(`📊 Progress comparison: Local=${localXP} XP, Cloud=${cloudXP} XP`);
                         
-                        // Show comparison to user (helpful for debugging on mobile)
-                        alert(`📊 Sync Check:\n\nYour device: ${localXP} XP\nCloud: ${cloudXP} XP\n\n${cloudXP > localXP ? '⬇️ Downloading from cloud...' : '📤 Uploading to cloud...'}`);
+                        // Only show comparison during manual sync or if there's a conflict
+                        if (isManual) {
+                            alert(`📊 Sync Check:\n\nYour device: ${localXP} XP\nCloud: ${cloudXP} XP\n\n${cloudXP > localXP ? '⬇️ Downloading from cloud...' : '📤 Uploading to cloud...'}`);
+                        }
                         
                         // If cloud has more progress, load it instead of uploading
                         if (cloudXP > localXP) {
@@ -208,15 +207,21 @@ async function syncToGist() {
                     }
                 } else {
                     console.log('❌ Cloud fetch failed with status:', checkResponse.status);
-                    alert(`❌ Cloud sync check failed\n\nStatus: ${checkResponse.status}\n\nWill try to upload anyway.`);
+                    if (isManual) {
+                        alert(`❌ Cloud sync check failed\n\nStatus: ${checkResponse.status}\n\nWill try to upload anyway.`);
+                    }
                 }
             } catch (checkErr) {
                 console.log('❌ Error checking cloud progress, proceeding with upload:', checkErr);
-                alert(`❌ Error checking cloud:\n\n${checkErr.message}\n\nWill try to upload anyway.`);
+                if (isManual) {
+                    alert(`❌ Error checking cloud:\n\n${checkErr.message}\n\nWill try to upload anyway.`);
+                }
             }
         } else {
             console.log('⚠️ No gist ID found, will create new gist');
-            alert('⚠️ No gist ID found - will create new cloud storage');
+            if (isManual) {
+                alert('⚠️ No gist ID found - will create new cloud storage');
+            }
         }
 
         // Cloud doesn't exist or local has more progress - upload local data
@@ -276,16 +281,20 @@ async function syncToGist() {
             lastSyncTime = Date.now();
             const localXP = parseInt(localStorage.getItem("jcoach_xp") || "0");
             console.log(`Uploaded local progress to cloud (${localXP} XP)`);
-            updateSyncStatus('✅ Synced');
-            setTimeout(() => updateSyncStatus('☁️'), 2000);
+            if (isManual) {
+                updateSyncStatus('✅ Synced');
+                setTimeout(() => updateSyncStatus('☁️'), 2000);
+            }
         } else {
             const errorText = await response.text();
             throw new Error(`GitHub API error ${response.status}: ${errorText}`);
         }
     } catch (err) {
         console.error('Gist sync failed:', err);
-        updateSyncStatus('❌ Failed');
-        setTimeout(() => updateSyncStatus('☁️'), 3000);
+        if (isManual) {
+            updateSyncStatus('❌ Failed');
+            setTimeout(() => updateSyncStatus('☁️'), 3000);
+        }
         // Re-throw for manual sync error handling
         throw err;
     } finally {
@@ -366,7 +375,7 @@ window.manualSync = function() {
     
     // Visual feedback
     updateSyncStatus('⏳ Syncing...');
-    syncToGist().catch(err => {
+    syncToGist(true).catch(err => {
         console.error('Manual sync error:', err);
         alert('❌ Sync failed: ' + err.message);
         updateSyncStatus('☁️');
@@ -755,8 +764,14 @@ async function init() {
         }
     });
 
-    // Log session on page unload
-    window.addEventListener("beforeunload", () => logSession());
+    // Log session and sync progress on page close
+    window.addEventListener("beforeunload", () => {
+        logSession();
+        // Try to sync progress before closing (if cloud sync enabled)
+        if (githubToken && !isSyncing) {
+            syncToGist(false); // Non-blocking background sync
+        }
+    });
 }
 
 function saveSettings() {
@@ -778,8 +793,8 @@ function saveSettings() {
             githubToken = token;
             localStorage.setItem("jcoach_github_token", githubToken);
             updateSyncStatus('☁️');
-            // Do initial sync after token is set
-            setTimeout(() => syncToGist(), 100);
+            // Do initial silent sync after token is set
+            setTimeout(() => syncToGist(false), 100);
         } else {
             githubToken = "";
             localStorage.removeItem("jcoach_github_token");
@@ -3252,11 +3267,7 @@ let wrProgress = JSON.parse(localStorage.getItem("jcoach_wr") || "{}");
 
 function saveWR() {
     localStorage.setItem("jcoach_wr", JSON.stringify(wrProgress));
-    
-    // Auto-sync to cloud if enabled
-    if (githubToken && Date.now() - lastSyncTime > 10000) {
-        syncToGist();
-    }
+    // Auto-sync removed - only sync manually or on page close
 }
 
 function getWRLevel(level) {
@@ -3676,11 +3687,7 @@ let studyPlanState = JSON.parse(localStorage.getItem("jcoach_studyplan") || '{"s
 function saveSRS() {
     localStorage.setItem("jcoach_srs", JSON.stringify(srsData));
     localStorage.setItem("jcoach_studyplan", JSON.stringify(studyPlanState));
-    
-    // Auto-sync to cloud if enabled
-    if (githubToken && Date.now() - lastSyncTime > 10000) {
-        syncToGist();
-    }
+    // Auto-sync removed - only sync manually or on page close
 }
 
 function getSRSCard(char) {

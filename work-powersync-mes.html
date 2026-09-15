@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PowerSync: Manufacturing, PPIC &amp; Shop-Floor Traceability · Reyza Agung Gunawan</title>
+<meta name="description" content="Every unit can now be traced from its planned engine and frame number through QC to delivery, with 0 mismatches across 217 planned vs stamped pairs. I designed the kiosks, QR labels and layered number checks that made it work.">
+<link rel="canonical" href="https://reyzasagara.github.io/nicetomeetyou/work-powersync-mes.html">
+<link rel="alternate" hreflang="en" href="https://reyzasagara.github.io/nicetomeetyou/work-powersync-mes.html">
+<link rel="alternate" hreflang="id" href="https://reyzasagara.github.io/nicetomeetyou/id/work-powersync-mes.html">
+<link rel="alternate" hreflang="x-default" href="https://reyzasagara.github.io/nicetomeetyou/work-powersync-mes.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PowerSync: Manufacturing, PPIC &amp; Shop-Floor Traceability · Reyza Agung Gunawan">
+<meta property="og:description" content="Every unit can now be traced from its planned engine and frame number through QC to delivery, with 0 mismatches across 217 planned vs stamped pairs. I designed the kiosks, QR labels and layered number checks that made it work.">
+<meta property="og:url" content="https://reyzasagara.github.io/nicetomeetyou/work-powersync-mes.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://reyzasagara.github.io/nicetomeetyou/assets/img/og-card.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f0f1f2">
+<meta name="view-transition" content="same-origin">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;650;700;750;800&display=swap">
+<link rel="stylesheet" href="assets/presentation.css">
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">r.</span><span>reyza<span class="brand-light">gunawan</span></span></a>
+    <nav class="nav" id="main-nav" aria-label="Main"><a href="index.html#work" aria-current="page">Work</a><a href="index.html#domains">Roles</a><a href="lab.html">Lab</a><a href="index.html#about">About</a><a href="cv.html">CV</a></nav>
+    <nav class="lang-switch" aria-label="Language"><a href="work-powersync-mes.html" hreflang="en" lang="en" aria-current="true" title="Read in English">EN</a><a href="id/work-powersync-mes.html" hreflang="id" lang="id" title="Baca dalam Bahasa Indonesia">ID</a></nav>
+    <a class="header-contact" href="index.html#contact">Let&#x27;s talk <span aria-hidden="true">↗</span></a>
+    <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-expanded="false" aria-controls="main-nav" aria-label="Open menu" data-label-open="Open menu" data-label-close="Close menu">Menu <span aria-hidden="true">☰</span></button>
+  </div>
+</header>
+<main id="main">
+
+<div class="wrap">
+  <p class="crumbs"><a href="index.html#work">Work</a> / Operations Digitalization</p>
+  <header class="case-head" style="view-transition-name:case-powersync-mes">
+    <div>
+      <span class="tag d-ops"><span class="wire d-ops" aria-hidden="true"></span><span>Operations Digitalization</span></span>
+      <h1>PowerSync: Manufacturing, PPIC &amp; Shop-Floor Traceability</h1>
+      <p class="xyz">Every unit can now be traced from its planned engine and frame number through QC to delivery, with 0 mismatches across 217 planned vs stamped pairs. I designed the kiosks, QR labels and layered number checks that made it work.</p>
+    </div>
+    <dl class="case-facts">
+      <div><dt>Role</dt><dd>Business analyst and builder</dd></div>
+      <div><dt>Period</dt><dd>2026</dd></div>
+      <div><dt>Tools</dt><dd>Laravel, MySQL, QR labels, tablet kiosks, photo capture, vision and speech models</dd></div>
+      <div><dt>Roles involved</dt><dd><a href="domain-operations-digitalization.html">Operations Digitalization</a> · <a href="domain-business-analysis.html">Business Analysis</a> · <a href="domain-ai-orchestration.html">AI Orchestration</a> · <a href="domain-electrical-engineering.html">Electrical Engineering / R&amp;D</a></dd></div>
+    </dl>
+  </header>
+  <section aria-label="Key results" class="plates" style="margin-bottom:clamp(2.5rem,6vw,4rem)"><div class="plate"><b>101→25</b><small>off-format engine and frame numbers after the checks</small></div><div class="plate"><b>0/217</b><small>mismatches between planned and stamped numbers</small></div><div class="plate"><b>635</b><small>units checked by photo at the post</small></div><div class="plate"><b>780</b><small>QC inspections recorded against the unit</small></div></section>
+  <section class="case-body section" style="padding-top:clamp(2rem,5vw,3rem)">
+    <h2>The situation</h2><div><p>Engine (NOSIN) and frame (NOKA) numbers were planned in spreadsheets, stamped by hand and often found wrong too late: on invoices, on registration documents or after delivery. Across 4,818 unit records, 103 shared 51 engine numbers.</p><p>Production reports and PDI checklists were on paper, so PPIC and QC saw the line a day late.</p></div>
+    <h2>The goal</h2><div><p>Catch number errors at the post where they happen, and give PPIC and QC a live view of the line.</p></div>
+    <h2>What I did</h2><div><ol><li>Planned frame numbers at recap time, skipping numbers already used.</li><li>Designed kiosks for the assembly and repair posts: a photo of the stamped number, and problem lists to pick from instead of typing.</li><li>Added format checks plus a normalised duplicate check (O vs 0, spacing) that catches duplicates exact matching misses.</li><li>Printed the planned numbers on QR labels for the line.</li><li>Moved QC from a paper checklist to inspections recorded against each unit, with NG units sent through the repair post.</li><li>Let PPIC set parameters and create a production recap from a phone. Later added AI that reads handwritten QC forms, while production carries on if the AI is off.</li></ol></div>
+    <h2>How it flows</h2><div class="flow-group"><div class="project-visual visual-production" role="img" aria-label="Production check: 217 planned vs stamped pairs, zero mismatches"><div class="production-card"><div class="visual-label">PRODUCTION · VALIDATION</div><h4>Numbers checked<br>at the post.</h4><div class="production-flow"><span>Plan</span><i>→</i><span>Stamp</span><i>→</i><span>Check</span></div><div class="validation"><span class="checkmark">✓</span><div><b>217 pairs. 0 mismatches.</b><small>Planned vs stamped unit numbers</small></div></div></div><span class="visual-foot">Control summary · BA01-E07</span></div><div><p class="mono flow-label">Unit flow</p><ol class="flow after d-ops"><li><span class="step"><small>01</small>Plan numbers</span></li><li><span class="step"><small>02</small>Stamp at the post</span></li><li><span class="step"><small>03</small>Kiosk photo and format check</span></li><li><span class="step"><small>04</small>Duplicate re-check</span></li><li><span class="step"><small>05</small>QC inspection</span></li><li><span class="step"><small>06</small>Repair post if NG</span></li><li><span class="step"><small>07</small>Delivery linked to PO</span></li></ol></div></div>
+    <h2>What changed</h2><div><ul><li>Off-format numbers dropped from 101 to 25 in one scan, with no exact duplicates left.</li><li>0 mismatches across 217 planned vs stamped pairs, and 635 units checked by photo.</li><li>780 QC inspections recorded; the production report and PDI checklist are no longer on paper.</li><li>A split PO stays one record: a 4-unit PO shipped on two delivery reports three weeks apart still shows partial delivery against each unit.</li></ul></div>
+    <h2>What I don&#x27;t claim</h2><div><div class="not-claimed"><span class="mono">And why</span><ul><li>Uniqueness enforced by the database. Engine numbers are still only checked in the application.</li><li>A shorter cycle time. It hasn&#x27;t been measured yet.</li><li>Accuracy figures for the AI form reading.</li></ul></div></div>
+    <h2>What I learned</h2><div><p>A check at the kiosk takes a few seconds. The same wrong number found at registration means a reissued document and a customer left waiting.</p><p>I built the AI steps so production keeps running when the AI is off or out of quota. The line can&#x27;t stop and wait for a model.</p></div>
+    <h2>Evidence</h2><div><p style="color:var(--ink-2);margin-bottom:.8rem">Every claim on this page traces to a verified evidence item. The source files are internal company documents, and I&#x27;m happy to walk through them in an interview.</p><div class="codes"><span class="code">BA01-E05</span><span class="code">BA01-E06</span><span class="code">BA01-E07</span><span class="code">BA01-E09</span><span class="code">BA01-E14</span><span class="code">PowerSync git history, Aug–Sep 2026</span></div></div>
+  </section>
+  <nav class="pager" aria-label="More case studies">
+    <a href="work-powersync-dealer.html"><span class="mono">← Previous case</span><strong>PowerSync: Integrated Dealer Management Platform</strong></a>
+    <a href="work-digital-growth.html"><span class="mono">Next case →</span><strong>PowerAce Digital Growth System</strong></a>
+  </nav>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 Reyza Agung Gunawan<small>Professional portfolio · September 2026</small></span>
+    <span><a href="mailto:reyzacomm@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/reyzaag/">LinkedIn</a> · <a href="https://github.com/Reyzasagara">GitHub</a></span>
+  </div>
+</footer>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

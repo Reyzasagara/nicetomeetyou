@@ -18,6 +18,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from i18n_id import ID  # noqa: E402
+import powersync_page  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE_URL = "https://reyzasagara.github.io/nicetomeetyou/"
@@ -627,6 +628,7 @@ def flow(label, kind, steps, domain_id):
 def nav(active):
     links = [
         ("index.html#work", "Work", "work"),
+        ("powersync.html", "PowerSync", "powersync"),
         ("index.html#domains", "Roles", "domains"),
         ("lab.html", "Lab", "lab"),
         ("index.html#about", "About", "about"),
@@ -654,7 +656,7 @@ def lang_switch(filename):
     )
 
 
-def page(filename, title, description, body, active="", extra_head=""):
+def page(filename, title, description, body, active="", extra_head="", body_class=""):
     tail = "" if filename == "index.html" else filename
     en_url = SITE_URL + tail
     id_url = SITE_URL + "id/" + tail
@@ -686,7 +688,7 @@ def page(filename, title, description, body, active="", extra_head=""):
 <link rel="stylesheet" href="{P}assets/presentation.css">
 {extra_head}
 </head>
-<body>
+<body class="{body_class}">
 <a class="skip" href="#main">{T("Skip to content")}</a>
 <header class="site-header">
   <div class="wrap">
@@ -913,6 +915,11 @@ def build_case(i, c):
     related_links = " · ".join(f'<a href="{domain_href(x)}">{T(x["name"])}</a>' for x in [d] + related)
     prev_c = CASES[(i - 1) % len(CASES)]
     next_c = CASES[(i + 1) % len(CASES)]
+    ps_link = (
+        f'<p class="ps-cta"><a class="btn btn--solid" href="powersync.html">{T("Explore every PowerSync module")} <span aria-hidden="true">↗</span></a></p>'
+        if c["id"].startswith("powersync")
+        else ""
+    )
 
     body = f"""
 <div class="wrap">
@@ -941,6 +948,7 @@ def build_case(i, c):
     <h2>{T("What I learned")}</h2><div>{lessons}</div>
     <h2>{T("Evidence")}</h2><div><p style="color:var(--ink-2);margin-bottom:.8rem">{T("Every claim on this page traces to a verified evidence item. The source files are internal company documents, and I'm happy to walk through them in an interview.")}</p><div class="codes">{codes}</div></div>
   </section>
+  {ps_link}
   <nav class="pager" aria-label="{T('More case studies')}">
     <a href="{case_href(prev_c['id'])}"><span class="mono">← {T("Previous case")}</span><strong>{T(prev_c['title'])}</strong></a>
     <a href="{case_href(next_c['id'])}"><span class="mono">{T("Next case")} →</span><strong>{T(next_c['title'])}</strong></a>
@@ -1128,6 +1136,7 @@ def build_all():
         build_domain(d)
     build_lab()
     build_cv()
+    powersync_page.build(sys.modules[__name__])
 
 
 if __name__ == "__main__":

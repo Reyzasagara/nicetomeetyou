@@ -653,4 +653,8 @@ ID = {
     "Download PDF": "Unduh PDF",
     "Back to portfolio": "Kembali ke portofolio",
     "CV of Reyza Agung Gunawan, a business analyst with a background in EV electrical R&D.": "CV Reyza Agung Gunawan, business analyst dengan latar belakang electrical R&D kendaraan listrik.",
+
+    # ------------------------------------------------------------------ PowerSync explorer links
+    "PowerSync": "PowerSync",
+    "Explore every PowerSync module": "Jelajahi semua modul PowerSync",
 }

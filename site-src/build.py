@@ -70,9 +70,9 @@ DOMAINS = [
         "id": "ba",
         "slug": "business-analysis",
         "name": "Business Analysis",
-        "role": "Core",
-        "summary": "Turning how work really happens into requirements a system can enforce.",
-        "overview": "I start with how the work really happens: the paper form, the WhatsApp message, the spreadsheet only one admin understands. Then I turn it into requirements, rules and data a system can enforce.",
+        "role": "Main work",
+        "summary": "I map day-to-day work into requirements and rules a system can apply.",
+        "overview": "I start with what people actually do: fill out a paper form, send a WhatsApp message or update the spreadsheet that only one admin understands. Then I write the requirements and rules for the system.",
         "competencies": [
             ("Process mapping, as-is to to-be", 4, "Drew before-and-after swimlanes of the faktur request in the Dec 2024 proposal, then mapped number control, PO-to-delivery and claims.", "powersync-dealer"),
             ("Requirements and traceability", 4, "Kept a traceability matrix that links 16 requirements to SRS items, UAT scenarios and evidence.", "powersync-dealer"),
@@ -107,9 +107,9 @@ DOMAINS = [
         "id": "ai",
         "slug": "ai-orchestration",
         "name": "AI Orchestration",
-        "role": "What sets me apart",
-        "summary": "Putting AI where rules fall short, with a person making the final call.",
-        "overview": "I use AI where fixed rules can't cope, like handwriting, free-text chats or messy evidence, and I keep a person at the point where decisions are made. Most of this is recent, so I show it as a lab and say honestly where each project stands.",
+        "role": "Current focus",
+        "summary": "I use AI to read handwriting, chats and messy evidence. A person still approves the result.",
+        "overview": "I use AI for work that fixed rules handle badly, such as handwriting, open-ended chats and messy evidence. A person still approves the decisions that matter. This work is recent, so I keep it in the lab and show exactly how far each project has gone.",
         "competencies": [
             ("Human-in-the-loop design", 3, "The AI sales assistant writes the draft; a person approves it before any customer sees it.", "lab"),
             ("Working when AI is off", 3, "Production keeps running when AI is switched off or its quota runs out.", "lab"),
@@ -141,9 +141,9 @@ DOMAINS = [
         "id": "ops",
         "slug": "operations-digitalization",
         "name": "Operations Digitalization",
-        "role": "Strong support",
-        "summary": "Capturing data once, at the post where it's created.",
-        "overview": "Most unit data starts on the factory floor. I design the posts, kiosks and labels that record it once, at the source, so nobody has to correct it later.",
+        "role": "Production experience",
+        "summary": "I record data at the workstation where it is created.",
+        "overview": "Most unit data starts on the production floor. I decide where it should be recorded, then build the kiosk, label or check around that step. The aim is to catch bad data before it travels.",
         "competencies": [
             ("Traceability design", 4, "99.9% of units ordered through PowerSync link to a PO, and 95% of sold units link to a customer.", "powersync-dealer"),
             ("Checking data at the source", 4, "0 mismatches across 217 planned vs stamped number pairs, and 635 units checked by photo.", "powersync-mes"),
@@ -175,9 +175,9 @@ DOMAINS = [
         "id": "mkt",
         "slug": "market-research-data",
         "name": "Market Research & Data Analysis",
-        "role": "Supporting",
-        "summary": "Finding where demand actually is before we spend money chasing it.",
-        "overview": "Before building anything, I want to know where demand actually is. I combine sales, registration, public and search data into models a sales team can act on.",
+        "role": "Research work",
+        "summary": "I check where demand is before recommending how to spend the budget.",
+        "overview": "Before recommending an expansion or a campaign, I want to know where demand is. I combine sales records, registration data, public statistics and search data, then turn the result into something the sales team can use.",
         "competencies": [
             ("Competitor and regional analysis", 4, "Showed that the market leader sold 75.4% of its units in Java (2022–Aug 2024).", "market-intel"),
             ("Market sizing with stated assumptions", 3, "Built two sizing scenarios for the Strategic Renewal proposal (Sep–Dec 2024).", "market-intel"),
@@ -210,9 +210,9 @@ DOMAINS = [
         "id": "ee",
         "slug": "electrical-engineering",
         "name": "Electrical Engineering / R&D",
-        "role": "Where I started",
-        "summary": "Electrical design, testing and type approval for an electric vehicle.",
-        "overview": "This is where I started: the electrical design of an electric three-wheeler, its testing and its type approval. I learned how electrical systems fail in real use, and that passing a test doesn't mean the product fits the market.",
+        "role": "Career start",
+        "summary": "I worked on electrical design, testing and type approval for an electric three-wheeler.",
+        "overview": "I started my career on the electrical system of an electric three-wheeler. I worked on its wiring, testing and type approval. It taught me how electrical systems fail in real use. It also taught me that passing a test does not mean the product fits the market.",
         "competencies": [
             ("Type approval preparation", 4, "Prepared the test package and filed the second type test in-house; the SUT certificate was issued in Sep 2023.", "ev-type-approval"),
             ("Validation testing", 3, "25% slope at 800 kg, a 270 mm water test, charging time and range.", "ev-type-approval"),
@@ -255,7 +255,7 @@ CASES = [
         "period": "Proposed Dec 2024 · built from Oct 2025 · live in 2026",
         "role": "Business analyst and delivery lead",
         "tools": "Laravel, MySQL, Power Apps (prototype), Power BI, BPMN 2.0, XMind",
-        "xyz": "I connected dealer orders, production, delivery, vehicle registration and claims in one platform that 15 of 22 dealers now use. I got there by mapping the real paper and Excel processes into requirements, rules and data.",
+        "xyz": "PowerSync now keeps dealer orders, production, delivery, vehicle registration and claims in one place. 15 of 22 dealers used it in May–Jun 2026. I started with the paper forms and Excel files people used every day.",
         "figure": ("15/22", "dealers active, May–Jun 2026"),
         "plates": [
             ("15/22", "dealers active on the platform, May–Jun 2026"),
@@ -305,7 +305,7 @@ CASES = [
         "period": "2026",
         "role": "Business analyst and builder",
         "tools": "Laravel, MySQL, QR labels, tablet kiosks, photo capture, vision and speech models",
-        "xyz": "Every unit can now be traced from its planned engine and frame number through QC to delivery, with 0 mismatches across 217 planned vs stamped pairs. I designed the kiosks, QR labels and layered number checks that made it work.",
+        "xyz": "PowerSync now traces each unit from its planned engine and frame number through QC and delivery. Across 217 planned vs stamped pairs, we found 0 mismatches. I designed the kiosks, QR labels and number checks used on the line.",
         "figure": ("0/217", "number mismatches, planned vs stamped"),
         "plates": [
             ("101→25", "off-format engine and frame numbers after the checks"),
@@ -352,9 +352,9 @@ CASES = [
         "title": "PowerAce Digital Growth System",
         "short": "Digital growth system",
         "period": "Jul–Sep 2026",
-        "role": "Started it, analysed it and built it",
+        "role": "Project lead, analyst and developer",
         "tools": "Next.js, Laravel API, CI security scanning, OWASP ZAP, GTM, GA4, Search Console, Meta Ads",
-        "xyz": "I took a vendor-built website with serious security flaws and made it a company-controlled, measurable source of leads, raising our self-assessed security score from 28 to 78/100. That meant auditing, rebuilding and instrumenting the site, then mapping the path from ad to dealer.",
+        "xyz": "The old company website had serious security problems, and the vendor controlled it. I moved the work in-house, rebuilt the site and added tracking from ads to dealer enquiries. Our self-assessed security score rose from 28 to 78/100.",
         "figure": ("28→78", "self-assessed security score"),
         "plates": [
             ("28→78", "self-assessed security score, weighted by OWASP"),
@@ -402,7 +402,7 @@ CASES = [
         "period": "2024–2026",
         "role": "Market research analyst, alongside engineering from 2024",
         "tools": "Power BI, Excel, Python scraper, BPS data, Google Trends, surveys",
-        "xyz": "I helped steer dealer expansion toward proven demand by showing that the market leader sold 75.4% of its units in Java (2022–Aug 2024). The work behind it: a market dataset, sizing scenarios and a regional whitespace score.",
+        "xyz": "Sales data from 2022 to Aug 2024 showed that the market leader sold 75.4% of its units in Java. I used that finding, two market-sizing scenarios and a regional score to recommend where dealer expansion should go next.",
         "figure": ("75.4%", "of the leader's units sold in Java"),
         "plates": [
             ("75.4%", "of the market leader's units sold in Java, 2022–Aug 2024"),
@@ -435,7 +435,7 @@ CASES = [
         ],
         "lessons": [
             "The Java conclusion held in both sizing scenarios, so it didn't depend on which market-size estimate turned out to be right.",
-            "The analysis turned into real work once each recommendation had an owner, such as the dealer scheme and the platform.",
+            "The 2025 plan assigned owners to the dealer scheme and PowerSync. That is when the analysis moved from slides into day-to-day work.",
         ],
         "evidence": ["BA03-E01", "BA03-E02", "BA03-E03", "BA03-E04", "BA03-E05", "BA03-E06", "BA03-E07", "BA03-E08", "BA03-E09", "BA03-E10"],
     },
@@ -456,7 +456,7 @@ CASES = [
             ("59 km", "range, with a full charge in 4 h 35 min"),
         ],
         "situation": [
-            "After the company's IPO, the three-wheeler business was a way to show it could do more than supply components. There was an imported electric prototype, but it wasn't ready for production and had no type approval.",
+            "After the company's IPO, the three-wheeler project was meant to show that the company could build its own product. The imported electric prototype was not ready for production and did not have type approval.",
         ],
         "task": "Get the prototype's electrical system ready and take the vehicle through government type approval.",
         "actions": [
@@ -498,26 +498,26 @@ LAB = [
     {
         "title": "AI on the shop floor",
         "status": ("live", "Live in PowerSync"),
-        "body": "Vision AI reads handwritten QC forms and turns them into named problem lists, and QC findings can be recorded by voice. Production keeps going when AI is off or out of quota, and a single control point meters AI use for every module.",
+        "body": "Vision AI reads handwritten QC forms and turns them into a problem list. QC staff can also record findings by voice. If the model is unavailable or out of quota, production continues without it.",
         "note": "Shipped Aug–Sep 2026. Accuracy isn't measured yet.",
     },
     {
         "title": "AI Sales Engine",
         "status": ("build", "In build"),
-        "body": "Built to close the gap of 54 unanswered conversations a week. The assistant has a persona and a product knowledge base, practises conversations before any customer sees one, and a person approves its replies.",
+        "body": "In one week, 54 of 328 customer conversations never received a reply. This project uses a product knowledge base to draft follow-ups. A person reviews every reply before it reaches a customer.",
         "note": "Started Sep 2026. No results yet.",
     },
     {
         "title": "Career evidence assistant",
         "status": ("done", "Done for this site"),
-        "body": "Turned 1,026 work records into four main case studies and 53 evidence items. Every claim was checked against source files, nothing was marked verified without my approval, and anything the files didn't support was dropped.",
-        "note": "Every figure on this site went through that process.",
+        "body": "I used this tool to sort 1,026 work records into four case studies and 53 evidence items. I checked each claim against the source files and removed the ones I could not support.",
+        "note": "The figures on this site come from that review.",
     },
     {
         "title": "FinAI",
         "status": ("build", "V0: ledger"),
-        "body": "A personal finance system built on one rule: a human confirms, AI does the work. V0 is a manual ledger on React and Supabase with row-level security; AI categorisation comes next.",
-        "note": "No AI calls yet, on purpose.",
+        "body": "FinAI is a personal finance app built with React and Supabase. The first version is a manual ledger with row-level security. AI categorisation comes later, after the basic records work properly.",
+        "note": "The current version does not call an AI model yet.",
     },
 ]
 
@@ -737,9 +737,9 @@ def build_home():
     <p class="hero-location"><span aria-hidden="true">◎</span> {T("Based in Cikarang, Indonesia")}</p>
   </div>
   <figure class="hero-art hero-art--team">
-    <span class="art-index">{T("The five roles I work across")}</span>
+    <span class="art-index">{T("Five parts of my work")}</span>
     <img class="hero-team" src="{P}assets/img/hero-five-personas.jpg" width="1437" height="1073" alt="{T('Illustration of Reyza in five outfits, one for each role: electrical engineer, data analyst, business analyst, AI orchestrator and digital marketing.')}" fetchpriority="high">
-    <figcaption><span class="caption-icon" aria-hidden="true">↗</span><span><strong>{T("Business analysis at the core")}</strong><small>{T("Plus AI, operations, market research and electrical engineering.")}</small></span></figcaption>
+    <figcaption><span class="caption-icon" aria-hidden="true">↗</span><span><strong>{T("Most of my work is business analysis")}</strong><small>{T("I also work on AI, production systems, market research and vehicle engineering.")}</small></span></figcaption>
   </figure>
 </section>"""
 
@@ -760,9 +760,9 @@ def build_home():
 <section class="section evolution-section" aria-labelledby="evo-h">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">04 / {T("How I got here")}</span>
-      <h2 id="evo-h">{T("How my work changed")}</h2>
-      <p>{T("Each stage started with a problem the stage before it couldn't solve.")}</p>
+      <span class="eyebrow">04 / {T("Career path")}</span>
+      <h2 id="evo-h">{T("From electrical work to business systems")}</h2>
+      <p>{T("I started in engineering, moved into market data and dealer processes, then built PowerSync. AI is the newest part of that work.")}</p>
     </div>
     <ol class="evolution">{evo_items}</ol>
   </div>
@@ -774,7 +774,7 @@ def build_home():
   <div class="wrap">
     <div class="section-head split-head">
       <div><span class="eyebrow">02 / {T("Selected work")}</span><h2 id="work-h">{T("Selected projects")}</h2></div>
-      <p>{T("Each case study covers the problem, my part, the results and what I don't claim.")}</p>
+      <p>{T("Open a case study to see the problem, what I worked on, what changed and where the evidence stops.")}</p>
     </div>
     <div class="work-filters" role="group" aria-label="{T('Filter selected work')}" hidden>
       <button type="button" data-filter="all" aria-pressed="true">{T("All work")} <span>05</span></button>
@@ -801,8 +801,8 @@ def build_home():
 <section class="section" id="domains" aria-labelledby="dom-h">
   <div class="wrap">
     <div class="section-head split-head">
-      <div><span class="eyebrow">01 / {T("What I do")}</span><h2 id="dom-h">{T("The roles I work in")}</h2></div>
-      <p>{T("Business analysis is the core. AI is where I'm heading. Operations, data and engineering are where I learned the job.")}</p>
+      <div><span class="eyebrow">01 / {T("What I do")}</span><h2 id="dom-h">{T("What I work on")}</h2></div>
+      <p>{T("Most of my work now is business analysis. I learned it through production systems, market data and vehicle engineering. AI is the newest part of the job.")}</p>
     </div>
     <ul class="domain-grid">{''.join(drows)}</ul>
   </div>
@@ -818,7 +818,7 @@ def build_home():
     <div class="section-head">
       <span class="eyebrow">03 / {T("Lab")}</span>
       <h2 id="lab-h">{T("AI projects in progress")}</h2>
-      <p>{T("AI projects in progress. Each one shows where it stands and what I haven't measured yet.")}</p>
+      <p>{T("I am still testing these ideas in real work. I have included the current status and the numbers I still need.")}</p>
     </div>
     <div class="lab-grid">{lab_items}</div>
     <p style="margin-top:1.5rem"><a class="btn" href="lab.html">{T("See all lab projects")} <span aria-hidden="true">→</span></a></p>
@@ -833,14 +833,14 @@ def build_home():
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">05 / {T("About")}</span>
-      <h2 id="about-h">{T("Engineer by training, analyst by habit")}</h2>
+      <h2 id="about-h">{T("I started in engineering")}</h2>
     </div>
     <div class="about">
       <div>
         <div class="prose">
           <p>{T("I studied mechatronics and joined PT Dharma Polimetal in 2021 as an electrical design engineer. My early work was the electrical side of an electric three-wheeler: wiring, controllers, testing and getting it through government type approval.")}</p>
           <p>{T("Along the way I kept running into problems outside engineering. We didn't know where demand really was, and a lot of the business still ran on paper and re-typed spreadsheets. In 2024 I started market analysis alongside my engineering job, proposed a platform to connect the retail process, and went on to lead PowerSync from requirements to a system that dealers, admins and the production floor use every day.")}</p>
-          <p>{T("Today I work as a business analyst who also builds. I map the process, write the rules and ship the workflow. I use AI where it helps, and a person still makes the final call.")}</p>
+          <p>{T("Most days I work as a business analyst who also builds. I map the process, write the rules, then help build and test the workflow. I use AI for a few parts of the work, but a person still makes the final call.")}</p>
         </div>
         <dl class="facts">
           <dt>{T("Now")}</dt><dd>{T("Marketing Research Analyst, 3W division, PT Dharma Polimetal Tbk (2026 – present)")}</dd>
@@ -892,7 +892,7 @@ def build_home():
     page(
         "index.html",
         "Reyza Agung Gunawan",
-        t("Business analyst from Cikarang who also builds: a dealer and factory platform, market research, digital growth and EV type approval, with evidence behind every number."),
+        t("Portfolio of Reyza Agung Gunawan, a business analyst in Cikarang. The work covers PowerSync, market research, website growth and EV type approval, with sources for every result."),
         hero + proof + domains + work + lab + evolution + about + contact,
         extra_head=extra,
     )
@@ -1042,24 +1042,24 @@ def build_lab():
     <div>
       <span class="tag d-ai">{wire('ai')}<span>{T("AI Orchestration")}</span></span>
       <h1>{T("Portfolio Lab")}</h1>
-      <p class="xyz">{T("AI projects shown as they really stand. None of them counts as a finished case study until it has a measured result.")}</p>
+      <p class="xyz">{T("Each AI project on this page is at a different stage. I only call it a finished case study after the results have been measured.")}</p>
     </div>
     <dl class="case-facts">
-      <div><dt>{T("Principle")}</dt><dd>{T("AI does the work where rules can't. A person signs off wherever a mistake costs money.")}</dd></div>
+      <div><dt>{T("Principle")}</dt><dd>{T("I use AI for work that fixed rules handle badly. When a mistake can cost money, a person reviews the result before it moves on.")}</dd></div>
       <div><dt>{T("Role page")}</dt><dd><a href="domain-ai-orchestration.html">{T("AI Orchestration")}</a></dd></div>
     </dl>
   </header>
   <section class="section" aria-label="{T('Lab projects')}"><div class="lab-grid">{items}</div></section>
   <section class="section" aria-labelledby="std-h">
     <div class="section-head">
-      <span class="eyebrow">{T("The bar for a finished AI case")}</span>
-      <h2 id="std-h">{T("What a lab project needs before it graduates")}</h2>
-      <p>{T("The first project that covers all ten, including a measured result, becomes a full case study.")}</p>
+      <span class="eyebrow">{T("Before I call it finished")}</span>
+      <h2 id="std-h">{T("What I still need to prove")}</h2>
+      <p>{T("I only move a project into the full case studies after it covers these points and has a measured result.")}</p>
     </div>
     <ol class="steps">{standard}</ol>
   </section>
 </div>"""
-    page("lab.html", t("Portfolio Lab") + " · Reyza Agung Gunawan", t("AI projects by Reyza Agung Gunawan, shown with their real status: shop-floor AI, an AI sales engine, a career evidence assistant and FinAI."), body, active="lab")
+    page("lab.html", t("Portfolio Lab") + " · Reyza Agung Gunawan", t("AI projects by Reyza Agung Gunawan, including shop-floor tools, a sales follow-up assistant, a career evidence assistant and FinAI. Each project includes its current status."), body, active="lab")
 
 
 # --------------------------------------------------------------------------- CV page (printed to PDF; the CV itself stays in English)

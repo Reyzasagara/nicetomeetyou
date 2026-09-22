@@ -377,6 +377,8 @@ td:first-child{width:23%}td:nth-child(2){width:17%}td:last-child{width:18%}
 @media(max-width:850px){.hero:has(.hero-art--team){grid-template-columns:1fr}}
 .hero-team{width:100%;height:auto;mix-blend-mode:multiply}
 .hero-art--team figcaption{position:static}
+.hero-photo{display:block;width:100%;height:auto;max-height:600px;object-fit:cover;object-position:center top}
+.hero-art--team:has(.hero-photo){padding:14px}
 @media(max-width:850px){.hero-art--team{padding:40px 12px 12px}}
 @media(max-width:600px){.hero-art--team{min-height:0;padding:38px 10px 10px}}
 

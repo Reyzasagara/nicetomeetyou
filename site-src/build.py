@@ -797,7 +797,7 @@ def build_home():
   </div>
   <figure class="hero-art hero-art--team">
     <span class="art-index">{T("Business Analyst / Digital Transformation")}</span>
-    <img class="hero-team" src="{P}assets/img/hero-five-personas.jpg" width="1437" height="1073" alt="{T('Illustration of Reyza: business analysis supported by engineering, data, AI and operations capabilities.')}" fetchpriority="high">
+    <img class="hero-photo" src="{P}assets/img/hero-portrait.jpg" width="896" height="1040" alt="{T('Portrait of Reyza Agung Gunawan')}" fetchpriority="high">
     <figcaption><span class="caption-icon" aria-hidden="true">↗</span><span><strong>{T("Business analysis at the core")}</strong><small>{T("I also work on AI, production systems, market research and vehicle engineering.")}</small></span></figcaption>
   </figure>
 </section>"""

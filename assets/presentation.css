@@ -543,3 +543,32 @@ a:hover>.read span,.read:hover span,.btn:hover span,.text-link:hover span,.heade
  .ps-body{padding:0 16px 18px}.ps-rules li{padding-left:52px}
 }
 @media print{.ps-toolbar{display:none}.ps-module .ps-body{display:grid}}
+/* Recruiter hierarchy: one core capability, four compact supporting strengths. */
+.domain-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.domain-grid .d-ba{grid-column:1/-1;border:2px solid var(--navy)}
+.domain-grid .d-ba>a{display:grid;grid-template-columns:180px 1fr;align-items:center}
+.domain-grid .d-ba .domain-portrait{height:180px}
+.domain-grid .d-ba h3{font-size:1.6rem}
+.domain-grid .domain-card:not(.d-ba) .domain-portrait{display:none}
+.all-work-link{margin-top:24px}
+.evidence-register{padding-left:1.2rem;display:grid;gap:16px}
+.evidence-register p{font-size:.82rem;color:var(--ink-2)}
+.cv-contact{font-size:.9rem;line-height:1.65;color:var(--ink-2)}
+/* Content must be visible on the first paint, including without JavaScript. */
+.hero-copy>*,.crumbs,.case-head>div>*,.domain-intro>*,.hero-art,.domain-hero-art,.case-facts,
+.home-proof .plate,.section-head,.domain-card,.project-card,.lab-item,.evolution li,.about,.contact,
+.case-body>h2,.case-body>div,.plates>.plate,.tool,.steps li,.table-wrap,.case-row,.pager{animation:none}
+@media(max-width:850px){.domain-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.domain-grid .d-ba>a{grid-template-columns:1fr}.domain-grid .d-ba .domain-portrait{display:none}.cv{padding:22px}.cv h1{font-size:2rem}}
+@media print{
+ .cv{font-size:10.5pt;line-height:1.45;font-family:Arial,sans-serif}
+ .cv-contact{font-size:10pt;line-height:1.5}.cv h1{font-size:24pt}
+ .cv h2{margin-top:16pt;margin-bottom:10pt;padding-bottom:6pt}
+ .cv h3{font-size:12pt;margin-top:12pt}.cv h3 span{font-size:10pt}
+ .cv h4{font-size:11pt;margin-top:12pt}.cv li{margin-top:6pt}
+ .cv-subsection,.cv li{break-inside:avoid}.cv-page-two{break-before:page}
+ .cv-page-two>h3:first-child{margin-top:0}
+ *{animation:none!important;transition:none!important}
+}
+/* Keep every supporting card the same weight at narrow widths. */
+@media(max-width:600px){.domain-grid .domain-card:last-child{grid-column:auto}.domain-grid .domain-card:last-child a{display:flex}}

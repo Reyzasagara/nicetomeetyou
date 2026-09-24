@@ -4,11 +4,15 @@ A deck shows the result of a piece of work and the method behind it, in the same
 presentation format I use at work. Text is bilingual inline as (english, indonesian),
 the same convention powersync_page.py uses.
 
-Source for this deck: the internal customer-journey analysis of the 4-22 Sep 2026
-click-to-WhatsApp campaign, plus the journey-layers systems map. Figures are the ones
-in those decks. Deliberately left out: customer names, the dealers behind each failure,
-and the vacancy detail of the internal org chart. Where nothing was measured the deck
-says so instead of estimating: the blind zone is part of the story.
+Every figure in this deck is ILLUSTRATIVE. The real analysis is an internal
+click-to-WhatsApp campaign review plus a journey-layers systems map, and none of its
+figures are published here. The illustrative set keeps the real ratios - the stage
+percentages, the share lost internally, the cost gap between advert formats - so the
+method and the conclusions read true while no company figure is disclosed.
+
+Also deliberately left out: customer names, the dealers behind each failure, and the
+vacancy detail of the internal org chart. Where nothing was measured the deck says so
+instead of estimating: the blind zone is part of the story.
 
 Output: deck-<slug>.html in the repo root and id/deck-<slug>.html, plus the shared
 assets/deck.css and assets/deck.js.
@@ -25,15 +29,15 @@ DIGITAL_GROWTH = {
     "slug": "digital-growth",
     "case": "work-digital-growth.html",
     "product": ("PowerAce Digital Growth", "PowerAce Digital Growth"),
-    "period": ("4–22 Sep 2026", "4–22 Sep 2026"),
+    "period": ("19-day campaign · 2026", "Kampanye 19 hari · 2026"),
     "title": (
-        "697 people asked about our vehicle. <em>210 were lost by us</em>, not by the budget.",
-        "697 orang bertanya tentang kendaraan kami. <em>210 hilang karena kami</em>, bukan karena budget.",
+        "800 people asked about our vehicle. <em>238 were lost by us</em>, not by the budget.",
+        "800 orang bertanya tentang kendaraan kami. <em>238 hilang karena kami</em>, bukan karena budget.",
     ),
     "lead": (
-        "I ran the September advert campaign, then read and classified every one of the 697 "
+        "I ran a 19-day advert campaign, then read and classified every one of the 800 "
         "WhatsApp conversations it produced.",
-        "Saya menjalankan kampanye iklan September, lalu membaca dan mengklasifikasi seluruh 697 "
+        "Saya menjalankan kampanye iklan 19 hari, lalu membaca dan mengklasifikasi seluruh 800 "
         "percakapan WhatsApp yang dihasilkannya.",
     ),
     "slides": (
@@ -41,8 +45,8 @@ DIGITAL_GROWTH = {
         ["Hasil", "Journey", "Kampanye", "Kebocoran", "Sistem", "Berikutnya"],
     ),
     "funnel": {
-        "chats": 697, "qualified": 365, "hot": 105, "to_dealer": 56,
-        "drop_qualify": 332, "drop_intent": 260, "drop_forward": 49,
+        "chats": 800, "qualified": 420, "hot": 120, "to_dealer": 64,
+        "drop_qualify": 380, "drop_intent": 300, "drop_forward": 56,
     },
 }
 
@@ -102,19 +106,19 @@ def build(b, deck=DIGITAL_GROWTH):
     # ------------------------------------------------------------- slide 1 · result
     xyz = [
         (("X", "X"), ("What I did", "Yang saya kerjakan"),
-         ("Ran the September advert campaign and followed <b>every conversation it produced</b>, "
+         ("Ran a 19-day advert campaign and followed <b>every conversation it produced</b>, "
           "from the advert to the dealer.",
-          "Menjalankan kampanye iklan September dan mengikuti <b>setiap percakapan yang dihasilkan</b>, "
+          "Menjalankan kampanye iklan 19 hari dan mengikuti <b>setiap percakapan yang dihasilkan</b>, "
           "dari iklan sampai ke dealer.")),
         (("Y", "Y"), ("Measured by", "Diukur dengan"),
-         ("<b>697 conversations</b> for IDR 1.92 million — about <b>IDR 2,760 each</b> — and "
-          "<b>105 buyers ready to buy</b>, of whom only 56 ever reached a dealer.",
-          "<b>697 percakapan</b> dengan biaya Rp1,92 juta — sekitar <b>Rp2.760 per percakapan</b> — dan "
-          "<b>105 calon pembeli siap beli</b>, tetapi hanya 56 yang sampai ke dealer.")),
+         ("<b>800 conversations</b> for IDR 2.2 million — about <b>IDR 2,750 each</b> — and "
+          "<b>120 buyers ready to buy</b>, of whom only 64 ever reached a dealer.",
+          "<b>800 percakapan</b> dengan biaya Rp2,2 juta — sekitar <b>Rp2.750 per percakapan</b> — dan "
+          "<b>120 calon pembeli siap beli</b>, tetapi hanya 64 yang sampai ke dealer.")),
         (("Z", "Z"), ("By doing", "Dengan cara"),
-         ("Reading all 697 conversations, sorting them into <b>six failure types that repeat</b>, "
+         ("Reading all 800 conversations, sorting them into <b>six failure types that repeat</b>, "
           "and mapping the 11 systems this journey needs against the 5 we have.",
-          "Membaca seluruh 697 percakapan, memilahnya jadi <b>enam tipe kegagalan yang berulang</b>, "
+          "Membaca seluruh 800 percakapan, memilahnya jadi <b>enam tipe kegagalan yang berulang</b>, "
           "dan memetakan 11 sistem yang dibutuhkan journey ini terhadap 5 yang kami punya.")),
     ]
     xyz_html = "".join(
@@ -124,17 +128,17 @@ def build(b, deck=DIGITAL_GROWTH):
     )
 
     headline_figures = "".join([
-        figure(num(697), ("conversations with buyers", "percakapan dengan calon pembeli"),
-               ("19 days of adverts, IDR 1.92 million", "19 hari iklan, Rp1,92 juta")),
-        figure(num(2760, prefix=rp), ("spent per conversation", "biaya per percakapan"),
-               ("a ready-to-buy lead cost IDR 18,320", "lead siap beli berbiaya Rp18.320")),
-        figure(num(210), ("lost inside our own process", "hilang di dalam proses kami sendiri"),
+        figure(num(800), ("conversations with buyers", "percakapan dengan calon pembeli"),
+               ("19 days of adverts, IDR 2.2 million", "19 hari iklan, Rp2,2 juta")),
+        figure(num(2750, prefix=rp), ("spent per conversation", "biaya per percakapan"),
+               ("a ready-to-buy lead cost IDR 18,300", "lead siap beli berbiaya Rp18.300")),
+        figure(num(238), ("lost inside our own process", "hilang di dalam proses kami sendiri"),
                ("30% of every conversation we paid for", "30% dari percakapan yang kami bayar")),
     ])
 
     jobs = [
         ("bl", ("Growth", "Growth"), ("ran the adverts", "menjalankan iklan")),
-        ("bl", ("Data", "Data"), ("classified all 697 conversations", "mengklasifikasi 697 percakapan")),
+        ("bl", ("Data", "Data"), ("classified all 800 conversations", "mengklasifikasi 800 percakapan")),
         ("dk", ("Business analysis", "Business analysis"),
          ("turned it into systems and rules", "mengubahnya jadi sistem dan aturan")),
     ]
@@ -157,16 +161,20 @@ def build(b, deck=DIGITAL_GROWTH):
   <div class="d-card d-rv" style="--d:320;grid-column:span 8">
     <div class="d-kk">{LE(("In plain terms", "Dengan kata sederhana"))}</div>
     <p class="d-plain">{L((
-      "Adverts brought 697 people to WhatsApp in 19 days. <b>116 of them were never answered at all.</b> "
-      "204 were answered, but nobody asked the one question that decides which dealer they belong to. "
-      "And 49 of the people most ready to buy never reached a dealer. None of that needed more budget.",
-      "Iklan membawa 697 orang ke WhatsApp dalam 19 hari. <b>116 di antaranya sama sekali tidak pernah dibalas.</b> "
-      "204 dibalas, tetapi tidak ada yang menanyakan satu hal yang menentukan dealer mana yang menanganinya. "
-      "Dan 49 orang yang paling siap membeli tidak pernah sampai ke dealer. Semua itu tidak butuh tambahan budget."))}</p>
+      "Adverts brought 800 people to WhatsApp in 19 days. <b>130 of them were never answered at all.</b> "
+      "235 were answered, but nobody asked the one question that decides which dealer they belong to. "
+      "And 56 of the people most ready to buy never reached a dealer. None of that needed more budget.",
+      "Iklan membawa 800 orang ke WhatsApp dalam 19 hari. <b>130 di antaranya sama sekali tidak pernah dibalas.</b> "
+      "235 dibalas, tetapi tidak ada yang menanyakan satu hal yang menentukan dealer mana yang menanganinya. "
+      "Dan 56 orang yang paling siap membeli tidak pernah sampai ke dealer. Semua itu tidak butuh tambahan budget."))}</p>
   </div>
   <div class="d-card d-rv" style="--d:400;grid-column:span 4">
     <div class="d-kk">{LE(("Three jobs inside one piece of work", "Tiga peran dalam satu pekerjaan"))}</div>
     <div style="display:flex;flex-direction:column;gap:9px">{jobs_html}</div>
+    <p class="d-note" style="margin-top:auto;border-top:1px solid var(--d-line);padding-top:11px">
+      <b>{LE(("Figures are illustrative.", "Angka di sini ilustratif."))}</b>
+      {LE(("The real campaign belongs to my employer, so every number here is stand-in. The proportions are the real ones.",
+           "Kampanye aslinya milik perusahaan tempat saya bekerja, jadi semua angka di sini pengganti. Proporsinya sesuai aslinya."))}</p>
   </div>
 </div>"""
 
@@ -184,21 +192,21 @@ def build(b, deck=DIGITAL_GROWTH):
         "nodes": [
             {"id": "chats", "type": "in", "x": 150, "y": top, "value": f["chats"], "side": "left",
              "big": 32, "label": L(("conversations", "percakapan")),
-             "sub": L(("4–22 Sep 2026", "4–22 Sep 2026"))},
+             "sub": L(("a 19-day campaign", "kampanye 19 hari"))},
             {"id": "qual", "type": "ok", "x": 470, "y": top, "value": f["qualified"], "big": 26,
              "label": L(("told us where they live", "memberi tahu lokasinya")),
              "sub": L(("52% · a lead we can route", "52% · lead yang bisa diarahkan"))},
             {"id": "dropq", "type": "leak", "x": 470, "y": top + h["qualified"] + 70,
              "value": f["drop_qualify"], "big": 24,
              "label": L(("dropped before that", "gugur sebelum itu")),
-             "sub": L(("116 never answered · 204 never asked", "116 tak dibalas · 204 tak ditanya"))},
+             "sub": L(("130 never answered · 235 never asked", "130 tak dibalas · 235 tak ditanya"))},
             {"id": "hot", "type": "ok", "x": 790, "y": top, "value": f["hot"], "big": 26,
              "label": L(("ready to buy", "siap membeli")),
-             "sub": L(("15% · IDR 18,320 each", "15% · Rp18.320 per lead"))},
+             "sub": L(("15% · IDR 18,300 each", "15% · Rp18.300 per lead"))},
             {"id": "dropi", "type": "drop", "x": 790, "y": top + h["hot"] + 80,
              "value": f["drop_intent"], "big": 22,
              "label": L(("still deciding, or out of reach", "masih menimbang, atau tak terjangkau")),
-             "sub": L(("45 live where we have no dealer", "45 tinggal di area tanpa dealer"))},
+             "sub": L(("52 live where we have no dealer", "52 tinggal di area tanpa dealer"))},
             {"id": "dealer", "type": "ok", "x": 1090, "y": top, "value": f["to_dealer"], "big": 24,
              "label": L(("reached a dealer", "sampai ke dealer")),
              "sub": L(("8% of everyone who wrote in", "8% dari semua yang menghubungi"))},
@@ -231,9 +239,9 @@ def build(b, deck=DIGITAL_GROWTH):
           "Lebar pita adalah jumlah orang. Merah adalah kehilangan karena kami; abu-abu adalah pasar yang memutuskan."),
          ("What actually happened · the funnel", "Apa yang sebenarnya terjadi · funnel-nya"), 1)}
   <div class="d-card d-rv" style="--d:120;grid-column:span 12">
-    <div class="d-head"><div><div class="d-kk">{LE(("Customer journey · 697 conversations", "Customer journey · 697 percakapan"))}</div>
+    <div class="d-head"><div><div class="d-kk">{LE(("Customer journey · 800 conversations", "Customer journey · 800 percakapan"))}</div>
       <h3>{LE(("From advert to dealer, in four steps", "Dari iklan ke dealer, dalam empat langkah"))}</h3></div>
-      <div class="d-chips"><span class="d-chip wn">{LE(("210 lost by us", "210 hilang karena kami"))}</span>
+      <div class="d-chips"><span class="d-chip wn">{LE(("238 lost by us", "238 hilang karena kami"))}</span>
         <span class="d-chip">{LE(("hatched = no data", "arsir = tidak ada data"))}</span></div></div>
     <div class="d-sankey" data-sankey="{E(json.dumps(spec), quote=True)}"></div>
     <p class="d-note">{LE((
@@ -246,13 +254,13 @@ def build(b, deck=DIGITAL_GROWTH):
 
     # ------------------------------------------------------------- slide 3 · campaign
     creative = [
-        (("Opens WhatsApp straight away", "Langsung membuka WhatsApp"), 377, 1442, "ok"),
-        (("Sends people to a page first", "Mengarahkan ke halaman dulu"), 238, 5798, "wn"),
-        (("Found us without an advert", "Menemukan kami tanpa iklan"), 82, None, ""),
+        (("Opens WhatsApp straight away", "Langsung membuka WhatsApp"), 430, 1450, "ok"),
+        (("Sends people to a page first", "Mengarahkan ke halaman dulu"), 275, 5800, "wn"),
+        (("Found us without an advert", "Menemukan kami tanpa iklan"), 95, None, ""),
     ]
     creative_rows = "".join(
         f"""<div class="d-row"><span style="min-width:236px">{LE(label)}</span>
-      <span class="bar"><i class="{cls}" data-w="{round(100 * n / 377)}"></i></span>
+      <span class="bar"><i class="{cls}" data-w="{round(100 * n / 430)}"></i></span>
       <span class="num">{n}</span>
       <span class="d-chip {'ok' if cls == 'ok' else ('wn' if cls else 'bl')}"
         style="min-width:92px;text-align:center">{money(cost) if cost else LE(("organic", "organik"))}</span></div>"""
@@ -260,9 +268,9 @@ def build(b, deck=DIGITAL_GROWTH):
     )
 
     ladder = [
-        (("Per conversation", "Per percakapan"), 2760, 15),
-        (("Per lead we can route", "Per lead yang bisa diarahkan"), 5260, 29),
-        (("Per buyer ready to buy", "Per calon pembeli siap beli"), 18320, 100),
+        (("Per conversation", "Per percakapan"), 2750, 15),
+        (("Per lead we can route", "Per lead yang bisa diarahkan"), 5250, 29),
+        (("Per buyer ready to buy", "Per calon pembeli siap beli"), 18300, 100),
         (("Per vehicle sold", "Per unit terjual"), None, 100),
     ]
     ladder_rows = "".join(
@@ -273,10 +281,10 @@ def build(b, deck=DIGITAL_GROWTH):
     )
 
     reach = "".join([
-        figure(num(63156), ("people saw the adverts", "orang melihat iklannya"),
-               ("358,018 views · about 5.7 each", "358.018 tayangan · sekitar 5,7 kali per orang"), 34),
-        figure(num(4.3, suffix="%"), ("of them clicked", "di antaranya mengklik"),
-               ("99.8% were not following us", "99,8% belum mengikuti akun kami"), 34),
+        figure(num(72000), ("people saw the adverts", "orang melihat iklannya"),
+               ("410,000 views · about 5.7 each", "410.000 tayangan · sekitar 5,7 kali per orang"), 34),
+        figure(num(4.2, suffix="%"), ("of them clicked", "di antaranya mengklik"),
+               ("99% were not following us", "99% belum mengikuti akun kami"), 34),
     ])
 
     slide3 = f"""
@@ -291,14 +299,14 @@ def build(b, deck=DIGITAL_GROWTH):
     {reach}
   </div>
   <div class="d-card d-rv" style="--d:180;grid-column:span 8">
-    <div class="d-head"><div><div class="d-kk">{LE(("Where the 697 conversations came from", "Dari mana 697 percakapan itu datang"))}</div>
+    <div class="d-head"><div><div class="d-kk">{LE(("Where the 800 conversations came from", "Dari mana 800 percakapan itu datang"))}</div>
       <h3>{LE(("Same budget, very different price", "Budget sama, harga sangat berbeda"))}</h3></div></div>
     <div class="d-rows">{creative_rows}</div>
     <p class="d-note">{LE((
-      "The format that opens a chat straight away brought the most conversations at IDR 1,442 each. "
-      "The one that sends people to a page first cost IDR 5,798 for every conversation it produced.",
-      "Format yang langsung membuka chat menghasilkan percakapan terbanyak dengan biaya Rp1.442. "
-      "Format yang mengarahkan ke halaman dulu menghabiskan Rp5.798 untuk setiap percakapan."))}</p>
+      "The format that opens a chat straight away brought the most conversations at IDR 1,450 each. "
+      "The one that sends people to a page first cost IDR 5,800 for every conversation it produced.",
+      "Format yang langsung membuka chat menghasilkan percakapan terbanyak dengan biaya Rp1.450. "
+      "Format yang mengarahkan ke halaman dulu menghabiskan Rp5.800 untuk setiap percakapan."))}</p>
   </div>
   <div class="d-card d-rv" style="--d:280;grid-column:span 7">
     <div class="d-head"><div><div class="d-kk">{LE(("The cost ladder", "Tangga biaya"))}</div>
@@ -310,11 +318,11 @@ def build(b, deck=DIGITAL_GROWTH):
     <div class="d-kk">{LE(("Two decisions I took to the team", "Dua keputusan yang saya bawa ke tim"))}</div>
     <ul class="d-steps">
       <li><b>01</b><span>{LE((
-        "Stop advertising in provinces where no dealer can serve the buyer — 45 conversations came from there.",
-        "Hentikan iklan di provinsi yang belum punya dealer — 45 percakapan datang dari sana."))}</span></li>
+        "Stop advertising in provinces where no dealer can serve the buyer — 52 conversations came from there.",
+        "Hentikan iklan di provinsi yang belum punya dealer — 52 percakapan datang dari sana."))}</span></li>
       <li><b>02</b><span>{LE((
-        "Make one promo wording true everywhere; three buyers were told at the dealer that the advert's offer did not apply.",
-        "Samakan satu kalimat promo di semua tempat; tiga pembeli diberi tahu di dealer bahwa penawaran iklan tidak berlaku."))}</span></li>
+        "Make one promo wording true everywhere; several buyers were told at the dealer that the advert's offer did not apply.",
+        "Samakan satu kalimat promo di semua tempat; beberapa pembeli diberi tahu di dealer bahwa penawaran iklan tidak berlaku."))}</span></li>
     </ul>
     <p class="d-note">{LE((
       "Both cost nothing to fix, and both stayed invisible until the conversations were read.",
@@ -324,27 +332,27 @@ def build(b, deck=DIGITAL_GROWTH):
 
     # ------------------------------------------------------------- slide 4 · leaks
     leaks = [
-        ("L1", ("Never answered at all", "Sama sekali tidak dibalas"), 116, "16.6%",
+        ("L1", ("Never answered at all", "Sama sekali tidak dibalas"), 130, "16%",
          ("Worst on weekends and on the busiest advert days.",
           "Terparah di akhir pekan dan di hari iklan tersibuk."),
          ("Reply target under 15 minutes, with cover at night and weekends.",
           "Target balas di bawah 15 menit, dengan jaga malam dan akhir pekan.")),
-        ("L2", ("Answered, but never asked where they live", "Dibalas, tapi tidak ditanya lokasinya"), 204, "29.3%",
+        ("L2", ("Answered, but never asked where they live", "Dibalas, tapi tidak ditanya lokasinya"), 235, "29%",
          ("Nearly half of those chats closed themselves before anyone asked.",
           "Hampir separuh chat itu tertutup sendiri sebelum sempat ditanya."),
          ("Ask the area in the first message, with province buttons.",
           "Tanyakan area di pesan pertama, dengan tombol pilihan provinsi.")),
-        ("L3", ("Told us where — and we have no dealer there", "Memberi tahu lokasinya — dan kami tak punya dealer di sana"), 45, "6.5%",
+        ("L3", ("Told us where — and we have no dealer there", "Memberi tahu lokasinya — dan kami tak punya dealer di sana"), 52, "6.5%",
          ("Paid adverts were running in provinces with no dealer at all.",
           "Iklan berbayar berjalan di provinsi yang sama sekali belum punya dealer."),
          ("Remove those areas from targeting until a dealer covers them.",
           "Keluarkan area itu dari targeting sampai ada dealer yang menanganinya.")),
-        ("L4", ("Stuck on the down-payment question", "Tertahan di pertanyaan uang muka"), 135, "31%",
-         ("Of 215 interested buyers, 135 were still waiting on an answer about instalments.",
-          "Dari 215 peminat, 135 masih menunggu jawaban soal cicilan."),
+        ("L4", ("Stuck on the down-payment question", "Tertahan di pertanyaan uang muka"), 155, "31%",
+         ("Of 245 interested buyers, 155 were still waiting on an answer about instalments.",
+          "Dari 245 peminat, 155 masih menunggu jawaban soal cicilan."),
          ("One standard instalment table, and the same promo status at every dealer.",
           "Satu tabel cicilan baku, dan status promo yang sama di semua dealer.")),
-        ("L5", ("Ready to buy, never forwarded", "Siap beli, tidak pernah diteruskan"), 49, "47%",
+        ("L5", ("Ready to buy, never forwarded", "Siap beli, tidak pernah diteruskan"), 56, "47%",
          ("The most expensive leads we buy stopped at the front desk.",
           "Lead termahal yang kami beli berhenti di meja depan."),
          ("Forward within the hour, and make the hand-off a required field.",
@@ -370,9 +378,9 @@ def build(b, deck=DIGITAL_GROWTH):
 <div class="d-grid" style="grid-template-rows:auto minmax(0,1fr)">
   {title(("Six failure types — <em>none are the customer's fault</em>",
           "Enam tipe kegagalan — <em>tak satu pun salah pelanggan</em>"),
-         ("I read all 697 conversations and tagged what stopped each one. The tags became six types that repeat.",
-          "Saya membaca seluruh 697 percakapan dan menandai apa yang menghentikannya. Tanda itu menjadi enam tipe yang berulang."),
-         ("Data · all 697 conversations, classified", "Data · 697 percakapan, diklasifikasi"), 3)}
+         ("I read all 800 conversations and tagged what stopped each one. The tags became six types that repeat.",
+          "Saya membaca seluruh 800 percakapan dan menandai apa yang menghentikannya. Tanda itu menjadi enam tipe yang berulang."),
+         ("Data · all 800 conversations, classified", "Data · 800 percakapan, diklasifikasi"), 3)}
   <div class="d-card d-rv" style="--d:100;grid-column:span 9;padding-top:14px">
     <table class="tx"><thead><tr>
       <th style="width:58px">{LE(("Type", "Tipe"))}</th>
@@ -381,16 +389,16 @@ def build(b, deck=DIGITAL_GROWTH):
       <th style="width:300px">{LE(("The fix I proposed", "Perbaikan yang saya usulkan"))}</th>
     </tr></thead><tbody>{leak_rows}</tbody></table>
     <p class="d-note" style="margin-top:auto">{LE((
-      "L1, L3 and L5 are ours alone — 210 conversations. L2 and L4 are process gaps we share with the dealers, and L6 is the missing feedback loop that hides everything after the hand-off.",
-      "L1, L3, dan L5 murni milik kami — 210 percakapan. L2 dan L4 adalah celah proses bersama dealer, dan L6 adalah lingkaran umpan balik yang hilang sehingga semua setelah serah terima tak terlihat."))}</p>
+      "L1, L3 and L5 are ours alone — 238 conversations. L2 and L4 are process gaps we share with the dealers, and L6 is the missing feedback loop that hides everything after the hand-off.",
+      "L1, L3, dan L5 murni milik kami — 238 percakapan. L2 dan L4 adalah celah proses bersama dealer, dan L6 adalah lingkaran umpan balik yang hilang sehingga semua setelah serah terima tak terlihat."))}</p>
   </div>
   <div style="grid-column:span 3;display:flex;flex-direction:column;gap:16px;min-height:0">
     <div class="d-card dark d-rv" style="--d:200;flex:1;justify-content:center">
       <div class="d-kk">{LE(("Cost of the ones we control", "Biaya dari yang kami kendalikan"))}</div>
-      <div class="d-big" style="font-size:38px">{num(580, prefix=rp, suffix="k")}</div>
+      <div class="d-big" style="font-size:38px">{num(650, prefix=rp, suffix="k")}</div>
       <p class="d-sub" style="color:#a9b6c2">{LE((
-        "of the IDR 1.92 million spent went on conversations our own process dropped.",
-        "dari Rp1,92 juta yang dibelanjakan terpakai untuk percakapan yang gugur oleh proses kami sendiri."))}</p>
+        "of the IDR 2.2 million spent went on conversations our own process dropped.",
+        "dari Rp2,2 juta yang dibelanjakan terpakai untuk percakapan yang gugur oleh proses kami sendiri."))}</p>
     </div>
     <div class="d-card d-rv" style="--d:260;flex:1">
       <div class="d-kk">{LE(("How the tagging worked", "Cara penandaannya"))}</div>
@@ -423,8 +431,8 @@ def build(b, deck=DIGITAL_GROWTH):
          ("Turned six failure types into reply targets, required fields and a Lead ID — then built them in PowerSync.",
           "Mengubah enam tipe kegagalan jadi target balas, kolom wajib, dan Lead ID — lalu membangunnya di PowerSync.")),
         (False, ("Data analysis", "Data analysis"), ("Support", "Pendukung"),
-         ("Read and classified 697 conversations, then priced every stage of the funnel.",
-          "Membaca dan mengklasifikasi 697 percakapan, lalu menghitung biaya tiap tahap funnel.")),
+         ("Read and classified 800 conversations, then priced every stage of the funnel.",
+          "Membaca dan mengklasifikasi 800 percakapan, lalu menghitung biaya tiap tahap funnel.")),
         (False, ("Digital marketing & growth", "Digital marketing & growth"), ("Support", "Pendukung"),
          ("Ran the adverts: reach, cost per conversation by format, and where we should not advertise.",
           "Menjalankan iklan: jangkauan, biaya per percakapan tiap format, dan di mana kami tidak boleh beriklan.")),
@@ -478,14 +486,14 @@ def build(b, deck=DIGITAL_GROWTH):
     # ------------------------------------------------------------- slide 6 · next
     blind = [
         (("Did any of them buy", "Apakah ada yang membeli"),
-         ("No dealer returns a status, so not one of the 56 can be followed to a sale.",
-          "Tidak ada dealer yang mengembalikan status, jadi tak satu pun dari 56 bisa diikuti sampai penjualan.")),
+         ("No dealer returns a status, so not one of the 64 can be followed to a sale.",
+          "Tidak ada dealer yang mengembalikan status, jadi tak satu pun dari 64 bisa diikuti sampai penjualan.")),
         (("Cost per vehicle sold", "Biaya per unit terjual"),
          ("Cost per conversation and per hot lead are known; cost per sale cannot be derived from them.",
           "Biaya per percakapan dan per hot lead diketahui; biaya per penjualan tidak bisa diturunkan dari situ.")),
         (("Whether the fixes worked", "Apakah perbaikannya berhasil"),
-         ("The six fixes were proposed in Sep 2026. Their effect has not been measured yet.",
-          "Enam perbaikan diusulkan pada Sep 2026. Efeknya belum diukur.")),
+         ("The six fixes were proposed at the end of the campaign. Their effect has not been measured yet.",
+          "Enam perbaikan diusulkan di akhir kampanye. Efeknya belum diukur.")),
         (("The ownership proposal", "Usulan kepemilikan peran"),
          ("A proposed split of responsibilities, not an approved one.",
           "Usulan pembagian tanggung jawab, belum disetujui.")),
@@ -505,17 +513,16 @@ def build(b, deck=DIGITAL_GROWTH):
          "Baru setelah itu laporkan biaya per unit terjual"),
     ]
     supported = [
-        (("697", "697"), ("conversations, all read", "percakapan, semuanya dibaca")),
-        (("IDR 1.92m", "Rp1,92 jt"), ("advert spend, 19 days", "belanja iklan, 19 hari")),
-        (("105", "105"), ("buyers ready to buy", "calon pembeli siap beli")),
+        (("19 days", "19 hari"), ("of adverts followed end to end", "iklan diikuti ujung ke ujung")),
+        (("Every chat", "Semua chat"), ("read and tagged by hand, not sampled",
+                                        "dibaca dan ditandai manual, bukan sampling")),
+        (("6", "6"), ("failure types found, and costed", "tipe kegagalan ditemukan, dan dihitung biayanya")),
     ]
     supported_html = "".join(
         f'<div><div class="d-big" style="font-size:24px">{LE(v)}</div>'
         f'<p class="d-sub" style="font-size:12px">{LE(l)}</p></div>'
         for v, l in supported
     )
-    codes = ["BA02-E01", "BA02-E03", "BA02-E04", "BA02-E05", "BA02-E06",
-             "BA02-E07", "BA02-E08", "BA02-E10", "BA02-E11", "BA02-E13"]
 
     slide6 = f"""
 <div class="d-grid" style="grid-template-rows:auto minmax(0,1fr)">
@@ -529,7 +536,7 @@ def build(b, deck=DIGITAL_GROWTH):
       <h3>{LE(("Measured nowhere, so claimed nowhere", "Tidak terukur di mana pun, jadi tidak diklaim di mana pun"))}</h3></div></div>
     <ul class="d-list">{blind_html}</ul>
     <div style="border-top:1px solid var(--d-line);padding-top:14px;margin-top:auto">
-      <div class="d-kk" style="margin-bottom:9px">{LE(("What the data does support", "Yang didukung data"))}</div>
+      <div class="d-kk" style="margin-bottom:9px">{LE(("What the method covered", "Cakupan metodenya"))}</div>
       <div class="d-split">{supported_html}</div>
     </div>
   </div>
@@ -543,11 +550,17 @@ def build(b, deck=DIGITAL_GROWTH):
         "Jangkauan mudah dibeli. Pipeline-lah yang mengubahnya jadi angka yang layak dilaporkan."))}</p>
     </div>
     <div class="d-card d-rv" style="--d:280">
-      <div class="d-kk">{LE(("Evidence behind every figure", "Bukti di balik setiap angka"))}</div>
-      <div class="d-codes">{''.join(f'<span>{c}</span>' for c in codes)}</div>
+      <div class="d-kk">{LE(("About these numbers", "Tentang angka-angka ini"))}</div>
+      <p class="d-note"><b>{LE(("Every figure here is illustrative.", "Setiap angka di sini ilustratif."))}</b>
+        {LE(("The campaign, the conversations and the costs are real work, but they are my employer's data, "
+             "so the numbers on these slides are stand-ins that keep the real proportions. The method, the six "
+             "failure types and the systems gap are exactly as I found them.",
+             "Kampanye, percakapan, dan biayanya adalah pekerjaan nyata, tetapi datanya milik perusahaan tempat saya bekerja, "
+             "jadi angka di slide ini adalah pengganti yang mempertahankan proporsi aslinya. Metode, enam tipe kegagalan, "
+             "dan celah sistemnya persis seperti yang saya temukan."))}</p>
       <p class="d-note">{LE((
-        "Internal company files. I walk through a sanitized version in an interview.",
-        "Dokumen internal perusahaan. Saya menjelaskan versi yang disamarkan saat wawancara."))}</p>
+        "I can walk through the real analysis, sanitized, in an interview.",
+        "Saya bisa menjelaskan analisis aslinya, dalam versi yang disamarkan, saat wawancara."))}</p>
       <a class="d-cta" href="{P}{deck['case']}">{LE(("Read the full case study", "Baca studi kasus lengkapnya"))} <span aria-hidden="true">↗</span></a>
     </div>
   </div>
@@ -597,8 +610,8 @@ def build(b, deck=DIGITAL_GROWTH):
   <section>
     <h2>{LE(("The funnel, stage by stage", "Funnel-nya, tahap demi tahap"))}</h2>
     <p class="d-plain">{L((
-      "Adverts brought 697 people to WhatsApp in 19 days. <b>I read every one of those conversations.</b>",
-      "Iklan membawa 697 orang ke WhatsApp dalam 19 hari. <b>Saya membaca setiap percakapan itu.</b>"))}</p>
+      "Adverts brought 800 people to WhatsApp in 19 days. <b>I read every one of those conversations.</b>",
+      "Iklan membawa 800 orang ke WhatsApp dalam 19 hari. <b>Saya membaca setiap percakapan itu.</b>"))}</p>
     <div class="d-rows">{flow_stages}</div>
   </section>
   <section>
@@ -619,7 +632,9 @@ def build(b, deck=DIGITAL_GROWTH):
   <section>
     <h2>{LE(("What I don't claim", "Yang tidak saya klaim"))}</h2>
     <ul class="d-list">{blind_html}</ul>
-    <div class="d-codes">{''.join(f'<span>{c}</span>' for c in codes)}</div>
+    <p class="d-note"><b>{LE(("Every figure here is illustrative.", "Setiap angka di sini ilustratif."))}</b>
+      {LE(("The work is real, but the numbers are stand-ins that keep the real proportions, because the data belongs to my employer.",
+           "Pekerjaannya nyata, tetapi angkanya pengganti yang mempertahankan proporsi aslinya, karena datanya milik perusahaan tempat saya bekerja."))}</p>
     <a class="d-cta" href="{P}{deck['case']}">{LE(("Read the full case study", "Baca studi kasus lengkapnya"))} <span aria-hidden="true">↗</span></a>
   </section>
   <footer>{LE((
@@ -629,8 +644,8 @@ def build(b, deck=DIGITAL_GROWTH):
 </div>"""
 
     filename = f"deck-{deck['slug']}.html"
-    title_text = L(("From advert to dealer: 697 conversations, mapped",
-                    "Dari iklan ke dealer: 697 percakapan, dipetakan"))
+    title_text = L(("From advert to dealer: 800 conversations, mapped",
+                    "Dari iklan ke dealer: 800 percakapan, dipetakan"))
     description = L(deck["lead"])
     en_url = b.SITE_URL + filename
     id_url = b.SITE_URL + "id/" + filename
@@ -668,7 +683,7 @@ def build(b, deck=DIGITAL_GROWTH):
       <nav class="deck-nav" aria-label="{LE(("Slides", "Slide"))}">{nav}</nav>
       <div class="deck-meta">
         <span class="d-chip">{LE(deck['period'])}</span>
-        <span class="d-chip dk">{LE(("Internal evidence", "Bukti internal"))}</span>
+        <span class="d-chip dk">{LE(("Illustrative figures", "Angka ilustratif"))}</span>
       </div>
     </div>
     {slide_html}

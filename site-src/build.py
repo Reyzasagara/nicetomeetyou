@@ -137,7 +137,7 @@ DOMAINS = [
             ("Business rules and controls", 4, "Layered checks on engine and frame numbers cut off-format numbers from 101 to 25.", "powersync-mes"),
             ("Adoption and change", 3, "15 of 22 dealers were active in May–Jun 2026, and one admin now handles the whole faktur workload.", "powersync-dealer"),
             ("Changing course based on evidence", 3, "Tried bulk faktur processing on 38 requests and dropped it after two weeks.", "powersync-dealer"),
-            ("Funnel and CRM gap analysis", 3, "Found that 54 of 328 WhatsApp conversations in one week never got a reply.", "digital-growth"),
+            ("Funnel and CRM gap analysis", 3, "Read every WhatsApp conversation from a campaign and found that about one in six never got a reply.", "digital-growth"),
         ],
         "tools": [
             ("BPMN 2.0 and swimlane flowcharts", "Drawing processes.", "I draw the current process from real forms first, then the new one, so every requirement points to a step that changes."),
@@ -242,7 +242,7 @@ DOMAINS = [
             ("Collecting public data", 3, "BPS regional statistics through a scraper, plus Google Trends and local surveys.", "market-intel"),
             ("BI dashboards", 3, "Power BI dashboards for the three-wheeler market and sales performance.", "market-intel"),
             ("Customer research", 3, "A 349-response survey, focus groups, car clinics and a customer journey map.", "market-intel"),
-            ("Search and campaign analysis", 3, "A click-to-WhatsApp campaign that brought 344 conversations at about IDR 4,200 each.", "digital-growth"),
+            ("Search and campaign analysis", 3, "A click-to-WhatsApp campaign where the format that opened a chat directly cost about four times less per conversation.", "digital-growth"),
         ],
         "tools": [
             ("Power BI", "Business intelligence and charts.", "I model market, dealer and sales data into dashboards used for planning."),
@@ -409,46 +409,53 @@ CASES = [
         "domain": "mkt",
         "title": "PowerAce Digital Growth System",
         "short": "Digital growth system",
-        "period": "Jul–Sep 2026",
+        "period": "Jul\u2013Sep 2026",
         "role": "Project lead, analyst and developer",
-        "tools": "Next.js, Laravel API, CI security scanning, OWASP ZAP, GTM, GA4, Search Console, Meta Ads",
-        "xyz": "I initiated an in-house website rebuild, addressed findings from the security assessment and added tracking from ads to dealer enquiries.",
-        "figure": ("28→78", "self-assessed security score"),
+        "tools": "Next.js, Laravel API, CI security scanning, OWASP ZAP, GTM, GA4, Search Console, Meta Ads, WhatsApp conversation export",
+        "xyz": "I moved the company website in-house, made it measurable, then ran a click-to-WhatsApp campaign and read every conversation it produced. Most of what we lost was not budget: it was conversations nobody answered, and buyers living where we had no dealer.",
+        "figure": ("28\u219278", "self-assessed security score"),
         "plates": [
-            ("28→78", "self-assessed security score, weighted by OWASP"),
-            ("85", "redirects that brought search traffic back after the move"),
-            ("344", "WhatsApp conversations from IDR 1.44 million"),
-            ("54/328", "conversations in one week that never got a reply"),
+            ("28\u219278", "self-assessed security score, weighted by OWASP"),
+            ("~30%", "of paid conversations lost inside our own process"),
+            ("6", "repeating failure types, each with a fix and an owner"),
+            ("5/11", "systems this journey needs that exist today"),
         ],
+        "figures_note": "Campaign volumes and costs are my employer's data, so this page gives proportions rather than absolute figures, and the deck uses illustrative numbers that keep those proportions. The security and SEO scores are my own assessment of my own rebuild.",
         "situation": [
             "The website needed an updated technical foundation, clearer internal ownership and an assessment-led improvement plan.",
-            "Marketing couldn't see which visits turned into conversations, or what happened to those conversations afterwards.",
+            "After someone clicked an advert, nobody could see what happened next: the conversation, the hand-off to a dealer, or the sale.",
         ],
         "task": "Bring the site in-house, make it secure and measurable, and connect visitors to the dealers who close the sale.",
         "actions": [
             "Initiated the in-house rebuild in Jul 2026 and addressed high- and medium-severity findings identified during the security assessment.",
             "Rebuilt it as a company-controlled Next.js front end with a Laravel API, documented architecture and CI security scanning, and retired the old admin login.",
             "Set up Google Tag Manager, GA4 events, Search Console and Bing verification, and brought search traffic back after the domain move with 85 redirects.",
-            "Planned SEO content: a question map by search intent, a brand brief and a CMS workflow.",
-            "Ran a click-to-WhatsApp campaign and mapped the path from ad to WhatsApp to dealer to PO.",
+            "Ran a click-to-WhatsApp campaign across three advert formats and compared what each format cost per conversation.",
+            "Read every conversation the campaign produced, one by one, and tagged what stopped each one.",
+            "Grouped the tags into six repeating failure types, and gave each one a fix and an owner.",
+            "Mapped the systems this journey needs against the ones that exist, then specified a single Lead ID to carry a buyer from advert to dealer to sale.",
         ],
         "flows": [
-            ("The system", "after", ["Audit", "Rebuild", "Measure", "Content", "Campaign", "Funnel gap", "AI follow-up design"]),
+            ("The system", "after", ["Audit", "Rebuild", "Measure", "Campaign", "Read every conversation", "Six failure types", "Lead ID spec", "Weekly review"]),
         ],
         "results": [
             "The High and Medium findings from the old scan couldn't be reproduced on the new stack; the self-assessed security score rose from 28 to 78/100.",
             "The new homepage scored 73/100 for SEO health and 0 for mobile CLS in lab tests (Aug 2026).",
-            "The campaign brought in 344 conversations for IDR 1.44 million, about IDR 4,200 each.",
-            "In one week, 54 of 328 conversations never got a reply and 30 were lost because no dealer covered the area. That became the brief for an AI sales follow-up with human approval.",
+            "The advert format that opened a chat directly cost about four times less per conversation than the one that sent people to a page first.",
+            "Reading every conversation showed that about 30% of the ones we paid for were lost inside our own process: never answered, or coming from areas where no dealer could serve them.",
+            "Just under half of the buyers who were ready to buy never reached a dealer at all.",
+            "The journey needs eleven systems to be visible end to end; five exist, and all five are pulled by hand. I specified one Lead ID to connect advert, conversation, dealer and sale.",
         ],
         "not_claimed": [
+            "Absolute conversation volumes and campaign costs. Those are my employer's figures, so this page gives proportions instead.",
             "An external security audit. The score is a self-assessment.",
             "Ranking gains from the content plan. Not measured yet.",
+            "That the six fixes worked. They were proposed at the end of the campaign and their effect hasn't been measured.",
             "Deals won from the campaign. The funnel isn't tracked through to closed sales.",
         ],
         "lessons": [
-            "The expensive gap turned out to be 54 unanswered conversations a week. Fixing that is a sales process job, so it became the brief for the AI follow-up.",
-            "I did the security fixes and the tracking setup in the same rebuild, so the traffic numbers now come from a site the company controls.",
+            "Reading every conversation instead of sampling is what turned a vague \u201cfollow-up is weak\u201d into six named failure types, each with a count, a cost and an owner.",
+            "The expensive problem wasn't the advert budget; it was plumbing. Without one ID carried across systems, nothing after the dealer hand-off can be measured at all.",
         ],
         "evidence": ["BA02-E01", "BA02-E03", "BA02-E04", "BA02-E05", "BA02-E06", "BA02-E07", "BA02-E08", "BA02-E10", "BA02-E11", "BA02-E13"],
     },
@@ -562,7 +569,7 @@ LAB = [
     {
         "title": "AI Sales Engine",
         "status": ("build", "In build"),
-        "body": "In one week, 54 of 328 customer conversations never received a reply. This project uses a product knowledge base to draft follow-ups. A person reviews every reply before it reaches a customer.",
+        "body": "About one in six customer conversations never received a reply. This project uses a product knowledge base to draft follow-ups. A person reviews every reply before it reaches a customer.",
         "note": "Started Sep 2026. No results yet.",
     },
     {
@@ -997,7 +1004,8 @@ def build_case(i, c):
       <div><dt>{T("Capabilities involved")}</dt><dd>{related_links}</dd></div>
     </dl>
   </header>
-  <section aria-label="{T('Key results')}" class="plates" style="margin-bottom:clamp(2.5rem,6vw,4rem)">{plates}</section>
+  <section aria-label="{T('Key results')}" class="plates" style="margin-bottom:{'1rem' if c.get('figures_note') else 'clamp(2.5rem,6vw,4rem)'}">{plates}</section>
+  {f'<p class="figures-note">{T(c["figures_note"])}</p>' if c.get("figures_note") else ""}
   <section class="case-body section" style="padding-top:clamp(2rem,5vw,3rem)">
     <h2>{T("Scope and terminology")}</h2><div><p>{scope_note}</p><p>{T("Faktur: vehicle registration certificate request. SUT: government vehicle type approval certificate. NOKA/NOSIN: frame and engine numbers.")}</p></div>
     <h2>{T("The situation")}</h2><div>{situation}</div>

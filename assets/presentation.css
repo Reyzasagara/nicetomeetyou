@@ -382,6 +382,8 @@ td:first-child{width:23%}td:nth-child(2){width:17%}td:last-child{width:18%}
 @media(max-width:850px){.hero-art--team{padding:40px 12px 12px}}
 @media(max-width:600px){.hero-art--team{min-height:0;padding:38px 10px 10px}}
 
+.figures-note{max-width:70ch;margin:0 0 clamp(2.5rem,6vw,4rem);padding:14px 18px;background:var(--soft);border-left:3px solid var(--blue);font-size:.86rem;line-height:1.65;color:var(--ink-2)}
+
 /* ---------------------------------------------------------------- Motion
    Page-to-page cross-fades, a short entrance on load, gentle scroll reveals and hover
    feedback. Content always ends fully visible, and everything is skipped for reduced motion. */

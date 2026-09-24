@@ -25,6 +25,60 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE_URL = "https://reyzasagara.github.io/nicetomeetyou/"
 CV_PDF = "assets/Reyza-Agung-Gunawan-CV.pdf"
 
+EVIDENCE_NAMES = {'BA01-E01': 'Transaction Volume',
+ 'BA01-E02': 'Adoption',
+ 'BA01-E03': 'Invoice Throughput',
+ 'BA01-E04': 'KSG Cycle Time',
+ 'BA01-E05': 'NOKA Incidents',
+ 'BA01-E06': 'Legacy Data Quality',
+ 'BA01-E07': 'NOKA Validation Controls',
+ 'BA01-E08': 'Traceability Demo',
+ 'BA01-E09': 'Partial Delivery',
+ 'BA01-E10': 'AS IS Forms SOP',
+ 'BA01-E11': 'BPMN Inputs',
+ 'BA01-E12': 'RTM Inputs',
+ 'BA01-E13': 'Bulk Approval Decision',
+ 'BA01-E14': 'Paper Reduction',
+ 'BA01-E15': 'Dashboard Decision Use',
+ 'BA02-E01': 'Legacy Security Audit',
+ 'BA02-E02': 'Security Incident',
+ 'BA02-E03': 'Web Quality Scores',
+ 'BA02-E04': 'Security Score',
+ 'BA02-E05': 'Analytics Setup',
+ 'BA02-E06': 'Search Console',
+ 'BA02-E07': 'Meta Ads Qontak',
+ 'BA02-E08': 'Acquisition Funnel',
+ 'BA02-E09': 'Design Signoff',
+ 'BA02-E10': 'SEO Workflow',
+ 'BA02-E11': 'Ownership Architecture',
+ 'BA02-E12': 'Qontak Build vs Buy',
+ 'BA02-E13': 'Content Strategy',
+ 'BA03-E01': 'Data Source Register',
+ 'BA03-E02': 'Market Sizing Model',
+ 'BA03-E03': 'Regional Concentration',
+ 'BA03-E04': 'Decision Records',
+ 'BA03-E05': 'JTBD Segmentation',
+ 'BA03-E06': 'Customer Journey Map',
+ 'BA03-E07': 'Public Data Sources',
+ 'BA03-E08': 'BI Dashboards',
+ 'BA03-E09': 'Dealer Strategy',
+ 'BA03-E10': 'Recommendation to Outcome',
+ 'BA03-E11': 'Competitive Benchmark',
+ 'BA04-E01': 'Homologation SUT',
+ 'BA04-E02': 'Consultant Cost Benchmark',
+ 'BA04-E03': 'Regulatory Mapping',
+ 'BA04-E04': 'Wiring Harness Design',
+ 'BA04-E05': 'ECU Acceleration Tuning',
+ 'BA04-E06': 'Road Test Performance',
+ 'BA04-E07': 'Test Route Elevation',
+ 'BA04-E08': 'Pre Sales Material',
+ 'BA04-E09': 'ECU Template WI',
+ 'BA04-E10': 'Troubleshooting Validation',
+ 'BA04-E11': 'VOC Design Loop',
+ 'BA04-E12': 'Tender Opportunities',
+ 'BA04-E13': 'JTBD Retrospective',
+ 'BA04-E14': 'Lifecycle Visual'}
+
 E = html.escape
 
 LANG = "en"
@@ -64,6 +118,9 @@ LEVELS = {
     5: "Lead-capable",
 }
 
+# CONTENT REVIEW: Existing published metrics are retained, not newly approved disclosures.
+# TODO: Confirm employer approval, legacy-import scope and the 217-pair review period.
+# TODO: Confirm the month of the 2026 role transition; do not infer it.
 # --------------------------------------------------------------------------- domains
 
 DOMAINS = [
@@ -71,7 +128,7 @@ DOMAINS = [
         "id": "ba",
         "slug": "business-analysis",
         "name": "Business Analysis",
-        "role": "Main work",
+        "role": "Core capability",
         "summary": "I map day-to-day work into requirements and rules a system can apply.",
         "overview": "I start with what people actually do: fill out a paper form, send a WhatsApp message or update the spreadsheet that only one admin understands. Then I write the requirements and rules for the system.",
         "competencies": [
@@ -108,7 +165,7 @@ DOMAINS = [
         "id": "ai",
         "slug": "ai-orchestration",
         "name": "AI Orchestration",
-        "role": "Current focus",
+        "role": "Supporting strength",
         "summary": "I use AI to read handwriting, chats and messy evidence. A person still approves the result.",
         "overview": "I use AI for work that fixed rules handle badly, such as handwriting, open-ended chats and messy evidence. A person still approves the decisions that matter. This work is recent, so I keep it in the lab and show exactly how far each project has gone.",
         "competencies": [
@@ -142,7 +199,7 @@ DOMAINS = [
         "id": "ops",
         "slug": "operations-digitalization",
         "name": "Operations Digitalization",
-        "role": "Production experience",
+        "role": "Supporting strength",
         "summary": "I record data at the workstation where it is created.",
         "overview": "Most unit data starts on the production floor. I decide where it should be recorded, then build the kiosk, label or check around that step. The aim is to catch bad data before it travels.",
         "competencies": [
@@ -176,7 +233,7 @@ DOMAINS = [
         "id": "mkt",
         "slug": "market-research-data",
         "name": "Market Research & Data Analysis",
-        "role": "Research work",
+        "role": "Supporting strength",
         "summary": "I check where demand is before recommending how to spend the budget.",
         "overview": "Before recommending an expansion or a campaign, I want to know where demand is. I combine sales records, registration data, public statistics and search data, then turn the result into something the sales team can use.",
         "competencies": [
@@ -211,7 +268,7 @@ DOMAINS = [
         "id": "ee",
         "slug": "electrical-engineering",
         "name": "Electrical Engineering / R&D",
-        "role": "Career start",
+        "role": "Supporting strength",
         "summary": "I worked on electrical design, testing and type approval for an electric three-wheeler.",
         "overview": "I started my career on the electrical system of an electric three-wheeler. I worked on its wiring, testing and type approval. It taught me how electrical systems fail in real use. It also taught me that passing a test does not mean the product fits the market.",
         "competencies": [
@@ -337,7 +394,7 @@ CASES = [
             "A split PO stays one record: a 4-unit PO shipped on two delivery reports three weeks apart still shows partial delivery against each unit.",
         ],
         "not_claimed": [
-            "Uniqueness enforced by the database. Engine numbers are still only checked in the application.",
+            "A guarantee that all historical records are error-free. Results apply only to the reviewed dataset.",
             "A shorter cycle time. It hasn't been measured yet.",
             "Accuracy figures for the AI form reading.",
         ],
@@ -355,7 +412,7 @@ CASES = [
         "period": "Jul–Sep 2026",
         "role": "Project lead, analyst and developer",
         "tools": "Next.js, Laravel API, CI security scanning, OWASP ZAP, GTM, GA4, Search Console, Meta Ads",
-        "xyz": "The old company website had serious security problems, and the vendor controlled it. I moved the work in-house, rebuilt the site and added tracking from ads to dealer enquiries. Our self-assessed security score rose from 28 to 78/100.",
+        "xyz": "I initiated an in-house website rebuild, addressed findings from the security assessment and added tracking from ads to dealer enquiries.",
         "figure": ("28→78", "self-assessed security score"),
         "plates": [
             ("28→78", "self-assessed security score, weighted by OWASP"),
@@ -364,12 +421,12 @@ CASES = [
             ("54/328", "conversations in one week that never got a reply"),
         ],
         "situation": [
-            "A vendor built and controlled the company website. It ran on an end-of-life framework with debug mode on and an unsafe upload path, and it showed signs of spam abuse.",
+            "The website needed an updated technical foundation, clearer internal ownership and an assessment-led improvement plan.",
             "Marketing couldn't see which visits turned into conversations, or what happened to those conversations afterwards.",
         ],
         "task": "Bring the site in-house, make it secure and measurable, and connect visitors to the dealers who close the sale.",
         "actions": [
-            "Started the move in-house (Jul 2026) and audited the old site (OWASP ZAP: 2 High and 3 Medium alert types).",
+            "Initiated the in-house rebuild in Jul 2026 and addressed high- and medium-severity findings identified during the security assessment.",
             "Rebuilt it as a company-controlled Next.js front end with a Laravel API, documented architecture and CI security scanning, and retired the old admin login.",
             "Set up Google Tag Manager, GA4 events, Search Console and Bing verification, and brought search traffic back after the domain move with 85 redirects.",
             "Planned SEO content: a question map by search intent, a brand brief and a CMS workflow.",
@@ -591,14 +648,14 @@ def project_visual(case_id):
           <div class="mini-window"><div class="window-top"><span class="mini-brand">P<span>owerSync</span></span><span>{T("Connected operations")}</span><i></i></div>
           <div class="window-content"><div class="window-sidebar"><b>{T("Overview")}</b><span>{T("Dealer orders")}</span><span>{T("Production")}</span><span>{T("Delivery")}</span><span>{T("After-sales")}</span></div>
           <div class="window-main"><span class="visual-label">{T("ONE CONNECTED WORKFLOW")}</span><h4>{T("Order to customer in one record.")}</h4><div class="mini-stats"><div><b>15/22</b><span>{T("active dealers")}</span></div><div><b>{T("4,818")}</b><span>{T("unit records")}</span></div></div><div class="workflow-nodes"><span>{T("Order")}</span><i>→</i><span>{T("Build")}</span><i>→</i><span>{T("Deliver")}</span></div><div class="mini-rule"></div><span class="visual-caption">{T("One unit identity at every step.")}</span></div></div></div>
-          <span class="visual-foot">{T("Workflow illustration")} · BA01-E01 / E02 / E08</span></div>'''
+          <span class="visual-foot">{T("Workflow illustration")}</span></div>'''
     if case_id == "powersync-mes":
-        return f'''<div class="project-visual visual-production" role="img" aria-label="{T("Production check: 217 planned vs stamped pairs, zero mismatches")}"><div class="production-card"><div class="visual-label">{T("PRODUCTION · VALIDATION")}</div><h4>{t("Numbers checked<br>at the post.")}</h4><div class="production-flow"><span>{T("Plan")}</span><i>→</i><span>{T("Stamp")}</span><i>→</i><span>{T("Check")}</span></div><div class="validation"><span class="checkmark">✓</span><div><b>{T("217 pairs. 0 mismatches.")}</b><small>{T("Planned vs stamped unit numbers")}</small></div></div></div><span class="visual-foot">{T("Control summary")} · BA01-E07</span></div>'''
+        return f'''<div class="project-visual visual-production" role="img" aria-label="{T("Production check: 217 planned vs stamped pairs, zero mismatches")}"><div class="production-card"><div class="visual-label">{T("PRODUCTION · VALIDATION")}</div><h4>{t("Numbers checked<br>at the post.")}</h4><div class="production-flow"><span>{T("Plan")}</span><i>→</i><span>{T("Stamp")}</span><i>→</i><span>{T("Check")}</span></div><div class="validation"><span class="checkmark">✓</span><div><b>{T("217 pairs. 0 mismatches.")}</b><small>{T("Planned vs stamped unit numbers")}</small></div></div></div><span class="visual-foot">{T("Control summary")}</span></div>'''
     if case_id == "market-intel":
-        return f'''<div class="project-visual visual-market" role="img" aria-label="{T("Market leader sales, 2022 to August 2024: Java 75.4 percent, other regions 24.6 percent")}"><div class="chart-card"><span class="visual-label">{T("WHERE DEMAND IS")}</span><h4>{T("Where the market leader sells.")}</h4><div class="bar-row"><span>{T("Java")}</span><div><i style="width:75.4%"></i></div><b>{T("75.4%")}</b></div><div class="bar-row"><span>{T("Other")}</span><div><i style="width:24.6%"></i></div><b>{T("24.6%")}</b></div><small>{T("Market leader unit sales · 2022–Aug 2024")}</small></div><span class="visual-foot">{T("Evidence summary")} · BA03-E03</span></div>'''
+        return f'''<div class="project-visual visual-market" role="img" aria-label="{T("Market leader sales, 2022 to August 2024: Java 75.4 percent, other regions 24.6 percent")}"><div class="chart-card"><span class="visual-label">{T("WHERE DEMAND IS")}</span><h4>{T("Where the market leader sells.")}</h4><div class="bar-row"><span>{T("Java")}</span><div><i style="width:75.4%"></i></div><b>{T("75.4%")}</b></div><div class="bar-row"><span>{T("Other")}</span><div><i style="width:24.6%"></i></div><b>{T("24.6%")}</b></div><small>{T("Market leader unit sales · 2022–Aug 2024")}</small></div><span class="visual-foot">{T("Evidence summary")}</span></div>'''
     if case_id == "digital-growth":
-        return f'''<div class="project-visual visual-growth" role="img" aria-label="{T("Digital growth path: discover, engage, then start a conversation")}"><div class="growth-card"><span class="visual-label">{T("ONE CONNECTED CUSTOMER JOURNEY")}</span><h4>{T("From ad to dealer.")}</h4><div class="growth-bars"><span>01 <b>{T("Discover")}</b><small>{T("Search & content")}</small></span><span>02 <b>{T("Engage")}</b><small>{T("Website & campaign")}</small></span><span>03 <b>{T("Converse")}</b><small>{T("WhatsApp & CRM")}</small></span></div></div><span class="visual-foot">{T("Journey illustration")} · BA02-E07 / E08</span></div>'''
-    return f'''<div class="project-visual visual-engineering" role="img" aria-label="{T("EV electrical work: wiring, testing, fixes and type approval in September 2023")}"><div class="engineering-card"><span class="visual-label">{T("ELECTRICAL ENGINEERING")}</span><h4>{t("Electrical design<br>to type approval.")}</h4><div class="engineering-line"><span>{T("Wiring")}</span><i>→</i><span>{T("Test")}</span><i>→</i><span>{T("Fix")}</span></div><div class="approval-stamp"><b>SUT</b><span>{t("Type approval<br>September 2023")}</span></div></div><span class="visual-foot">{T("Lifecycle summary")} · BA04-E01 / E14</span></div>'''
+        return f'''<div class="project-visual visual-growth" role="img" aria-label="{T("Digital growth path: discover, engage, then start a conversation")}"><div class="growth-card"><span class="visual-label">{T("ONE CONNECTED CUSTOMER JOURNEY")}</span><h4>{T("From ad to dealer.")}</h4><div class="growth-bars"><span>01 <b>{T("Discover")}</b><small>{T("Search & content")}</small></span><span>02 <b>{T("Engage")}</b><small>{T("Website & campaign")}</small></span><span>03 <b>{T("Converse")}</b><small>{T("WhatsApp & CRM")}</small></span></div></div><span class="visual-foot">{T("Journey illustration")}</span></div>'''
+    return f'''<div class="project-visual visual-engineering" role="img" aria-label="{T("EV electrical work: wiring, testing, fixes and type approval in September 2023")}"><div class="engineering-card"><span class="visual-label">{T("ELECTRICAL ENGINEERING")}</span><h4>{t("Electrical design<br>to type approval.")}</h4><div class="engineering-line"><span>{T("Wiring")}</span><i>→</i><span>{T("Test")}</span><i>→</i><span>{T("Fix")}</span></div><div class="approval-stamp"><b>SUT</b><span>{t("Type approval<br>September 2023")}</span></div></div><span class="visual-foot">{T("Lifecycle summary")}</span></div>'''
 
 
 def project_card(c, featured=False):
@@ -628,9 +685,9 @@ def flow(label, kind, steps, domain_id):
 
 def nav(active):
     links = [
-        ("index.html#work", "Work", "work"),
+        ("work.html", "Work", "work"),
         ("powersync.html", "PowerSync", "powersync"),
-        ("index.html#domains", "Roles", "domains"),
+        ("index.html#domains", "Capabilities", "domains"),
         ("lab.html", "Lab", "lab"),
         ("index.html#about", "About", "about"),
         ("cv.html", "CV", "cv"),
@@ -658,6 +715,8 @@ def lang_switch(filename):
 
 
 def page(filename, title, description, body, active="", extra_head="", body_class=""):
+    if filename != "index.html":
+        title += " | " + t("Business Analyst / Digital Transformation")
     tail = "" if filename == "index.html" else filename
     en_url = SITE_URL + tail
     id_url = SITE_URL + "id/" + tail
@@ -738,8 +797,9 @@ def build_home():
     <p class="hero-location"><span aria-hidden="true">◎</span> {T("Based in Cikarang, Indonesia")}</p>
   </div>
   <figure class="hero-art hero-art--team">
+    <span class="art-index">{T("Business Analyst / Digital Transformation")}</span>
     <img class="hero-photo" src="{P}assets/img/hero-portrait.jpg" width="896" height="1040" alt="{T('Portrait of Reyza Agung Gunawan')}" fetchpriority="high">
-    <figcaption><span class="caption-icon" aria-hidden="true">↗</span><span><strong>{T("Most of my work is business analysis")}</strong><small>{T("I also work on AI, production systems, market research and vehicle engineering.")}</small></span></figcaption>
+    <figcaption><span class="caption-icon" aria-hidden="true">↗</span><span><strong>{T("Business analysis at the core")}</strong><small>{T("I also work on AI, production systems, market research and vehicle engineering.")}</small></span></figcaption>
   </figure>
 </section>"""
 
@@ -768,23 +828,16 @@ def build_home():
   </div>
 </section>"""
 
-    rows = [project_card(c, i == 0) for i, c in enumerate(CASES)]
+    rows = [project_card(CASE[cid], i == 0) for i, cid in enumerate(("powersync-dealer", "powersync-mes", "market-intel"))]
     work = f"""
 <section class="section" id="work" aria-labelledby="work-h">
   <div class="wrap">
     <div class="section-head split-head">
-      <div><span class="eyebrow">02 / {T("Selected work")}</span><h2 id="work-h">{T("Selected projects")}</h2></div>
+      <div><span class="eyebrow">01 / {T("Selected work")}</span><h2 id="work-h">{T("Selected projects")}</h2></div>
       <p>{T("Open a case study to see the problem, what I worked on, what changed and where the evidence stops.")}</p>
     </div>
-    <div class="work-filters" role="group" aria-label="{T('Filter selected work')}" hidden>
-      <button type="button" data-filter="all" aria-pressed="true">{T("All work")} <span>05</span></button>
-      <button type="button" data-filter="ba" aria-pressed="false">{T("Business analysis")}</button>
-      <button type="button" data-filter="ops" aria-pressed="false">{T("Operations")}</button>
-      <button type="button" data-filter="mkt" aria-pressed="false">{T("Market & growth")}</button>
-      <button type="button" data-filter="ee" aria-pressed="false">{T("Engineering")}</button>
-    </div>
-    <p class="sr-only" data-filter-status data-one="{T('1 case study shown.')}" data-many="{T('{n} case studies shown.')}" aria-live="polite"></p>
     <div class="project-grid">{''.join(rows)}</div>
+    <p class="all-work-link"><a class="btn" href="work.html">{T('View all work')} →</a></p>
   </div>
 </section>"""
 
@@ -794,14 +847,14 @@ def build_home():
       <li class="domain-card d-{d['id']}">
         <a href="{domain_href(d)}">
           <div class="domain-portrait"><span class="domain-number">0{i}</span><img src="{P}assets/img/avatar-{d['id']}.jpg" width="620" height="1000" alt="{E(t("Reyza as {name}").format(name=t(d['name'])))}" loading="lazy"></div>
-          <div class="domain-copy"><span class="eyebrow">{T(d['role'])}</span><h3>{T(d['name'])}</h3><p>{T(d['summary'])}</p><span class="read">{T("See this role")} <span aria-hidden="true">↗</span></span></div>
+          <div class="domain-copy"><span class="eyebrow">{T(d['role'])}</span><h3>{T(d['name'])}</h3><p>{T(d['summary'])}</p><span class="read">{T("Explore this capability")} <span aria-hidden="true">↗</span></span></div>
         </a>
       </li>""")
     domains = f"""
 <section class="section" id="domains" aria-labelledby="dom-h">
   <div class="wrap">
     <div class="section-head split-head">
-      <div><span class="eyebrow">01 / {T("What I do")}</span><h2 id="dom-h">{T("What I work on")}</h2></div>
+      <div><span class="eyebrow">02 / {T("What I do")}</span><h2 id="dom-h">{T("How I solve business problems")}</h2></div>
       <p>{T("Most of my work now is business analysis. I learned it through production systems, market data and vehicle engineering. AI is the newest part of the job.")}</p>
     </div>
     <ul class="domain-grid">{''.join(drows)}</ul>
@@ -891,9 +944,9 @@ def build_home():
 
     page(
         "index.html",
-        "Reyza Agung Gunawan",
+        "Reyza Agung Gunawan | " + t("Business Analyst / Digital Transformation"),
         t("Portfolio of Reyza Agung Gunawan, a business analyst in Cikarang. The work covers PowerSync, market research, website growth and EV type approval, with sources for every result."),
-        hero + proof + domains + work + lab + evolution + about + contact,
+        hero + proof + work + domains + lab + evolution + about + contact,
         extra_head=extra,
     )
 
@@ -905,12 +958,13 @@ def build_case(i, c):
     d = DOMAIN[c["domain"]]
     plates = "".join(plate(v, l) for v, l in c["plates"])
     flows = "".join(flow(label, kind, steps, d["id"]) for label, kind, steps in c["flows"])
+    # TODO: Confirm the sample period and legacy-import composition before adding dates.
     situation = "".join(f"<p>{T(p)}</p>" for p in c["situation"])
     actions = "".join(f"<li>{T(a)}</li>" for a in c["actions"])
     results = "".join(f"<li>{T(r)}</li>" for r in c["results"])
     not_claimed = "".join(f"<li>{T(n)}</li>" for n in c["not_claimed"])
     lessons = "".join(f"<p>{T(p)}</p>" for p in c["lessons"])
-    codes = "".join(f'<span class="code">{T(x)}</span>' for x in c["evidence"])
+    codes = "".join(f'<li><strong>{E(x)} — {E(EVIDENCE_NAMES.get(x, "Development history"))}</strong><p>{T("Type: internal evidence record")} · {T("Internal / verified")}<br>{T("Interview: sanitized walkthrough; source access requires permission")}</p></li>' for x in c["evidence"])
     related = [x for x in DOMAINS if x["id"] != d["id"] and (c["id"] == x["primary"] or c["id"] in x["supporting"])]
     related_links = " · ".join(f'<a href="{domain_href(x)}">{T(x["name"])}</a>' for x in [d] + related)
     prev_c = CASES[(i - 1) % len(CASES)]
@@ -926,6 +980,7 @@ def build_case(i, c):
             f'{T("Open the deck: where the funnel leaks")} <span aria-hidden="true">↗</span></a></p>'
         )
 
+    scope_note = T("Operational figures describe reviewed records, not guaranteed results for all periods. Unit totals may include legacy records; the import breakdown and the 217-pair review period are not confirmed.") if c['id'].startswith('powersync') else T("Results are limited to the periods and sources described below.")
     body = f"""
 <div class="wrap">
   <p class="crumbs"><a href="index.html#work">{T("Work")}</a> / {T(d['name'])}</p>
@@ -939,19 +994,20 @@ def build_case(i, c):
       <div><dt>{T("Role")}</dt><dd>{T(c['role'])}</dd></div>
       <div><dt>{T("Period")}</dt><dd>{T(c['period'])}</dd></div>
       <div><dt>{T("Tools")}</dt><dd>{T(c['tools'])}</dd></div>
-      <div><dt>{T("Roles involved")}</dt><dd>{related_links}</dd></div>
+      <div><dt>{T("Capabilities involved")}</dt><dd>{related_links}</dd></div>
     </dl>
   </header>
   <section aria-label="{T('Key results')}" class="plates" style="margin-bottom:clamp(2.5rem,6vw,4rem)">{plates}</section>
   <section class="case-body section" style="padding-top:clamp(2rem,5vw,3rem)">
+    <h2>{T("Scope and terminology")}</h2><div><p>{scope_note}</p><p>{T("Faktur: vehicle registration certificate request. SUT: government vehicle type approval certificate. NOKA/NOSIN: frame and engine numbers.")}</p></div>
     <h2>{T("The situation")}</h2><div>{situation}</div>
     <h2>{T("The goal")}</h2><div><p>{T(c['task'])}</p></div>
-    <h2>{T("What I did")}</h2><div><ol>{actions}</ol></div>
+    <h2>{T("My responsibilities")}</h2><div><ol>{actions}</ol></div>
     <h2>{T("How it flows")}</h2><div class="flow-group">{project_visual(c['id'])}{flows}</div>
     <h2>{T("What changed")}</h2><div><ul>{results}</ul></div>
     <h2>{T("What I don't claim")}</h2><div><div class="not-claimed"><span class="mono">{T("And why")}</span><ul>{not_claimed}</ul></div></div>
     <h2>{T("What I learned")}</h2><div>{lessons}</div>
-    <h2>{T("Evidence")}</h2><div><p style="color:var(--ink-2);margin-bottom:.8rem">{T("Every claim on this page traces to a verified evidence item. The source files are internal company documents, and I'm happy to walk through them in an interview.")}</p><div class="codes">{codes}</div></div>
+    <h2>{T("Evidence")}</h2><div><p style="color:var(--ink-2);margin-bottom:.8rem">{T("Evidence labels describe internal source material. Interview discussion uses a sanitized walkthrough; source files require employer permission.")}</p><ul class="evidence-register">{codes}</ul></div>
   </section>
   {ps_link}
   <nav class="pager" aria-label="{T('More case studies')}">
@@ -990,7 +1046,7 @@ def build_domain(d):
 
     body = f"""
 <div class="wrap">
-  <p class="crumbs"><a href="index.html#domains">{T("Roles")}</a> / {T(d['name'])}</p>
+  <p class="crumbs"><a href="index.html#domains">{T("Capabilities")}</a> / {T(d['name'])}</p>
   <header class="case-head domain-head d-{d['id']}">
     <div class="domain-intro">
       <span class="tag d-{d['id']}">{wire(d['id'])}<span>{T(d['role'])}</span></span>
@@ -1002,7 +1058,7 @@ def build_domain(d):
   </header>
     <dl class="case-facts domain-facts">
       <div><dt>{T("Main project")}</dt><dd><a href="{case_href(d['primary'])}">{E(case_name(d['primary']))}</a></dd></div>
-      <div><dt>{T("Related roles")}</dt><dd>{related}</dd></div>
+      <div><dt>{T("Supporting capabilities")}</dt><dd>{related}</dd></div>
       <div><dt>{T("Rating scale")}</dt><dd>{E(scale)}</dd></div>
     </dl>
   <section class="section" aria-labelledby="comp-h">
@@ -1079,45 +1135,37 @@ def build_cv():
   </div>
   <h1>{E(PERSON['name'])}</h1>
   <p class="cv-role">Business Analyst · Digital Transformation · EV electrical R&amp;D background</p>
-  <p class="cv-contact">{E(PERSON['location'])} · {E(PERSON['email'])} · linkedin.com/in/reyzaag · github.com/Reyzasagara · reyzasagara.github.io/nicetomeetyou</p>
+  <p class="cv-contact">{E(PERSON['location'])}<br><a href="mailto:{PERSON['email']}">{E(PERSON['email'])}</a> · <a href="{PERSON['linkedin']}">linkedin.com/in/reyzaag</a><br><a href="{PERSON['github']}">github.com/Reyzasagara</a> · <a href="{SITE_URL}">reyzasagara.github.io/nicetomeetyou</a></p>
 
   <h2>Summary</h2>
-  <p>Business analyst with 4+ years at PT Dharma Polimetal, moving from EV electrical R&amp;D into market analysis and cross-functional digitalization. Led analysis and delivery of PowerSync, a dealer-to-factory platform used by 15 of 22 active dealers and holding 4,818 unit records. Initiated moving the company website in-house and rebuilt it with security, analytics and SEO in place.</p>
-
+  <p>Business Analyst with 4+ years in automotive manufacturing, combining process analysis, data and hands-on system delivery. Led PowerSync from AS-IS mapping and requirements through UAT, rollout and KPI monitoring, connecting dealer, production and after-sales processes. Earlier EV electrical development and government type approval work provide an engineering foundation.</p>
   <h2>Experience</h2>
+  <!-- TODO: Confirm the month of the 2026 role transition. Official titles preserved. -->
   <h3>Marketing Research Analyst, 3W Division, PT Dharma Polimetal Tbk <span>2026 – Present</span></h3>
-  <h4>PowerSync: dealer, production and after-sales digitalization</h4>
+  <section class="cv-subsection"><h4>PowerSync: business analysis and digital transformation</h4>
   <ul>
-    <li>Led business analysis and delivery of PowerSync, a Laravel platform covering retail steps SAP did not handle; by Sep 2026 it held 141 POs (1,685 units), 4,818 unit records, 442 faktur requests and 780 QC inspections.</li>
-    <li>Reached 68.2% dealer adoption (15 of 22 dealers) in May–Jun 2026; 55 of 73 accounts active in the last three months.</li>
-    <li>Replaced paper and Excel forms for POs, faktur requests, free-service coupons, warranty claims, PDI checks and production reports; one Sales Admin now handles the full faktur workload, including peaks of 60–68 requests a day.</li>
-    <li>Designed layered engine and frame number controls (format checks, normalised duplicate detection and photo validation), cutting off-format numbers from 101 to 25, with 0 mismatches across 217 planned-vs-stamped pairs.</li>
-    <li>Built unit traceability from PO to production, delivery and customer: 99.9% of PowerSync-ordered units link to a PO; 95% of sold units link to a customer.</li>
-    <li>Mapped AS-IS processes from real forms, kept a requirements traceability matrix (16 requirements → SRS → UAT) and ran weekly post-go-live KPI reporting.</li>
-  </ul>
-  <h4>Website security and digital growth</h4>
-  <ul>
-    <li>Initiated moving the vendor-built company website in-house (Jul 2026); audited it (OWASP ZAP: 2 High, 3 Medium) and rebuilt it on Next.js and a Laravel API with CI security scanning, raising the self-assessed security score from 28 to 78/100.</li>
-    <li>Set up Google Tag Manager, GA4 events and Search Console; restored search traffic after the domain move with 85 redirects.</li>
-    <li>Ran a click-to-WhatsApp campaign: 344 conversations for IDR 1.44 million (about IDR 4,200 each); found 54 of 328 weekly conversations unanswered, the basis for an AI sales follow-up with human approval.</li>
-  </ul>
-
+    <li>Led business analysis and delivery of PowerSync, connecting dealer orders, production, delivery and after-sales workflows in Laravel.</li>
+    <li>Mapped AS-IS/TO-BE processes from operational forms and maintained traceability for 16 requirements through SRS, UAT and evidence.</li>
+    <li>Coordinated workflow requirements, permissions and rollout; monitored adoption and KPIs weekly after go-live.</li>
+    <li>Designed frame and engine number controls using format checks, normalized duplicate detection and photo validation; the reviewed sample had 0 mismatches across 217 planned-versus-stamped pairs.</li>
+    <li>Connected order, production, delivery and customer records; replaced paper and Excel forms with traceable approval workflows.</li>
+  </ul></section>
+  <section class="cv-subsection"><h4>Website and digital growth</h4><ul>
+    <li>Initiated an in-house website rebuild (Jul 2026), addressed assessment findings and implemented CI security scanning.</li>
+    <li>Implemented Google Tag Manager, GA4 and Search Console; managed the domain migration with 85 redirects and mapped campaign-to-dealer handoffs for a human-approved AI follow-up design.</li>
+  </ul></section>
+  <div class="cv-page-two">
   <h3>Electrical Design Engineer, 3W R&amp;D, PT Dharma Polimetal Tbk <span>Dec 2021 – 2026</span></h3>
-  <h4>EV product development</h4>
-  <ul>
-    <li>Took the PowerAce TRIEX electric three-wheeler through type approval: prepared the test package (pre-test QC self-assessment, SNI 8872 battery test), filed and paid the second type test in-house and obtained the SUT certificate (Sep 2023).</li>
-    <li>Drew the mass-production EV wiring harness (Jul 2024) and revised it in 2025.</li>
-    <li>Planned road validation with gradient profiles; passed the 25% slope test at 800 kg and a 270 mm water test, with a 4 h 35 min full charge and 59 km range.</li>
-    <li>Compared EV controllers (Votol, Fardriver, Arduino-based) and set up field controller commissioning.</li>
-  </ul>
-  <h4>Market analysis alongside engineering (from 2024)</h4>
-  <ul>
-    <li>Wrote the Strategic Renewal proposal (Sep–Dec 2024): two stated-assumption market-sizing scenarios; showed expansion had targeted areas holding ~25% of demand; recommended a Java focus, multi-tier dealers, a digital marketing plan and a central data platform.</li>
-    <li>Found that 75.4% of the market leader's units sold in Java (2022–Aug 2024), which shaped the 2025 plan.</li>
-    <li>Built a 14-source data register, BPS and Google Trends collection, a regional whitespace score and Power BI dashboards.</li>
-    <li>Proposed PowerSync as a Power Platform pilot covering 12 dealer processes and prototyped it in Power Apps (Jan 2025) before the Laravel build.</li>
-  </ul>
-
+  <section class="cv-subsection"><h4>EV product development</h4><ul>
+    <li>Prepared the test package and coordinated government vehicle type approval for the PowerAce TRIEX electric three-wheeler, obtaining the type approval certificate (SUT) in Sep 2023.</li>
+    <li>Designed the mass-production EV wiring harness in Jul 2024 and revised it in 2025.</li>
+    <li>Planned road validation using gradient profiles and coordinated slope and water testing.</li>
+  </ul></section>
+  <section class="cv-subsection"><h4>Market analysis alongside engineering</h4>
+  <p>Concurrent cross-functional assignment from 2024</p><ul>
+    <li>Developed the Strategic Renewal proposal (Sep–Dec 2024), using two market-sizing scenarios with stated assumptions to recommend regional focus, dealer tiers and a central data platform.</li>
+    <li>Built a 14-source data register, regional analysis and Power BI dashboards; proposed a 12-process Power Platform pilot and prototyped PowerSync in Jan 2025.</li>
+  </ul></section>
   <h2>Skills</h2>
   <ul>
     <li><strong>Business analysis:</strong> requirements and traceability, process mapping (AS-IS/TO-BE, BPMN 2.0), UAT, KPI reporting, adoption tracking</li>
@@ -1129,11 +1177,29 @@ def build_cv():
   <h2>Education</h2>
   <p>Diploma III (D3) Mechatronics Engineering, Politeknik Manufaktur Bandung, Indonesia</p>
   <p style="margin-top:.4rem">Google Data Analytics Professional Certificate, Google Career Certificates, 2024</p>
+</div>
 </article>"""
+    body = re.sub(r">([^<>]+)<", lambda m: ">" + E(ID.get(html.unescape(m.group(1)), html.unescape(m.group(1))) if LANG == "id" else html.unescape(m.group(1))) + "<" if m.group(1).strip() else m.group(0), body)
     page("cv.html", "CV · Reyza Agung Gunawan", t("CV of Reyza Agung Gunawan, a business analyst with a background in EV electrical R&D."), body, active="cv")
 
 
+def build_work():
+    rows = "".join(project_card(c, i == 0) for i, c in enumerate(CASES))
+    body = f"""<section class="section wrap"><div class="section-head"><h1>{T('All work')}</h1></div>
+    <div class="work-filters" role="group" aria-label="{T('Filter selected work')}" hidden>
+      <button type="button" data-filter="all" aria-pressed="true">{T("All work")} <span>05</span></button>
+      <button type="button" data-filter="ba" aria-pressed="false">{T("Business analysis")}</button>
+      <button type="button" data-filter="ops" aria-pressed="false">{T("Operations")}</button>
+      <button type="button" data-filter="mkt" aria-pressed="false">{T("Market & growth")}</button>
+      <button type="button" data-filter="ee" aria-pressed="false">{T("Engineering")}</button>
+    </div>
+    <p class="sr-only" data-filter-status data-one="{T('1 case study shown.')}" data-many="{T('{n} case studies shown.')}" aria-live="polite"></p>
+<div class="project-grid">{rows}</div></section>"""
+    page("work.html", t("All work") + " · Reyza Agung Gunawan", t("Selected projects"), body, active="work")
+
+
 def build_all():
+    build_work()
     build_home()
     for i, c in enumerate(CASES):
         build_case(i, c)

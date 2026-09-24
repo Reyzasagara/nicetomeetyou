@@ -25,8 +25,8 @@ DIGITAL_GROWTH = {
     "product": ("PowerAce Digital Growth", "PowerAce Digital Growth"),
     "period": ("Jul–Sep 2026", "Jul–Sep 2026"),
     "title": (
-        "Paid reach turned into conversations. Most of what happened next was <em>ours to fix</em>.",
-        "Iklan berbayar berubah jadi percakapan. Sebagian besar yang terjadi setelahnya <em>ada di tangan kami</em>.",
+        "Our adverts brought people in. What happened next was <em>ours to fix</em>.",
+        "Iklan kami mendatangkan orang. Yang terjadi setelahnya <em>ada di tangan kami</em>.",
     ),
     "lead": (
         "I ran a click-to-WhatsApp campaign, then read one full week of conversations one by one "
@@ -59,85 +59,107 @@ def build(b, deck=DIGITAL_GROWTH):
     w = deck["week"]
     pct = lambda n: str(round(100 * n / w["total"])) + "%"
 
+    # ------------------------------------------------------------- shared pieces
+    sep = "," if lang == "en" else "."
+
+    def num(value, prefix="", suffix=""):
+        """A figure that counts up when its slide opens."""
+        return (f'<span data-count="{value}" data-sep="{sep}"'
+                f'{f" data-prefix={prefix!r}" if prefix else ""}'
+                f'{f" data-suffix={suffix!r}" if suffix else ""}>0</span>')
+
+    def title(text, note, audience, step):
+        dots = "".join(
+            f'<span class="{"on" if i <= step else ""}"></span>' for i in range(4)
+        )
+        return f"""<div class="d-title d-rv">
+    <div>
+      <div class="d-audience"><i></i>{LE(audience)}<span class="d-depth">{dots}</span></div>
+      <h2 style="margin-top:9px">{L(text)}</h2>
+    </div>
+    <p>{LE(note)}</p>
+  </div>"""
+
     # ------------------------------------------------------------- slide 1
-    kpis = [
-        (("344", "344"), ("conversations from the campaign", "percakapan dari kampanye"),
-         ("IDR 1.44 million spent · about IDR 4,200 each",
-          "Biaya Rp1,44 juta · sekitar Rp4.200 per percakapan")),
-        (("328", "328"), ("conversations in one tracked week", "percakapan dalam satu pekan terlacak"),
-         ("Read and classified one by one, not sampled",
-          "Dibaca dan diklasifikasi satu per satu, bukan sampling")),
-        (("54", "54"), ("never got a reply", "tidak pernah dibalas"),
-         ("16% of the week · a response problem, not a budget problem",
-          "16% dari pekan itu · masalah respons, bukan masalah budget")),
-        (("30", "30"), ("lost, no dealer covering the area", "hilang, tidak ada dealer di area itu"),
-         ("9% of the week · a coverage gap we chose",
-          "9% dari pekan itu · celah coverage yang kami pilih sendiri")),
+    xyz = [
+        (("X", "X"), ("What I did", "Yang saya kerjakan"),
+         ("Took the company website back from the vendor and connected our adverts to "
+          "<b>real conversations with dealers</b>.",
+          "Mengambil alih website perusahaan dari vendor dan menghubungkan iklan kami ke "
+          "<b>percakapan nyata dengan dealer</b>.")),
+        (("Y", "Y"), ("Measured by", "Diukur dengan"),
+         ("<b>344 conversations</b> for IDR 1.44 million — about <b>IDR 4,200 each</b> — and in one "
+          "tracked week <b>84 of every 100</b> conversations got an answer.",
+          "<b>344 percakapan</b> dengan biaya Rp1,44 juta — sekitar <b>Rp4.200 per percakapan</b> — dan "
+          "dalam satu pekan terlacak <b>84 dari 100</b> percakapan mendapat jawaban.")),
+        (("Z", "Z"), ("By doing", "Dengan cara"),
+         ("Rebuilding the site in-house, tagging every click, then <b>reading a full week of "
+          "conversations one by one</b> to see where they stopped.",
+          "Membangun ulang website secara internal, menandai setiap klik, lalu <b>membaca percakapan "
+          "satu pekan penuh satu per satu</b> untuk melihat di mana berhentinya.")),
     ]
-    kpi_cards = "".join(
-        f"""<div class="d-card d-rv" style="--d:{80 + i * 70}">
-      <div class="d-kk">{LE(label)}</div>
-      <div class="d-big">{LE(value)}</div>
-      <p class="d-sub">{LE(note)}</p>
+    xyz_html = "".join(
+        f"""<div class="d-xyz-line"><div class="d-xyz-tag"><b>{LE(letter)}</b><span>{LE(tag)}</span></div>
+      <p>{L(body)}</p></div>"""
+        for letter, tag, body in xyz
+    )
+
+    figures = [
+        (num(344), ("conversations with buyers", "percakapan dengan calon pembeli"),
+         ("from the advert campaign", "dari kampanye iklan")),
+        (num(4200, prefix="IDR " if lang == "en" else "Rp"),
+         ("spent per conversation", "biaya per percakapan"),
+         ("IDR 1.44 million in total", "total Rp1,44 juta")),
+        (num(84, suffix="%"), ("of them got an answer", "di antaranya mendapat jawaban"),
+         ("in the week I checked", "pada pekan yang saya periksa")),
+    ]
+    figure_html = "".join(
+        f"""<div style="display:flex;align-items:baseline;gap:14px">
+      <div class="d-big" style="font-size:44px;min-width:170px">{value}</div>
+      <div><p style="font-size:15px;font-weight:700;letter-spacing:-.02em">{LE(label)}</p>
+      <p class="d-sub" style="font-size:12.5px">{LE(sub)}</p></div>
     </div>"""
-        for i, (value, label, note) in enumerate(kpis)
+        for value, label, sub in figures
     )
 
-    rows = [
-        (("Continued past the first reply", "Lanjut setelah balasan pertama"), w["continued"], "", "ok"),
-        (("Never replied", "Tidak pernah dibalas"), w["no_reply"], "wn", "leak"),
-        (("No dealer covering the area", "Tidak ada dealer di area itu"), w["no_dealer"], "wn", "leak"),
-    ]
-    row_html = "".join(
-        f"""<div class="d-row"><span style="min-width:250px">{LE(label)}</span>
-        <span class="bar"><i class="{cls}" data-w="{round(100 * n / w['total'])}"></i></span>
-        <span class="num">{n}</span><span class="d-chip {'wn' if cls else 'ok'}">{pct(n)}</span></div>"""
-        for label, n, cls, _ in rows
-    )
-
-    platform = [
-        (("28 → 78", "28 → 78"), ("self-assessed security score", "skor keamanan penilaian sendiri")),
-        (("85", "85"), ("redirects kept search traffic", "redirect menjaga trafik pencarian")),
-        (("73/100", "73/100"), ("SEO health, new homepage", "skor SEO homepage baru")),
-        (("0", "0"), ("mobile CLS in lab tests", "CLS mobile di uji lab")),
-    ]
     platform_html = "".join(
-        f'<div><div class="d-big" style="font-size:30px">{LE(v)}</div>'
-        f'<p class="d-sub" style="font-size:12.5px">{LE(l)}</p></div>'
-        for v, l in platform
+        f'<div><div class="d-big" style="font-size:26px">{LE(v)}</div>'
+        f'<p class="d-sub" style="font-size:12px">{LE(l)}</p></div>'
+        for v, l in [
+            (("28 → 78", "28 → 78"), ("security score, checked by me", "skor keamanan, saya nilai sendiri")),
+            (("85", "85"), ("redirects kept visitors", "redirect menjaga pengunjung")),
+            (("73/100", "73/100"), ("SEO health, new homepage", "skor SEO homepage baru")),
+            (("2 + 3", "2 + 3"), ("High and Medium alerts on the old site",
+                                  "peringatan High dan Medium di website lama")),
+        ]
     )
 
     slide1 = f"""
-<div class="d-grid" style="grid-template-rows:auto repeat(2,minmax(0,1fr))">
-  <div class="d-title d-rv">
-    <h2>{L(deck['title'])}</h2>
-    <p>{LE(deck['lead'])}</p>
+<div class="d-grid" style="grid-template-rows:auto minmax(0,1.45fr) minmax(0,.78fr)">
+  {title(deck['title'], deck['lead'], ("The short version · for anyone", "Versi singkat · untuk siapa saja"), 0)}
+  <div class="d-card d-rv" style="--d:80;grid-column:span 8">
+    <div class="d-head"><div><div class="d-kk">{LE(("Result, in one sentence", "Hasil, dalam satu kalimat"))}</div>
+      <h3>{LE(("Adverts in, answered conversations out", "Iklan masuk, percakapan terjawab keluar"))}</h3></div>
+      <div class="d-chips"><span class="d-chip bl">{LE(("Jul–Sep 2026", "Jul–Sep 2026"))}</span></div></div>
+    <div class="d-xyz">{xyz_html}</div>
   </div>
-  <div style="grid-column:span 7;display:grid;grid-template-columns:repeat(2,1fr);gap:16px">{kpi_cards}</div>
-  <div class="d-card d-rv" style="--d:420;grid-column:span 5">
-    <div class="d-head"><div><div class="d-kk">{LE(("One tracked week · 328 conversations", "Satu pekan terlacak · 328 percakapan"))}</div>
-      <h3>{LE(("Where the week went", "Ke mana pekan itu pergi"))}</h3></div></div>
-    <div class="d-rows" style="margin-top:4px">{row_html}</div>
-    <p class="d-note" style="margin-top:auto">{LE((
-      "Both losses are internal: how fast we answer, and where we placed dealers. Neither needs more ad budget.",
-      "Kedua kehilangan ini internal: secepat apa kami membalas, dan di mana dealer ditempatkan. Keduanya tidak butuh tambahan budget iklan."))}</p>
+  <div class="d-card d-rv" style="--d:220;grid-column:span 4;justify-content:space-evenly">{figure_html}</div>
+  <div class="d-card d-rv" style="--d:320;grid-column:span 8">
+    <div class="d-kk">{LE(("In plain terms", "Dengan kata sederhana"))}</div>
+    <p class="d-plain">{L((
+      "Adverts brought people to WhatsApp. <b>I checked what happened to every one of them for a week</b> — "
+      "who got an answer, who was ignored, and who lived where we had no dealer. "
+      "The next slides show that week, how I worked through it, and what I still cannot prove.",
+      "Iklan membawa orang ke WhatsApp. <b>Saya memeriksa apa yang terjadi pada setiap orang selama sepekan</b> — "
+      "siapa yang dijawab, siapa yang diabaikan, dan siapa yang tinggal di area tanpa dealer kami. "
+      "Slide berikutnya menunjukkan pekan itu, cara saya mengerjakannya, dan apa yang belum bisa saya buktikan."))}</p>
   </div>
-  <div class="d-card d-rv" style="--d:480;grid-column:span 7">
-    <div class="d-head"><div><div class="d-kk">{LE(("The platform underneath", "Platform di baliknya"))}</div>
-      <h3>{LE(("Rebuilt in-house before measuring anything", "Dibangun ulang secara internal sebelum mengukur apa pun"))}</h3></div>
-      <div class="d-chips"><span class="d-chip">Next.js + Laravel API</span><span class="d-chip">GTM · GA4</span></div></div>
-    <div class="d-split" style="margin-top:6px">{platform_html}</div>
+  <div class="d-card d-rv" style="--d:400;grid-column:span 4">
+    <div class="d-kk">{LE(("Before any of that could be measured", "Sebelum semua itu bisa diukur"))}</div>
+    <div class="d-split" style="flex-wrap:wrap;gap:14px 20px">{platform_html}</div>
     <p class="d-note">{LE((
-      "A vendor held the old site: end-of-life framework, debug mode on, unsafe upload path. Tracking came after the rebuild.",
-      "Website lama dipegang vendor: framework end-of-life, debug mode aktif, jalur upload tidak aman. Tracking dipasang setelah pembangunan ulang."))}</p>
-  </div>
-  <div class="d-card hatch d-rv" style="--d:540;grid-column:span 5;justify-content:center">
-    <div class="d-kk">{LE(("Phase 3 onwards", "Fase 3 dan seterusnya"))}</div>
-    <div class="d-big" style="font-size:44px;color:#9aa5ae">{LE(("SPK · closing", "SPK · closing"))}</div>
-    <p class="d-sub">{LE((
-      "No pipeline yet, so no closing figures and no cost per SPK. I don't estimate them.",
-      "Pipeline-nya belum ada, jadi tidak ada angka closing dan tidak ada biaya per SPK. Saya tidak mengira-ngira."))}</p>
-    <span class="d-chip dk" style="align-self:flex-start">{LE(("Not tracked", "Belum terlacak"))}</span>
+      "A vendor held the old site. We rebuilt it in-house, and those alerts no longer appear on the new stack.",
+      "Website lama dipegang vendor. Kami bangun ulang sendiri, dan peringatan itu tidak lagi muncul di sistem baru."))}</p>
   </div>
 </div>"""
 
@@ -154,37 +176,36 @@ def build(b, deck=DIGITAL_GROWTH):
              "big": 34, "label": L(("conversations", "percakapan")),
              "sub": L(("one tracked week", "satu pekan terlacak"))},
             {"id": "cont", "type": "ok", "x": 700, "y": top, "value": w["continued"],
-             "label": L(("continued past the first reply", "lanjut setelah balasan pertama")),
+             "label": L(("answered and kept talking", "dijawab dan percakapan berlanjut")),
              "sub": pct(w["continued"])},
             {"id": "nore", "type": "leak", "x": 700, "y": top + h_cont + gap, "value": w["no_reply"],
-             "label": L(("never replied", "tidak pernah dibalas")),
+             "label": L(("nobody ever replied to them", "tidak pernah dibalas siapa pun")),
              "sub": pct(w["no_reply"]) + L((" · internal", " · internal"))},
             {"id": "node", "type": "leak", "x": 700, "y": top + h_cont + h_nore + 2 * gap, "value": w["no_dealer"],
-             "label": L(("no dealer covering the area", "tidak ada dealer di area itu")),
+             "label": L(("live where we have no dealer", "tinggal di area tanpa dealer kami")),
              "sub": pct(w["no_dealer"]) + L((" · coverage gap", " · celah coverage"))},
             {"id": "spk", "type": "blind", "x": 1150, "y": top, "value": w["continued"], "display": "?",
-             "big": 34, "label": L(("SPK · closing", "SPK · closing")),
-             "sub": L(("no data yet", "belum ada data"))},
+             "big": 34, "label": L(("did they buy?", "apakah mereka membeli?")),
+             "sub": L(("nobody tracked this yet", "belum ada yang melacaknya"))},
         ],
         "notes": [{"x": 975, "y": 150, "size": 14,
                    "text": L(("nothing measured past the hand-off",
                               "tak ada yang terukur setelah serah terima"))}],
+        "dotRadius": 3,
         "links": [
-            {"s": "all", "t": "cont", "value": w["continued"]},
-            {"s": "all", "t": "nore", "value": w["no_reply"]},
-            {"s": "all", "t": "node", "value": w["no_dealer"]},
+            {"s": "all", "t": "cont", "value": w["continued"], "flow": 9},
+            {"s": "all", "t": "nore", "value": w["no_reply"], "flow": 3},
+            {"s": "all", "t": "node", "value": w["no_dealer"], "flow": 2},
             {"s": "cont", "t": "spk", "value": w["continued"], "blind": True},
         ],
     }
 
     slide2 = f"""
 <div class="d-grid" style="grid-template-rows:auto minmax(0,1fr)">
-  <div class="d-title d-rv">
-    <h2>{L(("The journey stops where <em>we</em> stop it", "Journey berhenti di tempat <em>kami</em> menghentikannya"))}</h2>
-    <p>{LE((
-      "Ribbon width is the number of conversations. Everything past the first dealer hand-off is unmeasured.",
-      "Lebar pita adalah jumlah percakapan. Semua yang terjadi setelah serah terima ke dealer belum terukur."))}</p>
-  </div>
+  {title(("The journey stops where <em>we</em> stop it", "Journey berhenti di tempat <em>kami</em> menghentikannya"),
+         ("Each ribbon is a group of real conversations. The wider the ribbon, the more people it holds.",
+          "Setiap pita adalah sekelompok percakapan nyata. Makin lebar pita, makin banyak orangnya."),
+         ("What actually happened · one week, all 328", "Apa yang sebenarnya terjadi · satu pekan, 328 percakapan"), 1)}
   <div class="d-card d-rv" style="--d:120;grid-column:span 12">
     <div class="d-head"><div><div class="d-kk">{LE(("Customer journey · one tracked week", "Customer journey · satu pekan terlacak"))}</div>
       <h3>{LE(("From conversation to the edge of the data", "Dari percakapan sampai batas data"))}</h3></div>
@@ -257,12 +278,10 @@ def build(b, deck=DIGITAL_GROWTH):
 
     slide3 = f"""
 <div class="d-grid" style="grid-template-rows:auto minmax(0,1fr) auto">
-  <div class="d-title d-rv">
-    <h2>{L(("How I deliver it: <em>collect, read, hand over</em>", "Cara saya mengerjakannya: <em>kumpulkan, baca, serahkan</em>"))}</h2>
-    <p>{LE((
-      "The same three steps on every project. The reading step is the one people skip.",
-      "Tiga langkah yang sama di setiap project. Langkah membaca adalah yang biasanya dilewati."))}</p>
-  </div>
+  {title(("How I deliver it: <em>collect, read, hand over</em>", "Cara saya mengerjakannya: <em>kumpulkan, baca, serahkan</em>"),
+         ("The same three steps on every project. The reading step is the one people skip.",
+          "Tiga langkah yang sama di setiap project. Langkah membaca adalah yang biasanya dilewati."),
+         ("How I work · the method", "Cara saya bekerja · metodenya"), 2)}
   {method_cards}
   <div class="d-card d-rv" style="--d:420;grid-column:span 12;padding:18px 20px">
     <div class="d-head"><div class="d-kk">{LE(("Which part of my work does what", "Bagian mana dari pekerjaan saya yang berperan"))}</div></div>
@@ -314,12 +333,10 @@ def build(b, deck=DIGITAL_GROWTH):
 
     slide4 = f"""
 <div class="d-grid" style="grid-template-rows:auto minmax(0,1fr)">
-  <div class="d-title d-rv">
-    <h2>{L(("What I <em>don't</em> claim, and what I'd build next", "Yang <em>tidak</em> saya klaim, dan yang akan saya bangun berikutnya"))}</h2>
-    <p>{LE((
-      "A funnel deck is easy to inflate. These are the figures that do not exist yet.",
-      "Deck funnel mudah dilebih-lebihkan. Ini angka-angka yang memang belum ada."))}</p>
-  </div>
+  {title(("What I <em>don't</em> claim, and what I'd build next", "Yang <em>tidak</em> saya klaim, dan yang akan saya bangun berikutnya"),
+         ("A funnel deck is easy to inflate. These are the figures that do not exist yet.",
+          "Deck funnel mudah dilebih-lebihkan. Ini angka-angka yang memang belum ada."),
+         ("What I don't claim · the fine print", "Yang tidak saya klaim · catatan jujurnya"), 3)}
   <div class="d-card d-rv" style="--d:120;grid-column:span 7">
     <div class="d-head"><div><div class="d-kk">{LE(("Blind zone", "Zona buta"))}</div>
       <h3>{LE(("Measured nowhere, so claimed nowhere", "Tidak terukur di mana pun, jadi tidak diklaim di mana pun"))}</h3></div></div>
@@ -360,13 +377,20 @@ def build(b, deck=DIGITAL_GROWTH):
     )
 
     # ------------------------------------------------------------- small screens
-    flow_kpis = "".join(
-        f"<div><b>{LE(v)}</b><span>{LE(l)}</span></div>" for v, l, _ in kpis
+    flow_xyz = "".join(
+        f"""<div class="d-xyz-line"><div class="d-xyz-tag" style="width:84px"><b>{LE(letter)}</b>
+      <span>{LE(tag)}</span></div><p style="font-size:15.5px">{L(body)}</p></div>"""
+        for letter, tag, body in xyz
     )
+    week_rows = [
+        (("Answered and kept talking", "Dijawab dan percakapan berlanjut"), w["continued"], ""),
+        (("Nobody ever replied", "Tidak pernah dibalas"), w["no_reply"], "wn"),
+        (("No dealer covering the area", "Tidak ada dealer di area itu"), w["no_dealer"], "wn"),
+    ]
     flow_rows = "".join(
         f'<div class="d-row"><span style="flex:1">{LE(label)}</span>'
         f'<span class="num">{n}</span><span class="d-chip {"wn" if cls else "ok"}">{pct(n)}</span></div>'
-        for label, n, cls, _ in rows
+        for label, n, cls in week_rows
     )
     flow_method = "".join(
         f"<h3 style=\"font-size:15px;font-weight:750;margin-top:6px\">{i + 1}. {LE(name)}</h3>"
@@ -382,10 +406,13 @@ def build(b, deck=DIGITAL_GROWTH):
   </div>
   <section>
     <h2>{LE(("The result", "Hasilnya"))}</h2>
-    <div class="f-kpi">{flow_kpis}</div>
+    <div class="d-xyz">{flow_xyz}</div>
   </section>
   <section>
     <h2>{LE(("Where one tracked week went", "Ke mana satu pekan terlacak pergi"))}</h2>
+    <p class="d-plain">{L((
+      "Adverts brought people to WhatsApp. <b>I checked what happened to every one of them for a week.</b>",
+      "Iklan membawa orang ke WhatsApp. <b>Saya memeriksa apa yang terjadi pada setiap orang selama sepekan.</b>"))}</p>
     <div class="d-rows">{flow_rows}</div>
     <p class="d-note">{LE((
       "Both losses are internal: how fast we answer, and where we placed dealers.",

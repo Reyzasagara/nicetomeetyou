@@ -20,6 +20,8 @@
   fit();
   window.addEventListener('resize', fit);
 
+  var STILL = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   /* ---------------------------------------------------------------- slides */
   var buttons = [].slice.call(document.querySelectorAll('.deck-nav button'));
   var progress = document.querySelector('.deck-progress');
@@ -41,6 +43,8 @@
     if (progress) progress.style.width = ((i + 1) / slides.length) * 100 + '%';
     if (count) count.textContent = (i + 1) + ' / ' + slides.length;
     grow(slides[i]);
+    slides[i].querySelectorAll('[data-count]').forEach(countUp);
+    stageLabels(slides[i]);
   }
 
   function grow(slide) {
@@ -49,6 +53,48 @@
       requestAnimationFrame(function () {
         el.style.width = el.getAttribute('data-w') + '%';
       });
+    });
+  }
+
+  /* Count a figure up from zero, keeping its thousands separator and any
+     prefix or suffix the markup asked for. */
+  function countUp(el) {
+    var target = parseFloat(el.getAttribute('data-count'));
+    var pre = el.getAttribute('data-prefix') || '';
+    var post = el.getAttribute('data-suffix') || '';
+    var sep = el.getAttribute('data-sep') || '';
+    var decimals = (el.getAttribute('data-count').split('.')[1] || '').length;
+
+    function render(v) {
+      var text = decimals ? v.toFixed(decimals) : String(Math.round(v));
+      if (sep) {
+        var parts = text.split('.');
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, sep);
+        text = parts.join(decimals ? ',' : '.');
+      }
+      el.textContent = pre + text + post;
+    }
+
+    if (STILL) { render(target); return; }
+    var started = null;
+    var dur = 1100;
+    function step(now) {
+      if (started === null) started = now;
+      var p = Math.min(1, (now - started) / dur);
+      render(target * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(step);
+    }
+    render(0);
+    requestAnimationFrame(step);
+  }
+
+  /* Sankey labels and flow particles arrive after the ribbons have drawn. */
+  function stageLabels(slide) {
+    var labels = slide.querySelectorAll('.sk-lab, .sk-parts');
+    labels.forEach(function (g, n) {
+      g.classList.remove('on');
+      if (STILL) { g.classList.add('on'); return; }
+      setTimeout(function () { g.classList.add('on'); }, 420 + n * 130);
     });
   }
 
@@ -130,12 +176,36 @@
       }, bars);
     });
 
+    var notes = el('g', { class: 'sk-lab' }, svg);
     (spec.notes || []).forEach(function (n) {
-      var node = text(svg, n.x, n.y, n.text, 'sk-l', n.size || 14, '#8a949d');
+      var node = text(notes, n.x, n.y, n.text, 'sk-l', n.size || 14, '#8a949d');
       node.setAttribute('text-anchor', 'middle');
     });
 
-    var labels = el('g', {}, svg);
+    var parts = el('g', { class: 'sk-parts' }, svg);
+    if (!STILL) {
+      spec.links.forEach(function (l) {
+        if (!l.flow) return;
+        var x0 = l.from.x + NW, x1 = l.to.x, xm = (x0 + x1) / 2;
+        var c0 = l.y0 + l.w0 / 2, c1 = l.y1 + l.w1 / 2;
+        var path = 'M' + x0 + ',' + c0 + ' C' + xm + ',' + c0 + ' ' + xm + ',' + c1 + ' ' + x1 + ',' + c1;
+        for (var k = 0; k < l.flow; k++) {
+          var dot = el('circle', {
+            r: spec.dotRadius || 3,
+            fill: spec.colors[l.color || l.to.type] || '#355c7d',
+            opacity: 0.9
+          }, parts);
+          el('animateMotion', {
+            dur: (2.6 + Math.random() * 0.7) + 's',
+            repeatCount: 'indefinite',
+            path: path,
+            begin: (-k * 2.8 / l.flow) + 's'
+          }, dot);
+        }
+      });
+    }
+
+    var labels = el('g', { class: 'sk-lab' }, svg);
     spec.nodes.forEach(function (n) {
       var right = n.side !== 'left';
       var x = right ? n.x + NW + 11 : n.x - 11;

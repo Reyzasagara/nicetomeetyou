@@ -66,10 +66,30 @@
 .d-row .bar i.wn{background:var(--d-warn)}
 .d-row .num{font-weight:800;min-width:46px;text-align:right;letter-spacing:-.02em}
 
+/* xyz statement — the plain-language version for a first-time reader */
+.d-xyz{display:flex;flex-direction:column;gap:14px}
+.d-xyz-line{display:flex;gap:16px;align-items:flex-start}
+.d-xyz-tag{flex:none;width:112px;padding-top:5px}
+.d-xyz-tag b{display:block;font-size:26px;font-weight:800;letter-spacing:-.05em;line-height:1;color:var(--d-blue)}
+.d-xyz-tag span{display:block;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--d-ink-3);margin-top:4px}
+.d-xyz-line p{font-size:20px;line-height:1.45;font-weight:600;letter-spacing:-.02em}
+.d-xyz-line p b{font-weight:800;color:var(--d-blue)}
+.d-xyz-line+.d-xyz-line{border-top:1px solid var(--d-line);padding-top:14px}
+.d-plain{background:var(--d-blue-soft);border-radius:16px;padding:16px 20px;font-size:16px;line-height:1.55;color:var(--d-ink-2)}
+.d-plain b{color:var(--d-ink);font-weight:750}
+.d-audience{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--d-ink-3)}
+.d-audience i{width:7px;height:7px;border-radius:50%;background:var(--d-blue);display:inline-block}
+.d-depth{display:flex;gap:5px;align-items:center;margin-left:14px}
+.d-depth span{width:26px;height:4px;border-radius:3px;background:#cdd5db}
+.d-depth span.on{background:var(--d-blue)}
+
 /* sankey */
 .d-sankey{flex:1;min-height:0}
 .d-sankey svg{width:100%;height:100%;overflow:visible}
 .d-sankey text{paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round}
+.sk-lab,.sk-parts{opacity:0;transition:opacity .7s var(--d-ease)}
+.sk-lab{transform:translateY(7px);transition:opacity .7s var(--d-ease),transform .7s var(--d-ease)}
+.sk-lab.on,.sk-parts.on{opacity:1;transform:none}
 .sk-v{font-weight:800;letter-spacing:-.03em}
 .sk-l{font-weight:650}
 .sk-c{font-weight:600;fill:var(--d-ink-3)}
@@ -104,6 +124,7 @@
 @media(prefers-reduced-motion:reduce){
   .d-rv{opacity:1;transform:none;animation:none!important}
   .d-row .bar i{transition:none}
+  .sk-lab,.sk-parts{opacity:1;transform:none;transition:none}
 }
 
 /* ---------------------------------------------------------------- small screens */

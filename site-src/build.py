@@ -18,6 +18,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from i18n_id import ID  # noqa: E402
+import decks  # noqa: E402
 import powersync_page  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -919,6 +920,11 @@ def build_case(i, c):
         if c["id"].startswith("powersync")
         else ""
     )
+    if c["id"] == "digital-growth":
+        ps_link += (
+            f'<p class="ps-cta"><a class="btn btn--solid" href="deck-digital-growth.html">'
+            f'{T("Open the deck: where the funnel leaks")} <span aria-hidden="true">↗</span></a></p>'
+        )
 
     body = f"""
 <div class="wrap">
@@ -1136,6 +1142,7 @@ def build_all():
     build_lab()
     build_cv()
     powersync_page.build(sys.modules[__name__])
+    decks.build(sys.modules[__name__])
 
 
 if __name__ == "__main__":

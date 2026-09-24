@@ -44,6 +44,7 @@ ID = {
     "Based in Cikarang, Indonesia": "Berdomisili di Cikarang, Indonesia",
     "Five parts of my work": "Lima bidang yang saya kerjakan",
     "Portrait of Reyza Agung Gunawan": "Foto Reyza Agung Gunawan",
+    "Open the deck: where the funnel leaks": "Buka deck: di mana funnel bocor",
     "Illustration of Reyza in five outfits, one for each role: electrical engineer, data analyst, business analyst, AI orchestrator and digital marketing.": "Ilustrasi Reyza dengan lima pakaian, satu untuk setiap role: electrical engineer, data analyst, business analyst, AI orchestrator, dan digital marketing.",
     "Most of my work is business analysis": "Fokus utama saya adalah business analysis",
     "I also work on AI, production systems, market research and vehicle engineering.": "Saya juga berpengalaman dalam orkestrasi AI, digitalisasi produksi, riset pasar retail, dan engineering kelistrikan.",

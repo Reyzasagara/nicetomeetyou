@@ -64,6 +64,7 @@
 .d-row .bar{flex:1;height:9px;border-radius:5px;background:#e6eaee;overflow:hidden}
 .d-row .bar i{display:block;height:100%;width:0;border-radius:5px;background:var(--d-blue);transition:width 1.1s var(--d-ease)}
 .d-row .bar i.wn{background:var(--d-warn)}
+.d-row .bar i.ok{background:var(--d-ok)}
 .d-row .num{font-weight:800;min-width:46px;text-align:right;letter-spacing:-.02em}
 
 /* xyz statement — the plain-language version for a first-time reader */
@@ -98,6 +99,8 @@
 .d-steps{display:flex;flex-direction:column;gap:9px}
 .d-steps li{display:flex;gap:10px;align-items:flex-start;background:var(--d-frame);border-radius:13px;padding:10px 13px;font-size:14px;line-height:1.45}
 .d-steps li b{font-size:11.5px;font-weight:800;letter-spacing:.06em;color:var(--d-blue);flex:none;min-width:22px;padding-top:2px}
+.d-card.dark .d-steps li{background:#2b3d4d;color:#fff}
+.d-card.dark .d-steps li b{color:#9fc0dd}
 .d-domains{display:flex;gap:12px}
 .d-domain{flex:1;border-radius:14px;padding:12px 14px;background:var(--d-frame);border-left:4px solid var(--d-ink-3)}
 .d-domain.core{background:var(--d-blue-soft);border-left-color:var(--d-blue)}
@@ -105,6 +108,16 @@
 .d-domain.core span{color:var(--d-blue)}
 .d-domain strong{font-size:15px;font-weight:750;letter-spacing:-.02em;display:block;margin:3px 0 2px}
 .d-domain em{font-style:normal;font-size:13px;color:var(--d-ink-2);line-height:1.4;display:block}
+
+/* leak table */
+table.tx{width:100%;border-collapse:collapse}
+table.tx th{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--d-ink-3);text-align:left;padding:0 12px 11px;border-bottom:1px solid var(--d-line)}
+table.tx td{padding:17px 12px;border-bottom:1px solid var(--d-line);vertical-align:top}
+table.tx tr:last-child td{border-bottom:0}
+.tt{font-size:15px;font-weight:750;letter-spacing:-.02em}
+.te{font-size:12.5px;color:var(--d-ink-2);line-height:1.4;margin-top:3px}
+.tf{font-size:13px;color:var(--d-blue);font-weight:650;line-height:1.4}
+.tn{font-size:22px;font-weight:800;letter-spacing:-.03em;line-height:1}
 
 /* blind + evidence */
 .d-list li{display:flex;gap:11px;align-items:center;background:#fff;border:1px solid var(--d-line);border-radius:13px;padding:10px 13px;font-size:14.5px;line-height:1.4}

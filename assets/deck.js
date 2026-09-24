@@ -70,7 +70,7 @@
       if (sep) {
         var parts = text.split('.');
         parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, sep);
-        text = parts.join(decimals ? ',' : '.');
+        text = parts.join(sep === ',' ? '.' : ',');
       }
       el.textContent = pre + text + post;
     }

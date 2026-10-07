@@ -16,7 +16,7 @@ class Document(HTMLParser):
         self.h1 += tag == 'h1'
         for key in ('href','src'):
             if key in attrs:self.links.append(attrs[key])
-files=[ROOT / name for name in ['index.html','work.html','cv.html','lab.html','powersync.html']]
+files=[ROOT / name for name in ['index.html','work.html','cv.html','lab.html','powersync.html','docs.html']]
 files+=list(ROOT.glob('domain-*.html'))+list(ROOT.glob('work-*.html'))
 files += [ROOT/'id'/p.name for p in files.copy()]
 docs={p:Document(p) for p in files}

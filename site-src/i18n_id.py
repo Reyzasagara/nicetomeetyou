@@ -727,3 +727,103 @@ ID.update({
 'Diploma III (D3) Mechatronics Engineering, Politeknik Manufaktur Bandung, Indonesia': 'Diploma III (D3) Teknik Mekatronika, Politeknik Manufaktur Bandung, Indonesia',
 })
 ID.update({'Download PDF': 'Unduh PDF (bahasa Inggris)', 'Download CV': 'Unduh CV (bahasa Inggris)', 'Download CV (PDF)': 'Unduh CV (PDF bahasa Inggris)'})
+
+# ---------------------------------------------------------------------- documentation page (docs_page.py)
+ID.update({
+    'Documentation': 'Dokumentasi',
+    'Impact (X-Y-Z)': 'Dampak (X-Y-Z)',
+    'The work, as it looks on screen': 'Pekerjaan saya, seperti yang tampil di layar',
+    'These are real screenshots of the systems, dashboards and analysis behind my case studies. I blurred company figures, customer names and competitor names. Public statistics stay readable.':
+        'Ini screenshot asli dari sistem, dashboard dan analisis di balik case study saya. Angka perusahaan, nama customer dan nama kompetitor saya blur. Statistik publik tetap terbaca.',
+    'How to read it': 'Cara membacanya',
+    "Each item says what it is, then its impact in Google's X-Y-Z form: what changed, how it was measured and how I did it.":
+        'Setiap item menjelaskan apa isinya, lalu dampaknya dalam format X-Y-Z dari Google: apa yang berubah, bagaimana diukur, dan bagaimana saya mengerjakannya.',
+    'Tools': 'Tools',
+    'Full image': 'Gambar penuh',
+    'Click any screenshot to open it at full size.': 'Klik screenshot mana pun untuk membukanya dalam ukuran penuh.',
+    'Screenshots of the PowerSync platform, Power BI dashboards and Python analysis by Reyza Agung Gunawan, with company figures blurred.':
+        'Screenshot platform PowerSync, dashboard Power BI dan analisis Python karya Reyza Agung Gunawan, dengan angka perusahaan diblur.',
+    # groups
+    'PowerSync platform': 'Platform PowerSync',
+    'The system I lead: database, screens and the dashboards built on it.': 'Sistem yang saya pimpin: database, tampilan, dan dashboard yang dibangun di atasnya.',
+    'Power BI dashboards': 'Dashboard Power BI',
+    'Reports I built for production meetings, inventory and market analysis.': 'Report yang saya buat untuk meeting produksi, inventory dan analisis pasar.',
+    'Python and HTML analytics': 'Analitik Python dan HTML',
+    'Scripts and analysis decks I write when a spreadsheet is not enough.': 'Script dan deck analisis yang saya tulis saat spreadsheet tidak lagi cukup.',
+    # PowerSync
+    'PowerSync database (EER diagram)': 'Database PowerSync (EER diagram)',
+    'The PowerSync database, opened in MySQL Workbench.': 'Database PowerSync, dibuka di MySQL Workbench.',
+    'Built one data model for the whole dealer-to-factory flow, measured by 210 tables and 4,818 unit records traceable from order to customer (99.9% linked to a PO), by designing the Laravel and MySQL schema myself as analyst and developer.':
+        'Membangun satu data model untuk seluruh alur dari dealer ke pabrik, diukur dari 210 tabel dan 4.818 data unit yang bisa ditelusuri dari order sampai customer (99,9% terhubung ke PO), dengan merancang sendiri schema Laravel dan MySQL sebagai analyst sekaligus developer.',
+    'MySQL Workbench, 2026. Schema only, no business figures.': 'MySQL Workbench, 2026. Hanya schema, tanpa angka bisnis.',
+    'PowerSync home screen': 'Halaman utama PowerSync',
+    'The home screen, with menus for dealers, sales, spare parts, marketing and production.': 'Halaman utama, dengan menu untuk dealer, sales, suku cadang, marketing dan produksi.',
+    "Moved dealer orders, vehicle registration (faktur), free-service coupons, claims and QC off paper and Excel, measured by 15 of 22 dealers (68.2%) active in May–Jun 2026, by designing one web platform around each team's daily tasks.":
+        'Memindahkan order dealer, pengajuan faktur, kupon servis gratis, klaim dan QC dari kertas dan Excel, diukur dari 15 dari 22 dealer (68,2%) aktif pada Mei–Jun 2026, dengan merancang satu platform web sesuai pekerjaan harian tiap tim.',
+    'PowerSync, Oct 2026.': 'PowerSync, Okt 2026.',
+    'Production board': 'Papan produksi',
+    'Hourly output for every post on the line, live since Aug 2026.': 'Output per jam untuk setiap pos di line, live sejak Agu 2026.',
+    'Replaced the paper daily production report with a live board, measured by hourly output against target for every post, an end-of-shift forecast and downtime by cause (Man, Machine, Method, Material), by building a kiosk-fed production module in PowerSync.':
+        'Mengganti laporan produksi harian di kertas dengan papan live, diukur dari output per jam terhadap target di setiap pos, prakiraan akhir shift dan downtime per penyebab (Man, Machine, Method, Material), dengan membangun modul produksi di PowerSync yang diisi dari kiosk.',
+    'PowerSync, Sep 2026. Customer name and figures blurred.': 'PowerSync, Sep 2026. Nama customer dan angka diblur.',
+    'Warranty and claims': 'Garansi dan klaim',
+    'Claim trend, claim type and the monthly warranty ratio.': 'Tren klaim, jenis klaim dan rasio garansi bulanan.',
+    "Made warranty quality measurable every month, measured by a warranty ratio (claimed units ÷ units in operation) over 12 months with a drill-down per month, by linking each claim to the sold unit's record in PowerSync.":
+        'Membuat kualitas garansi bisa diukur setiap bulan, diukur dengan rasio garansi (unit diklaim ÷ unit beroperasi) selama 12 bulan dengan drill-down per bulan, dengan menghubungkan setiap klaim ke data unit terjual di PowerSync.',
+    'PowerSync, Oct 2026. Figures blurred.': 'PowerSync, Okt 2026. Angka diblur.',
+    'Director overview': 'Ringkasan untuk direktur',
+    'Orders, revenue, spare parts, QC pass rate and deliveries on one screen.': 'Order, pendapatan, suku cadang, tingkat lolos QC dan pengiriman dalam satu layar.',
+    'Gave directors one live summary instead of separate reports, measured by orders, revenue, spare parts, QC pass rate, deliveries and order-status flow, filterable by year, quarter and month, by building it on the data dealers and staff already enter in PowerSync.':
+        'Memberi direktur satu ringkasan live sebagai pengganti report terpisah, diukur dari order, pendapatan, suku cadang, tingkat lolos QC, pengiriman dan alur status order yang bisa difilter per tahun, kuartal dan bulan, dengan membangunnya di atas data yang sudah diinput dealer dan staf di PowerSync.',
+    # Power BI
+    'Asakai 2W monthly summary': 'Ringkasan bulanan asakai 2W',
+    'Monthly executive summary for the 2W frame and component morning meeting (asakai).': 'Ringkasan eksekutif bulanan untuk meeting pagi (asakai) frame dan komponen 2W.',
+    'Gave the asakai one monthly view of production, measured by achievement rate, target-vs-actual gap and problem count for every line plus overtime by shift and line, by building the Power BI model (date table, line master, trend parameter).':
+        'Memberi asakai satu tampilan produksi bulanan, diukur dari achievement rate, selisih target vs aktual dan jumlah masalah di setiap line plus lembur per shift dan line, dengan membangun model Power BI (date table, master line, parameter tren).',
+    'Power BI, Jan 2026. Figures blurred.': 'Power BI, Jan 2026. Angka diblur.',
+    '4W production performance (prototype)': 'Performa produksi 4W (prototipe)',
+    'A prototype dashboard for the 4W lines, May 2025.': 'Prototipe dashboard untuk line 4W, Mei 2025.',
+    'Made line performance visible hour by hour, measured by OEE split into availability, performance and quality per line plus line-stop minutes per hour, by modelling cycle time, planning, production report and reject tables in Power BI.':
+        'Membuat performa line terlihat jam demi jam, diukur dari OEE yang dipecah menjadi availability, performance dan quality per line plus menit line stop per jam, dengan memodelkan tabel cycle time, planning, laporan produksi dan reject di Power BI.',
+    'Power BI prototype, May 2025. Figures blurred.': 'Prototipe Power BI, Mei 2025. Angka diblur.',
+    'Material readiness for production orders': 'Kesiapan material untuk production order',
+    'Supply and allocation status of material for each production order (PRO).': 'Status supply dan alokasi material untuk setiap production order (PRO).',
+    'Showed which production orders were held up by missing material, measured by readiness, allocation and supply % per order and product group plus lacking lines per material, by building a star schema on SAP COOIS and MPS exports in Power BI.':
+        'Menunjukkan production order mana yang tertahan karena material kurang, diukur dari % readiness, alokasi dan supply per order dan product group plus lacking lines per material, dengan membangun star schema dari export SAP COOIS dan MPS di Power BI.',
+    'Power BI, data as of Jul 2026. Logo, codes and figures blurred.': 'Power BI, data per Jul 2026. Logo, kode dan angka diblur.',
+    'Market leader sales analysis': 'Analisis penjualan market leader',
+    'Where the market leader sold its three-wheelers, 2022 to Aug 2024.': 'Di mana market leader menjual kendaraan roda tiganya, 2022 sampai Agu 2024.',
+    "Found that 75.4% of the market leader's units sold in Java (2022–Aug 2024), the finding behind the 2025 Java dealer focus, by modelling its sales by month, model, dealer and regency in Power BI.":
+        'Menemukan bahwa 75,4% unit market leader terjual di Jawa (2022–Agu 2024), temuan yang mendasari fokus dealer di Jawa pada 2025, dengan memodelkan penjualannya per bulan, model, dealer dan kabupaten di Power BI.',
+    'Power BI, Nov 2024. Dealer names, models and figures blurred.': 'Power BI, Nov 2024. Nama dealer, model dan angka diblur.',
+    # Python and HTML
+    'Python scripts I use at work': 'Script Python yang saya pakai sehari-hari',
+    'A selection of my scripts for market data, QC inspection data and costing.': 'Sebagian script saya untuk data pasar, data inspeksi QC dan costing.',
+    'Automated data collection, cleaning and reporting, measured by 39 scripts (about 13,600 lines) covering BPS statistics, PDI inspection records, costing models and report decks, by writing Python with pandas, openpyxl, requests and LLM APIs.':
+        'Mengotomatiskan pengumpulan, pembersihan dan pelaporan data, diukur dari 39 script (sekitar 13.600 baris) untuk statistik BPS, data inspeksi PDI, model costing dan deck laporan, dengan menulis Python memakai pandas, openpyxl, requests dan API LLM.',
+    'Script folder, Oct 2026.': 'Folder script, Okt 2026.',
+    'Brebes market intelligence report': 'Laporan market intelligence Brebes',
+    'A report on selling 3W cargo vehicles to shallot farmers in Brebes, May 2026.': 'Laporan untuk menjual kendaraan kargo 3W ke petani bawang merah di Brebes, Mei 2026.',
+    'Turned public statistics into a sales plan for one district, measured by a 12-page report covering production by sub-district, prices and the harvest calendar with every figure sourced, by writing an open-data scraper and an LLM-assisted analyst agent in Python.':
+        'Mengubah statistik publik menjadi rencana penjualan untuk satu kabupaten, diukur dari laporan 12 halaman tentang produksi per kecamatan, harga dan kalender panen dengan sumber untuk setiap angka, dengan menulis scraper open data dan analyst agent berbantuan LLM di Python.',
+    'Report and code, May 2026. Public statistics, left readable.': 'Laporan dan kode, Mei 2026. Statistik publik, dibiarkan terbaca.',
+    'Pilot area selection': 'Pemilihan area pilot',
+    'Why three pilot areas were chosen for the 2026 market-share pilot.': 'Alasan tiga area dipilih untuk pilot market share 2026.',
+    "Chose 3 pilot areas out of 5 Java candidates, measured against the market leader's volume per area and whether we already had a dealer there, by building a treemap from Power BI sales data and ruling out 2 areas for structural reasons (multibrand dealers, government-tender sales).":
+        'Memilih 3 area pilot dari 5 kandidat di Jawa, diukur dari volume market leader per area dan ada tidaknya dealer kami di sana, dengan membuat treemap dari data penjualan Power BI dan mencoret 2 area karena alasan struktural (dealer multibrand, penjualan lewat tender pemerintah).',
+    'Analysis deck, Jun 2026. Names and figures blurred.': 'Deck analisis, Jun 2026. Nama dan angka diblur.',
+    'QC defect analysis': 'Analisis defect QC',
+    'Defect findings from pre-delivery inspection, Jun to Sep 2026.': 'Temuan defect dari pre-delivery inspection, Jun sampai Sep 2026.',
+    'Pointed QC at the few defect types that matter, measured by a Pareto of findings by defect type and by area of the unit, by cleaning PDI inspection records in Python and generating an interactive HTML deck.':
+        'Mengarahkan QC ke sedikit jenis defect yang paling berpengaruh, diukur dengan Pareto temuan per jenis defect dan per area unit, dengan membersihkan data inspeksi PDI di Python lalu membuat deck HTML interaktif.',
+    'Analysis deck, Oct 2026. Figures blurred.': 'Deck analisis, Okt 2026. Angka diblur.',
+    'Customer journey Sankey': 'Sankey customer journey',
+    'How prospects moved from seeing an ad to starting a WhatsApp chat, Sep 2026.': 'Perjalanan calon customer dari melihat iklan sampai memulai chat WhatsApp, Sep 2026.',
+    'Showed where ad-driven prospects drop out, measured stage by stage from reach to ad click to WhatsApp chat, by joining Meta Ads and Qontak chat data with PowerSync in one journey view.':
+        'Menunjukkan di tahap mana calon customer dari iklan berhenti, diukur tahap demi tahap dari jangkauan ke klik iklan ke chat WhatsApp, dengan menggabungkan data Meta Ads dan chat Qontak dengan PowerSync dalam satu tampilan journey.',
+    'Analysis deck, Sep 2026. Figures blurred.': 'Deck analisis, Sep 2026. Angka diblur.',
+    'Lead lifecycle funnel': 'Funnel lifecycle lead',
+    'Lead status from New to Delivered, with a required reason code for every lost lead.': 'Status lead dari New sampai Delivered, dengan reason code wajib untuk setiap lead yang hilang.',
+    'Found that about 44% of lost leads came from three internal causes that need no extra ad budget, measured with a reason code at each funnel status, by defining the funnel from New to Delivered with a definition of done for every step.':
+        'Menemukan bahwa sekitar 44% lead yang hilang berasal dari tiga penyebab internal yang bisa diperbaiki tanpa tambahan budget iklan, diukur dengan reason code di setiap status funnel, dengan mendefinisikan funnel dari New sampai Delivered beserta definition of done untuk setiap tahap.',
+})

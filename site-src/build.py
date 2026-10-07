@@ -20,6 +20,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from i18n_id import ID  # noqa: E402
 import decks  # noqa: E402
 import powersync_page  # noqa: E402
+import docs_page  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE_URL = "https://reyzasagara.github.io/nicetomeetyou/"
@@ -696,6 +697,7 @@ def nav(active):
         ("powersync.html", "PowerSync", "powersync"),
         ("index.html#domains", "Capabilities", "domains"),
         ("lab.html", "Lab", "lab"),
+        ("docs.html", "Documentation", "docs"),
         ("index.html#about", "About", "about"),
         ("cv.html", "CV", "cv"),
     ]
@@ -1217,6 +1219,7 @@ def build_all():
     build_cv()
     powersync_page.build(sys.modules[__name__])
     decks.build(sys.modules[__name__])
+    docs_page.build(sys.modules[__name__])
 
 
 if __name__ == "__main__":

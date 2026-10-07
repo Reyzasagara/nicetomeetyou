@@ -576,3 +576,20 @@ a:hover>.read span,.read:hover span,.btn:hover span,.text-link:hover span,.heade
 }
 /* Keep every supporting card the same weight at narrow widths. */
 @media(max-width:600px){.domain-grid .domain-card:last-child{grid-column:auto}.domain-grid .domain-card:last-child a{display:flex}}
+/* Documentation page: screenshot cards with what-it-is, X-Y-Z impact and source. */
+.doc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.doc-item{background:var(--paper);box-shadow:var(--shadow);display:flex;flex-direction:column;min-width:0}
+.doc-shot{display:block;background:var(--soft);border-bottom:1px solid var(--rule)}
+.doc-shot a{display:block}
+.doc-shot img{display:block;width:100%;aspect-ratio:16/9;object-fit:contain;background:var(--soft)}
+.doc-shot--pair{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.doc-shot--pair img{aspect-ratio:4/3}
+.doc-shot a:focus-visible{outline:2px solid var(--link);outline-offset:-2px}
+.doc-copy{padding:24px 28px 26px;display:flex;flex-direction:column;flex:1}
+.doc-copy h3{font-size:1rem;line-height:1.4}
+.doc-copy>p{color:var(--ink-2);font-size:.82rem;margin-top:10px}
+.doc-copy .doc-impact{color:var(--ink);border-left:3px solid var(--w-ba);padding-left:14px;margin-top:16px}
+.doc-impact .mono{display:block;margin-bottom:4px}
+.doc-copy .note{margin-top:auto;padding-top:14px;border-top:1px solid var(--rule);font-size:.72rem;color:var(--ink-3)}
+.doc-copy .doc-impact+.note{margin-top:18px}
+@media(max-width:850px){.doc-grid{grid-template-columns:1fr}.doc-copy{padding:22px}}
